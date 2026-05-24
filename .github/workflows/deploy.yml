@@ -21,7 +21,7 @@ jobs:
           gem install bundler jekyll
       - name: Build site
         run: |
-          jekyll build --destination _site
+          jekyll build --source docs --destination _site
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
