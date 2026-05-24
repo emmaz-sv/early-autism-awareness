@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  <meta name="description" content="{{ page.description | default: site.tagline }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="{{ '/' | relative_url }}" style="color:inherit;text-decoration:none;">{{ site.title }}</a></h1>
+      <p class="tag">{{ site.tagline }}</p>
+      <nav>
+        <a href="{{ '/index.html' | relative_url }}">Home</a>
+        <a href="{{ '/resources.html' | relative_url }}">Resources</a>
+        <a href="{{ '/pamphlets.html' | relative_url }}">Pamphlets</a>
+        <a href="{{ '/journal.html' | relative_url }}">Project Journal</a>
+        {% if page.lang == 'zh' %}
+          <a href="{{ '/index.html' | relative_url }}" class="lang">English</a>
+        {% else %}
+          <a href="{{ '/zh/index.html' | relative_url }}" class="lang">中文</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>{{ site.title }} — Project materials and notes.</p>
+      <p><small>Sources: NIH, CDC, ChildFind — links on the Resources page.</small></p>
+    </div>
+  </footer>
+</body>
+</html>
