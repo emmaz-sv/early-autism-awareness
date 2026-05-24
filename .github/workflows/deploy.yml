@@ -16,12 +16,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-      - name: Install bundler and Jekyll
-        run: |
-          gem install bundler jekyll
+          bundler-cache: true
       - name: Build site
         run: |
-          jekyll build --source docs --destination _site
+          bundle exec jekyll build --source docs --destination _site
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
