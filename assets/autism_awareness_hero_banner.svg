@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4" />
+      <stop offset="100%" stop-color="#dcfce7" />
+    </linearGradient>
+    <!-- Soft Drop Shadows -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#15803d" flood-opacity="0.08" />
+    </filter>
+    <filter id="childShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#14532d" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="450" fill="url(#bgGrad)" rx="24" />
+  
+  <!-- Decorative Abstract Background Bubbles -->
+  <circle cx="200" cy="80" r="150" fill="#bbf7d0" opacity="0.4" />
+  <circle cx="1050" cy="350" r="220" fill="#86efac" opacity="0.3" />
+  <circle cx="600" cy="420" r="100" fill="#4ade80" opacity="0.15" />
+  
+  <!-- LEFT COLUMN: Bilingual Branding & Taglines -->
+  <g transform="translate(80, 80)">
+    <!-- Main Title -->
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="44px" font-weight="800" fill="#14532d" letter-spacing="-0.02em">
+      Autism Early Intervention Awareness
+    </text>
+    <text x="0" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="36px" font-weight="700" fill="#166534" letter-spacing="-0.01em">
+      自闭症早期干预意识
+    </text>
+    
+    <!-- Tagline English -->
+    <text x="0" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="500" fill="#15803d" opacity="0.9">
+      Bilingual resources for Chinese families — early signs, screenings, and help.
+    </text>
+    
+    <!-- Tagline Chinese -->
+    <text x="0" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="500" fill="#15803d" opacity="0.9">
+      华语家庭双语关爱计划 —— 早期征兆、发育筛查与专业康复支持。
+    </text>
+
+    <!-- Interactive Styled Badges -->
+    <g transform="translate(0, 245)">
+      <!-- Badge 1: DMV -->
+      <rect x="0" y="0" width="160" height="38" rx="19" fill="#15803d" />
+      <text x="80" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14px" font-weight="700" fill="#ffffff" text-anchor="middle">DMV Immigrants</text>
+
+      <!-- Badge 2: Hubei -->
+      <rect x="175" y="0" width="160" height="38" rx="19" fill="#166534" />
+      <text x="255" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14px" font-weight="700" fill="#ffffff" text-anchor="middle">湖北农村关爱</text>
+
+      <!-- Badge 3: Free -->
+      <rect x="350" y="0" width="120" height="38" rx="19" fill="#ffffff" stroke="#15803d" stroke-width="2" />
+      <text x="410" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14px" font-weight="700" fill="#15803d" text-anchor="middle">Bilingual Free</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: Flat Vector Children Playing Illustration -->
+  <g transform="translate(680, -20)">
+    
+    <!-- Play Mat / Stage Base -->
+    <ellipse cx="260" cy="380" rx="220" ry="40" fill="#15803d" opacity="0.1" />
+
+    <!-- CHILD 1: Boy Stacking Blocks (Left) -->
+    <g transform="translate(70, 140)" filter="url(#childShadow)">
+      <!-- Body/Shirt (Green) -->
+      <path d="M40,160 L10,220 L70,220 Z" fill="#16a34a" />
+      <!-- Head -->
+      <circle cx="40" cy="115" r="28" fill="#fed7aa" />
+      <!-- Hair (Short Dark Brown) -->
+      <path d="M12,110 C12,90 68,90 68,110 C68,98 55,94 40,94 C25,94 12,98 12,110 Z" fill="#1e293b" />
+      <!-- Eyes & Smile -->
+      <circle cx="30" cy="115" r="2.5" fill="#1e293b" />
+      <circle cx="50" cy="115" r="2.5" fill="#1e293b" />
+      <path d="M35,126 Q40,132 45,126" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Hands and Blocks -->
+      <circle cx="5" cy="205" r="10" fill="#fed7aa" />
+      <circle cx="75" cy="205" r="10" fill="#fed7aa" />
+      <!-- Blocks Stacking -->
+      <rect x="85" y="150" width="30" height="30" rx="4" fill="#3b82f6" />
+      <rect x="88" y="120" width="24" height="30" rx="4" fill="#ef4444" />
+      <rect x="91" y="96" width="18" height="24" rx="4" fill="#eab308" />
+    </g>
+
+    <!-- CHILD 2: Girl with Toy Train (Middle) -->
+    <g transform="translate(200, 100)" filter="url(#childShadow)">
+      <!-- Body/Dress (Warm Orange-Red) -->
+      <path d="M50,180 L20,260 L80,260 Z" fill="#f43f5e" />
+      <!-- Head -->
+      <circle cx="50" cy="130" r="30" fill="#fbcfe8" />
+      <!-- Hair (Black Buns/Pigtails) -->
+      <circle cx="15" cy="110" r="16" fill="#0f172a" />
+      <circle cx="85" cy="110" r="16" fill="#0f172a" />
+      <path d="M18,125 C18,95 82,95 82,125 C82,110 65,105 50,105 C35,105 18,110 18,125 Z" fill="#0f172a" />
+      <!-- Eyes & Smile -->
+      <circle cx="38" cy="132" r="3" fill="#0f172a" />
+      <circle cx="62" cy="132" r="3" fill="#0f172a" />
+      <path d="M44,144 Q50,150 56,144" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+      <!-- Hands holding toy train -->
+      <circle cx="10" cy="240" r="11" fill="#fbcfe8" />
+      <circle cx="90" cy="240" r="11" fill="#fbcfe8" />
+      <!-- Toy Train -->
+      <rect x="30" y="235" width="40" height="20" rx="3" fill="#eab308" />
+      <rect x="55" y="215" width="15" height="20" rx="2" fill="#3b82f6" />
+      <circle cx="40" cy="258" r="6" fill="#334155" />
+      <circle cx="60" cy="258" r="6" fill="#334155" />
+    </g>
+
+    <!-- CHILD 3: Happy Girl Clapping (Right) -->
+    <g transform="translate(330, 150)" filter="url(#childShadow)">
+      <!-- Body/Shirt (Bright Blue) -->
+      <path d="M40,150 L10,210 L70,210 Z" fill="#06b6d4" />
+      <!-- Head -->
+      <circle cx="40" cy="108" r="28" fill="#ffedd5" />
+      <!-- Hair (Braid / Ponytail Tail) -->
+      <path d="M12,102 C12,82 68,82 68,102 C68,90 55,86 40,86 C25,86 12,90 12,102 Z" fill="#b45309" />
+      <path d="M40,136 L40,165" stroke="#b45309" stroke-width="12" stroke-linecap="round" />
+      <!-- Eyes & Smile -->
+      <path d="M28,108 Q31,105 34,108" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <path d="M46,108 Q49,105 52,108" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <path d="M33,118 Q40,126 47,118" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Hands Raised/Clapping -->
+      <circle cx="-2" cy="130" r="10" fill="#ffedd5" />
+      <circle cx="82" cy="130" r="10" fill="#ffedd5" />
+    </g>
+
+    <!-- Floating Playful Symbols -->
+    <!-- Star -->
+    <path d="M260,60 L264,68 L273,69 L266,75 L268,84 L260,79 L252,84 L254,75 L247,69 L256,68 Z" fill="#eab308" opacity="0.8" />
+    <!-- Heart -->
+    <path d="M120,80 C115,70 95,70 95,85 C95,100 120,115 120,115 C120,115 145,100 145,85 C145,70 125,70 120,80 Z" fill="#ec4899" opacity="0.75" transform="scale(0.8) translate(50, 20)" />
+    <!-- Music Note -->
+    <path d="M450,110 L450,85 L475,75 L475,100 Z" fill="#3b82f6" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" opacity="0.8" />
+    <circle cx="445" cy="110" r="8" fill="#3b82f6" opacity="0.8" />
+    <circle cx="470" cy="100" r="8" fill="#3b82f6" opacity="0.8" />
+  </g>
+</svg>

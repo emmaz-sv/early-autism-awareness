@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%">
+  <defs>
+    <!-- Background Card Shadows -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.05" />
+    </filter>
+    <filter id="elementShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.1" />
+    </filter>
+    <!-- Card Gradients -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="900" height="650" fill="#f1f5f9" rx="20" />
+
+  <!-- Grid Header -->
+  <g transform="translate(450, 45)" text-anchor="middle">
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="28px" font-weight="800" fill="#0f172a">
+      6 Key Early Autism Signs to Watch For
+    </text>
+    <text y="30" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="700" fill="#475569">
+      幼儿自闭症早期筛查的 6 大关键警示信号 (12–36 Months)
+    </text>
+  </g>
+
+  <!-- CARD 1: Name Response / 对名字无反应 (Top Left) -->
+  <g transform="translate(40, 110)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#eff6ff" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Name Call Bubble -->
+      <path d="M-90,-40 H-20 A10,10 0 0,1 -10,-30 V-10 A10,10 0 0,1 -20,0 H-80 L-95,15 V0 H-90 A10,10 0 0,1 -100,-10 V-30 A10,10 0 0,1 -90,-40 Z" fill="#3b82f6" />
+      <text x="-55" y="-15" font-family="sans-serif" font-size="14px" font-weight="bold" fill="#ffffff" text-anchor="middle">"Emma!"</text>
+      <!-- Child looking away (turned head) -->
+      <circle cx="50" cy="5" r="28" fill="#fbcfe8" />
+      <!-- Black hair -->
+      <path d="M22,-5 C22,-25 78,-25 78,-5 C78,-15 65,-18 50,-18 C35,-18 22,-15 22,-5 Z" fill="#0f172a" />
+      <!-- Eye looking fully to the right (away from call) -->
+      <circle cx="68" cy="4" r="2.5" fill="#0f172a" />
+      <!-- Ear -->
+      <circle cx="50" cy="5" r="5" fill="#f8ad9d" />
+      <!-- Red Arrow representing ignoring call -->
+      <path d="M-5,10 Q20,-15 30,-5" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,3" fill="none" marker-end="url(#arrow)" />
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">1. No Name Response</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#3b82f6" text-anchor="middle">被叫名字无反应</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not turn head when called by 12m</text>
+  </g>
+
+  <!-- CARD 2: Joint Attention / 共同关注 (Top Middle) -->
+  <g transform="translate(325, 110)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#ecfdf5" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Pointing Hand -->
+      <path d="M-80,10 L-50,0 Q-40,-5 -45,-15 Q-50,-20 -60,-15 L-65,-10 L-65,-35 Q-65,-42 -72,-42 Q-80,-42 -80,-35 L-80,10" stroke="#0f172a" stroke-width="3" fill="#fed7aa" stroke-linejoin="round" />
+      <!-- Star drawn in the sky -->
+      <path d="M80,-30 L83,-18 L95,-18 L85,-10 L88,2 L78,-5 L68,2 L71,-10 L61,-18 L73,-18 Z" fill="#eab308" />
+      <!-- Child head looking straight down / ignoring -->
+      <circle cx="10" cy="15" r="28" fill="#ffedd5" />
+      <!-- Brown Hair -->
+      <path d="M-18,5 C-18,-15 38,-15 38,5 C38,-5 25,-8 10,-8 C-5,-8 -18,-5 -18,5 Z" fill="#78350f" />
+      <!-- Downward eyes -->
+      <circle cx="0" cy="18" r="2" fill="#0f172a" />
+      <circle cx="20" cy="18" r="2" fill="#0f172a" />
+      <!-- Dotted attention line pointing up, child looking down -->
+      <path d="M-40,-35 L60,-20" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" fill="none" />
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">2. Lack of Joint Attention</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#10b981" text-anchor="middle">缺乏共同关注</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not look when parent points by 18m</text>
+  </g>
+
+  <!-- CARD 3: Sharing Interests / 不分享兴趣 (Top Right) -->
+  <g transform="translate(610, 110)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#fff7ed" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Child holding toy tightly to chest -->
+      <circle cx="0" cy="10" r="28" fill="#ffedd5" />
+      <path d="M-28,10 C-28,-10 28,-10 28,10 Z" fill="#b45309" transform="scale(1, -1) translate(0, -5)" /> <!-- hair -->
+      <!-- Arms holding teddy bear -->
+      <path d="M-20,35 Q0,45 20,35" stroke="#f97316" stroke-width="12" fill="none" stroke-linecap="round" />
+      <!-- Toy Teddy Bear -->
+      <circle cx="0" cy="30" r="14" fill="#a16207" />
+      <circle cx="-10" cy="18" r="5" fill="#a16207" />
+      <circle cx="10" cy="18" r="5" fill="#a16207" />
+      <!-- Neutral Eyes on Child -->
+      <circle cx="-10" cy="10" r="2" fill="#0f172a" />
+      <circle cx="10" cy="10" r="2" fill="#0f172a" />
+      <!-- Flat mouth -->
+      <line x1="-5" y1="20" x2="5" y2="20" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">3. Not Sharing Interests</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#f97316" text-anchor="middle">不主动分享兴趣</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not show toys or smile to share by 15m</text>
+  </g>
+
+  <!-- CARD 4: Imitation Limit / 模仿限制 (Bottom Left) -->
+  <g transform="translate(40, 380)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#f5f5f4" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Clapping Hands Icon showing Action to imitate -->
+      <g transform="translate(-45, 0)">
+        <path d="M-10,0 L-2,15 A5,5 0 0,0 8,10 L0,-5" stroke="#444" stroke-width="2" fill="#ffccd5" />
+        <path d="M10,0 L2,15 A5,5 0 0,1 -8,10 L0,-5" stroke="#444" stroke-width="2" fill="#ffccd5" />
+        <path d="M0,-8 L0,-16" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
+        <path d="M-6,-6 L-12,-12" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
+        <path d="M6,-6 L12,-12" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Red Cross representing no imitation -->
+      <line x1="-15" y1="0" x2="15" y2="0" stroke="#ef4444" stroke-width="4" stroke-linecap="round" transform="translate(0, 0) rotate(45)" />
+      <line x1="-15" y1="0" x2="15" y2="0" stroke="#ef4444" stroke-width="4" stroke-linecap="round" transform="translate(0, 0) rotate(-45)" />
+      <!-- Passive Child Head sitting and not reacting -->
+      <g transform="translate(45, 0)">
+        <circle cx="0" cy="8" r="24" fill="#ffedd5" />
+        <path d="M-15,6 C-15,-10 15,-10 15,6 Z" fill="#1e293b" transform="scale(1, -1) translate(0, -4)" />
+        <circle cx="-8" cy="8" r="2" fill="#0f172a" />
+        <circle cx="8" cy="8" r="2" fill="#0f172a" />
+        <line x1="-5" y1="18" x2="5" y2="18" stroke="#0f172a" stroke-width="1.5" />
+      </g>
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">4. No Imitation</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#78716c" text-anchor="middle">不模仿简单动作</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not wave, clap, or copy sounds by 18m</text>
+  </g>
+
+  <!-- CARD 5: Absence of Pretend Play / 缺乏假装游戏 (Bottom Middle) -->
+  <g transform="translate(325, 380)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#faf5ff" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Toy blocks lined up strictly in a perfect line, rather than built imaginatively -->
+      <rect x="-85" y="5" width="30" height="30" rx="4" fill="#3b82f6" />
+      <rect x="-45" y="5" width="30" height="30" rx="4" fill="#ef4444" />
+      <rect x="-5" y="5" width="30" height="30" rx="4" fill="#eab308" />
+      <rect x="35" y="5" width="30" height="30" rx="4" fill="#10b981" />
+      <!-- Rigid sorting arrow -->
+      <path d="M-85,-20 L65,-20" stroke="#a855f7" stroke-width="2" stroke-linecap="round" />
+      <path d="M60,-25 L68,-20 L60,-15" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" />
+      <text x="-10" y="-30" font-family="sans-serif" font-size="11px" font-weight="bold" fill="#a855f7" text-anchor="middle">Rigid Sorting / 排列</text>
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">5. Atypical Play Style</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#a855f7" text-anchor="middle">缺乏假装/机械排列</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Omit pretend play, rigid lining up by 18-24m</text>
+  </g>
+
+  <!-- CARD 6: Regression / 技能退步 (Bottom Right) -->
+  <g transform="translate(610, 380)" filter="url(#cardShadow)">
+    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
+    <!-- Illustration Container -->
+    <rect x="15" y="15" width="220" height="120" fill="#fef2f2" rx="12" />
+    <g transform="translate(125, 75)" filter="url(#elementShadow)">
+      <!-- Speech bubble with text fading out -->
+      <path d="M-40,-35 H20 A10,10 0 0,1 30,-25 V-5 A10,10 0 0,1 20,5 H-30 L-45,20 V5 H-40 A10,10 0 0,1 -50,-5 V-25 A10,10 0 0,1 -40,-35 Z" fill="#ef4444" />
+      <text x="-10" y="-12" font-family="sans-serif" font-size="14px" font-weight="bold" fill="#ffffff" text-anchor="middle">"Mama"</text>
+      <!-- Fading speech bubble representing regression -->
+      <path d="M0,0 Q30,25 60,10" stroke="#fca5a5" stroke-width="2.5" stroke-dasharray="4,4" fill="none" opacity="0.6" />
+      <text x="50" y="35" font-family="sans-serif" font-size="11px" font-weight="bold" fill="#ef4444" fill-opacity="0.5" text-anchor="middle">Lost / 消失</text>
+      <!-- Downward Arrow -->
+      <path d="M-80,-20 V20 L-88,10 M-80,20 L-72,10" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <!-- Bilingual Labels -->
+    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">6. Skill Regression</text>
+    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#ef4444" text-anchor="middle">语言与社交能力退步</text>
+    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Losing words, babbling, or eye contact at any age</text>
+  </g>
+</svg>
