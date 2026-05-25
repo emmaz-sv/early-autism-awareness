@@ -4,31 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Project Journal - Autism Early Intervention Awareness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="/early-autism-awareness/styles.css">
   <meta name="description" content="Project journal tracking outreach events, survey summaries, and distribution counts.">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1><a href="/early-autism-awareness/" style="color:inherit;text-decoration:none;">Autism Early Intervention Awareness</a></h1>
-      <p class="tag">Bilingual resources for Chinese families — early signs, screenings, and help</p>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="bg-slate-900 text-slate-50 shadow-sm">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div>
+        <a href="/early-autism-awareness/" class="text-2xl font-semibold text-white no-underline">Autism Early Intervention Awareness</a>
+        <p class="mt-1 text-sm text-slate-300">Bilingual resources for Chinese families — early signs, screenings, and help</p>
+      </div>
       <nav>
-        <ul>
+        <ul class="flex flex-wrap items-center gap-3 text-sm font-semibold">
         
-          <li><a href="/early-autism-awareness/index.html">Home</a></li>
-          <li><a href="/early-autism-awareness/resources.html">Resources</a></li>
-          <li><a href="/early-autism-awareness/pamphlets.html">Pamphlets</a></li>
-          <li><a href="/early-autism-awareness/journal.html">Project Journal</a></li>
-          <li><a href="/early-autism-awareness/contact.html">Contact & Presentations</a></li>
-          <li class="lang"><a href="/early-autism-awareness/zh/index.html">中文</a></li>
+          <li><a href="/early-autism-awareness/index.html" class="text-slate-100 hover:text-white">Home</a></li>
+          <li><a href="/early-autism-awareness/resources.html" class="text-slate-100 hover:text-white">Resources</a></li>
+          <li><a href="/early-autism-awareness/pamphlets.html" class="text-slate-100 hover:text-white">Pamphlets</a></li>
+          <li><a href="/early-autism-awareness/journal.html" class="text-slate-100 hover:text-white">Project Journal</a></li>
+          <li><a href="/early-autism-awareness/contact.html" class="text-slate-100 hover:text-white">Contact & Presentations</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html" class="ml-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-900 transition hover:bg-slate-100">中文</a></li>
         
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="container">
-    <section>
+  <main id="main-content" class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="prose prose-slate mx-auto lg:prose-lg">
+        <section>
   <h2>Entries</h2>
   <p>This page will track outreach events, survey results, pamphlet distribution counts, and lessons learned. Example entries will be added after events.</p>
   <ol>
@@ -37,10 +58,12 @@
 </section>
 
 
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 text-sm text-slate-500">
       <p>Autism Early Intervention Awareness — Project materials and notes.</p>
       <p><small>Sources: NIH, CDC, ChildFind — links on the Resources page.</small></p>
     </div>

@@ -4,60 +4,85 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Autism Early Intervention Awareness - Autism Early Intervention Awareness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="/early-autism-awareness/styles.css">
   <meta name="description" content="Bilingual resources for Chinese families — early signs, screenings, and help">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1><a href="/early-autism-awareness/" style="color:inherit;text-decoration:none;">Autism Early Intervention Awareness</a></h1>
-      <p class="tag">Bilingual resources for Chinese families — early signs, screenings, and help</p>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="bg-slate-900 text-slate-50 shadow-sm">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div>
+        <a href="/early-autism-awareness/" class="text-2xl font-semibold text-white no-underline">Autism Early Intervention Awareness</a>
+        <p class="mt-1 text-sm text-slate-300">Bilingual resources for Chinese families — early signs, screenings, and help</p>
+      </div>
       <nav>
-        <ul>
+        <ul class="flex flex-wrap items-center gap-3 text-sm font-semibold">
         
-          <li><a href="/early-autism-awareness/index.html">Home</a></li>
-          <li><a href="/early-autism-awareness/resources.html">Resources</a></li>
-          <li><a href="/early-autism-awareness/pamphlets.html">Pamphlets</a></li>
-          <li><a href="/early-autism-awareness/journal.html">Project Journal</a></li>
-          <li><a href="/early-autism-awareness/contact.html">Contact & Presentations</a></li>
-          <li class="lang"><a href="/early-autism-awareness/zh/index.html">中文</a></li>
+          <li><a href="/early-autism-awareness/index.html" class="text-slate-100 hover:text-white">Home</a></li>
+          <li><a href="/early-autism-awareness/resources.html" class="text-slate-100 hover:text-white">Resources</a></li>
+          <li><a href="/early-autism-awareness/pamphlets.html" class="text-slate-100 hover:text-white">Pamphlets</a></li>
+          <li><a href="/early-autism-awareness/journal.html" class="text-slate-100 hover:text-white">Project Journal</a></li>
+          <li><a href="/early-autism-awareness/contact.html" class="text-slate-100 hover:text-white">Contact & Presentations</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html" class="ml-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-900 transition hover:bg-slate-100">中文</a></li>
         
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="container">
-    <section class="intro">
-  <h2>Project overview</h2>
-  <p>This site documents Emma Zheng’s Girl Scout Gold Award project to increase early autism awareness among Chinese-speaking families in the DMV area and rural Hubei, China. Early diagnosis (18–36 months) greatly improves long-term outcomes; the site provides simple checklists, screening resources, downloadable bilingual pamphlets, and a public project journal.</p>
-  <ul>
+  <main id="main-content" class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="prose prose-slate mx-auto lg:prose-lg">
+        <section class="space-y-5 rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10">
+  <h2 class="text-3xl font-semibold tracking-tight">Project overview</h2>
+  <p class="max-w-3xl text-slate-700">This site documents Emma Zheng’s Girl Scout Gold Award project to increase early autism awareness among Chinese-speaking families in the DMV area and rural Hubei, China. Early diagnosis (18–36 months) greatly improves long-term outcomes; the site provides simple checklists, screening resources, downloadable bilingual pamphlets, and a public project journal.</p>
+  <ul class="list-disc space-y-2 pl-6 text-slate-700">
     <li>Goal: Reach local immigrant families and rural families in Hubei with clear bilingual information.</li>
     <li>Targets: 35 local parents, 15 in-person attendees in China, 15 families engaged in clinics.</li>
     <li>Outputs: Reusable pamphlet templates, bilingual website, recorded outreach events.</li>
   </ul>
 </section>
 
-<section class="actions">
-  <h2>Quick links</h2>
-  <div class="grid">
-    <a class="card" href="/early-autism-awareness/resources.html">Early Signs & Resources</a>
-    <a class="card" href="/early-autism-awareness/pamphlets.html">Download Pamphlets</a>
-    <a class="card" href="/early-autism-awareness/journal.html">Project Journal</a>
-    <a class="card" href="/early-autism-awareness/contact.html">Contact & Presentations</a>
+<section class="space-y-5">
+  <div class="flex items-center justify-between gap-4">
+    <h2 class="text-2xl font-semibold tracking-tight">Quick links</h2>
+  </div>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" href="/early-autism-awareness/resources.html">Early Signs & Resources</a>
+    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" href="/early-autism-awareness/pamphlets.html">Download Pamphlets</a>
+    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" href="/early-autism-awareness/journal.html">Project Journal</a>
+    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" href="/early-autism-awareness/contact.html">Contact & Presentations</a>
   </div>
 </section>
 
-<section class="impact">
-  <h2>How you can help</h2>
-  <p>Share these materials with Chinese-speaking communities, print pamphlets for clinics and community centers, and attend local presentations. All materials are free to reuse.</p>
+<section class="rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10">
+  <h2 class="text-2xl font-semibold tracking-tight">How you can help</h2>
+  <p class="text-slate-700">Share these materials with Chinese-speaking communities, print pamphlets for clinics and community centers, and attend local presentations. All materials are free to reuse.</p>
 </section>
 
 
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 text-sm text-slate-500">
       <p>Autism Early Intervention Awareness — Project materials and notes.</p>
       <p><small>Sources: NIH, CDC, ChildFind — links on the Resources page.</small></p>
     </div>
