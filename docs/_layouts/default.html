@@ -4,42 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ page.title }} - {{ site.title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
   <meta name="description" content="{{ page.description | default: site.tagline }}">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1><a href="{{ '/' | relative_url }}" style="color:inherit;text-decoration:none;">{{ site.title }}</a></h1>
-      <p class="tag">{{ site.tagline }}</p>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="bg-slate-900 text-slate-50 shadow-sm">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div>
+        <a href="{{ '/' | relative_url }}" class="text-2xl font-semibold text-white no-underline">{{ site.title }}</a>
+        <p class="mt-1 text-sm text-slate-300">{{ site.tagline }}</p>
+      </div>
       <nav>
-        <ul>
+        <ul class="flex flex-wrap items-center gap-3 text-sm font-semibold">
         {% if page.lang == 'zh' %}
-          <li><a href="{{ '/zh/index.html' | relative_url }}">首页</a></li>
-          <li><a href="{{ '/zh/resources.html' | relative_url }}">资源</a></li>
-          <li><a href="{{ '/zh/pamphlets.html' | relative_url }}">宣传册</a></li>
-          <li><a href="{{ '/zh/journal.html' | relative_url }}">项目日志</a></li>
-          <li><a href="{{ '/zh/contact.html' | relative_url }}">联系</a></li>
-          <li class="lang"><a href="{{ '/index.html' | relative_url }}">English</a></li>
+          <li><a href="{{ '/zh/index.html' | relative_url }}" class="text-slate-100 hover:text-white">首页</a></li>
+          <li><a href="{{ '/zh/resources.html' | relative_url }}" class="text-slate-100 hover:text-white">资源</a></li>
+          <li><a href="{{ '/zh/pamphlets.html' | relative_url }}" class="text-slate-100 hover:text-white">宣传册</a></li>
+          <li><a href="{{ '/zh/journal.html' | relative_url }}" class="text-slate-100 hover:text-white">项目日志</a></li>
+          <li><a href="{{ '/zh/contact.html' | relative_url }}" class="text-slate-100 hover:text-white">联系</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}" class="ml-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-900 transition hover:bg-slate-100">English</a></li>
         {% else %}
-          <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/resources.html' | relative_url }}">Resources</a></li>
-          <li><a href="{{ '/pamphlets.html' | relative_url }}">Pamphlets</a></li>
-          <li><a href="{{ '/journal.html' | relative_url }}">Project Journal</a></li>
-          <li><a href="{{ '/contact.html' | relative_url }}">Contact & Presentations</a></li>
-          <li class="lang"><a href="{{ '/zh/index.html' | relative_url }}">中文</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}" class="text-slate-100 hover:text-white">Home</a></li>
+          <li><a href="{{ '/resources.html' | relative_url }}" class="text-slate-100 hover:text-white">Resources</a></li>
+          <li><a href="{{ '/pamphlets.html' | relative_url }}" class="text-slate-100 hover:text-white">Pamphlets</a></li>
+          <li><a href="{{ '/journal.html' | relative_url }}" class="text-slate-100 hover:text-white">Project Journal</a></li>
+          <li><a href="{{ '/contact.html' | relative_url }}" class="text-slate-100 hover:text-white">Contact & Presentations</a></li>
+          <li><a href="{{ '/zh/index.html' | relative_url }}" class="ml-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-900 transition hover:bg-slate-100">中文</a></li>
         {% endif %}
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="container">
-    {{ content }}
+  <main id="main-content" class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="prose prose-slate mx-auto lg:prose-lg">
+        {{ content }}
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 text-sm text-slate-500">
       <p>{{ site.title }} — Project materials and notes.</p>
       <p><small>Sources: NIH, CDC, ChildFind — links on the Resources page.</small></p>
     </div>
