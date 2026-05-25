@@ -1,183 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%">
-  <defs>
-    <!-- Background Card Shadows -->
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.05" />
-    </filter>
-    <filter id="elementShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.1" />
-    </filter>
-    <!-- Card Gradients -->
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#f8fafc" />
-    </linearGradient>
-  </defs>
+<svg width="100%" viewBox="0 0 690 430" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Early signs of autism in young children</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Six illustrated cards showing early autism signs to watch for in children ages 12 to 36 months, with bilingual English and Chinese labels.</desc>
 
-  <!-- Base Canvas Background -->
-  <rect width="900" height="650" fill="#f1f5f9" rx="20" />
+  <rect width="680" height="420" fill="#F1EFE8" rx="14" style="fill:rgb(241, 239, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Grid Header -->
-  <g transform="translate(450, 45)" text-anchor="middle">
-    <text font-family="system-ui, -apple-system, sans-serif" font-size="28px" font-weight="800" fill="#0f172a">
-      6 Key Early Autism Signs to Watch For
-    </text>
-    <text y="30" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="700" fill="#475569">
-      幼儿自闭症早期筛查的 6 大关键警示信号 (12–36 Months)
-    </text>
-  </g>
+  <text x="340" y="38" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="500" fill="#2C2C2A" style="fill:rgb(44, 44, 42);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:17px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Early signs to watch for · 需注意的早期迹象</text>
+  <text x="340" y="58" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5F5E5A" style="fill:rgb(95, 94, 90);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Ages 12–36 months · 12至36个月</text>
 
-  <!-- CARD 1: Name Response / 对名字无反应 (Top Left) -->
-  <g transform="translate(40, 110)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#eff6ff" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Name Call Bubble -->
-      <path d="M-90,-40 H-20 A10,10 0 0,1 -10,-30 V-10 A10,10 0 0,1 -20,0 H-80 L-95,15 V0 H-90 A10,10 0 0,1 -100,-10 V-30 A10,10 0 0,1 -90,-40 Z" fill="#3b82f6" />
-      <text x="-55" y="-15" font-family="sans-serif" font-size="14px" font-weight="bold" fill="#ffffff" text-anchor="middle">"Emma!"</text>
-      <!-- Child looking away (turned head) -->
-      <circle cx="50" cy="5" r="28" fill="#fbcfe8" />
-      <!-- Black hair -->
-      <path d="M22,-5 C22,-25 78,-25 78,-5 C78,-15 65,-18 50,-18 C35,-18 22,-15 22,-5 Z" fill="#0f172a" />
-      <!-- Eye looking fully to the right (away from call) -->
-      <circle cx="68" cy="4" r="2.5" fill="#0f172a" />
-      <!-- Ear -->
-      <circle cx="50" cy="5" r="5" fill="#f8ad9d" />
-      <!-- Red Arrow representing ignoring call -->
-      <path d="M-5,10 Q20,-15 30,-5" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,3" fill="none" marker-end="url(#arrow)" />
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">1. No Name Response</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#3b82f6" text-anchor="middle">被叫名字无反应</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not turn head when called by 12m</text>
-  </g>
+  <!-- Card 1: No eye contact -->
+  <rect x="40" y="76" width="180" height="150" rx="12" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="0.5" style="fill:rgb(238, 237, 254);stroke:rgb(175, 169, 236);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="130" cy="120" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- eyes looking away -->
+  <circle cx="115" cy="115" r="10" fill="#AFA9EC" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="145" cy="115" r="10" fill="#AFA9EC" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="120" cy="112" r="4" fill="#26215C" style="fill:rgb(38, 33, 92);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="150" cy="112" r="4" fill="#26215C" style="fill:rgb(38, 33, 92);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 115 128 Q 130 125 145 128" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(83, 74, 183);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- arrow indicating avoidance -->
+  <line x1="155" y1="105" x2="172" y2="95" stroke="#7F77DD" stroke-width="2" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="172,95 166,100 170,106" fill="#7F77DD" style="fill:rgb(127, 119, 221);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="130" y="172" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#3C3489" style="fill:rgb(60, 52, 137);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Limited eye contact</text>
+  <text x="130" y="190" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#534AB7" style="fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">眼神接触少</text>
+  <text x="130" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7F77DD" style="fill:rgb(127, 119, 221);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Avoids looking at people</text>
 
-  <!-- CARD 2: Joint Attention / 共同关注 (Top Middle) -->
-  <g transform="translate(325, 110)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#ecfdf5" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Pointing Hand -->
-      <path d="M-80,10 L-50,0 Q-40,-5 -45,-15 Q-50,-20 -60,-15 L-65,-10 L-65,-35 Q-65,-42 -72,-42 Q-80,-42 -80,-35 L-80,10" stroke="#0f172a" stroke-width="3" fill="#fed7aa" stroke-linejoin="round" />
-      <!-- Star drawn in the sky -->
-      <path d="M80,-30 L83,-18 L95,-18 L85,-10 L88,2 L78,-5 L68,2 L71,-10 L61,-18 L73,-18 Z" fill="#eab308" />
-      <!-- Child head looking straight down / ignoring -->
-      <circle cx="10" cy="15" r="28" fill="#ffedd5" />
-      <!-- Brown Hair -->
-      <path d="M-18,5 C-18,-15 38,-15 38,5 C38,-5 25,-8 10,-8 C-5,-8 -18,-5 -18,5 Z" fill="#78350f" />
-      <!-- Downward eyes -->
-      <circle cx="0" cy="18" r="2" fill="#0f172a" />
-      <circle cx="20" cy="18" r="2" fill="#0f172a" />
-      <!-- Dotted attention line pointing up, child looking down -->
-      <path d="M-40,-35 L60,-20" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" fill="none" />
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">2. Lack of Joint Attention</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#10b981" text-anchor="middle">缺乏共同关注</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not look when parent points by 18m</text>
-  </g>
+  <!-- Card 2: No pointing -->
+  <rect x="250" y="76" width="180" height="150" rx="12" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="0.5" style="fill:rgb(225, 245, 238);stroke:rgb(93, 202, 165);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="120" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- hand pointing -->
+  <path d="M 322 140 Q 326 125 332 115 L 336 108 L 342 114 L 338 122 L 348 115 L 354 124 L 344 130 L 350 138 Z" fill="#F5C4B3" stroke="#D85A30" stroke-width="0.8" style="fill:rgb(245, 196, 179);stroke:rgb(216, 90, 48);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="336" y1="108" x2="336" y2="98" stroke="#F5C4B3" stroke-width="6" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(245, 196, 179);color:rgb(0, 0, 0);stroke-width:6px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- X over pointing -->
+  <circle cx="336" cy="107" r="14" fill="none" stroke="#E24B4A" stroke-width="2" style="fill:none;stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="328" y1="99" x2="344" y2="115" stroke="#E24B4A" stroke-width="2" style="fill:rgb(0, 0, 0);stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="344" y1="99" x2="328" y2="115" stroke="#E24B4A" stroke-width="2" style="fill:rgb(0, 0, 0);stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="340" y="172" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">No pointing gesture</text>
+  <text x="340" y="190" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0F6E56" style="fill:rgb(15, 110, 86);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">不用手指指物</text>
+  <text x="340" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1D9E75" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">By 12 months</text>
 
-  <!-- CARD 3: Sharing Interests / 不分享兴趣 (Top Right) -->
-  <g transform="translate(610, 110)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#fff7ed" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Child holding toy tightly to chest -->
-      <circle cx="0" cy="10" r="28" fill="#ffedd5" />
-      <path d="M-28,10 C-28,-10 28,-10 28,10 Z" fill="#b45309" transform="scale(1, -1) translate(0, -5)" /> <!-- hair -->
-      <!-- Arms holding teddy bear -->
-      <path d="M-20,35 Q0,45 20,35" stroke="#f97316" stroke-width="12" fill="none" stroke-linecap="round" />
-      <!-- Toy Teddy Bear -->
-      <circle cx="0" cy="30" r="14" fill="#a16207" />
-      <circle cx="-10" cy="18" r="5" fill="#a16207" />
-      <circle cx="10" cy="18" r="5" fill="#a16207" />
-      <!-- Neutral Eyes on Child -->
-      <circle cx="-10" cy="10" r="2" fill="#0f172a" />
-      <circle cx="10" cy="10" r="2" fill="#0f172a" />
-      <!-- Flat mouth -->
-      <line x1="-5" y1="20" x2="5" y2="20" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">3. Not Sharing Interests</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#f97316" text-anchor="middle">不主动分享兴趣</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not show toys or smile to share by 15m</text>
-  </g>
+  <!-- Card 3: No speech -->
+  <rect x="460" y="76" width="180" height="150" rx="12" fill="#FAEEDA" stroke="#EF9F27" stroke-width="0.5" style="fill:rgb(250, 238, 218);stroke:rgb(239, 159, 39);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="550" cy="120" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- speech bubble empty -->
+  <path d="M 526 102 Q 526 92 536 92 L 566 92 Q 576 92 576 102 L 576 118 Q 576 128 566 128 L 548 128 L 538 138 L 540 128 L 536 128 Q 526 128 526 118 Z" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.5" style="fill:rgb(250, 238, 218);stroke:rgb(186, 117, 23);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- dots in bubble = silence -->
+  <circle cx="541" cy="110" r="4" fill="#EF9F27" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="551" cy="110" r="4" fill="#EF9F27" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="561" cy="110" r="4" fill="#EF9F27" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="550" y="172" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#633806" style="fill:rgb(99, 56, 6);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Delayed speech</text>
+  <text x="550" y="190" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#854F0B" style="fill:rgb(133, 79, 11);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">语言发育迟缓</text>
+  <text x="550" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#BA7517" style="fill:rgb(186, 117, 23);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">No words by 16 months</text>
 
-  <!-- CARD 4: Imitation Limit / 模仿限制 (Bottom Left) -->
-  <g transform="translate(40, 380)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#f5f5f4" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Clapping Hands Icon showing Action to imitate -->
-      <g transform="translate(-45, 0)">
-        <path d="M-10,0 L-2,15 A5,5 0 0,0 8,10 L0,-5" stroke="#444" stroke-width="2" fill="#ffccd5" />
-        <path d="M10,0 L2,15 A5,5 0 0,1 -8,10 L0,-5" stroke="#444" stroke-width="2" fill="#ffccd5" />
-        <path d="M0,-8 L0,-16" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
-        <path d="M-6,-6 L-12,-12" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
-        <path d="M6,-6 L12,-12" stroke="#eab308" stroke-width="2" stroke-linecap="round" />
-      </g>
-      <!-- Red Cross representing no imitation -->
-      <line x1="-15" y1="0" x2="15" y2="0" stroke="#ef4444" stroke-width="4" stroke-linecap="round" transform="translate(0, 0) rotate(45)" />
-      <line x1="-15" y1="0" x2="15" y2="0" stroke="#ef4444" stroke-width="4" stroke-linecap="round" transform="translate(0, 0) rotate(-45)" />
-      <!-- Passive Child Head sitting and not reacting -->
-      <g transform="translate(45, 0)">
-        <circle cx="0" cy="8" r="24" fill="#ffedd5" />
-        <path d="M-15,6 C-15,-10 15,-10 15,6 Z" fill="#1e293b" transform="scale(1, -1) translate(0, -4)" />
-        <circle cx="-8" cy="8" r="2" fill="#0f172a" />
-        <circle cx="8" cy="8" r="2" fill="#0f172a" />
-        <line x1="-5" y1="18" x2="5" y2="18" stroke="#0f172a" stroke-width="1.5" />
-      </g>
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">4. No Imitation</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#78716c" text-anchor="middle">不模仿简单动作</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Does not wave, clap, or copy sounds by 18m</text>
-  </g>
+  <!-- Card 4: Repetitive movement -->
+  <rect x="40" y="246" width="180" height="150" rx="12" fill="#FAECE7" stroke="#F0997B" stroke-width="0.5" style="fill:rgb(250, 236, 231);stroke:rgb(240, 153, 123);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="130" cy="296" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- spinning arrows (repetition symbol) -->
+  <path d="M 110 290 A 20 20 0 1 1 130 316" fill="none" stroke="#D85A30" stroke-width="2.5" stroke-linecap="round" style="fill:none;stroke:rgb(216, 90, 48);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="130,316 122,308 138,308" fill="#D85A30" style="fill:rgb(216, 90, 48);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 150 302 A 20 20 0 1 1 130 276" fill="none" stroke="#F0997B" stroke-width="2.5" stroke-linecap="round" style="fill:none;stroke:rgb(240, 153, 123);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="130,276 122,284 138,284" fill="#F0997B" style="fill:rgb(240, 153, 123);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="130" y="348" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#4A1B0C" style="fill:rgb(74, 27, 12);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Repetitive behaviors</text>
+  <text x="130" y="366" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#993C1D" style="fill:rgb(153, 60, 29);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">重复性动作</text>
+  <text x="130" y="384" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#D85A30" style="fill:rgb(216, 90, 48);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Rocking, spinning, flapping</text>
 
-  <!-- CARD 5: Absence of Pretend Play / 缺乏假装游戏 (Bottom Middle) -->
-  <g transform="translate(325, 380)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#faf5ff" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Toy blocks lined up strictly in a perfect line, rather than built imaginatively -->
-      <rect x="-85" y="5" width="30" height="30" rx="4" fill="#3b82f6" />
-      <rect x="-45" y="5" width="30" height="30" rx="4" fill="#ef4444" />
-      <rect x="-5" y="5" width="30" height="30" rx="4" fill="#eab308" />
-      <rect x="35" y="5" width="30" height="30" rx="4" fill="#10b981" />
-      <!-- Rigid sorting arrow -->
-      <path d="M-85,-20 L65,-20" stroke="#a855f7" stroke-width="2" stroke-linecap="round" />
-      <path d="M60,-25 L68,-20 L60,-15" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" />
-      <text x="-10" y="-30" font-family="sans-serif" font-size="11px" font-weight="bold" fill="#a855f7" text-anchor="middle">Rigid Sorting / 排列</text>
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">5. Atypical Play Style</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#a855f7" text-anchor="middle">缺乏假装/机械排列</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Omit pretend play, rigid lining up by 18-24m</text>
-  </g>
+  <!-- Card 5: No name response -->
+  <rect x="250" y="246" width="180" height="150" rx="12" fill="#FBEAF0" stroke="#ED93B1" stroke-width="0.5" style="fill:rgb(251, 234, 240);stroke:rgb(237, 147, 177);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="296" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- ear + sound waves not connecting -->
+  <path d="M 330 284 Q 326 280 326 290 Q 326 304 334 306 L 334 296 Q 338 294 338 288 Q 338 284 334 282 Z" fill="#F4C0D1" stroke="#D4537E" stroke-width="1" style="fill:rgb(244, 192, 209);stroke:rgb(212, 83, 126);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 344 280 Q 352 288 344 296" fill="none" stroke="#D4537E" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(212, 83, 126);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 348 276 Q 360 288 348 300" fill="none" stroke="#ED93B1" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(237, 147, 177);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- X -->
+  <circle cx="358" cy="290" r="10" fill="none" stroke="#E24B4A" stroke-width="1.5" style="fill:none;stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="353" y1="285" x2="363" y2="295" stroke="#E24B4A" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="363" y1="285" x2="353" y2="295" stroke="#E24B4A" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(226, 75, 74);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="340" y="348" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#4B1528" style="fill:rgb(75, 21, 40);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">No response to name</text>
+  <text x="340" y="366" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#993556" style="fill:rgb(153, 53, 86);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">对名字无反应</text>
+  <text x="340" y="384" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#D4537E" style="fill:rgb(212, 83, 126);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">By 12 months</text>
 
-  <!-- CARD 6: Regression / 技能退步 (Bottom Right) -->
-  <g transform="translate(610, 380)" filter="url(#cardShadow)">
-    <rect width="250" height="230" fill="url(#cardGrad)" rx="16" />
-    <!-- Illustration Container -->
-    <rect x="15" y="15" width="220" height="120" fill="#fef2f2" rx="12" />
-    <g transform="translate(125, 75)" filter="url(#elementShadow)">
-      <!-- Speech bubble with text fading out -->
-      <path d="M-40,-35 H20 A10,10 0 0,1 30,-25 V-5 A10,10 0 0,1 20,5 H-30 L-45,20 V5 H-40 A10,10 0 0,1 -50,-5 V-25 A10,10 0 0,1 -40,-35 Z" fill="#ef4444" />
-      <text x="-10" y="-12" font-family="sans-serif" font-size="14px" font-weight="bold" fill="#ffffff" text-anchor="middle">"Mama"</text>
-      <!-- Fading speech bubble representing regression -->
-      <path d="M0,0 Q30,25 60,10" stroke="#fca5a5" stroke-width="2.5" stroke-dasharray="4,4" fill="none" opacity="0.6" />
-      <text x="50" y="35" font-family="sans-serif" font-size="11px" font-weight="bold" fill="#ef4444" fill-opacity="0.5" text-anchor="middle">Lost / 消失</text>
-      <!-- Downward Arrow -->
-      <path d="M-80,-20 V20 L-88,10 M-80,20 L-72,10" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-    </g>
-    <!-- Bilingual Labels -->
-    <text x="125" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="800" fill="#0f172a" text-anchor="middle">6. Skill Regression</text>
-    <text x="125" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#ef4444" text-anchor="middle">语言与社交能力退步</text>
-    <text x="125" y="212" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#64748b" text-anchor="middle">Losing words, babbling, or eye contact at any age</text>
-  </g>
+  <!-- Card 6: Upset by change -->
+  <rect x="460" y="246" width="180" height="150" rx="12" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5" style="fill:rgb(230, 241, 251);stroke:rgb(133, 183, 235);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="550" cy="296" r="32" fill="#ffffff" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- sad face with tears -->
+  <circle cx="550" cy="292" r="20" fill="#B5D4F4" style="fill:rgb(181, 212, 244);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="543" cy="287" r="3" fill="#0C447C" style="fill:rgb(12, 68, 124);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="557" cy="287" r="3" fill="#0C447C" style="fill:rgb(12, 68, 124);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 543 302 Q 550 297 557 302" fill="none" stroke="#0C447C" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:rgb(12, 68, 124);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="541" cy="298" rx="2" ry="4" fill="#85B7EB" opacity="0.8" style="fill:rgb(133, 183, 235);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="559" cy="298" rx="2" ry="4" fill="#85B7EB" opacity="0.8" style="fill:rgb(133, 183, 235);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- change arrows -->
+  <path d="M 524 268 L 534 272 L 530 276" fill="none" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(55, 138, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="550" y="348" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#042C53" style="fill:rgb(4, 44, 83);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Upset by change</text>
+  <text x="550" y="366" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#185FA5" style="fill:rgb(24, 95, 165);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">对变化极度敏感</text>
+  <text x="550" y="384" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#378ADD" style="fill:rgb(55, 138, 221);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Strong need for routine</text>
+
+  <!-- Bottom note -->
+  <text x="340" y="412" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#5F5E5A" style="fill:rgb(95, 94, 90);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">These signs do not confirm autism — ask your pediatrician about a screening · 如有疑虑，请咨询儿科医生</text>
 </svg>
