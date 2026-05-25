@@ -7,9 +7,13 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 .site-header h1{margin:0;padding:0;font-size:1.3rem}
 .site-header .tag{opacity:.95;margin:.3rem 0}
 nav{margin-top:.6rem}
-nav a{color:white;margin-right:1rem;text-decoration:none}
-.lang{float:right}
+nav ul{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;padding:0;margin:0;list-style:none}
+nav a{color:white;margin:0;text-decoration:none}
+.lang{margin-left:auto}
 main{padding:1.2rem 0}
+
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;width:auto;height:auto;margin:0.5rem;padding:.75rem;background:#fff;color:#000;border:1px solid #ccc;z-index:1000}
 .intro ul{margin-top:.4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
 .card{display:block;padding:12px;border:1px solid #eee;border-radius:8px;background:#fafafa;color:var(--accent);text-decoration:none;font-weight:600;text-align:center}
