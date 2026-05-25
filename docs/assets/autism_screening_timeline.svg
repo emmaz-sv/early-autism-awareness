@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" height="100%">
+  <defs>
+    <!-- Shadow filters -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1e293b" flood-opacity="0.06" />
+    </filter>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2563eb" flood-opacity="0.15" />
+    </filter>
+    <!-- Background Gradients -->
+    <linearGradient id="mainBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eff6ff" />
+      <stop offset="100%" stop-color="#dbeafe" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="900" height="420" fill="url(#mainBg)" rx="16" />
+
+  <!-- Timeline Title & Subtitle -->
+  <g transform="translate(450, 40)" text-anchor="middle">
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="26px" font-weight="800" fill="#0f172a">
+      Autism Screening & Developmental Milestones Timeline
+    </text>
+    <text y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#475569">
+      儿童自闭症与发育监测时间轴 —— 抓住黄金干预窗口
+    </text>
+  </g>
+
+  <!-- HIGHLIGHTED SCREENING WINDOW CONTAINER (18 - 24 Months) -->
+  <g transform="translate(290, 100)" filter="url(#glow)">
+    <rect width="320" height="230" fill="url(#highlightGrad)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4" rx="16" />
+    <!-- Highlight Label -->
+    <rect x="50" y="-12" width="220" height="24" rx="12" fill="#2563eb" />
+    <text x="160" y="5" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.05em">
+      GOLDEN SCREENING WINDOW / 黄金筛查期
+    </text>
+    <!-- Background grid description -->
+    <text x="160" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="12px" font-weight="700" fill="#1d4ed8" text-anchor="middle">
+      AAP & CDC Recommended Screening Window / 建议重点筛查期
+    </text>
+  </g>
+
+  <!-- Horizontal Timeline Axis Line -->
+  <line x1="80" y1="210" x2="820" y2="210" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round" />
+  <line x1="330" y1="210" x2="570" y2="210" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" />
+
+  <!-- Timeline Connective Arrows -->
+  <path d="M815,205 L825,210 L815,215" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" />
+
+  <!-- CHECKPOINT 1: 9 Months (Left) -->
+  <g transform="translate(130, 210)" filter="url(#shadow)">
+    <!-- Axis Dot -->
+    <circle cx="0" cy="0" r="12" fill="#ffffff" stroke="#94a3b8" stroke-width="4" />
+    <circle cx="0" cy="0" r="5" fill="#94a3b8" />
+    
+    <!-- Top Label: Age -->
+    <text x="0" y="-35" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="800" fill="#475569" text-anchor="middle">9 Months</text>
+    <text x="0" y="-18" font-family="system-ui, -apple-system, sans-serif" font-size="14px" font-weight="700" fill="#64748b" text-anchor="middle">9个月大</text>
+    
+    <!-- Bottom Label: Description -->
+    <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="13px" font-weight="700" fill="#334155" text-anchor="middle">Developmental Tracking</text>
+    <text x="0" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="12px" font-weight="600" fill="#64748b" text-anchor="middle">常规发育监测</text>
+    <text x="0" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#94a3b8" text-anchor="middle" width="120">
+      Track early smiles, responses
+    </text>
+    <text x="0" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="10px" font-weight="500" fill="#94a3b8" text-anchor="middle">监测微笑、牙牙学语</text>
+  </g>
+
+  <!-- CHECKPOINT 2: 18 Months (Middle Left - HIGHLIGHTED) -->
+  <g transform="translate(370, 210)" filter="url(#shadow)">
+    <!-- Connecting indicator vertical line -->
+    <line x1="0" y1="0" x2="0" y2="-75" stroke="#2563eb" stroke-width="2" stroke-dasharray="4,3" />
+
+    <!-- Axis Dot -->
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#2563eb" stroke-width="5" />
+    <circle cx="0" cy="0" r="7" fill="#2563eb" />
+    
+    <!-- Top Label: Age -->
+    <text x="0" y="-45" font-family="system-ui, -apple-system, sans-serif" font-size="22px" font-weight="800" fill="#1d4ed8" text-anchor="middle">18 Months</text>
+    <text x="0" y="-28" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#1e40af" text-anchor="middle">18个月大</text>
+    
+    <!-- Bottom Label: Description -->
+    <rect x="-80" y="28" width="160" height="20" rx="4" fill="#dbeafe" />
+    <text x="0" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12px" font-weight="800" fill="#1d4ed8" text-anchor="middle">AUTISM SCREENING</text>
+    <text x="0" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13px" font-weight="700" fill="#0f172a" text-anchor="middle">重点孤独症筛查</text>
+    <text x="0" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#475569" text-anchor="middle">First formal M-CHAT screen</text>
+    <text x="0" y="96" font-family="system-ui, -apple-system, sans-serif" font-size="10px" font-weight="500" fill="#64748b" text-anchor="middle">开展首次专业M-CHAT评估</text>
+  </g>
+
+  <!-- CHECKPOINT 3: 24 Months (Middle Right - HIGHLIGHTED) -->
+  <g transform="translate(530, 210)" filter="url(#shadow)">
+    <!-- Connecting indicator vertical line -->
+    <line x1="0" y1="0" x2="0" y2="-75" stroke="#2563eb" stroke-width="2" stroke-dasharray="4,3" />
+
+    <!-- Axis Dot -->
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#2563eb" stroke-width="5" />
+    <circle cx="0" cy="0" r="7" fill="#2563eb" />
+    
+    <!-- Top Label: Age -->
+    <text x="0" y="-45" font-family="system-ui, -apple-system, sans-serif" font-size="22px" font-weight="800" fill="#1d4ed8" text-anchor="middle">24 Months</text>
+    <text x="0" y="-28" font-family="system-ui, -apple-system, sans-serif" font-size="16px" font-weight="700" fill="#1e40af" text-anchor="middle">24个月大</text>
+    
+    <!-- Bottom Label: Description -->
+    <rect x="-80" y="28" width="160" height="20" rx="4" fill="#dbeafe" />
+    <text x="0" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12px" font-weight="800" fill="#1d4ed8" text-anchor="middle">RE-SCREENING</text>
+    <text x="0" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13px" font-weight="700" fill="#0f172a" text-anchor="middle">自闭症复筛与追踪</text>
+    <text x="0" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#475569" text-anchor="middle">Confirm/recheck developmental</text>
+    <text x="0" y="96" font-family="system-ui, -apple-system, sans-serif" font-size="10px" font-weight="500" fill="#64748b" text-anchor="middle">发育轨迹复查与干预巩固</text>
+  </g>
+
+  <!-- CHECKPOINT 4: 36 Months (Right) -->
+  <g transform="translate(770, 210)" filter="url(#shadow)">
+    <!-- Axis Dot -->
+    <circle cx="0" cy="0" r="12" fill="#ffffff" stroke="#94a3b8" stroke-width="4" />
+    <circle cx="0" cy="0" r="5" fill="#94a3b8" />
+    
+    <!-- Top Label: Age -->
+    <text x="0" y="-35" font-family="system-ui, -apple-system, sans-serif" font-size="20px" font-weight="800" fill="#475569" text-anchor="middle">36 Months</text>
+    <text x="0" y="-18" font-family="system-ui, -apple-system, sans-serif" font-size="14px" font-weight="700" fill="#64748b" text-anchor="middle">36个月大</text>
+    
+    <!-- Bottom Label: Description -->
+    <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="13px" font-weight="700" fill="#334155" text-anchor="middle">School Prep Surveillance</text>
+    <text x="0" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="12px" font-weight="600" fill="#64748b" text-anchor="middle">学前准备与持续追踪评估</text>
+    <text x="0" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="500" fill="#94a3b8" text-anchor="middle">Preschool ready evaluations</text>
+    <text x="0" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="10px" font-weight="500" fill="#94a3b8" text-anchor="middle">学前特殊教育与社交适应准备</text>
+  </g>
+</svg>
