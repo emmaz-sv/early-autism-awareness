@@ -19,6 +19,10 @@ jobs:
       - name: Install bundler and Jekyll
         run: |
           gem install bundler jekyll
+      - name: Inject last updated time
+        run: |
+          echo "" >> docs/_config.yml
+          echo "last_updated: \"$(git log -1 --format=%cd --date=format:'%B %d, %Y')\"" >> docs/_config.yml
       - name: Build site
         run: |
           jekyll build --source docs --destination _site
