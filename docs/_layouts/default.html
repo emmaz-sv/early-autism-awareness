@@ -401,6 +401,10 @@
             }
           });
           
+          if (main) {
+            main.style.opacity = '1';
+          }
+          
           const oldFooter = document.querySelector('footer');
           const newFooter = doc.querySelector('footer');
           if (oldFooter && newFooter) {
