@@ -91,7 +91,7 @@
           <li><a href="/early-autism-awareness/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">Pamphlets</a></li>
           <li><a href="/early-autism-awareness/index.html#journal" class="text-slate-200 hover:text-white transition-colors">Project Journal</a></li>
           <li><a href="/early-autism-awareness/index.html#contact" class="text-slate-200 hover:text-white transition-colors">Contact & Presentations</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#home" class="ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">中文</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#home" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">中文</a></li>
         
         </ul>
       </nav>
@@ -99,7 +99,7 @@
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center gap-4">
         
-          <a href="/early-autism-awareness/zh/index.html#home" class="text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">中文</a>
+          <a href="/early-autism-awareness/zh/index.html#home" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">中文</a>
         
         <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -663,6 +663,17 @@
       }
     }
 
+    function updateLanguageSwitches(hash) {
+      const langSwitches = document.querySelectorAll('.lang-switch-btn');
+      langSwitches.forEach(btn => {
+        try {
+          const url = new URL(btn.href);
+          url.hash = hash;
+          btn.href = url.href;
+        } catch (e) {}
+      });
+    }
+
     function highlightActiveLink(forcedHash) {
       const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
       
@@ -679,6 +690,7 @@
             }
           } catch (e) {}
         });
+        updateLanguageSwitches(forcedHash);
         return;
       }
       
@@ -709,6 +721,8 @@
           }
         } catch (e) {}
       });
+
+      updateLanguageSwitches('#' + activeSectionId);
     }
 
     window.addEventListener('scroll', function() {
