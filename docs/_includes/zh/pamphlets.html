@@ -1,0 +1,65 @@
+<!-- Pamphlets Section -->
+<section id="pamphlets" class="py-24 bg-slate-100/60 scroll-mt-20 border-b border-slate-200/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">双语宣传单模板</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">可打印宣传册与下载</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        以下是外展活动中分发的双语宣传册模板。欢迎各儿科诊所、教会、图书馆与学校免费下载、打印和分发这些材料。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-white rounded-3xl border border-slate-200/70 p-6 shadow-sm">
+        <img src="{{ '/assets/pamphlet_cover_illustration.svg' | relative_url }}" alt="双语自闭症宣传册封面插图" class="w-full h-auto rounded-2xl border border-slate-100 block" />
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-brand-maroon mb-3">社区分发资源</h3>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            我们的宣传册以清晰的英文和中文对照排版，列出了关键的发育里程碑和寻求帮助的渠道，有助于打破文化禁忌，引导华语家庭快速联系本地干预资源。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- English pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">英文宣传册 (PDF)</h4>
+                <p class="text-xs text-slate-400">标准可打印版本</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-en.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+
+          <!-- Mandarin pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">中文宣传册 (PDF)</h4>
+                <p class="text-xs text-slate-400">普通话双语排版</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-zh.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+<!-- Pamphlets Section -->
+<section id="pamphlets" class="py-24 bg-slate-100/60 scroll-mt-20 border-b border-slate-200/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Bilingual Brochure Templates</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">Printable Pamphlets & Downloads</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        Below are bilingual pamphlet templates generated as part of our community outreach. Pediatric clinics, churches, libraries, and schools are welcome to download, print, and distribute these materials freely.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-white rounded-3xl border border-slate-200/70 p-6 shadow-sm">
+        <img src="{{ '/assets/pamphlet_cover_illustration.svg' | relative_url }}" alt="Bilingual Informational Pamphlet Cover Illustration" class="w-full h-auto rounded-2xl border border-slate-100 block" />
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-brand-maroon mb-3">Community Distribution Resources</h3>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            Our pamphlets highlight critical developmental milestones and contact pathways in a clear, bilingual side-by-side format. They help resolve cultural taboos and provide clear call-to-actions for local services.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- English pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">English Pamphlet (PDF)</h4>
+                <p class="text-xs text-slate-400">Standard printable version</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-en.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              Download
+            </a>
+          </div>
+
+          <!-- Mandarin pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Mandarin Chinese Pamphlet (PDF)</h4>
+                <p class="text-xs text-slate-400">中文版印刷资料</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-zh.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
