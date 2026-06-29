@@ -1,1 +1,5 @@
 gold-award-proposal.md
+docs/_site/
+.bundle/
+vendor/
+node_modules/

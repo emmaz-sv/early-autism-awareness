@@ -5,34 +5,465 @@ lang: zh
 description: "提高华语家庭对自闭症早期征兆与早期干预认识的双语资源与项目记录。"
 ---
 
-<div class="my-6 shadow-sm rounded-3xl overflow-hidden border border-slate-200">
-  <img src="{{ '/assets/autism_awareness_hero_banner.svg' | relative_url }}" alt="自闭症早期干预意识横幅"
-    class="w-full h-auto block" />
-</div>
-
-<section class="space-y-5 rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-  <h2 class="text-3xl font-semibold tracking-tight">项目概览</h2>
-  <p class="max-w-3xl text-slate-700">本网站记录郑安欣（Emma
-    Zheng）的金奖项目，旨在提高华语家庭（包括美国移民家庭与湖北农村家庭）对自闭症早期征兆与早期干预的认识。若在18–36个月内发现迹象并及时干预，儿童长期结局可显著改善。</p>
-  <ul class="list-disc space-y-2 pl-6 text-slate-700">
-    <li>目标：以双语信息覆盖本地移民家庭和湖北农村家庭。</li>
-    <li>指标：面向本地 35 位家长、在中国举办 15 人以上的讲座、在诊所接触 15 个家庭。</li>
-    <li>产出：可复用的宣传册模板、双语网站、外展活动记录。</li>
-  </ul>
+<!-- Hero Section -->
+<section id="home" class="relative min-h-[90vh] flex items-center justify-center bg-slate-900 overflow-hidden pt-28">
+  <div class="absolute inset-0 z-0">
+    <img src="{{ '/assets/hero_bg.png' | relative_url }}" alt="Parent and toddler playing with blocks" class="w-full h-full object-cover object-center opacity-65" />
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+  </div>
+  
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+    <h2 class="font-cursive text-brand-orange text-3xl md:text-5xl mb-4 tracking-wide font-bold drop-shadow-md">郑安欣（Emma Zheng）的金奖项目</h2>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 uppercase max-w-3xl drop-shadow-lg leading-tight">
+      自闭症早期干预意识
+    </h1>
+    <p class="font-mono text-slate-200 text-xs md:text-sm tracking-widest uppercase mb-10 border border-slate-500/30 bg-slate-950/70 px-6 py-2.5 rounded-full backdrop-blur-sm max-w-2xl">
+      为华语家庭提供双语自闭症筛查与早期干预资源
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center">
+      <a href="#resources" class="w-full sm:w-auto text-center px-8 py-3.5 text-xs font-bold tracking-widest uppercase border-2 border-brand-orange bg-brand-orange text-slate-950 rounded-full transition-all duration-300 hover:bg-transparent hover:text-brand-orange">
+        获取资源
+      </a>
+      <a href="#pamphlets" class="w-full sm:w-auto text-center px-8 py-3.5 text-xs font-bold tracking-widest uppercase border-2 border-white text-white rounded-full transition-all duration-300 hover:bg-white hover:text-slate-950">
+        下载宣传册
+      </a>
+    </div>
+  </div>
 </section>
 
-<section class="space-y-5">
-  <div class="flex items-center justify-between gap-4">
-    <h2 class="text-2xl font-semibold tracking-tight">快速链接</h2>
+<!-- Project Overview Section -->
+<section id="overview" class="py-24 bg-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <div class="absolute -inset-2 bg-amber-500/10 rounded-[2.5rem] blur-xl"></div>
+      <img src="{{ '/assets/autism_early_signs_visual.svg' | relative_url }}" alt="自闭症早期六大征兆" class="relative w-full h-auto rounded-[2rem] border border-slate-200/80 bg-slate-50 p-6 shadow-sm hover:shadow-md transition duration-300" />
+    </div>
+    
+    <div class="space-y-6">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block">关于我们</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">通过早期行动赋能家庭</h2>
+      
+      <p class="text-slate-600 leading-relaxed text-lg">
+        本网站记录郑安欣（Emma Zheng）的金奖项目，旨在提高华语家庭（包括美国移民家庭与湖北农村家庭）对自闭症早期征兆与早期干预的认识。
+      </p>
+      
+      <p class="text-slate-600 leading-relaxed">
+        若在 18–36 个月内发现迹象并及时进行早期干预，儿童的长期发育结局可显著改善。然而，由于语言障碍和文化偏见，许多华语移民和农村家庭在获取早期干预评估时面临严重延迟。我们通过提供清晰的双语评估表、筛查指南和可打印的手册，致力于消除这一障碍。
+      </p>
+      
+      <div class="pt-4 border-t border-slate-100 space-y-4">
+        <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide">项目核心指标</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>目标：</strong> 以双语信息覆盖本地移民家庭和湖北农村家庭。</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>目标群体：</strong> 面向本地 35 位家长、在中国举办 15 人以上的讲座、在诊所接触 15 个家庭。</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>产出：</strong> 可复用的宣传册模板、双语网站资源、外展活动记录。</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="grid gap-4 sm:grid-cols-2">
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="./resources.html">早期征兆与资源</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="./pamphlets.html">下载宣传册</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="./journal.html">项目日志</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="./contact.html">联系与讲座</a>
+</section>
+
+<!-- Infographic Statistics Section -->
+<section class="py-20 gold-brown-blur text-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">项目范围</span>
+    <h2 class="font-cursive text-brand-orange text-4xl md:text-5xl mb-2 font-bold drop-shadow-sm">项目数据统计</h2>
+    <p class="font-serif text-xl md:text-2xl font-light text-slate-200 mb-16">衡量项目推广的目标范围</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">35+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">本地家庭</span>
+        <span class="text-xs text-slate-400">当地 DMV 华语移民家庭宣传覆盖目标</span>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">15+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">讲座参与者</span>
+        <span class="text-xs text-slate-400">中国湖北线下讲座与培训的参与者</span>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">15+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">诊所推广</span>
+        <span class="text-xs text-slate-400">在当地儿科诊所分发的双语宣传册数量</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources / Early Signs Section -->
+<section id="resources" class="py-24 bg-white scroll-mt-20 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">里程碑与警示信号</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">早期征兆与发育警示信号</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        自闭症是一种神经发育状况，最早可在 18–24 个月时被可靠地识别。及早识别发育警示信号，使家长能够在儿童大脑发育最关键的早期阶段获得干预服务。
+      </p>
+    </div>
+
+    <!-- Red Flags Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-slate-50 rounded-3xl border border-slate-200/60 p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-brand-maroon mb-4 flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-maroon text-white text-sm font-mono">1</span>
+          社交与沟通里程碑
+        </h3>
+        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>叫名字无反应：</strong> 在12个月大时，被叫到名字时没有转身或回应（常被误认为是听力问题）。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>缺乏共同注意：</strong> 在18个月大时，不会用手指指指引你看有趣的事物（例如，指着飞机或玩具），或者当你用手指指物时他不顺着看。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>不分享兴趣：</strong> 在15个月大时，不会拿着或展示玩具/物品给父母，仅为了分享喜悦。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>无模仿：</strong> 在18个月大时，不会模仿简单的动作、声音或面部表情。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>无互动游戏：</strong> 在12个月大时，不会玩简单的互动游戏（如躲猫猫、拍手歌）或挥手说“再见”。</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-50 rounded-3xl border border-slate-200/60 p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-brand-maroon mb-4 flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-maroon text-white text-sm font-mono">2</span>
+          游戏与行为模式
+        </h3>
+        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>缺乏假装游戏：</strong> 在 18–24 个月大时，不会进行想象性游戏（例如，假装喂洋娃娃、接玩具电话或推动积木当车开）。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>重复性行为：</strong> 反复拍手、摇晃身体或原地打转。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>异常的游戏焦点：</strong> 以不寻常的方式玩玩具，例如反复转动玩具车的轮子或排列物品而非正常玩耍，如果这种顺序被打破会感到极度焦虑。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>感官敏感：</strong> 对日常声音（如吸尘器或搅拌机）表现出极端痛苦，或者对灯光或旋转物体有异常的迷恋。</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Golden Rule warning callout -->
+    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-3xl shadow-sm mb-16">
+      <h4 class="font-bold text-red-900 flex items-center gap-2 mb-2">
+        <svg class="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        “黄金法则”警示信号（任何年龄）
+      </h4>
+      <p class="text-red-700 text-sm leading-relaxed">
+        <strong>任何技能退化或丧失</strong>——包括言语、咿呀学语、眼神接触、手势或任何年龄的社交能力——都是一个重要的警示信号，需要立即由儿科医生进行发育评估。
+      </p>
+    </div>
+
+    <!-- Screening Pathways & Flowcharts -->
+    <div class="border-t border-slate-100 pt-16">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">筛查路径</span>
+        <h3 class="font-serif text-brand-maroon text-2xl md:text-3xl font-extrabold tracking-tight">寻求帮助：筛查与评估</h3>
+        <p class="text-slate-500 text-sm mt-3">遵循以下步骤，引导您的家庭从最初的担忧到获得干预服务。</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <img src="{{ '/assets/autism_screening_timeline.svg' | relative_url }}" alt="自闭症筛查与发育评估时间线" class="w-full h-auto rounded-3xl border border-slate-200/60 p-6 bg-slate-50 shadow-sm" />
+        </div>
+        <div>
+          <img src="{{ '/assets/how_to_get_help_flowchart.svg' | relative_url }}" alt="双语寻求帮助步骤流程图" class="w-full h-auto rounded-3xl border border-slate-200/60 p-6 bg-slate-50 shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Authorities Links -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">官方健康资源</h4>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li>&bull; <a href="https://www.cdc.gov/autism/diagnosis/index.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC – 孤独症谱系障碍筛查</a> — 监测指南。</li>
+            <li>&bull; <a href="https://www.cdc.gov/autism/treatment/accessing-services.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC – 获得自闭症干预服务</a> — 寻找支持。</li>
+            <li>&bull; <a href="https://www.cdc.gov/act-early/index.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC "关注早期征兆，尽早行动"</a> — 发育跟踪工具。</li>
+            <li>&bull; <a href="https://www.nichd.nih.gov/health/topics/autism" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">NIH / NICHD: 自闭症与早期干预</a> — 科研支持资源。</li>
+            <li>&bull; <a href="https://www.who.int/health-topics/autism-spectrum-disorders" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">世界卫生组织 — 孤独症谱系障碍</a> — 全球监测指南。</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">北维州（DMV）本地联系方式</h4>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li>&bull; <strong>费尔法克斯 CSB (703-324-4400)</strong> — <em>最重要的联系电话。</em> 居民申请各种社区服务的入口（包括婴幼儿早期干预、DD waivers 等）。无需社会安全号（SSN）即可申请。</li>
+            <li>&bull; <strong>FCPS Child Find (571-423-4121)</strong> — 为费尔法克斯郡 20 个月至 5 岁的儿童提供免费发育评估。</li>
+            <li>&bull; <strong>FCPS 家长资源中心 (703-204-3941)</strong> — 为家庭提供免费讲座、咨询及图书借阅服务。</li>
+            <li>&bull; <strong>ASNV (571-328-5792)</strong> — 北维吉尼亚自闭症协会，提供教育课程和互助小组。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-sky-50 border border-sky-100 rounded-3xl p-6 md:p-8">
+        <h4 class="font-bold text-brand-blue text-sm uppercase tracking-wide mb-4">文化敏感的双语服务</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600 text-sm">
+          <p>
+            &bull; <a href="https://www.autismspeaks.org/chinese-resources" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">Autism Speaks 中文资源工具包</a> — 提供翻译为中文的指南（100天工具包、ABA指南、安全资源等）。
+          </p>
+          <p>
+            &bull; <a href="https://www.caresseattle.org/" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">CARES (华语自闭症资源与服务)</a> — 针对华语家庭量身定制的同伴互助与讲座。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pamphlets Section -->
+<section id="pamphlets" class="py-24 bg-slate-100/60 scroll-mt-20 border-b border-slate-200/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">双语宣传单模板</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">可打印宣传册与下载</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        以下是外展活动中分发的双语宣传册模板。欢迎各儿科诊所、教会、图书馆与学校免费下载、打印和分发这些材料。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-white rounded-3xl border border-slate-200/70 p-6 shadow-sm">
+        <img src="{{ '/assets/pamphlet_cover_illustration.svg' | relative_url }}" alt="双语自闭症宣传册封面插图" class="w-full h-auto rounded-2xl border border-slate-100 block" />
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-brand-maroon mb-3">社区分发资源</h3>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            我们的宣传册以清晰的英文和中文对照排版，列出了关键的发育里程碑和寻求帮助的渠道，有助于打破文化禁忌，引导华语家庭快速联系本地干预资源。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- English pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">英文宣传册 (PDF)</h4>
+                <p class="text-xs text-slate-400">标准可打印版本</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-en.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+
+          <!-- Mandarin pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">中文宣传册 (PDF)</h4>
+                <p class="text-xs text-slate-400">普通话双语排版</p>
+              </div>
+            </div>
+            <a href="{{ '/assets/pamphlet-zh.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Journal Section -->
+<section id="journal" class="py-24 gold-brown-blur text-white scroll-mt-20 border-b border-slate-900/60">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">安欣的外展日记</span>
+      <h2 class="font-cursive text-brand-orange text-4xl md:text-5xl mb-2 font-bold drop-shadow-sm">项目日志</h2>
+      <p class="font-serif text-lg text-slate-200 mt-2">记录外展讲座、诊所互动以及心得体会</p>
+    </div>
+
+    <!-- Timeline Entries -->
+    <div class="relative border-l-2 border-slate-700/60 pl-8 ml-4 space-y-12">
+      <!-- Dot -->
+      <div class="relative">
+        <div class="absolute -left-12 top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-brand-orange"></div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+          <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">项目日志 #1</span>
+          <h4 class="text-xl font-bold text-white mt-1 mb-3">希望中文学校双语外展宣传</h4>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            在家长课间休息期间（下午 2:00–4:00）进行了双语知识讲座，分发了宣传册。收集了讲座前后的对比问卷，评估家长对自闭症早期征兆以及本地筛查渠道（CSB/Child Find）认知度的变化。
+          </p>
+          <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
+            <span>活动地点：希望中文学校 Tyson's Corner 校区</span>
+            <span>状态：已完成</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -left-12 top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-brand-orange"></div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+          <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">项目日志 #2</span>
+          <h4 class="text-xl font-bold text-white mt-1 mb-3">儿科诊所与社区服务中心推广</h4>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            与 Vienna 及周边 DMV 地区的儿科诊所和社区机构取得联系，分发双语印刷宣传册。克服前期的交流障碍，在华语家庭较为密集的诊所内建立起了外展分发渠道。
+          </p>
+          <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
+            <span>活动地点：Vienna 及附近 DMV 地区</span>
+            <span>状态：进行中</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial Block -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">我们的使命</span>
+    <h2 class="font-serif text-brand-maroon text-2xl md:text-3xl font-extrabold tracking-tight mb-10">指导我们工作的方向...</h2>
+    
+    <div class="relative bg-sky-50/70 border border-sky-100 rounded-3xl p-8 md:p-12 shadow-sm">
+      <div class="absolute top-4 left-6 text-6xl text-sky-200/80 font-serif pointer-events-none select-none">“</div>
+      
+      <p class="relative z-10 text-slate-700 text-lg md:text-xl font-medium leading-relaxed italic">
+        早期筛查与诊断是获得支持的关键。当家庭能够以母语获取具有文化敏感性的双语指导时，我们就消除了通往发育关怀的主要障碍。
+      </p>
+      
+      <div class="absolute bottom-4 right-8 text-6xl text-sky-200/80 font-serif pointer-events-none select-none">”</div>
+      <div class="mt-6 text-sm font-bold uppercase tracking-wider text-brand-blue">— 项目推广目标</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact & Presentations Section -->
+<section id="contact" class="py-24 bg-slate-50 scroll-mt-20 border-t border-slate-200/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">讲座申请</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">联系与讲座</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        我们为当地社区诊所、中文学校和家长组织提供双语知识讲座（线上或线下）。欢迎通过邮件联系我们安排讲座。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Venue 1 -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm">
+        <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">主要活动地点</h4>
+        <h3 class="text-lg font-bold text-brand-maroon mb-3">希望中文学校 (HCS-TC)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Tyson's Corner 校区是距离 Vienna 最近的校区。周末上课。通常在家长课间休息（下午 2–4 点）时间段开展主题讲座，取得最大的宣传效果。
+        </p>
+        <a href="https://www.hopechineseschool.org/hcstc/" target="_blank" rel="noopener" class="text-xs font-bold text-brand-blue hover:underline">
+          hopechineseschool.org/hcstc &rarr;
+        </a>
+      </div>
+
+      <!-- Venue 2 -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm">
+        <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">次要活动地点</h4>
+        <h3 class="text-lg font-bold text-brand-maroon mb-3">北维州华人福音教会 (CCCVA)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          地址为 541 Marshall Rd. SW, Vienna, VA 22180。是我们在本地华语教会社区进行推广的首要场所，讲座将直接配合教会活动安排进行。
+        </p>
+        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Vienna, VA</span>
+      </div>
+
+      <!-- Advisor -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm flex flex-col justify-between">
+        <div>
+          <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">项目顾问与辅导</h4>
+          <h3 class="text-lg font-bold text-slate-800 mb-3">Tonia Powell</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            金奖项目辅导志愿者，协助监督项目核心指标的实施、外展活动以及双语宣传材料的审查。
+          </p>
+        </div>
+        <span class="text-xs text-slate-500 font-medium font-mono">tonia@bradandtonia.com</span>
+      </div>
+    </div>
+
+    <!-- Email CTA Box -->
+    <div class="bg-brand-maroon text-white rounded-3xl p-10 text-center shadow-lg relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-white/5"></div>
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold mb-3">申请举办主题讲座</h3>
+        <p class="text-slate-200 text-sm mb-6 leading-relaxed">
+          请联系项目负责人郑安欣（Emma Zheng）进行协调沟通。面向中文学校、教会组织、诊所及社区资源中心提供双语讲座。
+        </p>
+        <a href="mailto:ezhengva@gmail.com" class="inline-block px-8 py-3.5 bg-brand-orange text-slate-950 font-bold uppercase tracking-wider text-xs rounded-full hover:bg-amber-600 transition-colors">
+          ezhengva@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners and Collaborators Grid -->
+<section class="py-24 gold-brown-blur text-white border-t border-slate-900/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">携手合作</span>
+    <h2 class="font-serif text-white text-2xl md:text-3xl font-extrabold mb-12">合作伙伴与协作者</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">CCCVA</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">北维州华人福音教会及家长网络外展合作伙伴</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">希望中文学校</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">为双语科普讲座与家长交流会提供支持</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">FCPS Child Find</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">为 2 至 5 岁儿童提供免费发育评估与筛查</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">ITC-VA</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">维州婴幼儿连接项目（针对0至3岁婴幼儿早期干预）</p>
+      </div>
+    </div>
   </div>
 </section>
