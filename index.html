@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Autism Early Intervention Awareness - Autism Early Intervention Awareness</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN with typography plugin -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -11,92 +18,885 @@
         extend: {
           colors: {
             brand: {
-              50: '#eff6ff',
-              500: '#2563eb',
-              700: '#1d4ed8'
+              orange: '#f29900',
+              maroon: '#8a1515',
+              blue: '#1a73e8',
+              navy: '#0f172a'
             }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Lora', 'ui-serif', 'Georgia', 'serif'],
+            cursive: ['Caveat', 'cursive'],
           }
         }
       }
     }
   </script>
+  
   <link rel="stylesheet" href="/early-autism-awareness/styles.css">
   <meta name="description" content="Bilingual resources for Chinese families — early signs, screenings, and help">
+  
+  <style>
+    .gold-brown-blur {
+      background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .gold-brown-blur::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
+                  radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .font-cursive {
+      font-family: Caveat, cursive;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
-  <header class="bg-slate-900 text-slate-50 shadow-sm">
-    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-      <div>
-        <a href="/early-autism-awareness/" class="text-2xl font-semibold text-white no-underline">Autism Early Intervention Awareness</a>
-        <p class="mt-1 text-sm text-slate-300">Bilingual resources for Chinese families — early signs, screenings, and help</p>
+  
+  <!-- Fixed Navbar Container -->
+  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <!-- Top Alert Banner -->
+    <div id="alert-banner" class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+      
+        <span>Girl Scout Gold Award Project — Raising awareness for early autism screening & intervention.</span>
+        <a href="/early-autism-awareness/resources.html" class="underline hover:text-slate-900 transition ml-2">Learn Early Signs &rarr;</a>
+      
+    </div>
+    
+    <!-- Navigation Header -->
+    <header id="main-header" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <a href="/early-autism-awareness/" class="flex flex-col no-underline group">
+          <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl Scout Gold Award Project</span>
+        </a>
       </div>
-      <nav>
-        <ul class="flex flex-wrap items-center gap-3 text-sm font-semibold">
+      
+      <nav class="hidden lg:block">
+        <ul class="flex items-center gap-6 text-sm font-semibold">
         
-          <li><a href="/early-autism-awareness/index.html" class="text-slate-100 hover:text-white">Home</a></li>
-          <li><a href="/early-autism-awareness/resources.html" class="text-slate-100 hover:text-white">Resources</a></li>
-          <li><a href="/early-autism-awareness/pamphlets.html" class="text-slate-100 hover:text-white">Pamphlets</a></li>
-          <li><a href="/early-autism-awareness/journal.html" class="text-slate-100 hover:text-white">Project Journal</a></li>
-          <li><a href="/early-autism-awareness/contact.html" class="text-slate-100 hover:text-white">Contact & Presentations</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html" class="ml-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-900 transition hover:bg-slate-100">中文</a></li>
+          <li><a href="/early-autism-awareness/index.html#home" class="text-slate-200 hover:text-white transition-colors">Home</a></li>
+          <li><a href="/early-autism-awareness/index.html#resources" class="text-slate-200 hover:text-white transition-colors">Resources</a></li>
+          <li><a href="/early-autism-awareness/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">Pamphlets</a></li>
+          <li><a href="/early-autism-awareness/index.html#journal" class="text-slate-200 hover:text-white transition-colors">Project Journal</a></li>
+          <li><a href="/early-autism-awareness/index.html#contact" class="text-slate-200 hover:text-white transition-colors">Contact & Presentations</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#home" class="ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">中文</a></li>
         
         </ul>
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden flex items-center gap-4">
+        
+          <a href="/early-autism-awareness/zh/index.html#home" class="text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">中文</a>
+        
+        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
+      
+        <a href="/early-autism-awareness/index.html#home" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Home</a>
+        <a href="/early-autism-awareness/index.html#resources" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Resources</a>
+        <a href="/early-autism-awareness/index.html#pamphlets" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Pamphlets</a>
+        <a href="/early-autism-awareness/index.html#journal" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Project Journal</a>
+        <a href="/early-autism-awareness/index.html#contact" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Contact & Presentations</a>
+      
     </div>
-  </header>
-
-  <main id="main-content" class="bg-slate-50">
-    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <div class="prose prose-slate mx-auto lg:prose-lg">
-        <div class="my-6 shadow-sm rounded-3xl overflow-hidden border border-slate-200">
-  <img src="/early-autism-awareness/assets/autism_awareness_hero_banner.svg"
-    alt="Autism Early Intervention Awareness Hero Banner" class="w-full h-auto block" />
-</div>
-
-<section class="space-y-5 rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-  <h2 class="text-3xl font-semibold tracking-tight">Project overview</h2>
-  <p class="max-w-3xl text-slate-700">This site documents Emma Zheng’s Girl Scout Gold Award project to increase early
-    autism awareness among Chinese-speaking families in the DMV area and rural Hubei, China. Early diagnosis (18–36
-    months) greatly improves long-term outcomes; the site provides simple checklists, screening resources, downloadable
-    bilingual pamphlets, and a public project journal.</p>
-  <ul class="list-disc space-y-2 pl-6 text-slate-700">
-    <li>Goal: Reach local immigrant families and rural families in Hubei with clear bilingual information.</li>
-    <li>Targets: 35 local parents, 15 in-person attendees in China, 15 families engaged in clinics.</li>
-    <li>Outputs: Reusable pamphlet templates, bilingual website, recorded outreach events.</li>
-  </ul>
-</section>
-
-<section class="space-y-5">
-  <div class="flex items-center justify-between gap-4">
-    <h2 class="text-2xl font-semibold tracking-tight">Quick links</h2>
   </div>
-  <div class="grid gap-4 sm:grid-cols-2">
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="/early-autism-awareness/resources.html">Early Signs & Resources</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="/early-autism-awareness/pamphlets.html">Download Pamphlets</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="/early-autism-awareness/journal.html">Project Journal</a>
-    <a class="rounded-3xl border border-slate-200 bg-white px-6 py-8 text-center text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-      href="/early-autism-awareness/contact.html">Contact & Presentations</a>
+
+  
+  
+
+  
+    <!-- Homepage layout - full width with no extra container -->
+    <main id="main-content" class="flex-grow">
+      <!-- Hero Section -->
+<section id="home" class="relative min-h-[90vh] flex items-center justify-center bg-slate-900 overflow-hidden pt-28">
+  <div class="absolute inset-0 z-0">
+    <img src="/early-autism-awareness/assets/hero_bg.png" alt="Parent and toddler playing with blocks" class="w-full h-full object-cover object-center opacity-65" />
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+  </div>
+  
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+    <h2 class="font-cursive text-brand-orange text-3xl md:text-5xl mb-4 tracking-wide font-bold drop-shadow-md">Emma Zheng's Girl Scout Gold Award Project</h2>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 uppercase max-w-3xl drop-shadow-lg leading-tight">
+      Autism Early Intervention Awareness
+    </h1>
+    <p class="font-mono text-slate-200 text-xs md:text-sm tracking-widest uppercase mb-10 border border-slate-500/30 bg-slate-950/70 px-6 py-2.5 rounded-full backdrop-blur-sm max-w-2xl">
+      Empowering Chinese-speaking families with bilingual screening resources
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center">
+      <a href="#resources" class="w-full sm:w-auto text-center px-8 py-3.5 text-xs font-bold tracking-widest uppercase border-2 border-brand-orange bg-brand-orange text-slate-950 rounded-full transition-all duration-300 hover:bg-transparent hover:text-brand-orange">
+        Get Resources
+      </a>
+      <a href="#pamphlets" class="w-full sm:w-auto text-center px-8 py-3.5 text-xs font-bold tracking-widest uppercase border-2 border-white text-white rounded-full transition-all duration-300 hover:bg-white hover:text-slate-950">
+        Download Pamphlets
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-  <h2 class="text-2xl font-semibold tracking-tight">How you can help</h2>
-  <p class="text-slate-700">Share these materials with Chinese-speaking communities, print pamphlets for clinics and
-    community centers, and attend local presentations. All materials are free to reuse.</p>
-</section>
+<!-- Project Overview Section -->
+<section id="overview" class="py-24 bg-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <div class="absolute -inset-2 bg-amber-500/10 rounded-[2.5rem] blur-xl"></div>
+      <img src="/early-autism-awareness/assets/autism_early_signs_visual.svg" alt="6 Key Early Autism Signs to Watch For" class="relative w-full h-auto rounded-[2rem] border border-slate-200/80 bg-slate-50 p-6 shadow-sm hover:shadow-md transition duration-300" />
+    </div>
+    
+    <div class="space-y-6">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block">Who We Are</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">Empowering Families through Early Action</h2>
+      
+      <p class="text-slate-600 leading-relaxed text-lg">
+        This project documents Emma Zheng’s Girl Scout Gold Award initiative to increase early autism awareness among Chinese-speaking families in the DMV area and rural Hubei, China.
+      </p>
+      
+      <p class="text-slate-600 leading-relaxed">
+        Early diagnosis (between 18–36 months) is the single most critical factor in improving long-term developmental outcomes. Due to language barriers and cultural stigmas, many immigrant and rural families experience significant delays in accessing developmental care. We bridge this gap by providing clear bilingual checklists, screening directions, and printable guides.
+      </p>
+      
+      <div class="pt-4 border-t border-slate-100 space-y-4">
+        <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide">Key Project Benchmarks</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>Goal:</strong> Reach local immigrant families and rural families in Hubei with clear bilingual information.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>Target Audience:</strong> 35 local parents, 15 in-person seminar attendees in China, 15 families engaged in pediatric clinics.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>Outputs:</strong> Reusable pamphlet templates, bilingual website resources, and recorded outreach events.</span>
+          </li>
+        </ul>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 text-sm text-slate-500">
-      <p>Autism Early Intervention Awareness — Project materials and notes.</p>
-      <p><small>Sources: NIH, CDC, ChildFind — links on the Resources page. | Site last updated: May 24, 2026</small></p>
+<!-- Infographic Statistics Section -->
+<section class="py-20 gold-brown-blur text-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Project Scope</span>
+    <h2 class="font-cursive text-brand-orange text-4xl md:text-5xl mb-2 font-bold drop-shadow-sm">By the numbers...</h2>
+    <p class="font-serif text-xl md:text-2xl font-light text-slate-200 mb-16">Measuring the target outreach footprint</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">35+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">Local Families</span>
+        <span class="text-xs text-slate-400">Target parents reached in local DMV immigrant networks</span>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">15+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">Seminar Attendees</span>
+        <span class="text-xs text-slate-400">In-person workshop participants in Hubei, China</span>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+        <span class="text-5xl font-extrabold text-brand-orange block mb-2 font-mono">15+</span>
+        <span class="text-xs uppercase tracking-widest text-slate-300 font-bold block mb-1">Clinic Connections</span>
+        <span class="text-xs text-slate-400">Bilingual materials distributed in local pediatric clinics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources / Early Signs Section -->
+<section id="resources" class="py-24 bg-white scroll-mt-20 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Milestones & Warning Signs</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">Early Signs & Developmental Red Flags</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        Autism is a neurodevelopmental condition that can be reliably identified as early as 18–24 months. Recognizing warning signs allows parents to access intervention services during the most critical periods of early brain development.
+      </p>
+    </div>
+
+    <!-- Red Flags Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-slate-50 rounded-3xl border border-slate-200/60 p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-brand-maroon mb-4 flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-maroon text-white text-sm font-mono">1</span>
+          Social & Communication Milestones
+        </h3>
+        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>No response to name:</strong> Does not turn or respond when their name is called by 12 months (often mistaken for hearing difficulties).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>Lack of joint attention:</strong> Does not point to show you something interesting (e.g., pointing to an airplane or toy) by 18 months, or does not look when you point.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>No sharing of interests:</strong> Does not bring or show toys/objects to parents just to share excitement by 15 months.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>No imitation:</strong> Does not imitate simple actions, sounds, or facial expressions by 18 months.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>No interactive play:</strong> Does not play simple interactive games (like peek-a-boo, pat-a-cake) or wave "bye-bye" by 12 months.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-50 rounded-3xl border border-slate-200/60 p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-brand-maroon mb-4 flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-maroon text-white text-sm font-mono">2</span>
+          Play & Behavioral Patterns
+        </h3>
+        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>Absence of pretend play:</strong> Does not engage in imaginative play (e.g., pretending to feed a doll, talk on a toy phone, or push a block like a car) by 18–24 months.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>Repetitive behaviors:</strong> Repeatedly flaps hands, rocks their body, or spins in circles.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>Unusual play focus:</strong> Plays with toys in unusual ways, such as repeatedly spinning the wheels of a toy car or lining up objects instead of playing with them, getting highly distressed if their order is disrupted.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-brand-orange shrink-0 font-bold">&bull;</span>
+            <span><strong>Sensory sensitivities:</strong> Showing extreme distress at everyday sounds (like vacuum cleaners or blenders), or having unusual fascinations with lights or spinning objects.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Golden Rule warning callout -->
+    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-3xl shadow-sm mb-16">
+      <h4 class="font-bold text-red-900 flex items-center gap-2 mb-2">
+        <svg class="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        The "Golden Rule" Red Flag (Any Age)
+      </h4>
+      <p class="text-red-700 text-sm leading-relaxed">
+        <strong>Any regression or loss of skills</strong>—including speech, babbling, eye contact, gestures, or social abilities at any age—is a significant red flag that requires immediate developmental evaluation by a pediatrician.
+      </p>
+    </div>
+
+    <!-- Screening Pathways & Flowcharts -->
+    <div class="border-t border-slate-100 pt-16">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Step-by-Step Path</span>
+        <h3 class="font-serif text-brand-maroon text-2xl md:text-3xl font-extrabold tracking-tight">How to Get Help: Screening & Evaluation</h3>
+        <p class="text-slate-500 text-sm mt-3">Follow this step-by-step path to guide your family from initial concerns to accessing services.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <img src="/early-autism-awareness/assets/autism_screening_timeline.svg" alt="Autism Screening & Developmental Checkpoints Timeline" class="w-full h-auto rounded-3xl border border-slate-200/60 p-6 bg-slate-50 shadow-sm" />
+        </div>
+        <div>
+          <img src="/early-autism-awareness/assets/how_to_get_help_flowchart.svg" alt="Bilingual Step-by-Step Path to Get Help Flowchart" class="w-full h-auto rounded-3xl border border-slate-200/60 p-6 bg-slate-50 shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Authorities Links -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">Official Health Resources</h4>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li>&bull; <a href="https://www.cdc.gov/autism/diagnosis/index.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC – Screening for Autism Spectrum Disorder</a> — Monitoring guidelines.</li>
+            <li>&bull; <a href="https://www.cdc.gov/autism/treatment/accessing-services.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC – Accessing Services for ASD</a> — Guide to finding support.</li>
+            <li>&bull; <a href="https://www.cdc.gov/act-early/index.html" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">CDC "Learn the Signs. Act Early"</a> — Developmental checklist tracker.</li>
+            <li>&bull; <a href="https://www.nichd.nih.gov/health/topics/autism" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">NIH / NICHD: Autism and Early Intervention</a> — Research-backed info.</li>
+            <li>&bull; <a href="https://www.who.int/health-topics/autism-spectrum-disorders" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">World Health Organization — Autism ASD Guidelines</a> — Global details.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">Local Northern Virginia (DMV) Contacts</h4>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li>&bull; <strong>Fairfax CSB (703-324-4400)</strong> — <em>The single most important number.</em> Point of entry for residents to apply for services (ITC-VA, DD waivers, CSB support). No SSN required.</li>
+            <li>&bull; <strong>FCPS Child Find (571-423-4121)</strong> — Free developmental screenings for children ages 20 months to 5 years in Fairfax County.</li>
+            <li>&bull; <strong>FCPS Parent Resource Center (703-204-3941)</strong> — Free workshops, consultations, and lending libraries for families.</li>
+            <li>&bull; <strong>ASNV (571-328-5792)</strong> — Autism Society of Northern Virginia, providing education programs and support groups.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-sky-50 border border-sky-100 rounded-3xl p-6 md:p-8">
+        <h4 class="font-bold text-brand-blue text-sm uppercase tracking-wide mb-4">Culturally-Sensitive Bilingual Services</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600 text-sm">
+          <p>
+            &bull; <a href="https://www.autismspeaks.org/chinese-resources" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">Autism Speaks Chinese Toolkits</a> — Downloadable guides translated into Chinese (100 Day Kit, ABA Guide, safety resources).
+          </p>
+          <p>
+            &bull; <a href="https://www.caresseattle.org/" target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">CARES (Chinese Autism Resources & Service)</a> — Sensitive peer support and workshops specifically tailored for Chinese families.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pamphlets Section -->
+<section id="pamphlets" class="py-24 bg-slate-100/60 scroll-mt-20 border-b border-slate-200/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Bilingual Brochure Templates</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">Printable Pamphlets & Downloads</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        Below are bilingual pamphlet templates generated as part of our community outreach. Pediatric clinics, churches, libraries, and schools are welcome to download, print, and distribute these materials freely.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-white rounded-3xl border border-slate-200/70 p-6 shadow-sm">
+        <img src="/early-autism-awareness/assets/pamphlet_cover_illustration.svg" alt="Bilingual Informational Pamphlet Cover Illustration" class="w-full h-auto rounded-2xl border border-slate-100 block" />
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-brand-maroon mb-3">Community Distribution Resources</h3>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            Our pamphlets highlight critical developmental milestones and contact pathways in a clear, bilingual side-by-side format. They help resolve cultural taboos and provide clear call-to-actions for local services.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- English pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">English Pamphlet (PDF)</h4>
+                <p class="text-xs text-slate-400">Standard printable version</p>
+              </div>
+            </div>
+            <a href="/early-autism-awareness/assets/pamphlet-en.pdf" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              Download
+            </a>
+          </div>
+
+          <!-- Mandarin pamphlet -->
+          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Mandarin Chinese Pamphlet (PDF)</h4>
+                <p class="text-xs text-slate-400">中文版印刷资料</p>
+              </div>
+            </div>
+            <a href="/early-autism-awareness/assets/pamphlet-zh.pdf" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+              下载
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Journal Section -->
+<section id="journal" class="py-24 gold-brown-blur text-white scroll-mt-20 border-b border-slate-900/60">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Emma's Outreach Diary</span>
+      <h2 class="font-cursive text-brand-orange text-4xl md:text-5xl mb-2 font-bold drop-shadow-sm">Project Journal</h2>
+      <p class="font-serif text-lg text-slate-200 mt-2">Tracking seminars, survey feedback, and field logs</p>
+    </div>
+
+    <!-- Timeline Entries -->
+    <div class="relative border-l-2 border-slate-700/60 pl-8 ml-4 space-y-12">
+      <!-- Dot -->
+      <div class="relative">
+        <div class="absolute -left-12 top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-brand-orange"></div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+          <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">Project Entry #1</span>
+          <h4 class="text-xl font-bold text-white mt-1 mb-3">Bilingual Outreach at Hope Chinese School</h4>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Presented informational summaries and bilingual checklist pamphlets during the parent break period (2:00–4:00 PM). Collected pre/post presentation surveys assessing changes in early signs recognition and familiarity with local screening resources (CSB/Child Find).
+          </p>
+          <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
+            <span>Location: Tyson's Corner Campus</span>
+            <span>Status: Complete</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -left-12 top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-brand-orange"></div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+          <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">Project Entry #2</span>
+          <h4 class="text-xl font-bold text-white mt-1 mb-3">Clinic & Community Pamphlet Placements</h4>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Engaged local family practice pediatric clinics and community organizations in Vienna to distribute printable bilingual pamphlet sheets. Overcoming initial language barriers, we established key channels to reach immigrant parents.
+          </p>
+          <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
+            <span>Location: Vienna & DMV Area</span>
+            <span>Status: Ongoing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial Block -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Our Mission</span>
+    <h2 class="font-serif text-brand-maroon text-2xl md:text-3xl font-extrabold tracking-tight mb-10">What guides our work...</h2>
+    
+    <div class="relative bg-sky-50/70 border border-sky-100 rounded-3xl p-8 md:p-12 shadow-sm">
+      <div class="absolute top-4 left-6 text-6xl text-sky-200/80 font-serif pointer-events-none select-none">“</div>
+      
+      <p class="relative z-10 text-slate-700 text-lg md:text-xl font-medium leading-relaxed italic">
+        Early identification is the key to unlocking support. When families have access to culturally sensitive, bilingual guidance in their native language, we remove the primary barrier to developmental care.
+      </p>
+      
+      <div class="absolute bottom-4 right-8 text-6xl text-sky-200/80 font-serif pointer-events-none select-none">”</div>
+      <div class="mt-6 text-sm font-bold uppercase tracking-wider text-brand-blue">— Project Outreach Goal</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact & Presentations Section -->
+<section id="contact" class="py-24 bg-slate-50 scroll-mt-20 border-t border-slate-200/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Outreach Requests</span>
+      <h2 class="font-serif text-brand-maroon text-3xl md:text-4xl font-extrabold tracking-tight">Presentations & Contact</h2>
+      <p class="text-slate-500 mt-4 leading-relaxed">
+        We offer bilingual informational seminars (virtual or in-person) for local community clinics, preschools, and parent assemblies. Contact us to schedule a presentation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Venue 1 -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm">
+        <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">Primary Venue</h4>
+        <h3 class="text-lg font-bold text-brand-maroon mb-3">Hope Chinese School (HCS-TC)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Tyson's Corner Campus is the closest venue to Vienna. Classes meet Saturday/Sunday. Presentations are held during the parent break period (roughly 2–4 PM) for maximum outreach.
+        </p>
+        <a href="https://www.hopechineseschool.org/hcstc/" target="_blank" rel="noopener" class="text-xs font-bold text-brand-blue hover:underline">
+          hopechineseschool.org/hcstc &rarr;
+        </a>
+      </div>
+
+      <!-- Venue 2 -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm">
+        <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">Secondary Venue</h4>
+        <h3 class="text-lg font-bold text-brand-maroon mb-3">CCCVA Community</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Located at 541 Marshall Rd. SW, Vienna, VA 22180. Serves as our primary Chinese church venue for DMV area outreach. Presentations are coordinated directly through the church leadership.
+        </p>
+        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Vienna, VA</span>
+      </div>
+
+      <!-- Advisor -->
+      <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm flex flex-col justify-between">
+        <div>
+          <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">Gold Award Advisor</h4>
+          <h3 class="text-lg font-bold text-slate-800 mb-3">Tonia Powell</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Troop/Group Volunteer overseeing project benchmarks, outreach goals compliance, and bilingual template reviews.
+          </p>
+        </div>
+        <span class="text-xs text-slate-500 font-medium font-mono">tonia@bradandtonia.com</span>
+      </div>
+    </div>
+
+    <!-- Email CTA Box -->
+    <div class="bg-brand-maroon text-white rounded-3xl p-10 text-center shadow-lg relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-white/5"></div>
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold mb-3">Request a Bilingual Presentation</h3>
+        <p class="text-slate-200 text-sm mb-6 leading-relaxed">
+          Please contact our project lead, Emma Zheng, to coordinate. Available to speak at Chinese schools, church groups, clinics, and community resource centers.
+        </p>
+        <a href="mailto:ezhengva@gmail.com" class="inline-block px-8 py-3.5 bg-brand-orange text-slate-950 font-bold uppercase tracking-wider text-xs rounded-full hover:bg-amber-600 transition-colors">
+          ezhengva@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners and Collaborators Grid -->
+<section class="py-24 gold-brown-blur text-white border-t border-slate-900/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">Working Together</span>
+    <h2 class="font-serif text-white text-2xl md:text-3xl font-extrabold mb-12">Partners & Collaborators</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">CCCVA</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">Vienna local church community parent network partner</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">Hope Chinese School</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">Bilingual outreach seminars and parent assemblies</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">FCPS Child Find</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">Free developmental screenings for age 2 to 5 years</p>
+      </div>
+      
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">ITC-VA</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">Infant & Toddler Connection birth to 3 early intervention</p>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+  
+
+  <!-- Global Redesigned Footer -->
+  <footer class="gold-brown-blur text-slate-300 py-16 border-t border-amber-950/20 relative z-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-800/80 pb-12 mb-8">
+        <div>
+          <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4">
+            Contact Us
+          </h4>
+          <p class="text-lg text-white font-medium mb-4">ezhengva@gmail.com</p>
+          
+          <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4 mt-8">
+            Follow Us
+          </h4>
+          <div class="flex gap-4">
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">Youtube</span>
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">WeChat</span>
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">Facebook</span>
+          </div>
+        </div>
+        
+        <div class="flex flex-col justify-between">
+          <div>
+            <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">
+              About the Project
+            </h4>
+            <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+              
+                This is a Girl Scout Gold Award project dedicated to raising autism awareness and early diagnosis resources for Chinese-speaking families. All digital and print materials are free to download and distribute.
+              
+            </p>
+          </div>
+          <div class="mt-8 md:mt-0 text-slate-500 text-xs">
+            <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
+            <p>Sources: NIH, CDC, ChildFind — links on the Resources page.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Script for Navigation Banner, Scroll Logic, Mobile Menu, and SPA Routing -->
+  <script>
+    function isSamePagePath(url1, url2) {
+      try {
+        const u1 = new URL(url1);
+        const u2 = new URL(url2);
+        const p1 = u1.pathname.replace(/\/$/, '').replace('/early-autism-awareness', '') || '/index.html';
+        const p2 = u2.pathname.replace(/\/$/, '').replace('/early-autism-awareness', '') || '/index.html';
+        return p1 === p2;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function smoothScrollToHash(hash) {
+      if (!hash) return;
+      const targetId = hash.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const headerOffset = 90;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function highlightActiveLink(forcedHash) {
+      const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
+      
+      if (forcedHash) {
+        navLinks.forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            if (linkUrl.hash === forcedHash) {
+              link.classList.add('text-brand-orange');
+              link.classList.remove('text-slate-200');
+            } else {
+              link.classList.remove('text-brand-orange');
+              link.classList.add('text-slate-200');
+            }
+          } catch (e) {}
+        });
+        return;
+      }
+      
+      // Scroll spy to identify the current visible section
+      const sections = ['home', 'overview', 'resources', 'pamphlets', 'journal', 'contact'];
+      let activeSectionId = 'home';
+      
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 140) {
+            activeSectionId = sectionId;
+          }
+        }
+      }
+      
+      navLinks.forEach(link => {
+        try {
+          const linkUrl = new URL(link.href);
+          const linkHash = linkUrl.hash || '#home';
+          if (linkHash === '#' + activeSectionId) {
+            link.classList.add('text-brand-orange');
+            link.classList.remove('text-slate-200');
+          } else {
+            link.classList.remove('text-brand-orange');
+            link.classList.add('text-slate-200');
+          }
+        } catch (e) {}
+      });
+    }
+
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar-container');
+      const header = document.getElementById('main-header');
+      const alertBanner = document.getElementById('alert-banner');
+      if (window.scrollY > 30) {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('bg-transparent');
+        header.classList.remove('py-6');
+        header.classList.add('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '0px';
+          alertBanner.style.padding = '0px';
+          alertBanner.style.opacity = '0';
+          alertBanner.style.overflow = 'hidden';
+        }
+      } else {
+        navbar.classList.remove('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
+        header.classList.add('py-6');
+        header.classList.remove('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '';
+          alertBanner.style.padding = '';
+          alertBanner.style.opacity = '1';
+        }
+      }
+      
+      highlightActiveLink();
+    });
+
+    // Mobile Menu Toggle via Event Delegation
+    document.addEventListener('click', function(e) {
+      const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
+      if (mobileMenuBtn) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.classList.toggle('hidden');
+        }
+      }
+    });
+
+    // SPA Router click listener
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      
+      const href = link.getAttribute('href');
+      // Ignore external, anchors, mailto, target blank, and files like PDFs
+      if (!href || href.startsWith('http') || href.startsWith('mailto:') || link.target === '_blank' || href.endsWith('.pdf')) {
+        return;
+      }
+      
+      const targetUrl = new URL(link.href, window.location.origin);
+      const currentUrl = new URL(window.location.href);
+      
+      // If it's a hash link on the same page path
+      if (targetUrl.hash && isSamePagePath(targetUrl.href, currentUrl.href)) {
+        e.preventDefault();
+        
+        // Hide mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+        
+        history.pushState(null, '', targetUrl.hash);
+        smoothScrollToHash(targetUrl.hash);
+        highlightActiveLink(targetUrl.hash);
+        return;
+      }
+      
+      // If it's a non-hash link or a different page
+      e.preventDefault();
+      navigateTo(link.href);
+    });
+
+    function navigateTo(url) {
+      const parsedUrl = new URL(url, window.location.origin);
+      const targetHash = parsedUrl.hash;
+
+      // Hide mobile menu if open
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+
+      const main = document.getElementById('main-content');
+      if (main) {
+        main.style.opacity = '0.3';
+        main.style.transition = 'opacity 150ms ease-out';
+      }
+      
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(htmlText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          
+          document.title = doc.title;
+          document.documentElement.lang = doc.documentElement.lang || 'en';
+          
+          // Swap header/footer layout elements for translation / active states
+          const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
+          elementIds.forEach(id => {
+            const oldEl = document.getElementById(id);
+            const newEl = doc.getElementById(id);
+            if (oldEl && newEl) {
+              oldEl.innerHTML = newEl.innerHTML;
+              oldEl.className = newEl.className;
+            }
+          });
+          
+          const oldFooter = document.querySelector('footer');
+          const newFooter = doc.querySelector('footer');
+          if (oldFooter && newFooter) {
+            oldFooter.innerHTML = newFooter.innerHTML;
+            oldFooter.className = newFooter.className;
+          }
+          
+          history.pushState(null, '', url);
+          window.dispatchEvent(new Event('scroll'));
+          
+          if (targetHash) {
+            setTimeout(() => {
+              smoothScrollToHash(targetHash);
+              highlightActiveLink(targetHash);
+            }, 100);
+          } else {
+            window.scrollTo(0, 0);
+            highlightActiveLink();
+          }
+        })
+        .catch(error => {
+          console.error('SPA Router Error:', error);
+          window.location.href = url; // Fallback
+        });
+    }
+
+    // Handle back/forward history buttons
+    window.addEventListener('popstate', function() {
+      fetch(window.location.href)
+        .then(r => r.text())
+        .then(htmlText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          document.title = doc.title;
+          document.documentElement.lang = doc.documentElement.lang || 'en';
+          
+          const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
+          elementIds.forEach(id => {
+            const oldEl = document.getElementById(id);
+            const newEl = doc.getElementById(id);
+            if (oldEl && newEl) {
+              oldEl.innerHTML = newEl.innerHTML;
+              oldEl.className = newEl.className;
+            }
+          });
+          
+          const oldFooter = document.querySelector('footer');
+          const newFooter = doc.querySelector('footer');
+          if (oldFooter && newFooter) {
+            oldFooter.innerHTML = newFooter.innerHTML;
+            oldFooter.className = newFooter.className;
+          }
+          
+          window.dispatchEvent(new Event('scroll'));
+          highlightActiveLink();
+          
+          if (window.location.hash) {
+            smoothScrollToHash(window.location.hash);
+          }
+        });
+    });
+
+    // Run once on load
+    window.dispatchEvent(new Event('scroll'));
+    highlightActiveLink();
+    
+    // Initial scroll to hash if present in URL
+    if (window.location.hash) {
+      setTimeout(() => {
+        smoothScrollToHash(window.location.hash);
+      }, 150);
+    }
+  </script>
 </body>
 </html>
