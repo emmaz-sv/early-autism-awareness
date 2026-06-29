@@ -4,3 +4,6 @@ baseurl: "/early-autism-awareness"
 markdown: kramdown
 exclude:
   - README.md
+
+last_updated: "Local Dev"
+git_sha: "local"

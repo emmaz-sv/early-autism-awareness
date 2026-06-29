@@ -201,7 +201,12 @@
           </div>
           <div class="mt-8 md:mt-0 text-slate-500 text-xs">
             <p class="mb-1">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-            <p>{% if page.lang == 'zh' %}来源：NIH, CDC, ChildFind - 详见资源页面。{% else %}Sources: NIH, CDC, ChildFind - links on the Resources page.{% endif %}</p>
+            <p class="mb-1">{% if page.lang == 'zh' %}来源：NIH, CDC, ChildFind - 详见资源页面。{% else %}Sources: NIH, CDC, ChildFind - links on the Resources page.{% endif %}</p>
+            {% if site.last_updated %}
+              <p class="mt-2 text-[10px] text-slate-600 font-mono">
+                {% if page.lang == 'zh' %}最后更新：{% else %}Last updated: {% endif %}{{ site.last_updated }} {% if site.git_sha %}({{ site.git_sha }}){% endif %}
+              </p>
+            {% endif %}
           </div>
         </div>
       </div>

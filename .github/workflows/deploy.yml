@@ -21,6 +21,7 @@ jobs:
         run: |
           echo "" >> docs/_config.yml
           echo "last_updated: \"$(git log -1 --format=%cd --date=format:'%B %d, %Y')\"" >> docs/_config.yml
+          echo "git_sha: \"$(git rev-parse --short HEAD)\"" >> docs/_config.yml
       - name: Build site
         run: |
           bundle exec jekyll build --source docs --destination _site
