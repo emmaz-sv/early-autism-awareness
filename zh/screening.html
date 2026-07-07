@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>M-CHAT-R 自闭症筛查工具 - Autism Early Intervention Awareness</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN with typography plugin -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f29900',
+              maroon: '#8a1515',
+              blue: '#1a73e8',
+              navy: '#0f172a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Lora', 'ui-serif', 'Georgia', 'serif'],
+            cursive: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="/early-autism-awareness/styles.css">
+  <meta name="description" content="一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。">
+  
+  <style>
+    .gold-brown-blur {
+      background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .gold-brown-blur::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
+                  radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .font-cursive {
+      font-family: Caveat, cursive;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+  
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
+  
+  <!-- Fixed Navbar Container -->
+  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <!-- Top Alert Banner -->
+    <div id="alert-banner" class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+      
+        <span>Girl Scout Gold Award 项目 - 推广早期自闭症诊断与干预意识</span>
+        <a href="/early-autism-awareness/zh/index.html#resources" class="underline hover:text-slate-900 transition ml-2">了解早期征兆 &rarr;</a>
+      
+    </div>
+    
+    <!-- Navigation Header -->
+    <header id="main-header" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <a href="/early-autism-awareness/" class="flex flex-col no-underline group">
+          <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl Scout Gold Award Project</span>
+        </a>
+      </div>
+      
+      <nav class="hidden lg:block">
+        <ul class="flex items-center gap-6 text-sm font-semibold">
+        
+          <li><a href="/early-autism-awareness/zh/index.html#home" class="text-slate-200 hover:text-white transition-colors">首页</a></li>
+          <li><a href="/early-autism-awareness/zh/screening.html" class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#resources" class="text-slate-200 hover:text-white transition-colors">资源</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#journal" class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#contact" class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
+          <li><a href="/early-autism-awareness/screening.html" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a></li>
+        
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden flex items-center gap-4">
+        
+          <a href="/early-autism-awareness/screening.html" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
+        
+        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
+      
+        <a href="/early-autism-awareness/zh/index.html#home" class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
+        <a href="/early-autism-awareness/zh/screening.html" class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
+        <a href="/early-autism-awareness/zh/index.html#resources" class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
+        <a href="/early-autism-awareness/zh/index.html#pamphlets" class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
+        <a href="/early-autism-awareness/zh/index.html#journal" class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
+        <a href="/early-autism-awareness/zh/index.html#contact" class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
+      
+    </div>
+  </div>
+
+  
+  
+
+  
+    <!-- Sub-page layout - wrapped in a container with nice typography -->
+    <main id="main-content" class="flex-grow bg-slate-50 pt-36 pb-20 min-h-screen">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 py-10 md:px-12 md:py-16">
+          <h1 class="text-3xl md:text-4xl font-extrabold font-serif text-brand-maroon tracking-tight mb-6">M-CHAT-R 自闭症筛查工具</h1>
+          
+            <p class="text-slate-600 text-lg mb-10 border-b border-slate-100 pb-6 font-medium">一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。</p>
+          
+          <div class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-brand-maroon prose-a:text-brand-blue hover:prose-a:underline">
+            <div class="not-prose">
+  <!-- Top Intro Section -->
+  <div class="mb-10 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wider text-brand-maroon uppercase bg-rose-50 border border-rose-200/50 rounded-full mb-3">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      经过临床验证的专业量表
+    </div>
+    <p class="text-slate-500 text-sm max-w-xl mx-auto">
+      修改版婴幼儿自闭症筛查量表（M-CHAT-R）是一个被广泛推荐用于评估婴幼儿自闭症风险的筛查工具。
+    </p>
+  </div>
+
+  <div id="screener-app" class="relative bg-white rounded-2xl border border-slate-100 shadow-sm p-6 md:p-8">
+    
+    <!-- STEP 1: START SCREEN -->
+    <div id="start-view" class="space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl font-bold text-slate-900 font-serif">筛查登记</h2>
+        <p class="text-slate-500 text-sm">
+          请提供以下基本信息以开始问卷。我们不会在服务器保存或传输您的任何个人数据。
+        </p>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-4 pt-4">
+        <div>
+          <label for="caregiver-name" class="block text-sm font-semibold text-slate-700 mb-1.5">家长/照料者名字 <span class="text-brand-maroon">*</span></label>
+          <input type="text" id="caregiver-name" placeholder="您的名字" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800" required>
+        </div>
+
+        <div>
+          <label for="child-name" class="block text-sm font-semibold text-slate-700 mb-1.5">宝宝名字（选填）</label>
+          <input type="text" id="child-name" placeholder="孩子的名字（帮助个性化问题）" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800">
+        </div>
+
+        <div>
+          <label for="child-age" class="block text-sm font-semibold text-slate-700 mb-1.5">宝宝月龄 <span class="text-brand-maroon">*</span></label>
+          <select id="child-age" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800 bg-white">
+            <option value="" disabled selected>请选择宝宝的年龄段</option>
+            <option value="16-18">16 - 18 个月</option>
+            <option value="19-24">19 - 24 个月</option>
+            <option value="25-30">25 - 30 个月</option>
+            <option value="other">16个月以下或30个月以上</option>
+          </select>
+          <p id="age-warning" class="hidden text-brand-orange text-xs mt-1.5 leading-relaxed">
+            <strong>注意：</strong> M-CHAT-R 量表仅适用于 16 至 30 个月的婴幼儿。其他年龄段的筛查结果可能不够准确。
+          </p>
+        </div>
+        
+        <div class="pt-4">
+          <button id="btn-start" class="w-full bg-brand-orange hover:bg-orange-600 text-slate-950 font-bold py-3.5 px-6 rounded-full transition-all duration-300 shadow-sm hover:shadow text-center flex items-center justify-center gap-2">
+            开始测评
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: QUIZ SCREEN -->
+    <div id="quiz-view" class="hidden space-y-6">
+      <!-- Progress Bar Area -->
+      <div class="space-y-2">
+        <div class="flex justify-between items-center text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <span id="quiz-progress-text">第 1 题，共 20 题</span>
+          <span id="quiz-percent-text">已完成 5%</span>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-2">
+          <div id="quiz-progress-bar" class="bg-brand-orange h-2 rounded-full transition-all duration-300" style="width: 5%"></div>
+        </div>
+      </div>
+
+      <!-- Illustration Container -->
+      <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex justify-center items-center h-48 md:h-64 shadow-inner">
+        <div id="quiz-illustration" class="w-full h-full max-w-[200px] flex items-center justify-center text-brand-maroon">
+          <!-- SVGs will be injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Question Text -->
+      <div class="space-y-3 text-center px-2">
+        <h3 id="quiz-question-text" class="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+          题目载入中...
+        </h3>
+        <p id="quiz-question-example" class="text-slate-500 text-sm md:text-base italic max-w-2xl mx-auto">
+          例子载入中...
+        </p>
+      </div>
+
+      <!-- Answers Buttons -->
+      <div class="grid grid-cols-2 gap-4 max-w-md mx-auto pt-2">
+        <button id="btn-yes" class="border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50/20 text-slate-800 hover:text-emerald-700 font-bold py-4 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1">
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-medium">通常表现为</span>
+          是
+        </button>
+        <button id="btn-no" class="border-2 border-slate-200 bg-white hover:border-brand-maroon hover:bg-rose-50/20 text-slate-800 hover:text-brand-maroon font-bold py-4 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1">
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-medium">通常表现为</span>
+          否
+        </button>
+      </div>
+
+      <!-- Back Navigation -->
+      <div class="flex justify-center pt-4">
+        <button id="btn-back" class="text-slate-500 hover:text-slate-800 text-sm font-medium transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          返回上一题
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: RESULTS SCREEN -->
+    <div id="results-view" class="hidden space-y-8">
+      
+      <!-- Top Title and Score -->
+      <div class="text-center space-y-3">
+        <h2 class="text-3xl font-extrabold text-slate-900 font-serif">筛查结果评估</h2>
+        <p id="results-greeting" class="text-slate-600 text-base">
+          感谢您完成筛查问卷。以下是您孩子的个性化评估结果。
+        </p>
+      </div>
+
+      <!-- Meter Gauge -->
+      <div class="max-w-md mx-auto bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-inner text-center space-y-4">
+        <div class="text-sm font-bold text-slate-400 uppercase tracking-wider">自闭症风险得分</div>
+        
+        <div class="relative flex items-center justify-center">
+          <div class="text-center">
+            <span id="results-score-num" class="text-5xl md:text-6xl font-black text-slate-800">0</span>
+            <span class="text-xl md:text-2xl font-bold text-slate-400">/20</span>
+          </div>
+        </div>
+
+        <div id="results-badge" class="inline-block px-6 py-2.5 rounded-full text-base font-extrabold tracking-wide uppercase transition-all">
+          低风险
+        </div>
+      </div>
+
+      <!-- Explanation & Clinical Guidance -->
+      <div class="max-w-2xl mx-auto bg-white border border-slate-150 rounded-2xl p-6 md:p-8 space-y-4 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-800 border-b border-slate-100 pb-3 flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          分值解析与指导建议
+        </h3>
+        
+        <!-- Risk Message Blocks -->
+        <div id="risk-desc-low" class="hidden space-y-3 text-slate-600 text-sm md:text-base leading-relaxed">
+          <p>
+            <strong>您的孩子处于低风险（Low Risk）类别。</strong> 这表明出现发育迟缓或自闭症的概率较低。
+          </p>
+          <p>
+            除非您有其他持续的发育疑虑，否则目前无需进行进一步的常规临床干预。如果您的孩子目前未满 24 个月，建议在其两岁生日后再次进行筛查，以跟踪其成长。
+          </p>
+        </div>
+
+        <div id="risk-desc-medium" class="hidden space-y-3 text-slate-600 text-sm md:text-base leading-relaxed">
+          <p>
+            <strong>您的孩子处于中风险（Medium Risk）类别。</strong> 这表明存在中等程度的发育迟缓或自闭症风险。
+          </p>
+          <p>
+            对于得分在 3-7 分的孩子，临床推荐做法是配合进行 **M-CHAT-R 后续访谈**（筛查的第二阶段），以排除因其他原因导致的“假警报”。我们强烈建议您打印或保存此报告，并与您孩子的儿科医生讨论测评结果。
+          </p>
+        </div>
+
+        <div id="risk-desc-high" class="hidden space-y-3 text-slate-600 text-sm md:text-base leading-relaxed">
+          <p>
+            <strong>您的孩子处于高风险（High Risk）类别。</strong> 这表明存在较高的自闭症可能性。
+          </p>
+          <p>
+            建议绕过第二阶段的后续访谈，立即联系发育行为儿科医生或心理评估专家，为您孩子预约全面的临床诊断评估，并申请社区的早期干预服务（Early Intervention）。早期的专业评估与康复支持对孩子的成长非常有益。
+          </p>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200/50 rounded-xl p-4 text-xs md:text-sm text-amber-800 leading-relaxed no-print">
+          <strong>重要免责声明：</strong> M-CHAT-R 是一项初步筛查工具，而非正式诊断测试。筛查结果呈阳性仅表明需要进一步的专业评估。如果您对孩子的发育有任何疑虑，无论测评得分如何，都请及时咨询专业的儿科医疗人员。
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto justify-center no-print">
+        <button id="btn-print" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          打印/保存评估结果
+        </button>
+        <button id="btn-restart" class="flex-1 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2 bg-white">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+          </svg>
+          重新测评
+        </button>
+      </div>
+
+      <!-- Detailed Breakdown Table -->
+      <div class="max-w-3xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 font-serif border-b border-slate-100 pb-3">
+          详细答题记录汇总
+        </h3>
+        
+        <div class="border border-slate-150 rounded-2xl overflow-hidden shadow-sm">
+          <div class="min-w-full divide-y divide-slate-150">
+            <div class="bg-slate-50 p-4 font-bold text-xs uppercase tracking-wider text-slate-500 grid grid-cols-12 gap-4">
+              <span class="col-span-1 text-center">序号</span>
+              <span class="col-span-8">测评行为与发育里程碑问题</span>
+              <span class="col-span-2 text-center">您的回答</span>
+              <span class="col-span-1 text-center">状态</span>
+            </div>
+            <div id="results-table-body" class="bg-white divide-y divide-slate-100 text-sm">
+              <!-- JS Injected rows -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @media print {
+    #alert-banner, #main-header, #mobile-menu, footer, .lang-switch-btn, .no-print, #btn-print, #btn-restart {
+      display: none !important;
+    }
+    main {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+      background: white !important;
+    }
+    .bg-white, .bg-slate-50 {
+      box-shadow: none !important;
+      border: none !important;
+      background: white !important;
+    }
+    #screener-app {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    #results-table-body {
+      background: white !important;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  // English layout has exact same SVGs
+  const svgDatabase = {
+    q1: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="25" cy="50" r="10" class="stroke-brand-maroon" />
+          <path d="M45,50 L85,25" class="stroke-brand-orange" stroke-dasharray="3 3" />
+          <polygon points="85,20 90,25 83,28" class="fill-brand-orange stroke-none" />
+          <path d="M22,35 C25,25 32,25 35,35" class="stroke-brand-maroon" />
+          <circle cx="25" cy="48" r="3" class="fill-brand-maroon" />
+          <path d="M40,50 L55,50" />
+          <path d="M50,45 L55,50 L50,55" />
+          <circle cx="85" cy="25" r="4" class="fill-brand-orange" />
+         </svg>`,
+    q2: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M35,25 C30,20 15,20 15,40 C15,55 25,60 30,55" />
+          <path d="M30,55 C32,50 32,45 30,40 C28,35 24,35 24,42" />
+          <path d="M42,20 C48,25 50,35 48,45" class="stroke-brand-orange" />
+          <path d="M52,15 C60,22 62,38 58,50" class="stroke-brand-orange" />
+          <path d="M62,10 C72,20 74,42 68,55" class="stroke-brand-orange" />
+          <path d="M80,50 A5,5 0 1,1 70,50 A5,5 0 1,1 80,50" class="stroke-brand-maroon fill-brand-maroon" />
+          <path d="M75,40 L75,25" class="stroke-brand-maroon" />
+         </svg>`,
+    q3: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M15,50 L65,50 C70,50 70,30 65,30 L15,30 C10,30 10,50 15,50" class="fill-rose-50" />
+          <path d="M65,35 C75,35 75,45 65,45" />
+          <path d="M40,30 L40,15 L45,15 L40,10 L35,15 L40,15" class="stroke-brand-orange" />
+          <path d="M22,35 C22,40 28,40 28,35 Z" class="fill-brand-maroon stroke-none" />
+          <rect x="75" y="40" width="15" height="10" rx="3" class="stroke-brand-maroon fill-white" />
+          <path d="M80,40 L80,33 C80,33 82,30 85,33 L85,40" class="stroke-brand-maroon" />
+         </svg>`,
+    q4: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M10,70 L30,50 L50,50 L70,30 L90,10" class="stroke-slate-300" stroke-width="4" />
+          <rect x="25" y="45" width="8" height="25" class="fill-rose-50" />
+          <rect x="45" y="30" width="8" height="40" class="fill-rose-50" />
+          <rect x="65" y="15" width="8" height="55" class="fill-rose-50" />
+          <circle cx="50" cy="22" r="6" class="stroke-brand-orange fill-brand-orange" />
+          <path d="M50,28 L50,42 M42,32 L58,32 M45,48 L50,42 L55,48" class="stroke-brand-maroon" />
+         </svg>`,
+    q5: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="35" cy="40" r="8" />
+          <circle cx="65" cy="40" r="8" />
+          <path d="M45,40 L55,40" />
+          <path d="M25,25 L35,34 M75,25 L65,34" />
+          <path d="M15,48 C18,48 20,40 18,36 C16,32 12,38 12,42" class="stroke-brand-orange" />
+          <path d="M85,48 C82,48 80,40 82,36 C84,32 88,38 88,42" class="stroke-brand-orange" />
+          <path d="M18,36 C20,32 23,32 23,38" class="stroke-brand-orange" />
+          <path d="M82,36 C80,32 77,32 77,38" class="stroke-brand-orange" />
+         </svg>`,
+    q6: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <line x1="60" y1="30" x2="95" y2="30" class="stroke-slate-300" />
+          <rect x="70" y="10" width="16" height="20" rx="3" class="fill-amber-50 stroke-brand-maroon" />
+          <path d="M10,65 Q25,60 45,45" class="stroke-brand-orange" />
+          <path d="M45,45 L50,42 M45,45 L42,48 M45,45 L48,48" class="stroke-brand-orange" />
+          <path d="M40,55 C43,58 48,52 45,45" class="stroke-brand-orange" />
+         </svg>`,
+    q7: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="75" cy="22" r="8" class="fill-brand-orange stroke-brand-orange" />
+          <path d="M75,10 L75,14 M75,30 L75,34 M63,22 L67,22 M83,22 L87,22 M67,14 L70,17 M80,27 L83,30" class="stroke-brand-orange" />
+          <path d="M10,70 Q25,65 50,45" class="stroke-brand-maroon" />
+          <path d="M50,45 L55,42 M50,45 L47,48" class="stroke-brand-maroon" />
+         </svg>`,
+    q8: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="35" cy="45" r="14" class="fill-rose-50" />
+          <circle cx="35" cy="38" r="3" class="fill-slate-700 stroke-none" />
+          <path d="M30,50 Q35,55 40,50" />
+          <circle cx="65" cy="45" r="14" class="fill-amber-50 stroke-brand-orange" />
+          <circle cx="65" cy="38" r="3" class="fill-brand-orange stroke-none" />
+          <path d="M60,50 Q65,55 70,50" class="stroke-brand-orange" />
+         </svg>`,
+    q9: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="50" cy="35" r="12" class="fill-rose-50" />
+          <circle cx="41" cy="23" r="4" class="fill-rose-50" />
+          <circle cx="59" cy="23" r="4" class="fill-rose-50" />
+          <circle cx="46" cy="32" r="1.5" class="fill-slate-700 stroke-none" />
+          <circle cx="54" cy="32" r="1.5" class="fill-slate-700 stroke-none" />
+          <path d="M48,38 Q50,40 52,38" />
+          <path d="M30,68 C35,55 65,55 70,68" class="stroke-brand-orange" stroke-width="3" />
+         </svg>`,
+    q10: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M15,40 L35,28 L35,52 L15,40 Z" class="fill-rose-50" />
+          <path d="M42,32 C47,35 47,45 42,48" class="stroke-brand-orange" />
+          <path d="M48,26 C56,31 56,49 48,54" class="stroke-brand-orange" />
+          <circle cx="75" cy="35" r="10" />
+          <path d="M75,45 L75,65 M68,52 L82,52" />
+          <path d="M70,35 A2,2 0 1,1 68,35" class="fill-slate-700" />
+         </svg>`,
+    q11: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="28" cy="40" r="15" class="fill-rose-50" />
+          <path d="M22,35 L25,35 M31,35 L34,35" stroke-width="3" />
+          <path d="M20,46 Q28,54 36,46" class="stroke-brand-maroon" stroke-width="3" />
+          <circle cx="72" cy="40" r="15" class="fill-amber-50 stroke-brand-orange" />
+          <path d="M66,35 L69,35 M75,35 L78,35" class="stroke-brand-orange" stroke-width="3" />
+          <path d="M64,46 Q72,54 80,46" class="stroke-brand-orange" stroke-width="3" />
+         </svg>`,
+    q12: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <rect x="35" y="25" width="30" height="40" rx="5" class="fill-slate-100" />
+          <circle cx="50" cy="40" r="8" />
+          <path d="M50,15 L50,25 M40,18 L46,23 M60,18 L54,23" stroke-width="3" />
+          <path d="M15,20 L25,30 L18,40 L30,50 L20,60" class="stroke-brand-maroon" stroke-width="3" />
+          <path d="M85,20 L75,30 L82,40 L70,50 L80,60" class="stroke-brand-maroon" stroke-width="3" />
+         </svg>`,
+    q13: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M25,55 C25,50 35,45 40,48 C45,51 43,62 35,62 C27,62 25,60 25,55 Z" class="fill-rose-50" />
+          <circle cx="44" cy="45" r="2.5" class="fill-brand-maroon" />
+          <circle cx="49" cy="48" r="2" class="fill-brand-maroon" />
+          <circle cx="53" cy="52" r="1.5" class="fill-brand-maroon" />
+          <path d="M55,30 C55,25 65,20 70,23 C75,26 73,37 65,37 C57,37 55,35 55,30 Z" class="fill-amber-50 stroke-brand-orange" />
+          <circle cx="74" cy="20" r="2.5" class="fill-brand-orange stroke-none" />
+          <circle cx="79" cy="23" r="2" class="fill-brand-orange stroke-none" />
+          <circle cx="83" cy="27" r="1.5" class="fill-brand-orange stroke-none" />
+         </svg>`,
+    q14: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M15,40 Q30,22 45,40 Q30,58 15,40 Z" class="fill-rose-50" />
+          <circle cx="30" cy="40" r="6" class="fill-brand-maroon" />
+          <circle cx="31" cy="38" r="2" class="fill-white stroke-none" />
+          <path d="M55,40 Q70,22 85,40 Q70,58 55,40 Z" class="fill-rose-50" />
+          <circle cx="70" cy="40" r="6" class="fill-brand-maroon" />
+          <circle cx="71" cy="38" r="2" class="fill-white stroke-none" />
+          <path d="M43,40 L57,40" class="stroke-brand-orange" stroke-dasharray="2 2" />
+         </svg>`,
+    q15: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M30,20 C35,20 38,28 35,38 L38,55 L28,55 L22,35 Z" class="fill-rose-50" />
+          <path d="M22,32 Q15,25 18,22 Q22,20 25,28" />
+          <path d="M70,20 C65,20 62,28 65,38 L62,55 L72,55 L78,35 Z" class="fill-amber-50 stroke-brand-orange" />
+          <path d="M78,32 Q85,25 82,22 Q78,20 75,28" class="stroke-brand-orange" />
+         </svg>`,
+    q16: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <circle cx="20" cy="35" r="8" />
+          <path d="M28,35 L60,35" class="stroke-brand-orange" stroke-dasharray="3 3" />
+          <circle cx="65" cy="35" r="4" class="fill-brand-orange stroke-none" />
+          <circle cx="45" cy="55" r="8" class="stroke-brand-maroon" />
+          <path d="M45,47 L60,38" class="stroke-brand-maroon" stroke-dasharray="2 2" />
+         </svg>`,
+    q17: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <polygon points="50,10 53,19 62,19 55,25 57,34 50,28 43,34 45,25 38,19 47,19" class="fill-brand-orange stroke-brand-orange" />
+          <circle cx="50" cy="55" r="8" />
+          <path d="M35,62 Q50,48 65,62" class="stroke-brand-maroon" />
+          <path d="M50,47 L50,38" stroke-dasharray="2 2" />
+         </svg>`,
+    q18: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M55,65 L55,40 L75,40 M55,50 L75,50 M75,40 L75,65" stroke-width="3" />
+          <rect x="30" y="32" width="16" height="12" rx="2" class="fill-amber-50 stroke-brand-orange" />
+          <line x1="38" y1="32" x2="38" y2="44" class="stroke-brand-orange" />
+          <path d="M46,38 Q58,35 62,40" class="stroke-brand-maroon" stroke-dasharray="3 3" />
+          <polygon points="60,42 65,40 60,37" class="fill-brand-maroon stroke-none" />
+         </svg>`,
+    q19: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <path d="M15,48 C20,38 30,38 35,48" class="stroke-brand-orange" stroke-width="3" />
+          <path d="M25,48 A8,8 0 1,1 15,48" stroke-width="2" stroke-dasharray="2 2" />
+          <circle cx="70" cy="40" r="12" class="fill-rose-50" />
+          <path d="M65,40 Q70,46 75,40" class="stroke-brand-maroon" stroke-width="2" />
+          <path d="M35,45 Q50,35 58,40" stroke-dasharray="3 3" />
+         </svg>`,
+    q20: `<svg class="w-24 h-24 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 100 80">
+          <line x1="20" y1="15" x2="80" y2="15" stroke-width="3" />
+          <line x1="25" y1="15" x2="15" y2="65" />
+          <line x1="75" y1="15" x2="85" y2="65" />
+          <line x1="45" y1="15" x2="43" y2="48" class="stroke-brand-orange" />
+          <line x1="55" y1="15" x2="53" y2="48" class="stroke-brand-orange" />
+          <rect x="40" y="48" width="18" height="4" class="fill-brand-orange stroke-brand-orange" />
+          <path d="M35,48 Q40,55 45,48" stroke-dasharray="2 2" />
+         </svg>`
+  };
+
+  const questions = [
+    {
+      text: "如果你指向房间内的某样物体，你的孩子会看它吗？",
+      example: "（例如，你指着一个玩具或动物，你的孩子会看这个玩具或动物吗？）",
+      reverse: false,
+      milestone: "共同关注（手势反应）",
+      desc: "跟随他人的指向动作表明孩子能够与他人共享注意力焦点，这对于早期的语言与社交发展极其关键。"
+    },
+    {
+      text: "你有没有想过你的孩子可能是聋的？",
+      example: "（请考虑孩子是否经常忽略您的说话，或者对日常声音表现得如同完全听不见一样。）",
+      reverse: true,
+      milestone: "听力反应能力",
+      desc: "检查孩子是否对言语声音反应较弱但对视觉和震动信号正常，有助于鉴别听力障碍与社会性沟通障碍。"
+    },
+    {
+      text: "你的孩子会玩假装游戏吗？",
+      example: "（例如，假装从空的杯子中喝水，假装打电话，或者假装喂娃娃、毛绒玩具？）",
+      reverse: false,
+      milestone: "功能性与想象性游戏",
+      desc: "假装游戏反映了认知抽象化与模仿能力，说明孩子开始理解环境中的日常活动与角色。"
+    },
+    {
+      text: "你的孩子喜欢爬东西吗？",
+      example: "（如家具、游乐场设施、或楼梯？）",
+      reverse: false,
+      milestone: "大运动协调能力",
+      desc: "主动攀爬与大运动探索表明了孩子对物理世界的正常好奇心与出色的身体协调性发育。"
+    },
+    {
+      text: "你的孩子会在离自己眼睛近的地方做出不正常的手指运动吗？",
+      example: "（例如，你的孩子会在眼睛前摆动手指吗？）",
+      reverse: true,
+      milestone: "刻板运动行为",
+      desc: "在眼睛前重复性地摆动手指寻求视觉或感官刺激可能指示着非典型的感官处理特征。"
+    },
+    {
+      text: "你的孩子会用一根手指指东西表示需要或寻求帮助吗？",
+      example: "（例如，指着他/她够不到的一块点心或玩具？）",
+      reverse: false,
+      milestone: "要求性指向（表达需求）",
+      desc: "用单指指向所需物表达需求是早期的非言语沟通方式，表现了孩子主动交流的动机。"
+    },
+    {
+      text: "你的孩子会用一根手指指东西，向你展示有趣的东西吗？",
+      example: "（例如，指向天空中的飞机或马路上的大卡车？）",
+      reverse: false,
+      milestone: "宣告性指向（分享兴趣）",
+      desc: "出于分享兴趣（而非仅仅索要物品）指东西是共同关注及社交性联结的核心里程碑。"
+    },
+    {
+      text: "你的孩子对其他孩子感兴趣吗？",
+      example: "（例如，你的孩子会看其他孩子，对他们笑，或者走向他们吗？）",
+      reverse: false,
+      milestone: "社交兴趣与同伴参与",
+      desc: "对其他小朋友产生好奇、报以微笑或主动走近，表明了早期人际交往意愿的发展。"
+    },
+    {
+      text: "你的孩子会把东西拿给你或举着东西给你看吗——不是寻求帮助，而只是分享？",
+      example: "（例如，给你看花、毛绒玩具动物或玩具卡车，纯粹是希望引起你的注意？）",
+      reverse: false,
+      milestone: "发起共同关注（展示物品）",
+      desc: "把心爱物品主动带给看护者观赏纯粹为了分享快乐，是重要的社交互动里程碑。"
+    },
+    {
+      text: "你叫孩子名字的时候，他/她会有反应吗？",
+      example: "（例如，你叫他/她的名字，他/她会抬头、说话或咿呀说话，或者停下正在做的事？）",
+      reverse: false,
+      milestone: "名字定向",
+      desc: "在被呼唤名字时能可靠地转向或抬头，表现了接收性语言能力与社会交往定向。"
+    },
+    {
+      text: "你对你的孩子笑的时候，他/她会回笑吗？",
+      example: "（这关注的是社交性互惠微笑，而非孩子独自开心时的笑容。）",
+      reverse: false,
+      milestone: "社交互惠（微笑反应）",
+      desc: "对父母的微笑报以微笑是人际互动中社会性情感互惠的重要标志。"
+    },
+    {
+      text: "你的孩子会因为日常噪音而感到不安吗？",
+      example: "（例如，你的孩子会因为吸尘器或高音量音乐而尖叫或大哭吗？）",
+      reverse: true,
+      milestone: "听觉感官敏感性",
+      desc: "对常规、普通的家用声音表现出极大的惊恐或抗拒，指明可能存在听觉感官超敏反应。"
+    },
+    {
+      text: "你的孩子会走路吗？",
+      example: "（独立行走，不需要扶着家具或大人牵着手。）",
+      reverse: false,
+      milestone: "大运动发育里程碑（行走）",
+      desc: "独立行走是 16 至 30 个月幼儿核心体格发育的重要里程碑。"
+    },
+    {
+      text: "当你对着他/她说话，和他/她玩耍，或者给他/她穿衣服时，他/她会与你对视吗？",
+      example: "（在日常互动中自然地注视您的眼睛。）",
+      reverse: false,
+      milestone: "眼神对视协调",
+      desc: "直接的眼神对视用于调节社交互动、传递注意力、以及建立情感联结。"
+    },
+    {
+      text: "你的孩子会模仿你做的事吗？",
+      example: "（例如，挥手再见、鼓掌或者发出有趣的声音？）",
+      reverse: false,
+      milestone: "社交与行为模仿",
+      desc: "模仿他人的动作或发声是幼儿学习社交手势、社会规则以及口头言语的根本途径。"
+    },
+    {
+      text: "如果你转头看某样东西，你的孩子也会向四周看，看你在看什么吗？",
+      example: "（顺着您的视线方向去看您正在注视的事物。）",
+      reverse: false,
+      milestone: "视线跟随",
+      desc: "视线转随父母表明孩子能理解他人的视角，有助于共享经验。"
+    },
+    {
+      text: "你的孩子会试图让你去看他/她吗？",
+      example: "（例如，你的孩子会看着你等待夸奖，或者说‘看’、‘看我’吗？）",
+      reverse: false,
+      milestone: "寻求关注行为",
+      desc: "主动追求照料者的认可或社交关注表明其具有寻求社交反馈和分享自豪感的强烈动机。"
+    },
+    {
+      text: "当你告诉你的孩子去做某事时，他/她能理解吗？",
+      example: "（例如，如果你不用手指，你的孩子能理解‘把书放在椅子上’或‘给我拿毯子’吗？）",
+      reverse: false,
+      milestone: "接收性语言能力（指令理解）",
+      desc: "在无视觉指引下能理解并听懂口头指令，证明孩子具备正常语言词汇理解力。"
+    },
+    {
+      text: "如果发生了新鲜事，你的孩子会看你的脸，来看你有什么感觉吗？",
+      example: "（例如，如果他/她听到了奇怪或有趣的声音，或者看到新玩具，他/她会看你的脸吗？）",
+      reverse: false,
+      milestone: "社会参照",
+      desc: "观看父母表情以获知对新异刺激的评判反应，表明孩子在使用社会参照来评估环境安全。"
+    },
+    {
+      text: "你的孩子喜欢运动吗？",
+      example: "（例如，在你的膝盖上摇晃或弹跳、被秋千荡漾？）",
+      reverse: false,
+      milestone: "前庭感官反应",
+      desc: "对物理震动与摇摆产生愉悦感表明其前庭神经感官整合功能正常发育。"
+    }
+  ];
+
+  // State
+  let currentStep = 0;
+  const answers = Array(20).fill(null);
+  let caregiverName = '';
+  let childName = '';
+  let childAge = '';
+
+  // Elements
+  const startView = document.getElementById('start-view');
+  const quizView = document.getElementById('quiz-view');
+  const resultsView = document.getElementById('results-view');
+  
+  const caregiverInput = document.getElementById('caregiver-name');
+  const childInput = document.getElementById('child-name');
+  const ageSelect = document.getElementById('child-age');
+  const ageWarning = document.getElementById('age-warning');
+  
+  const btnStart = document.getElementById('btn-start');
+  const btnYes = document.getElementById('btn-yes');
+  const btnNo = document.getElementById('btn-no');
+  const btnBack = document.getElementById('btn-back');
+  const btnPrint = document.getElementById('btn-print');
+  const btnRestart = document.getElementById('btn-restart');
+  
+  const progressText = document.getElementById('quiz-progress-text');
+  const percentText = document.getElementById('quiz-percent-text');
+  const progressBar = document.getElementById('quiz-progress-bar');
+  const illustrationContainer = document.getElementById('quiz-illustration');
+  const questionText = document.getElementById('quiz-question-text');
+  const questionExample = document.getElementById('quiz-question-example');
+  
+  const resultsGreeting = document.getElementById('results-greeting');
+  const resultsScoreNum = document.getElementById('results-score-num');
+  const resultsBadge = document.getElementById('results-badge');
+  const tableBody = document.getElementById('results-table-body');
+  
+  const riskLow = document.getElementById('risk-desc-low');
+  const riskMedium = document.getElementById('risk-desc-medium');
+  const riskHigh = document.getElementById('risk-desc-high');
+
+  // Age warning
+  ageSelect.addEventListener('change', function() {
+    if (ageSelect.value === 'other') {
+      ageWarning.classList.remove('hidden');
+    } else {
+      ageWarning.classList.add('hidden');
+    }
+  });
+
+  // Start Screener
+  btnStart.addEventListener('click', function() {
+    caregiverName = caregiverInput.value.trim();
+    childName = childInput.value.trim() || '宝宝';
+    childAge = ageSelect.value;
+    
+    if (!caregiverName) {
+      alert("请输入您的名字。");
+      caregiverInput.focus();
+      return;
+    }
+    if (!childAge) {
+      alert("请选择宝宝的月龄范围。");
+      ageSelect.focus();
+      return;
+    }
+    
+    startView.classList.add('hidden');
+    quizView.classList.remove('hidden');
+    currentStep = 0;
+    renderQuestion();
+  });
+
+  // Render question
+  function renderQuestion() {
+    const q = questions[currentStep];
+    const stepNum = currentStep + 1;
+    
+    progressText.innerText = `第 ${stepNum} 题，共 20 题`;
+    const percent = Math.round((currentStep / 20) * 100);
+    percentText.innerText = `已完成 ${percent}%`;
+    progressBar.style.width = `${percent === 0 ? 5 : percent}%`;
+    
+    const svgKey = `q${stepNum}`;
+    illustrationContainer.innerHTML = svgDatabase[svgKey] || '';
+    
+    let text = q.text;
+    let example = q.example;
+    if (childName !== '宝宝') {
+      text = text.replace(/你的孩子/g, childName);
+      example = example.replace(/你的孩子/g, childName);
+    }
+    
+    questionText.innerText = text;
+    questionExample.innerText = example;
+    
+    if (currentStep === 0) {
+      btnBack.classList.add('invisible');
+    } else {
+      btnBack.classList.remove('invisible');
+    }
+  }
+
+  // Answer handle
+  function handleAnswer(ansVal) {
+    answers[currentStep] = ansVal;
+    
+    if (currentStep < 19) {
+      currentStep++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  btnYes.addEventListener('click', () => handleAnswer(true));
+  btnNo.addEventListener('click', () => handleAnswer(false));
+  
+  btnBack.addEventListener('click', function() {
+    if (currentStep > 0) {
+      currentStep--;
+      renderQuestion();
+    }
+  });
+
+  // Calculate results
+  function showResults() {
+    quizView.classList.add('hidden');
+    resultsView.classList.remove('hidden');
+    
+    let score = 0;
+    questions.forEach((q, index) => {
+      const caregiverAnswer = answers[index];
+      const isAtRisk = q.reverse ? (caregiverAnswer === true) : (caregiverAnswer === false);
+      if (isAtRisk) {
+        score++;
+      }
+    });
+    
+    resultsGreeting.innerHTML = `尊敬的 <strong>${caregiverName}</strong> 父母，根据您的答题情况，以下是关于 <strong>${childName}</strong> 的自闭症早期筛查报告：`;
+    resultsScoreNum.innerText = score;
+    
+    resultsBadge.className = "inline-block px-6 py-2.5 rounded-full text-base font-extrabold tracking-wide uppercase transition-all";
+    riskLow.classList.add('hidden');
+    riskMedium.classList.add('hidden');
+    riskHigh.classList.add('hidden');
+    
+    if (score <= 2) {
+      resultsBadge.innerText = "低风险 (得分: " + score + ")";
+      resultsBadge.classList.add('bg-emerald-100', 'text-emerald-800', 'border', 'border-emerald-200');
+      riskLow.classList.remove('hidden');
+    } else if (score <= 7) {
+      resultsBadge.innerText = "中风险 (得分: " + score + ")";
+      resultsBadge.classList.add('bg-orange-100', 'text-orange-850', 'border', 'border-orange-200');
+      riskMedium.classList.remove('hidden');
+    } else {
+      resultsBadge.innerText = "高风险 (得分: " + score + ")";
+      resultsBadge.classList.add('bg-rose-100', 'text-rose-800', 'border', 'border-rose-200');
+      riskHigh.classList.remove('hidden');
+    }
+    
+    tableBody.innerHTML = '';
+    questions.forEach((q, index) => {
+      const caregiverAnswer = answers[index];
+      const isAtRisk = q.reverse ? (caregiverAnswer === true) : (caregiverAnswer === false);
+      
+      const row = document.createElement('div');
+      row.className = "p-4 grid grid-cols-12 gap-4 items-center align-middle hover:bg-slate-50 transition border-t border-slate-100";
+      
+      const numCell = document.createElement('span');
+      numCell.className = "col-span-1 text-center font-bold text-slate-400";
+      numCell.innerText = index + 1;
+      
+      const textCell = document.createElement('div');
+      textCell.className = "col-span-8 space-y-1";
+      
+      let text = q.text;
+      if (childName !== '宝宝') {
+        text = text.replace(/你的孩子/g, childName);
+      }
+      
+      textCell.innerHTML = `<p class="font-semibold text-slate-800 leading-tight">${text}</p>
+                            <p class="text-xs text-slate-400 font-mono">${q.milestone}: ${q.desc}</p>`;
+      
+      const ansCell = document.createElement('span');
+      ansCell.className = `col-span-2 text-center font-bold px-2 py-1 rounded-full text-xs uppercase ${caregiverAnswer ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'}`;
+      ansCell.innerText = caregiverAnswer ? '是' : '否';
+      
+      const statusCell = document.createElement('span');
+      statusCell.className = "col-span-1 text-center flex justify-center";
+      
+      if (isAtRisk) {
+        statusCell.innerHTML = `<span class="h-6 w-6 rounded-full bg-rose-100 border border-rose-200 text-brand-maroon flex items-center justify-center font-bold text-xs" title="注意（存在发育风险）">!</span>`;
+      } else {
+        statusCell.innerHTML = `<span class="h-6 w-6 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 flex items-center justify-center font-bold text-xs" title="通过">✓</span>`;
+      }
+      
+      row.appendChild(numCell);
+      row.appendChild(textCell);
+      row.appendChild(ansCell);
+      row.appendChild(statusCell);
+      
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Print
+  btnPrint.addEventListener('click', function() {
+    window.print();
+  });
+
+  // Restart
+  btnRestart.addEventListener('click', function() {
+    resultsView.classList.add('hidden');
+    startView.classList.remove('hidden');
+    
+    caregiverInput.value = '';
+    childInput.value = '';
+    ageSelect.value = '';
+    ageWarning.classList.add('hidden');
+    answers.fill(null);
+  });
+
+})();
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  
+
+  <!-- Global Redesigned Footer -->
+  <footer class="gold-brown-blur text-slate-300 py-16 border-t border-amber-950/20 relative z-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-800/80 pb-12 mb-8">
+        <div>
+          <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4">
+            联系我们
+          </h4>
+          <p class="text-lg text-white font-medium mb-4">ezhengva@gmail.com</p>
+          
+          <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4 mt-8">
+            关注我们
+          </h4>
+          <div class="flex gap-4">
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">Youtube</span>
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">WeChat</span>
+            <span class="text-slate-400 hover:text-white transition-colors cursor-default">Facebook</span>
+          </div>
+        </div>
+        
+        <div class="flex flex-col justify-between">
+          <div>
+            <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">
+              关于本项目
+            </h4>
+            <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+              
+                这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
+              
+            </p>
+          </div>
+          <div class="mt-8 md:mt-0 text-slate-500 text-xs">
+            <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
+            <p class="mb-1">来源：NIH, CDC, ChildFind - 详见资源页面。</p>
+            <p class="mt-2 text-[10px] text-slate-600 font-mono">
+              最后更新：July 07, 2026 (f9297a5)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Navigation Banner, Scroll Logic, Mobile Menu, and SPA Routing -->
+  <script>
+    function isSamePagePath(url1, url2) {
+      try {
+        const u1 = new URL(url1);
+        const u2 = new URL(url2);
+        const p1 = u1.pathname.replace(/\/$/, '').replace('/early-autism-awareness', '') || '/index.html';
+        const p2 = u2.pathname.replace(/\/$/, '').replace('/early-autism-awareness', '') || '/index.html';
+        return p1 === p2;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function smoothScrollToHash(hash) {
+      if (!hash) return;
+      const targetId = hash.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const headerOffset = 90;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function updateLanguageSwitches(hash) {
+      const langSwitches = document.querySelectorAll('.lang-switch-btn');
+      langSwitches.forEach(btn => {
+        try {
+          const url = new URL(btn.href);
+          url.hash = hash;
+          btn.href = url.href;
+        } catch (e) {}
+      });
+    }
+
+    function highlightActiveLink(forcedHash) {
+      const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
+      const isScreeningPage = window.location.pathname.includes('/screening');
+
+      if (isScreeningPage) {
+        navLinks.forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            if (linkUrl.pathname.includes('/screening')) {
+              link.classList.add('text-brand-orange');
+              link.classList.remove('text-slate-200');
+            } else {
+              link.classList.remove('text-brand-orange');
+              link.classList.add('text-slate-200');
+            }
+          } catch (e) {}
+        });
+        updateLanguageSwitches(forcedHash || '');
+        return;
+      }
+
+      if (forcedHash) {
+        navLinks.forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            if (linkUrl.hash === forcedHash) {
+              link.classList.add('text-brand-orange');
+              link.classList.remove('text-slate-200');
+            } else {
+              link.classList.remove('text-brand-orange');
+              link.classList.add('text-slate-200');
+            }
+          } catch (e) {}
+        });
+        updateLanguageSwitches(forcedHash);
+        return;
+      }
+      
+      // Scroll spy to identify the current visible section
+      const sections = ['home', 'overview', 'resources', 'pamphlets', 'journal', 'contact'];
+      let activeSectionId = 'home';
+      
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 140) {
+            activeSectionId = sectionId;
+          }
+        }
+      }
+      
+      navLinks.forEach(link => {
+        try {
+          const linkUrl = new URL(link.href);
+          const linkHash = linkUrl.hash || '#home';
+          if (linkHash === '#' + activeSectionId) {
+            link.classList.add('text-brand-orange');
+            link.classList.remove('text-slate-200');
+          } else {
+            link.classList.remove('text-brand-orange');
+            link.classList.add('text-slate-200');
+          }
+        } catch (e) {}
+      });
+
+      updateLanguageSwitches('#' + activeSectionId);
+    }
+
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar-container');
+      const header = document.getElementById('main-header');
+      const alertBanner = document.getElementById('alert-banner');
+      if (window.scrollY > 30) {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('bg-transparent');
+        header.classList.remove('py-6');
+        header.classList.add('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '0px';
+          alertBanner.style.padding = '0px';
+          alertBanner.style.opacity = '0';
+          alertBanner.style.overflow = 'hidden';
+        }
+      } else {
+        navbar.classList.remove('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
+        header.classList.add('py-6');
+        header.classList.remove('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '';
+          alertBanner.style.padding = '';
+          alertBanner.style.opacity = '1';
+        }
+      }
+      
+      highlightActiveLink();
+    });
+
+    // Mobile Menu Toggle via Event Delegation
+    document.addEventListener('click', function(e) {
+      const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
+      if (mobileMenuBtn) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.classList.toggle('hidden');
+        }
+      }
+    });
+
+    // SPA Router click listener
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      
+      const href = link.getAttribute('href');
+      // Ignore external, anchors, mailto, target blank, and files like PDFs
+      if (!href || href.startsWith('http') || href.startsWith('mailto:') || link.target === '_blank' || href.endsWith('.pdf')) {
+        return;
+      }
+      
+      const targetUrl = new URL(link.href, window.location.origin);
+      const currentUrl = new URL(window.location.href);
+      
+      // If it's a hash link on the same page path
+      if (targetUrl.hash && isSamePagePath(targetUrl.href, currentUrl.href)) {
+        e.preventDefault();
+        
+        // Hide mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+        
+        history.pushState(null, '', targetUrl.hash);
+        smoothScrollToHash(targetUrl.hash);
+        highlightActiveLink(targetUrl.hash);
+        return;
+      }
+      
+      // If it's a non-hash link or a different page
+      e.preventDefault();
+      navigateTo(link.href);
+    });
+
+    function navigateTo(url) {
+      const parsedUrl = new URL(url, window.location.origin);
+      const targetHash = parsedUrl.hash;
+
+      // Hide mobile menu if open
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+
+      const main = document.getElementById('main-content');
+      if (main) {
+        main.style.opacity = '0.3';
+        main.style.transition = 'opacity 150ms ease-out';
+      }
+      
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(htmlText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          
+          document.title = doc.title;
+          document.documentElement.lang = doc.documentElement.lang || 'en';
+          
+          // Swap header/footer layout elements for translation / active states
+          const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
+          elementIds.forEach(id => {
+            const oldEl = document.getElementById(id);
+            const newEl = doc.getElementById(id);
+            if (oldEl && newEl) {
+              oldEl.innerHTML = newEl.innerHTML;
+              oldEl.className = newEl.className;
+            }
+          });
+          
+          if (main) {
+            main.style.opacity = '1';
+          }
+          
+          const oldFooter = document.querySelector('footer');
+          const newFooter = doc.querySelector('footer');
+          if (oldFooter && newFooter) {
+            oldFooter.innerHTML = newFooter.innerHTML;
+            oldFooter.className = newFooter.className;
+          }
+          
+          history.pushState(null, '', url);
+          window.dispatchEvent(new Event('scroll'));
+          
+          if (targetHash) {
+            setTimeout(() => {
+              smoothScrollToHash(targetHash);
+              highlightActiveLink(targetHash);
+            }, 100);
+          } else {
+            window.scrollTo(0, 0);
+            highlightActiveLink();
+          }
+        })
+        .catch(error => {
+          console.error('SPA Router Error:', error);
+          window.location.href = url; // Fallback
+        });
+    }
+
+    // Handle back/forward history buttons
+    window.addEventListener('popstate', function() {
+      fetch(window.location.href)
+        .then(r => r.text())
+        .then(htmlText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          document.title = doc.title;
+          document.documentElement.lang = doc.documentElement.lang || 'en';
+          
+          const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
+          elementIds.forEach(id => {
+            const oldEl = document.getElementById(id);
+            const newEl = doc.getElementById(id);
+            if (oldEl && newEl) {
+              oldEl.innerHTML = newEl.innerHTML;
+              oldEl.className = newEl.className;
+            }
+          });
+          
+          const oldFooter = document.querySelector('footer');
+          const newFooter = doc.querySelector('footer');
+          if (oldFooter && newFooter) {
+            oldFooter.innerHTML = newFooter.innerHTML;
+            oldFooter.className = newFooter.className;
+          }
+          
+          window.dispatchEvent(new Event('scroll'));
+          highlightActiveLink();
+          
+          if (window.location.hash) {
+            smoothScrollToHash(window.location.hash);
+          }
+        });
+    });
+
+    // Run once on load
+    window.dispatchEvent(new Event('scroll'));
+    highlightActiveLink();
+    
+    // Initial scroll to hash if present in URL
+    if (window.location.hash) {
+      setTimeout(() => {
+        smoothScrollToHash(window.location.hash);
+      }, 150);
+    }
+  </script>
+</body>
+</html>

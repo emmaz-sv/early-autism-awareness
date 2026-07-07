@@ -62,6 +62,7 @@
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+  
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
   
   <!-- Fixed Navbar Container -->
@@ -87,6 +88,7 @@
         <ul class="flex items-center gap-6 text-sm font-semibold">
         
           <li><a href="/early-autism-awareness/index.html#home" class="text-slate-200 hover:text-white transition-colors">Home</a></li>
+          <li><a href="/early-autism-awareness/screening.html" class="text-slate-200 hover:text-white transition-colors">Autism Screener</a></li>
           <li><a href="/early-autism-awareness/index.html#resources" class="text-slate-200 hover:text-white transition-colors">Resources</a></li>
           <li><a href="/early-autism-awareness/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">Pamphlets</a></li>
           <li><a href="/early-autism-awareness/index.html#journal" class="text-slate-200 hover:text-white transition-colors">Project Journal</a></li>
@@ -113,6 +115,7 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
       
         <a href="/early-autism-awareness/index.html#home" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Home</a>
+        <a href="/early-autism-awareness/screening.html" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Autism Screener</a>
         <a href="/early-autism-awareness/index.html#resources" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Resources</a>
         <a href="/early-autism-awareness/index.html#pamphlets" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Pamphlets</a>
         <a href="/early-autism-awareness/index.html#journal" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Project Journal</a>
@@ -628,7 +631,7 @@
             <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
             <p class="mb-1">Sources: NIH, CDC, ChildFind - links on the Resources page.</p>
             <p class="mt-2 text-[10px] text-slate-600 font-mono">
-              Last updated: June 29, 2026 (58b720c)
+              Last updated: July 07, 2026 (f9297a5)
             </p>
           </div>
         </div>
@@ -679,7 +682,25 @@
 
     function highlightActiveLink(forcedHash) {
       const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
-      
+      const isScreeningPage = window.location.pathname.includes('/screening');
+
+      if (isScreeningPage) {
+        navLinks.forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            if (linkUrl.pathname.includes('/screening')) {
+              link.classList.add('text-brand-orange');
+              link.classList.remove('text-slate-200');
+            } else {
+              link.classList.remove('text-brand-orange');
+              link.classList.add('text-slate-200');
+            }
+          } catch (e) {}
+        });
+        updateLanguageSwitches(forcedHash || '');
+        return;
+      }
+
       if (forcedHash) {
         navLinks.forEach(link => {
           try {
