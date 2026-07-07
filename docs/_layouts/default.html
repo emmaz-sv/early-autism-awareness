@@ -62,6 +62,13 @@
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+  {% if page.url contains '/screening' %}
+    {% assign switch_target_en = '/screening.html' %}
+    {% assign switch_target_zh = '/zh/screening.html' %}
+  {% else %}
+    {% assign switch_target_en = '/index.html#home' %}
+    {% assign switch_target_zh = '/zh/index.html#home' %}
+  {% endif %}
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
   
   <!-- Fixed Navbar Container -->
@@ -90,18 +97,20 @@
         <ul class="flex items-center gap-6 text-sm font-semibold">
         {% if page.lang == 'zh' %}
           <li><a href="{{ '/zh/index.html#home' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">首页</a></li>
+          <li><a href="{{ '/zh/screening.html' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
           <li><a href="{{ '/zh/index.html#resources' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">资源</a></li>
           <li><a href="{{ '/zh/index.html#pamphlets' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
           <li><a href="{{ '/zh/index.html#journal' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
           <li><a href="{{ '/zh/index.html#contact' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
-          <li><a href="{{ '/index.html#home' | relative_url }}" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a></li>
+          <li><a href="{{ switch_target_en | relative_url }}" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a></li>
         {% else %}
           <li><a href="{{ '/index.html#home' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Home</a></li>
+          <li><a href="{{ '/screening.html' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Autism Screener</a></li>
           <li><a href="{{ '/index.html#resources' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Resources</a></li>
           <li><a href="{{ '/index.html#pamphlets' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Pamphlets</a></li>
           <li><a href="{{ '/index.html#journal' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Project Journal</a></li>
           <li><a href="{{ '/index.html#contact' | relative_url }}" class="text-slate-200 hover:text-white transition-colors">Contact & Presentations</a></li>
-          <li><a href="{{ '/zh/index.html#home' | relative_url }}" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">中文</a></li>
+          <li><a href="{{ switch_target_zh | relative_url }}" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">中文</a></li>
         {% endif %}
         </ul>
       </nav>
@@ -109,9 +118,9 @@
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center gap-4">
         {% if page.lang == 'zh' %}
-          <a href="{{ '/index.html#home' | relative_url }}" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
+          <a href="{{ switch_target_en | relative_url }}" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
         {% else %}
-          <a href="{{ '/zh/index.html#home' | relative_url }}" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">中文</a>
+          <a href="{{ switch_target_zh | relative_url }}" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">中文</a>
         {% endif %}
         <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,12 +134,14 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
       {% if page.lang == 'zh' %}
         <a href="{{ '/zh/index.html#home' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
+        <a href="{{ '/zh/screening.html' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
         <a href="{{ '/zh/index.html#resources' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
         <a href="{{ '/zh/index.html#pamphlets' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
         <a href="{{ '/zh/index.html#journal' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
         <a href="{{ '/zh/index.html#contact' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
       {% else %}
         <a href="{{ '/index.html#home' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Home</a>
+        <a href="{{ '/screening.html' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Autism Screener</a>
         <a href="{{ '/index.html#resources' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Resources</a>
         <a href="{{ '/index.html#pamphlets' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Pamphlets</a>
         <a href="{{ '/index.html#journal' | relative_url }}" class="block text-slate-200 hover:text-white py-2 text-base font-medium">Project Journal</a>
@@ -254,7 +265,25 @@
 
     function highlightActiveLink(forcedHash) {
       const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
-      
+      const isScreeningPage = window.location.pathname.includes('/screening');
+
+      if (isScreeningPage) {
+        navLinks.forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            if (linkUrl.pathname.includes('/screening')) {
+              link.classList.add('text-brand-orange');
+              link.classList.remove('text-slate-200');
+            } else {
+              link.classList.remove('text-brand-orange');
+              link.classList.add('text-slate-200');
+            }
+          } catch (e) {}
+        });
+        updateLanguageSwitches(forcedHash || '');
+        return;
+      }
+
       if (forcedHash) {
         navLinks.forEach(link => {
           try {
