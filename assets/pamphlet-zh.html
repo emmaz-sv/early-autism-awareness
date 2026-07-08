@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>自闭症早期干预意识项目 — 中文宣传册</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: "Plus Jakarta Sans", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      background: #fff;
+    }
+
+    /* ── Brand Tokens ────────────────────────────── */
+    :root {
+      --brand-orange: #f29900;
+      --brand-maroon: #8a1515;
+      --brand-blue:   #1a73e8;
+      --brand-navy:   #0f172a;
+      --slate-50:  #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --red-50:    #fef2f2;
+      --red-600:   #dc2626;
+      --red-700:   #b91c1c;
+      --red-800:   #991b1b;
+      --red-900:   #7f1d1d;
+    }
+
+    /* ── Print / Page Setup ──────────────────────── */
+    @page {
+      size: letter;
+      margin: 0;
+    }
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      padding: 0.55in 0.6in 0.5in;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* ── Typography ──────────────────────────────── */
+    .font-serif  { font-family: Lora, "Times New Roman", Georgia, "Noto Serif CJK SC", serif; }
+    .font-cursive { font-family: Caveat, cursive; }
+
+    h1 { font-size: 25pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    h2 { font-size: 15.5pt; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; }
+    h3 { font-size: 11.5pt; font-weight: 700; line-height: 1.35; }
+    h4 { font-size: 9.5pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    p, li { font-size: 9pt; }
+    .text-xs { font-size: 7.5pt; }
+    .text-sm { font-size: 8.5pt; }
+
+    /* ── Utility Classes ─────────────────────────── */
+    .text-brand-orange { color: var(--brand-orange); }
+    .text-brand-maroon { color: var(--brand-maroon); }
+    .text-brand-blue   { color: var(--brand-blue); }
+    .text-slate-400 { color: var(--slate-400); }
+    .text-slate-500 { color: var(--slate-500); }
+    .text-slate-600 { color: var(--slate-600); }
+    .text-slate-700 { color: var(--slate-700); }
+    .text-red-700   { color: var(--red-700); }
+    .text-red-900   { color: var(--red-900); }
+    .text-white { color: #fff; }
+
+    .bg-brand-maroon { background: var(--brand-maroon); }
+    .bg-brand-orange { background: var(--brand-orange); }
+
+    .font-bold   { font-weight: 700; }
+    .font-medium { font-weight: 500; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-wider { letter-spacing: 0.08em; }
+    .leading-relaxed { line-height: 1.7; }
+
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .items-start  { align-items: flex-start; }
+    .gap-2 { gap: 6px; }
+    .gap-3 { gap: 8px; }
+    .gap-4 { gap: 12px; }
+    .gap-6 { gap: 18px; }
+
+    /* ── Cover Page ───────────────────────────────── */
+    .cover {
+      background: #fafaf9;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      color: var(--slate-800);
+      position: relative;
+      padding: 0.8in 0.8in 0.6in;
+    }
+    .cover-content { position: relative; z-index: 1; width: 100%; }
+    .cover .subtitle {
+      font-size: 9.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      color: var(--brand-maroon);
+      margin-bottom: 12px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .cover .tagline {
+      font-size: 9.5pt;
+      color: var(--slate-600);
+      line-height: 1.65;
+      font-weight: 500;
+      max-width: 5.2in;
+      margin: 10px auto 0;
+    }
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 7.5pt;
+      color: var(--slate-600);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .cover-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+    }
+    .cover-footer {
+      width: 100%;
+      border-top: 1px solid var(--slate-200);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.5pt;
+      color: var(--slate-500);
+    }
+
+    /* ── Section Headers ─────────────────────────── */
+    .section-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brand-orange);
+      margin-bottom: 4px;
+    }
+    .section-title {
+      color: var(--brand-maroon);
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      font-size: 9pt;
+      color: var(--slate-500);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* ── Cards ────────────────────────────────────── */
+    .card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .card-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-maroon);
+      color: #fff;
+      font-size: 8pt;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .card-title { font-size: 10.5pt; font-weight: 700; color: var(--brand-maroon); }
+
+    .card ul { list-style: none; padding: 0; }
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 8.5pt;
+      color: var(--slate-600);
+      line-height: 1.55;
+    }
+    .card li .bullet {
+      color: var(--brand-orange);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Red-flag Callout ─────────────────────────── */
+    .red-flag {
+      background: var(--red-50);
+      border-left: 4px solid var(--red-600);
+      border-radius: 0 12px 12px 0;
+      padding: 12px 16px;
+    }
+    .red-flag h4 {
+      font-size: 9.5pt;
+      color: var(--red-900);
+      letter-spacing: 0;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .red-flag p {
+      font-size: 8.5pt;
+      color: var(--red-700);
+      line-height: 1.6;
+    }
+
+    /* ── Grid Layouts ─────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ── Screening Step Flow ──────────────────────── */
+    .step-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step-item {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+    }
+    .step-rail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 28px;
+      flex-shrink: 0;
+    }
+    .step-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8pt;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .step-line {
+      flex: 1;
+      width: 2px;
+      background: var(--slate-200);
+      min-height: 8px;
+    }
+    .step-content {
+      padding-bottom: 14px;
+      flex: 1;
+    }
+    .step-content h4 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--slate-800);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 2px;
+    }
+    .step-content p {
+      font-size: 8pt;
+      color: var(--slate-500);
+      line-height: 1.55;
+    }
+
+    /* ── Spectrum Wheel Section ───────────────────── */
+    .wheel-section {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .wheel-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+    .wheel-card svg { max-width: 180px; margin: 6px auto; }
+    .takeaway-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 8pt;
+      color: var(--slate-500);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* ── Contact / Resources Footer ──────────────── */
+    .contact-bar {
+      background: var(--brand-maroon);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .contact-bar h3 { font-size: 11pt; color: #fff; }
+    .contact-bar p  { font-size: 8pt; color: rgba(255,255,255,0.7); margin-top: 2px; }
+    .contact-email {
+      display: inline-block;
+      background: var(--brand-orange);
+      color: var(--brand-navy);
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    /* ── Resource link lists ──────────────────────── */
+    .resource-list { list-style: none; padding: 0; }
+    .resource-list li {
+      font-size: 8pt;
+      color: var(--slate-600);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--slate-100);
+      line-height: 1.5;
+    }
+    .resource-list li:last-child { border-bottom: none; }
+    .resource-list a {
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── Stat boxes ───────────────────────────────── */
+    .stat-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 22pt;
+      font-weight: 800;
+      color: var(--brand-orange);
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-500);
+      margin-top: 4px;
+    }
+    .stat-desc {
+      font-size: 7pt;
+      color: var(--slate-400);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ── Decorative corner dots ───────────────────── */
+    .corner-dot {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 0.04;
+    }
+    .corner-dot.tl { top: -30px; left: -30px; background: var(--brand-orange); }
+    .corner-dot.br { bottom: -30px; right: -30px; background: var(--brand-maroon); }
+
+    /* ── Page Number ──────────────────────────────── */
+    .page-num {
+      position: absolute;
+      bottom: 0.35in;
+      right: 0.6in;
+      font-size: 7pt;
+      color: var(--slate-400);
+      font-weight: 600;
+    }
+    .page-footer-left {
+      position: absolute;
+      bottom: 0.35in;
+      left: 0.6in;
+      font-size: 6.5pt;
+      color: var(--slate-400);
+    }
+
+    /* ── Print-specific ───────────────────────────── */
+    @media print {
+      body { background: #fff; }
+      .page { padding: 0.5in 0.55in 0.45in; }
+    }
+
+    /* ── Screen preview ──────────────────────────── */
+    @media screen {
+      body { background: #e2e8f0; padding: 20px 0; }
+      .page {
+        margin: 0 auto 20px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        border-radius: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE 1 — COVER (中文封面)                                 ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page cover">
+  <div class="corner-dot tl" style="opacity: 0.08;"></div>
+  <div class="corner-dot br" style="opacity: 0.08;"></div>
+
+  <div class="cover-content">
+    <div class="subtitle" style="font-family: 'Plus Jakarta Sans', sans-serif;">郑安欣 (Emma Zheng) 的女童军金奖项目</div>
+    <h1 class="font-serif">自闭症早期干预与认知</h1>
+    <div class="cover-badge">
+      <span class="dot"></span>
+      <span>双语资源指南 &nbsp;·&nbsp; 中文版</span>
+    </div>
+  </div>
+
+  <!-- Center Image Card showing hero_bg.png -->
+  <div style="width: 100%; max-width: 5.5in; position: relative; margin: 12px 0;">
+    <div style="position: absolute; -inset: 4px; background: rgba(242, 153, 0, 0.1); filter: blur(8px); border-radius: 20px;"></div>
+    <img src="./hero_bg.png" alt="父母与幼儿玩积木" style="position: relative; width: 100%; height: auto; max-height: 3.2in; object-fit: cover; border-radius: 18px; border: 1px solid var(--slate-200); box-shadow: 0 4px 12px rgba(0,0,0,0.06);" />
+  </div>
+
+  <div class="cover-content">
+    <p class="tagline">
+      旨在帮助华语家庭了解自闭症早期征兆、获取双语筛查资源并提供连接本地干预服务的具体步骤。
+    </p>
+  </div>
+
+  <div class="cover-footer">
+    <div>官方网站: <strong style="color: var(--brand-blue); text-decoration: none;">emmaz-sv.github.io/early-autism-awareness</strong></div>
+    <div>联系邮箱: <strong style="color: var(--slate-800);">ezhengva@gmail.com</strong></div>
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE 2 — 早期征兆与警示信号                                ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" style="padding-top: 0.5in;">
+  <div class="corner-dot tl"></div>
+
+  <div class="section-label">里程碑与警示信号</div>
+  <h2 class="font-serif section-title">早期征兆与发育警示信号</h2>
+  <p class="section-desc">自闭症是一种神经发育状况，最早可在 18–24 个月时被可靠地识别。及早识别发育警示信号，使家长能够在儿童大脑发育最关键的早期阶段获得干预服务。</p>
+
+  <!-- Two-column sign cards -->
+  <div class="two-col" style="margin-bottom: 14px;">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">1</span>
+        <span class="card-title">社交与沟通里程碑</span>
+      </div>
+      <ul>
+        <li><span class="bullet">•</span><span><strong>叫名字无反应：</strong> 在12个月大时，被叫到名字时没有转身或回应（常被误认为是听力问题）。</span></li>
+        <li><span class="bullet">•</span><span><strong>缺乏共同注意：</strong> 在18个月大时，不会用手指指引你看有趣的事物（例如，指着飞机或玩具），或者当你用手指指物时他不顺着看。</span></li>
+        <li><span class="bullet">•</span><span><strong>不分享兴趣：</strong> 在15个月大时，不会拿着或展示玩具/物品给父母，仅为了分享喜悦。</span></li>
+        <li><span class="bullet">•</span><span><strong>无模仿：</strong> 在18个月大时，不会模仿简单的动作、声音或面部表情。</span></li>
+        <li><span class="bullet">•</span><span><strong>无互动游戏：</strong> 在12个月大时，不会玩简单的互动游戏（如躲猫猫、拍手歌）或挥手说“再见”。</span></li>
+      </ul>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">2</span>
+        <span class="card-title">游戏与行为模式</span>
+      </div>
+      <ul>
+        <li><span class="bullet">•</span><span><strong>缺乏假装游戏：</strong> 在 18–24 个月大时，不会进行想象性游戏（例如，假装喂洋娃娃、接玩具电话或推动积木当车开）。</span></li>
+        <li><span class="bullet">•</span><span><strong>重复性行为：</strong> 反复拍手、摇晃身体或原地打转。</span></li>
+        <li><span class="bullet">•</span><span><strong>异常的游戏焦点：</strong> 以不寻常的方式玩玩具，例如反复转动玩具车的轮子或排列物品而非正常玩耍，如果这种顺序被打破会感到极度焦虑。</span></li>
+        <li><span class="bullet">•</span><span><strong>感官敏感：</strong> 对日常声音（如吸尘器或搅拌机）表现出极端痛苦，或者对灯光或旋转物体有异常的迷恋。</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6 Early Signs SVG Mini-Cards -->
+  <div style="margin-bottom: 14px;">
+    <h4 style="font-size: 8pt; color: var(--slate-400); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em;">直观快速参考 — 6 大核心警示征兆（12至36个月）</h4>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;">
+      <!-- 1: Limited eye contact -->
+      <div style="background: #EEEDFE; border: 1px solid #d5d0f5; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="18" r="7" fill="#AFA9EC"/>
+          <circle cx="38" cy="18" r="7" fill="#AFA9EC"/>
+          <circle cx="25" cy="16" r="3" fill="#26215C"/>
+          <circle cx="41" cy="16" r="3" fill="#26215C"/>
+          <path d="M22 28 Q30 26 38 28" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="42" y1="12" x2="52" y2="6" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round"/>
+          <polygon points="52,6 48,10 50,14" fill="#7F77DD"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #3C3489; margin-top: 2px;">眼神接触少</div>
+      </div>
+      <!-- 2: No pointing -->
+      <div style="background: #E1F5EE; border: 1px solid #a7e0cc; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="10" x2="30" y2="4" stroke="#F5C4B3" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="30" r="9" cy="14" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+          <line x1="24" y1="8" x2="36" y2="20" stroke="#E24B4A" stroke-width="1.5"/>
+          <line x1="36" y1="8" x2="24" y2="20" stroke="#E24B4A" stroke-width="1.5"/>
+          <path d="M20 30 Q26 22 30 18 L33 14 L36 18 L32 24 L38 20 L42 26 L34 30 L38 35 Z" fill="#F5C4B3" stroke="#D85A30" stroke-width="0.6"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #085041; margin-top: 2px;">不用手指出示</div>
+      </div>
+      <!-- 3: Delayed speech -->
+      <div style="background: #FAEEDA; border: 1px solid #ecd4a8; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12 Q12 4 20 4 L40 4 Q48 4 48 12 L48 24 Q48 32 40 32 L28 32 L20 40 L22 32 L20 32 Q12 32 12 24 Z" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2"/>
+          <circle cx="22" cy="18" r="3" fill="#EF9F27"/>
+          <circle cx="30" cy="18" r="3" fill="#EF9F27"/>
+          <circle cx="38" cy="18" r="3" fill="#EF9F27"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #633806; margin-top: 2px;">语言发育迟缓</div>
+      </div>
+      <!-- 4: Repetitive behaviors -->
+      <div style="background: #FEE2E2; border: 1px solid #f5c2c2; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 28 Q22 8 30 18 Q38 28 42 8" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="28" r="3" fill="#DC2626" fill-opacity="0.3"/>
+          <circle cx="42" cy="8" r="3" fill="#DC2626" fill-opacity="0.3"/>
+          <!-- Circular arrows -->
+          <path d="M14 4 A12 12 0 1 1 14 36" fill="none" stroke="#F87171" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <polygon points="14,36 10,32 18,32" fill="#F87171"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #991B1B; margin-top: 2px;">重复刻板行为</div>
+      </div>
+      <!-- 5: No pretend play -->
+      <div style="background: #EDE9FE; border: 1px solid #d4c8f5; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <!-- Toy block -->
+          <rect x="18" y="14" width="24" height="20" rx="3" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1.2"/>
+          <rect x="24" y="8" width="12" height="10" rx="2" fill="none" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="2 2"/>
+          <!-- X over block -->
+          <line x1="22" y1="18" x2="38" y2="30" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="38" y1="18" x2="22" y2="30" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #5B21B6; margin-top: 2px;">缺乏想象游戏</div>
+      </div>
+      <!-- 6: Sensory sensitivity -->
+      <div style="background: #ECFDF5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 8px; text-align: center;">
+        <svg viewBox="0 0 60 45" width="50" height="38" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ear -->
+          <path d="M20 15 C12 15 12 33 20 33" fill="none" stroke="#059669" stroke-width="1.5"/>
+          <path d="M20 20 C16 20 16 28 20 28" fill="none" stroke="#059669" stroke-width="1.2"/>
+          <!-- Sound waves -->
+          <path d="M30 18 C34 22 34 26 30 30" stroke="#10B981" stroke-width="1.2" fill="none"/>
+          <path d="M34 14 C40 20 40 28 34 34" stroke="#10B981" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M38 10 C46 18 46 30 38 38" stroke="#10B981" stroke-width="0.8" fill="none" opacity="0.35"/>
+          <!-- Lightning = distress -->
+          <polygon points="44,8 42,16 46,16 42,24" fill="#FBBF24" stroke="#D97706" stroke-width="0.6"/>
+        </svg>
+        <div style="font-size: 7pt; font-weight: 600; color: #065F46; margin-top: 2px;">感官知觉过敏</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Golden Rule red flag -->
+  <div class="red-flag">
+    <h4>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      “黄金法则”警示信号（任何年龄）
+    </h4>
+    <p><strong>任何技能退化或丧失</strong>（包括言语、咿呀学语、眼神接触、手势或任何年龄的社交能力）是一个重要的警示信号，需要立即由儿科医生进行发育评估。</p>
+  </div>
+
+  <div class="page-num">2</div>
+  <div class="page-footer-left">自闭症早期干预与认知 — 郑安欣的女童军金奖项目</div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE 3 — 筛查路径与谱系色彩轮                               ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" style="padding-top: 0.5in;">
+  <div class="corner-dot br"></div>
+
+  <div class="section-label">筛查路径</div>
+  <h2 class="font-serif section-title">寻求帮助的步骤：筛查与评估</h2>
+  <p class="section-desc">遵循以下步骤，引导您的家庭从最初的担忧到获得干预服务。</p>
+
+  <!-- Step Flow -->
+  <div class="step-flow" style="margin-bottom: 18px;">
+    <div class="step-item">
+      <div class="step-rail">
+        <div class="step-dot" style="background: var(--brand-orange);">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <h4>观察与追踪记录</h4>
+        <p>使用美国疾病预防控制中心（CDC）的“关注早期征兆，尽早行动”里程碑核对表。记录您在孩子的语言、眼神接触、游戏或社交参与方面的任何担忧。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-rail">
+        <div class="step-dot" style="background: var(--brand-blue);">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <h4>与儿科医生沟通</h4>
+        <p>在孩子 18 个月和 24 个月的健康儿童随访时，申请正式的发育筛查。主动向医生咨询 M-CHAT-R/F 筛查问卷。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-rail">
+        <div class="step-dot" style="background: var(--brand-maroon);">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <h4>进行全面诊断评估</h4>
+        <p>如果初筛结果显示有中高风险，应向发育儿科医生、儿童心理学家或多学科评估团队寻求全面的诊断评估。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-rail">
+        <div class="step-dot" style="background: #22c55e;">4</div>
+      </div>
+      <div class="step-content">
+        <h4>获取早期干预服务</h4>
+        <p>联系北维州本地的婴幼儿干预中心（0–3岁）或 Child Find 筛查项目（2–5岁）。早期干预是免费的，<strong>且无需提供诊断证明即可开始服务。无需社会安全号（SSN）。</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local DMV Contacts Box (北维州本地服务) -->
+  <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 14px; padding: 14px 16px; margin-bottom: 18px;">
+    <h4 style="font-size: 8.5pt; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">北维州（DMV）本地服务联系方式</h4>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 8pt; color: var(--slate-600);">
+      <div><strong style="color: var(--slate-800);">费尔法克斯 CSB</strong> — <span style="font-family: monospace; color: var(--brand-maroon); font-weight: 700;">(703) 324-4400</span><br><span style="font-size: 7pt; color: var(--slate-400);">申请干预与社区服务最重要电话，无需SSN。</span></div>
+      <div><strong style="color: var(--slate-800);">婴幼儿早期干预联系中心 (ITC)</strong><br><span style="font-size: 7pt; color: var(--slate-400);">为 0-3 岁发育迟缓或有发育风险的婴幼儿提供免费干预。</span></div>
+      <div><strong style="color: var(--slate-800);">Child Find 筛查项目 (FCPS)</strong><br><span style="font-size: 7pt; color: var(--slate-400);">费尔法克斯郡公立学校（FCPS）为20个月至5岁提供免费筛查。</span></div>
+      <div><strong style="color: var(--slate-800);">ASNV 协会</strong> — <span style="font-family: monospace; color: var(--brand-maroon); font-weight: 700;">(571) 328-5792</span><br><span style="font-size: 7pt; color: var(--slate-400);">北维吉尼亚自闭症协会，提供教育课程和互助小组。</span></div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div style="border-top: 1px solid var(--slate-200); margin-bottom: 14px;"></div>
+
+  <!-- Spectrum Wheel Section -->
+  <div class="section-label">改变认知观念</div>
+  <h2 class="font-serif section-title" style="font-size: 14pt;">多维自闭症谱系图（色彩轮）</h2>
+
+  <div class="wheel-section">
+    <!-- SVG Wheel (Updated with Chinese labels matching clinical accuracy) -->
+    <div class="wheel-card">
+      <div style="font-size: 7pt; font-weight: 800; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">直观理解神经多样性</div>
+      <div style="font-size: 8.5pt; font-weight: 700; color: var(--slate-800);" class="font-serif">多维自闭症谱系图（色彩轮）</div>
+      <svg viewBox="-22 0 244 206" style="width: 100%; height: auto; max-width: 180px; margin: 8px auto;">
+        <!-- Background grid circles -->
+        <circle cx="100" cy="100" r="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+        <circle cx="100" cy="100" r="60" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+        <circle cx="100" cy="100" r="40" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+        <circle cx="100" cy="100" r="20" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+        <!-- Spokes -->
+        <line x1="100" y1="20" x2="100" y2="180" stroke="#cbd5e1" stroke-width="1"/>
+        <line x1="20" y1="100" x2="180" y2="100" stroke="#cbd5e1" stroke-width="1"/>
+        <line x1="43.4" y1="43.4" x2="156.6" y2="156.6" stroke="#cbd5e1" stroke-width="1"/>
+        <line x1="43.4" y1="156.6" x2="156.6" y2="43.4" stroke="#cbd5e1" stroke-width="1"/>
+        <!-- Sensory (Pink) -->
+        <circle cx="100" cy="20" r="6" fill="#f43f5e"/>
+        <text x="100" y="12" font-size="6" text-anchor="middle" fill="#f43f5e" font-weight="bold" font-family="sans-serif">感官处理</text>
+        <!-- Language (Blue) -->
+        <circle cx="156.6" cy="43.4" r="6" fill="#3b82f6"/>
+        <text x="166" y="42" font-size="6" text-anchor="start" fill="#3b82f6" font-weight="bold" font-family="sans-serif">语言交流</text>
+        <!-- Social (Teal) -->
+        <circle cx="180" cy="100" r="6" fill="#14b8a6"/>
+        <text x="189" y="102" font-size="6" text-anchor="start" fill="#14b8a6" font-weight="bold" font-family="sans-serif">社交互动</text>
+        <!-- Motor (Green) -->
+        <circle cx="156.6" cy="156.6" r="6" fill="#22c55e"/>
+        <text x="166" y="162" font-size="6" text-anchor="start" fill="#22c55e" font-weight="bold" font-family="sans-serif">运动协调</text>
+        <!-- Executive (Yellow) -->
+        <circle cx="100" cy="180" r="6" fill="#eab308"/>
+        <text x="100" y="191" font-size="6" text-anchor="middle" fill="#eab308" font-weight="bold" font-family="sans-serif">执行功能</text>
+        <!-- Routines (Orange) -->
+        <circle cx="43.4" cy="156.6" r="6" fill="#f97316"/>
+        <text x="34" y="162" font-size="6" text-anchor="end" fill="#f97316" font-weight="bold" font-family="sans-serif">固定常规</text>
+        <!-- Interests (Purple) -->
+        <circle cx="20" cy="100" r="6" fill="#a855f7"/>
+        <text x="11" y="102" font-size="6" text-anchor="end" fill="#a855f7" font-weight="bold" font-family="sans-serif">专注兴趣</text>
+        <!-- Perception (Violet) -->
+        <circle cx="43.4" cy="43.4" r="6" fill="#6366f1"/>
+        <text x="34" y="42" font-size="6" text-anchor="end" fill="#6366f1" font-weight="bold" font-family="sans-serif">知觉处理</text>
+        <!-- Profile polygon -->
+        <polygon points="100,50 142.4,57.6 156,100 134,134 100,130 65,139 52,100 65,65" fill="#0284c7" fill-opacity="0.25" stroke="#0284c7" stroke-width="2"/>
+      </svg>
+      <div style="font-size: 6.5pt; color: var(--slate-400); font-style: italic;">每个自闭症儿童均拥有独特的雷达形态分布。</div>
+    </div>
+    <!-- Text Column -->
+    <div>
+      <p style="font-size: 8.5pt; color: var(--slate-600); line-height: 1.65; margin-bottom: 8px;">
+        目前，医学界与自闭症群体正在积极倡导改变以往对自闭症的线性分级观念。自闭症不再被看作是一个从“轻度/高功能”到“重度/低功能”的简单一维数轴，而是应当被看作是一个<strong>多维的色彩轮（自闭症轮）</strong>。
+      </p>
+      <p style="font-size: 8.5pt; color: var(--slate-600); line-height: 1.65; margin-bottom: 10px;">
+        色彩轮上的每一个“轴向”都代表了一组独立的神经发育维度（例如：感官处理、语言交流、社交互动、运动协调以及执行功能）。每个孩子在不同维度上都有其独特的表现，他们会展现出不同程度的发育差异，也会在特定方向上拥有出色的优势。
+      </p>
+      <div class="takeaway-box">
+        <strong>核心启示：</strong> 有的孩子可能在感官处理上极其敏感（需要较高的支持），但在语言表达和字词认知方面发育很快。另一些孩子可能在特定专注领域展现出惊人天赋，但在非结构化社交场合需要一定的引导。自闭症轮模型能更清晰地发掘出每个宝宝独特的强项并给以尊重。
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">3</div>
+  <div class="page-footer-left">自闭症早期干预与认知 — 郑安欣的女童军金奖项目</div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE 4 — 权威资源、数据统计与联系方式                      ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" style="padding-top: 0.5in;">
+  <div class="corner-dot tl"></div>
+
+  <div class="section-label">官方资源与项目说明</div>
+  <h2 class="font-serif section-title">获取更多权威资源与支持</h2>
+
+  <div class="two-col" style="margin-bottom: 16px;">
+    <div>
+      <h4 style="font-size: 8.5pt; color: var(--slate-700); margin-bottom: 8px; letter-spacing: 0.06em;">官方健康与研究资源</h4>
+      <ul class="resource-list">
+        <li><a href="https://www.cdc.gov/ncbddd/autism/screening.html">CDC — 孤独症谱系障碍筛查指南</a> — 监测指南。</li>
+        <li><a href="https://www.cdc.gov/ncbddd/autism/index.html">CDC — 自闭症谱系障碍基本信息</a> — 资源与信息。</li>
+        <li><a href="https://www.cdc.gov/actearly">CDC "关注早期征兆，尽早行动"</a> — 发育跟踪工具。</li>
+        <li><a href="https://www.nichd.nih.gov/health/topics/autism">NIH / NICHD: 自闭症与早期干预</a> — 科研支持资源。</li>
+        <li><a href="https://www.autismspeaks.org/">Autism Speaks 自闭症之声官网</a> — 自闭症支持与倡导资源。</li>
+        <li><a href="https://www.autismspeaks.org/tool-kit/100-day-kit-young-children">自闭症之声“100天工具包”</a> — 诊断初期家庭指南。</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 8.5pt; color: var(--slate-700); margin-bottom: 8px; letter-spacing: 0.06em;">双语与文化敏感资源</h4>
+      <ul class="resource-list">
+        <li><a href="https://www.autismspeaks.org/chinese-resources">自闭症之声中文资源包</a> — 免费下载翻译为中文的指南。</li>
+        <li><a href="https://www.caresseattle.org/">CARES 华语自闭症资源服务</a> — 华语家庭的同伴支持与讲座。</li>
+        <li><a href="https://www.fairfaxcounty.gov/neighborhood-community-services/infant-and-toddler-connection">婴幼儿早期干预联系中心 (Fairfax ITC)</a> — 为 0 至 3 岁儿童提供发育评估和干预服务。</li>
+        <li><a href="https://www.fcps.edu/academics/curriculum/early-childhood-education/early-childhood-child-find">FCPS Child Find 发育筛查项目</a> — 免费为 20 个月至 5 岁儿童提供筛查。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div style="border-top: 1px solid var(--slate-200); margin: 14px 0;"></div>
+
+  <!-- Common Myths vs. Clinical Facts (常见误区与事实) -->
+  <div class="section-label">常见误区解答</div>
+  <h2 class="font-serif section-title" style="font-size: 14pt; margin-bottom: 10px;">自闭症：常见误区与医学事实</h2>
+  <div class="three-col" style="margin-bottom: 16px;">
+    <!-- Card 1 -->
+    <div class="stat-box" style="text-align: left; padding: 14px 16px;">
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: var(--red-700); background: var(--red-50); border: 1px solid #fecaca; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">误区</span>
+      </div>
+      <p style="font-size: 8.5pt; font-weight: 700; color: var(--slate-800); line-height: 1.3; margin-bottom: 6px;">“会说话的宝宝肯定不是自闭症。”</p>
+      <div style="border-top: 1px dashed var(--slate-200); margin: 6px 0;"></div>
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: #16a34a; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">事实</span>
+      </div>
+      <p style="font-size: 7.5pt; color: var(--slate-600); line-height: 1.45;">自闭症是宽谱系。许多患儿说话流利，但在社交双向互动、理解非语言肢体符号或适应日常规则变化方面需要支持。</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="stat-box" style="text-align: left; padding: 14px 16px;">
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: var(--red-700); background: var(--red-50); border: 1px solid #fecaca; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">误区</span>
+      </div>
+      <p style="font-size: 8.5pt; font-weight: 700; color: var(--slate-800); line-height: 1.3; margin-bottom: 6px;">“孩子还小，等等看长大会不会好。”</p>
+      <div style="border-top: 1px dashed var(--slate-200); margin: 6px 0;"></div>
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: #16a34a; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">事实</span>
+      </div>
+      <p style="font-size: 7.5pt; color: var(--slate-600); line-height: 1.45;">在18–36个月的脑发育黄金期进行早期干预能取得最大成效。盲目“等待”往往会延误关键的康复干预时机。</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="stat-box" style="text-align: left; padding: 14px 16px;">
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: var(--red-700); background: var(--red-50); border: 1px solid #fecaca; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">误区</span>
+      </div>
+      <p style="font-size: 8.5pt; font-weight: 700; color: var(--slate-800); line-height: 1.3; margin-bottom: 6px;">“自闭症是因为家庭抚育冷漠导致的。”</p>
+      <div style="border-top: 1px dashed var(--slate-200); margin: 6px 0;"></div>
+      <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+        <span style="font-size: 7pt; font-weight: 800; text-transform: uppercase; color: #16a34a; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 2px 6px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.05em;">事实</span>
+      </div>
+      <p style="font-size: 7.5pt; color: var(--slate-600); line-height: 1.45;">自闭症是一种与生俱来的神经发育差异。全球大量科学研究表明，它与父母的教养方式、情感环境或疫苗完全无关。</p>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div style="border-top: 1px solid var(--slate-200); margin: 14px 0;"></div>
+
+  <!-- About + Key Takeaway -->
+  <div class="two-col" style="margin-bottom: 16px;">
+    <div>
+      <h4 style="font-size: 8.5pt; color: var(--slate-700); margin-bottom: 6px;">项目背景简介</h4>
+      <p style="font-size: 8pt; color: var(--slate-500); line-height: 1.65;">
+        本宣传册是郑安欣（Emma Zheng）女童军金奖项目的一部分，旨在提升大华府地区华语移民家庭和中国湖北省农村地区对早期自闭症筛查的认知。在18至36个月之间进行早期诊断并实施康复干预，是改善患儿长期发育质量的最关键因素。
+      </p>
+    </div>
+    <div>
+      <h4 style="font-size: 8.5pt; color: var(--slate-700); margin-bottom: 6px;">宣讲外展会场</h4>
+      <p style="font-size: 8pt; color: var(--slate-500); line-height: 1.65; margin-bottom: 6px;">
+        <strong>希望中文学校（泰森斯校区）</strong> — 在周六/周日下午家长休息时间（2:00–4:00 PM）举行宣讲会。
+      </p>
+      <p style="font-size: 8pt; color: var(--slate-500); line-height: 1.65;">
+        <strong>维也纳华语教会社区（CCCVA）</strong> — 地址：541 Marshall Rd. SW, Vienna, VA 22180。通过教会及社区网络分发资料。
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="contact-bar">
+    <div>
+      <h3>申请双语宣讲或获取资料</h3>
+      <p>我们可为中文学校、教会团体、儿科诊所和社区中心提供免费宣讲服务。</p>
+    </div>
+    <a href="mailto:ezhengva@gmail.com" class="contact-email">ezhengva@gmail.com</a>
+  </div>
+
+  <!-- Bottom decorative element -->
+  <div style="text-align: center; margin-top: 18px;">
+    <svg width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Puzzle piece strip -->
+      <path d="M10 6 h20 c0-3 5-3 5 0 h20 c0-3 5-3 5 0 h20 c0-3 5-3 5 0 h20 c0-3 5-3 5 0 h20 c0-3 5-3 5 0 h20 v12 h-20 c0 3-5 3-5 0 h-20 c0 3-5 3-5 0 h-20 c0 3-5 3-5 0 h-20 c0 3-5 3-5 0 h-20 c0 3-5 3-5 0 h-20 z"
+        fill="none" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="30" cy="12" r="3" fill="#f29900" opacity="0.4"/>
+      <circle cx="65" cy="12" r="3" fill="#1a73e8" opacity="0.4"/>
+      <circle cx="100" cy="12" r="3" fill="#8a1515" opacity="0.4"/>
+      <circle cx="135" cy="12" r="3" fill="#22c55e" opacity="0.4"/>
+      <circle cx="170" cy="12" r="3" fill="#a855f7" opacity="0.4"/>
+    </svg>
+    <div style="font-size: 7pt; color: var(--slate-400); margin-top: 4px;">
+      © 2026 郑安欣 — 美洲女童军个人金奖项目 &nbsp;·&nbsp; 所有宣传资料均可免费分发与使用。
+    </div>
+    <div style="font-size: 6.5pt; color: var(--slate-400); margin-top: 2px;">
+      参考来源：美国国立卫生研究院 (NIH), CDC, ChildFind, Autism Speaks &nbsp;·&nbsp; 官方网址: emmaz-sv.github.io/early-autism-awareness
+    </div>
+  </div>
+
+  <div class="page-num">4</div>
+  <div class="page-footer-left">自闭症早期干预与认知 — 郑安欣的女童军金奖项目</div>
+</div>
+
+</body>
+</html>
