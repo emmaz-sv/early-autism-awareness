@@ -230,6 +230,51 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
         </div>
       </div>
 
+      <!-- Scoring Reference Section -->
+      <div class="max-w-3xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 md:p-8 mt-10 space-y-4 text-xs md:text-sm text-slate-600">
+        <h4 class="text-base font-bold text-slate-800 font-serif border-b border-slate-200 pb-2">
+          临床评分算法与结果解读 (M-CHAT-R/F)
+        </h4>
+        
+        <div class="space-y-3 leading-relaxed">
+          <p>
+            <strong>评分标准：</strong> 除第 2、5、12 题外，回答 <strong>“否”</strong> 表示存在自闭症（孤独症）发育风险；对于第 2、5、12 题，回答 <strong>“是”</strong> 表示存在发育风险。每个代表发育风险的回答计 <strong>1 分</strong>。累加所有得分计算总分。
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">低风险 (0 - 2 分)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 leading-normal">
+                如果孩子小于 24 个月，请在其两岁生日后再次进行筛查。除非后续日常监测中出现发育异常迹象，否则无需采取进一步干预行动。
+              </p>
+            </div>
+            
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">中风险 (3 - 7 分)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 leading-normal">
+                建议进行随访访谈（M-CHAT-R/F 第二阶段）以针对风险点获取更多信息。若随访后得分仍为 2分 或更高，则筛查结果呈阳性。需采取行动：转介进行临床诊断评估和早期干预资格评估。若随访得分为 0-1分，则呈阴性，未来定期复查即可。
+              </p>
+            </div>
+            
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">高风险 (8 - 20 分)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 leading-normal">
+                临床上可直接跳过随访访谈阶段，立即转介进行专业发育诊断评估以及早期干预服务的资格评定。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 </div>
