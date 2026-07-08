@@ -66,7 +66,7 @@
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
   
   <!-- Fixed Navbar Container -->
-  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
     <!-- Top Alert Banner -->
     <div id="alert-banner" class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
       
@@ -634,7 +634,7 @@
             <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
             <p class="mb-1">Sources: NIH, CDC, ChildFind - links on the Resources page.</p>
             <p class="mt-2 text-[10px] text-slate-600 font-mono">
-              Last updated: July 07, 2026 (16a6e90)
+              Last updated: July 07, 2026 (e18a7e5)
             </p>
           </div>
         </div>
@@ -642,8 +642,19 @@
     </div>
   </footer>
 
-  <!-- Script for Navigation Banner, Scroll Logic, Mobile Menu, and SPA Routing -->
   <script>
+    function checkIsHome() {
+      const p = window.location.pathname.replace(/\/$/, '');
+      return p === '' || 
+             p === '/index.html' || 
+             p === '/zh' || 
+             p === '/zh/index.html' || 
+             p === '/early-autism-awareness' || 
+             p.endsWith('/early-autism-awareness/index.html') || 
+             p.endsWith('/early-autism-awareness/zh') || 
+             p.endsWith('/early-autism-awareness/zh/index.html');
+    }
+
     function isSamePagePath(url1, url2) {
       try {
         const u1 = new URL(url1);
@@ -756,6 +767,7 @@
       const navbar = document.getElementById('navbar-container');
       const header = document.getElementById('main-header');
       const alertBanner = document.getElementById('alert-banner');
+      const isHome = checkIsHome();
       if (window.scrollY > 30) {
         navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
         navbar.classList.remove('bg-transparent');
@@ -768,8 +780,13 @@
           alertBanner.style.overflow = 'hidden';
         }
       } else {
-        navbar.classList.remove('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
-        navbar.classList.add('bg-transparent');
+        if (isHome) {
+          navbar.classList.remove('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+          navbar.classList.add('bg-transparent');
+        } else {
+          navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+          navbar.classList.remove('bg-transparent');
+        }
         header.classList.add('py-6');
         header.classList.remove('py-4');
         if (alertBanner) {
