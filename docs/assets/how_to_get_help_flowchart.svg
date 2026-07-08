@@ -121,4 +121,10 @@
 
 <rect x="100" y="856" width="480" height="1" rx="0.5" fill="#B4B2A9" style="fill:rgb(180, 178, 169);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 <text x="340" y="848" text-anchor="middle" fill="#5F5E5A" style="fill:rgb(61, 61, 58);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Questions? Visit emmaz-sv.github.io/early-autism-awareness or talk to your pediatrician</text>
+
+<!-- Chinese Cultural Seal Accent -->
+<g transform="translate(620, 25)" opacity="0.9">
+  <rect width="24" height="24" rx="4" fill="#C1272D" />
+  <text x="12" y="17" font-family="'Noto Serif CJK SC', 'SimSun', serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">欣</text>
+</g>
 </svg>

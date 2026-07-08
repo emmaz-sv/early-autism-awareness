@@ -59,4 +59,10 @@
   <!-- Bottom banner -->
   <rect x="40" y="244" width="600" height="26" rx="8" fill="#1D9E75" opacity="0.15" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
   <text x="340" y="261" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#085041" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Early diagnosis before age 3 leads to significantly better outcomes · 3岁前早期诊断能显著改善预后</text>
+
+  <!-- Chinese Cultural Seal Accent -->
+  <g transform="translate(630, 16)" opacity="0.9">
+    <rect width="24" height="24" rx="4" fill="#C1272D" />
+    <text x="12" y="17" font-family="'Noto Serif CJK SC', 'SimSun', serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">欣</text>
+  </g>
 </svg>
