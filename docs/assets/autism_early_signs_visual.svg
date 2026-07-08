@@ -100,6 +100,17 @@
   <g transform="translate(630, 20)" opacity="0.9">
     <rect width="24" height="24" rx="2" fill="#B51C24" />
     <rect x="2" y="2" width="20" height="20" rx="1" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
-    <text x="12" y="13" font-family="Kaiti, STKaiti, 'Ma Shan Zheng', 'Zhi Mang Xing', 'Noto Serif CJK SC', 'SimSun', serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">欣</text>
+    <g fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 斤 (Left Side) -->
+      <path d="M 8.5 6 C 7 6 5 7.5 5 9.5" />
+      <path d="M 8.5 6 V 18" />
+      <path d="M 8.5 12 C 7 12 5 13.5 5 15.5 V 18" />
+      <!-- 欠 (Right Side) -->
+      <path d="M 15 6 C 13.5 6 12 7.5 12 9" />
+      <path d="M 12 9 H 18 V 11.5 H 12" />
+      <path d="M 15 11.5 V 14.5" />
+      <path d="M 15 14.5 C 13.5 15.5 12 16.5 12 18" />
+      <path d="M 15 14.5 C 16.5 15.5 18 16.5 18 18" />
+    </g>
   </g>
 </svg>
