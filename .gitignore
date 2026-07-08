@@ -3,3 +3,4 @@ docs/_site/
 .bundle/
 vendor/
 node_modules/
+_site/
