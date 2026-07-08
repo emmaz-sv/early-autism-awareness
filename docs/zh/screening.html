@@ -708,9 +708,9 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
     const q = questions[currentStep];
     const stepNum = currentStep + 1;
     
-    progressText.innerText = `第 ${stepNum} 题，共 20 题`;
+    progressText.textContent = `第 ${stepNum} 题，共 20 题`;
     const percent = Math.round((currentStep / 20) * 100);
-    percentText.innerText = `已完成 ${percent}%`;
+    percentText.textContent = `已完成 ${percent}%`;
     progressBar.style.width = `${percent === 0 ? 5 : percent}%`;
     
     const svgKey = `q${stepNum}`;
@@ -723,12 +723,12 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
       example = example.replace(/你的孩子/g, childName);
     }
     
-    questionText.innerText = text;
-    questionExample.innerText = example;
+    questionText.textContent = text;
+    questionExample.textContent = example;
     
     // Dynamic descriptive subtitles for Yes/No buttons
-    yesSub.innerText = q.yesSub;
-    noSub.innerText = q.noSub;
+    yesSub.textContent = q.yesSub;
+    noSub.textContent = q.noSub;
     
     if (currentStep === 0) {
       btnBack.classList.add('invisible');
@@ -774,7 +774,7 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
     });
     
     resultsGreeting.innerHTML = `尊敬的 <strong>${caregiverName}</strong> 父母，根据您的答题情况，以下是关于 <strong>${childName}</strong> 的发育评估报告：`;
-    resultsScoreNum.innerText = score;
+    resultsScoreNum.textContent = score;
     
     resultsBadge.className = "inline-block px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide uppercase transition-all shadow-sm";
     riskLow.classList.add('hidden');
@@ -782,15 +782,15 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
     riskHigh.classList.add('hidden');
     
     if (score <= 2) {
-      resultsBadge.innerText = "低风险 (得分: " + score + ")";
+      resultsBadge.textContent = "低风险 (得分: " + score + ")";
       resultsBadge.classList.add('bg-emerald-100', 'text-emerald-800', 'border', 'border-emerald-200');
       riskLow.classList.remove('hidden');
     } else if (score <= 7) {
-      resultsBadge.innerText = "中风险 (得分: " + score + ")";
+      resultsBadge.textContent = "中风险 (得分: " + score + ")";
       resultsBadge.classList.add('bg-orange-100', 'text-orange-850', 'border', 'border-orange-200');
       riskMedium.classList.remove('hidden');
     } else {
-      resultsBadge.innerText = "高风险 (得分: " + score + ")";
+      resultsBadge.textContent = "高风险 (得分: " + score + ")";
       resultsBadge.classList.add('bg-rose-100', 'text-rose-800', 'border', 'border-rose-200');
       riskHigh.classList.remove('hidden');
     }
@@ -805,7 +805,7 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
       
       const numCell = document.createElement('span');
       numCell.className = "col-span-1 text-center font-bold text-slate-400";
-      numCell.innerText = index + 1;
+      numCell.textContent = index + 1;
       
       const textCell = document.createElement('div');
       textCell.className = "col-span-8 space-y-1";
@@ -820,7 +820,7 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
       
       const ansCell = document.createElement('span');
       ansCell.className = `col-span-2 text-center font-bold px-2 py-1 rounded-full text-xs uppercase ${caregiverAnswer ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'}`;
-      ansCell.innerText = caregiverAnswer ? '是' : '否';
+      ansCell.textContent = caregiverAnswer ? '是' : '否';
       
       const statusCell = document.createElement('span');
       statusCell.className = "col-span-1 text-center flex justify-center";

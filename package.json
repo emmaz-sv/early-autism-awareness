@@ -1,0 +1,36 @@
+{
+  "name": "early-autism-awareness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmaz-sv/early-autism-awareness.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/emmaz-sv/early-autism-awareness/issues"
+  },
+  "homepage": "https://github.com/emmaz-sv/early-autism-awareness#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.19",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "beautiful-mermaid": "^1.1.3",
+    "mcp-cli": "https://github.com/philschmid/mcp-cli"
+  }
+}
