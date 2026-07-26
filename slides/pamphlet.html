@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: 11in 8.5in;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 11in;
+            height: 8.5in;
+            font-family: "Noto Sans CJK SC", "Noto Sans CJK SC Medium", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #16204a;
+        }
+
+        .sheet {
+            width: 11in;
+            height: 8.5in;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel {
+            width: 3.6667in;
+            height: 8.5in;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p-dark {
+            background: #5b78b8;
+        }
+
+        .p-light {
+            background: #c7d3f5;
+        }
+
+        .p-white {
+            background: #ffffff;
+        }
+
+        .badge {
+            position: absolute;
+            top: 0.28in;
+            left: 0.28in;
+            background: #f6c874;
+            color: #16204a;
+            font-weight: 900;
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 18px 18px 18px 4px;
+            z-index: 10;
+        }
+
+        .squiggle {
+            position: absolute;
+            top: 0.04in;
+            left: 0.04in;
+            width: 1.4in;
+            opacity: 0.9;
+        }
+
+        .asterisk {
+            position: absolute;
+            opacity: 0.85;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 0.26in 0.28in;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---- Panel 1: dark ---- */
+        .speech-icon {
+            position: absolute;
+            top: 1.25in;
+            left: 0.55in;
+            width: 2.1in;
+        }
+
+        .mission-heading {
+            position: absolute;
+            top: 3.15in;
+            left: 0.32in;
+            font-size: 21px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .mission-body {
+            position: absolute;
+            top: 3.65in;
+            bottom: 0.35in;
+            left: 0.32in;
+            right: 0.28in;
+            color: #eef1fb;
+            font-size: 12.5px;
+            line-height: 1.8;
+            text-align: justify;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .mission-body .lbl {
+            display: block;
+            color: #ffe8b0;
+            font-weight: 900;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .mission-body p {
+            margin-bottom: 12px;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .mission-body .highlight-box {
+            background: rgba(255, 255, 255, 0.12);
+            border-left: 3.5px solid #ffe8b0;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .mission-body .highlight-box b {
+            color: #ffe8b0;
+        }
+
+        .mission-body .highlight-box .big {
+            font-size: 16px;
+            font-weight: 900;
+            color: #ffe8b0;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* ---- Panel 2: light (adjusted for spacing and new wheel) ---- */
+        .p-light .content {
+            justify-content: flex-start;
+            gap: 2px;
+        }
+
+        .title-block {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .title-block h2 {
+            font-size: 17px;
+            line-height: 1.2;
+            font-weight: 900;
+            color: #16204a;
+        }
+
+        .title-block h2 small {
+            font-size: 12px;
+            font-weight: 600;
+            color: #3a4a7a;
+            display: block;
+        }
+
+        .signs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 4px 0 6px;
+            justify-content: space-between;
+        }
+
+        .sign-chip {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 5px 2px;
+            font-size: 8.8px;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: 700;
+            width: 48%;
+            margin-bottom: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            color: #16204a;
+        }
+
+        .sign-chip .ic {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        .gold-rule {
+            background: #16204a;
+            color: #ffe8b0;
+            border-radius: 8px;
+            padding: 7px 10px;
+            font-size: 8.8px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .gold-rule b {
+            color: #ffffff;
+        }
+
+        .mini-h {
+            font-size: 11px;
+            font-weight: 900;
+            margin: 6px 0 4px;
+            text-align: center;
+            color: #16204a;
+        }
+
+        .milestone-line {
+            font-size: 8.2px;
+            line-height: 1.4;
+            padding-left: 6px;
+            color: #1e2a5a;
+            margin-bottom: 3px;
+        }
+
+        .milestone-line strong {
+            color: #0f1a4a;
+        }
+
+        .sec-title-p2 {
+            color: #16204a;
+            font-weight: 900;
+            font-size: 11px;
+            margin: 8px 0 5px;
+            text-align: center;
+            border-top: 1px dashed #9aa4c5;
+            padding-top: 8px;
+        }
+
+        .step-line {
+            font-size: 8.8px;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            padding-left: 17px;
+            position: relative;
+            color: #1e2a5a;
+        }
+
+        .step-line b.n {
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #16204a;
+            color: #fff;
+            font-size: 7.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ---- New: Spectrum Wheel compact block for Panel 2 ---- */
+        .wheel-block {
+            border-top: 1.5px dashed #9aa4c5;
+            margin: 6px 0 0;
+            padding-top: 8px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 8px 10px;
+            flex-shrink: 0;
+        }
+
+        .wheel-block svg {
+            width: 0.9in;
+            height: 0.9in;
+            flex-shrink: 0;
+        }
+
+        .wheel-text {
+            font-size: 8px;
+            color: #1e2a5a;
+            line-height: 1.5;
+        }
+
+        .wheel-text b {
+            color: #16204a;
+            font-size: 8.5px;
+        }
+
+        /* ---- Panel 3: white ---- */
+        .p-white .content {
+            justify-content: flex-start;
+        }
+
+        .right-title {
+            text-align: right;
+            margin-bottom: 4px;
+        }
+
+        .right-title h2 {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #16204a;
+        }
+
+        .right-title p {
+            font-size: 8.5px;
+            margin-top: 2px;
+            color: #3a4a7a;
+            line-height: 1.3;
+        }
+
+        .hands-icon {
+            width: 0.85in;
+            margin: 4px auto 6px;
+            display: block;
+        }
+
+        .myth-heading {
+            font-size: 13px;
+            font-weight: 900;
+            margin: 4px 0 6px;
+            text-align: center;
+            color: #16204a;
+        }
+
+        .mf-card {
+            border: 1.2px solid #d8deef;
+            border-radius: 7px;
+            padding: 5px 8px;
+            margin-bottom: 5px;
+        }
+
+        .mf-tag {
+            display: inline-block;
+            font-size: 6.5px;
+            font-weight: 900;
+            border-radius: 6px;
+            padding: 1px 6px;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .mf-myth {
+            background: #fbe0e0;
+            color: #a33;
+        }
+
+        .mf-fact {
+            background: #dff2e4;
+            color: #2b7a4b;
+        }
+
+        .mf-q {
+            font-size: 8px;
+            font-weight: 700;
+            margin-bottom: 1px;
+            color: #16204a;
+        }
+
+        .mf-a {
+            font-size: 7.2px;
+            line-height: 1.3;
+            color: #374067;
+        }
+
+        .contact-pill {
+            background: #5b78b8;
+            color: #fff;
+            text-align: center;
+            font-weight: 900;
+            font-size: 11px;
+            padding: 4px;
+            border-radius: 16px;
+            margin: 6px 0 4px;
+            letter-spacing: 1px;
+        }
+
+        .contact-list div {
+            font-size: 8px;
+            margin-bottom: 3px;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.35;
+            color: #1e2a5a;
+        }
+
+        .contact-list div:before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #5b78b8;
+            font-weight: bold;
+        }
+
+        .footer-mini {
+            position: absolute;
+            bottom: 0.08in;
+            left: 0.28in;
+            right: 0.28in;
+            font-size: 6px;
+            color: #9aa4c5;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ---- Responsive / Print ---- */
+        @media print {
+            .sheet {
+                width: 11in;
+                height: 8.5in;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+
+        <!-- ═══ Panel 1: dark blue — 我的使命 ═══ -->
+        <div class="panel p-dark">
+            <svg class="squiggle" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,90 C10,40 70,40 70,80 C70,120 20,120 20,80 C20,40 90,10 130,40" stroke="#3f57a0"
+                    stroke-width="10" fill="none" stroke-linecap="round" />
+            </svg>
+            <div class="badge">女童军金奖项目</div>
+            <svg class="asterisk" style="top:0.3in; right:0.42in; width:0.42in;" viewBox="0 0 40 40">
+                <g stroke="#3f57a0" stroke-width="5" stroke-linecap="round">
+                    <line x1="20" y1="2" x2="20" y2="38" />
+                    <line x1="2" y1="20" x2="38" y2="20" />
+                    <line x1="7" y1="7" x2="33" y2="33" />
+                    <line x1="33" y1="7" x2="7" y2="33" />
+                </g>
+            </svg>
+
+            <svg class="speech-icon" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="95" cy="110" rx="90" ry="75" fill="#3f57a0" />
+                <path
+                    d="M110,40 h150 a40,40 0 0 1 40,40 v70 a40,40 0 0 1 -40,40 h-110 l-45,45 5,-55 h-0 a40,40 0 0 1 -40,-40 v-60 a40,40 0 0 1 40,-40 z"
+                    fill="#ffffff" />
+                <circle cx="185" cy="115" r="11" fill="#16204a" />
+                <circle cx="230" cy="115" r="11" fill="#16204a" />
+                <circle cx="275" cy="115" r="11" fill="#16204a" />
+            </svg>
+
+            <div class="mission-heading">我的使命</div>
+            <div class="mission-body">
+                <span class="lbl">郑安欣（Emma Zheng）· 女童军金奖项目</span>
+                <p>提升湖北省家庭对早期自闭症筛查的认知，帮助家长识别早期征兆，并顺利连接本地可负担的诊断与干预资源。</p>
+                <div class="highlight-box">
+                    <span class="big">🧠 脑发育黄金期</span>
+                    18–36 个月是儿童大脑发育的最关键阶段，及早诊断与干预是改善患儿长期发育质量的核心决定因素。
+                </div>
+                <p style="font-size:11px; margin-top:6px; color:#d4dcf5;">
+                    <strong>项目覆盖：</strong> 大华府地区华语移民家庭 · 中国湖北省农村地区 · 双语资源与宣讲
+                </p>
+            </div>
+        </div>
+
+        <!-- ═══ Panel 2: light blue — 早期征兆 & 寻求帮助4步骤 + 色彩轮 ═══ -->
+        <div class="panel p-light">
+            <div class="content">
+                <div class="title-block">
+                    <h2>早期征兆 &amp; 发育警示信号 <small>12–36 个月核心指标</small></h2>
+                </div>
+
+                <div class="signs-grid">
+                    <div class="sign-chip"><span class="ic">👀</span>眼神接触少</div>
+                    <div class="sign-chip"><span class="ic">👆</span>不用手指出示</div>
+                    <div class="sign-chip"><span class="ic">💬</span>语言发育迟缓</div>
+                    <div class="sign-chip"><span class="ic">🔁</span>重复刻板行为</div>
+                    <div class="sign-chip"><span class="ic">🧸</span>缺乏想象游戏</div>
+                    <div class="sign-chip"><span class="ic">📢</span>感官知觉过敏</div>
+                </div>
+
+                <div class="gold-rule">
+                    <b>⚠️ "黄金法则"（任何年龄）：</b>任何言语、眼神接触、手势或社交能力的退化或丧失，都需立即由儿科医生进行发育评估。
+                </div>
+
+                <div class="mini-h">🧩 社交与游戏里程碑</div>
+                <div class="milestone-line"><strong>12个月：</strong>叫名无反应 · 不玩互动游戏（躲猫猫）</div>
+                <div class="milestone-line"><strong>15个月：</strong>不主动展示玩具分享喜悦</div>
+                <div class="milestone-line"><strong>18–24个月：</strong>不会手指指物 · 不模仿 · 不假装游戏</div>
+                <div class="milestone-line"><strong>行为模式：</strong>反复拍手/摇晃/打转 · 对声音光线异常敏感</div>
+
+                <div class="sec-title-p2">📋 寻求帮助 4 步骤</div>
+                <div class="step-line"><b class="n">1</b><b>观察记录：</b>留意"预警征象"，记录担忧细节。</div>
+                <div class="step-line"><b class="n">2</b><b>与医生沟通：</b>儿保随访时申请 M-CHAT-R/F 筛查。</div>
+                <div class="step-line"><b class="n">3</b><b>全面评估：</b>中高风险转介发育行为儿科或专家团队。</div>
+                <div class="step-line"><b class="n">4</b><b>获取早期干预：</b>在部分实施政策的地区，符合条件的 0–6 岁孤独症儿童，持证明申请"精准康复项目"，每年可获得 1.6 万至 2.2 万元不等的康复补贴。</div>
+
+                <!-- ═══ 新增：多维自闭症谱系图（色彩轮）═══ -->
+                <div class="wheel-block">
+                    <svg viewBox="-22 0 244 206" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" stroke="#9aa4c5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" />
+                        <circle cx="100" cy="100" r="60" stroke="#9aa4c5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" />
+                        <circle cx="100" cy="100" r="40" stroke="#9aa4c5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" />
+                        <circle cx="100" cy="100" r="20" stroke="#9aa4c5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" />
+                        <line x1="100" y1="20" x2="100" y2="180" stroke="#cbd5e1" stroke-width="1.5" />
+                        <line x1="20" y1="100" x2="180" y2="100" stroke="#cbd5e1" stroke-width="1.5" />
+                        <line x1="43.4" y1="43.4" x2="156.6" y2="156.6" stroke="#cbd5e1" stroke-width="1.5" />
+                        <line x1="43.4" y1="156.6" x2="156.6" y2="43.4" stroke="#cbd5e1" stroke-width="1.5" />
+                        <circle cx="100" cy="20" r="5" fill="#f43f5e" />
+                        <circle cx="156.6" cy="43.4" r="5" fill="#3b82f6" />
+                        <circle cx="180" cy="100" r="5" fill="#14b8a6" />
+                        <circle cx="156.6" cy="156.6" r="5" fill="#22c55e" />
+                        <circle cx="100" cy="180" r="5" fill="#eab308" />
+                        <circle cx="43.4" cy="156.6" r="5" fill="#f97316" />
+                        <circle cx="20" cy="100" r="5" fill="#a855f7" />
+                        <circle cx="43.4" cy="43.4" r="5" fill="#6366f1" />
+                        <polygon points="100,50 142.4,57.6 156,100 134,134 100,130 65,139 52,100 65,65" fill="#0284c7" fill-opacity="0.25" stroke="#0284c7" stroke-width="2" />
+                    </svg>
+                    <div class="wheel-text">
+                        <b>🧩 多维自闭症谱系图（色彩轮）</b><br>
+                        自闭症是宽谱系，各维度（感官、语言、社交、运动等）独立分布。每个孩子都有独特的“雷达”形态，打破“高/低功能”线性误区，尊重个体差异。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ Panel 3: white — 资源与倡导 / 误区与事实 / 联系我们 ═══ -->
+        <div class="panel p-white">
+            <svg class="asterisk" style="top:0.3in; right:0.3in; width:0.4in;" viewBox="0 0 40 40">
+                <g stroke="#5b78b8" stroke-width="5" stroke-linecap="round">
+                    <line x1="20" y1="2" x2="20" y2="38" />
+                    <line x1="2" y1="20" x2="38" y2="20" />
+                    <line x1="7" y1="7" x2="33" y2="33" />
+                    <line x1="33" y1="7" x2="7" y2="33" />
+                </g>
+            </svg>
+
+            <div class="content">
+                <div class="right-title">
+                    <h2>资源与倡导</h2>
+                    <p>了解 · 支持 · 共同提升认知<br>Understanding · Supporting · Awareness</p>
+                </div>
+
+                <svg class="hands-icon" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40,150 C20,120 25,70 45,40 C55,25 70,25 68,45 C66,65 55,80 60,100" fill="#16204a"
+                        opacity="0.85" />
+                    <path d="M100,150 C85,110 90,55 110,20 C120,5 135,10 130,32 C125,55 112,75 115,100" fill="#5b78b8" />
+                    <path d="M150,150 C165,110 160,55 145,25 C138,12 125,18 130,38 C135,58 145,75 140,100"
+                        fill="#8ea3d8" />
+                </svg>
+
+                <div class="myth-heading">❓ 误区与事实</div>
+
+                <div class="mf-card">
+                    <span class="mf-tag mf-myth">误区</span>
+                    <div class="mf-q">"会说话的宝宝肯定不是自闭症。"</div>
+                    <span class="mf-tag mf-fact">事实</span>
+                    <div class="mf-a">自闭症是宽谱系，许多患儿说话流利，但社交互动、理解非语言符号方面仍需支持。</div>
+                </div>
+
+                <div class="mf-card">
+                    <span class="mf-tag mf-myth">误区</span>
+                    <div class="mf-q">"孩子还小，等等看长大会不会好。"</div>
+                    <span class="mf-tag mf-fact">事实</span>
+                    <div class="mf-a">18–36 个月是黄金干预期，盲目"等待"会延误关键康复时机。</div>
+                </div>
+
+                <div class="mf-card">
+                    <span class="mf-tag mf-myth">误区</span>
+                    <div class="mf-q">"自闭症是家庭抚育冷漠导致的。"</div>
+                    <span class="mf-tag mf-fact">事实</span>
+                    <div class="mf-a">自闭症是与生俱来的神经发育差异，与教养方式、疫苗完全无关。</div>
+                </div>
+
+                <div class="contact-pill">📬 联系我们</div>
+                <div class="contact-list">
+                    <div>邮箱：ezhengva@gmail.com</div>
+                    <div>网站：emmaz-sv.github.io/early-autism-awareness</div>
+                </div>
+            </div>
+            <div class="footer-mini">
+                © 2026 郑安欣 — 美洲女童军个人金奖项目 · 所有宣传资料均可免费分发与使用<br>
+                参考来源：NIH, CDC, ChildFind, Autism Speaks · 官方网址：emmaz-sv.github.io/early-autism-awareness
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
