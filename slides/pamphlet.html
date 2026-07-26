@@ -158,12 +158,12 @@
         /* ---- Panel 2: light (adjusted for spacing and new wheel) ---- */
         .p-light .content {
             justify-content: flex-start;
-            gap: 2px;
+            gap: 4px;
         }
 
         .title-block {
             text-align: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .title-block h2 {
@@ -183,7 +183,7 @@
         .signs-grid {
             display: flex;
             flex-wrap: wrap;
-            margin: 4px 0 6px;
+            margin: 6px 0 8px;
             justify-content: space-between;
         }
 
@@ -214,7 +214,7 @@
             padding: 7px 10px;
             font-size: 8.8px;
             line-height: 1.4;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .gold-rule b {
@@ -224,7 +224,7 @@
         .mini-h {
             font-size: 11px;
             font-weight: 900;
-            margin: 6px 0 4px;
+            margin: 8px 0 4px;
             text-align: center;
             color: #16204a;
         }
@@ -245,16 +245,16 @@
             color: #16204a;
             font-weight: 900;
             font-size: 11px;
-            margin: 8px 0 5px;
+            margin: 10px 0 6px;
             text-align: center;
             border-top: 1px dashed #9aa4c5;
-            padding-top: 8px;
+            padding-top: 10px;
         }
 
         .step-line {
             font-size: 8.8px;
             line-height: 1.4;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             padding-left: 17px;
             position: relative;
             color: #1e2a5a;
@@ -278,14 +278,14 @@
         /* ---- New: Spectrum Wheel compact block for Panel 2 ---- */
         .wheel-block {
             border-top: 1.5px dashed #9aa4c5;
-            margin: 6px 0 0;
-            padding-top: 8px;
+            margin: 10px 0 0;
+            padding-top: 10px;
             display: flex;
             gap: 10px;
             align-items: center;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 12px;
-            padding: 8px 10px;
+            padding: 10px 12px;
             flex-shrink: 0;
         }
 
@@ -313,7 +313,7 @@
 
         .right-title {
             text-align: right;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .right-title h2 {
@@ -332,14 +332,14 @@
 
         .hands-icon {
             width: 0.85in;
-            margin: 4px auto 6px;
+            margin: 6px auto 8px;
             display: block;
         }
 
         .myth-heading {
             font-size: 13px;
             font-weight: 900;
-            margin: 4px 0 6px;
+            margin: 6px 0 8px;
             text-align: center;
             color: #16204a;
         }
@@ -348,7 +348,7 @@
             border: 1.2px solid #d8deef;
             border-radius: 7px;
             padding: 5px 8px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .mf-tag {
@@ -384,6 +384,60 @@
             color: #374067;
         }
 
+        /* ---- New: Resources section ---- */
+        .resources-heading {
+            font-size: 11px;
+            font-weight: 900;
+            margin: 6px 0 6px;
+            text-align: center;
+            color: #16204a;
+        }
+
+        .resource-item {
+            font-size: 7.5px;
+            line-height: 1.4;
+            padding-left: 10px;
+            position: relative;
+            color: #1e2a5a;
+            margin-bottom: 3px;
+        }
+
+        .resource-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #5b78b8;
+            font-weight: bold;
+        }
+
+        .resource-item a {
+            color: #5b78b8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- Hotline highlight ---- */
+        .hotline-item {
+            font-size: 8px;
+            line-height: 1.4;
+            padding-left: 10px;
+            position: relative;
+            color: #16204a;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        .hotline-item:before {
+            content: "📞";
+            position: absolute;
+            left: -4px;
+            color: #5b78b8;
+        }
+
         .contact-pill {
             background: #5b78b8;
             color: #fff;
@@ -392,7 +446,7 @@
             font-size: 11px;
             padding: 4px;
             border-radius: 16px;
-            margin: 6px 0 4px;
+            margin: 8px 0 6px;
             letter-spacing: 1px;
         }
 
@@ -475,6 +529,9 @@
                 <p style="font-size:11px; margin-top:6px; color:#d4dcf5;">
                     <strong>项目覆盖：</strong> 大华府地区华语移民家庭 · 中国湖北省农村地区 · 双语资源与宣讲
                 </p>
+                <p style="font-size:10px; margin-top:4px; color:#d4dcf5; line-height:1.5;">
+                    自闭症是一种与生俱来的神经发育差异，与教养方式、疫苗完全无关。全球大量科学研究表明，早期识别和干预是改善长期预后的关键。
+                </p>
             </div>
         </div>
 
@@ -503,14 +560,15 @@
                 <div class="milestone-line"><strong>15个月：</strong>不主动展示玩具分享喜悦</div>
                 <div class="milestone-line"><strong>18–24个月：</strong>不会手指指物 · 不模仿 · 不假装游戏</div>
                 <div class="milestone-line"><strong>行为模式：</strong>反复拍手/摇晃/打转 · 对声音光线异常敏感</div>
+                <div class="milestone-line"><strong>共同注意缺失：</strong>不会用手指指引他人看有趣的事物，或顺着他人手指方向注视。</div>
 
                 <div class="sec-title-p2">📋 寻求帮助 4 步骤</div>
-                <div class="step-line"><b class="n">1</b><b>观察记录：</b>留意"预警征象"，记录担忧细节。</div>
-                <div class="step-line"><b class="n">2</b><b>与医生沟通：</b>儿保随访时申请 M-CHAT-R/F 筛查。</div>
-                <div class="step-line"><b class="n">3</b><b>全面评估：</b>中高风险转介发育行为儿科或专家团队。</div>
-                <div class="step-line"><b class="n">4</b><b>获取早期干预：</b>在部分实施政策的地区，符合条件的 0–6 岁孤独症儿童，持证明申请"精准康复项目"，每年可获得 1.6 万至 2.2 万元不等的康复补贴。</div>
+                <div class="step-line"><b class="n">1</b><b>观察记录：</b>留意"预警征象"，记录担忧细节，使用发育里程碑核对表。</div>
+                <div class="step-line"><b class="n">2</b><b>与医生沟通：</b>儿保随访时申请 M-CHAT-R/F 筛查，主动向医生咨询发育评估。</div>
+                <div class="step-line"><b class="n">3</b><b>全面评估：</b>中高风险转介发育行为儿科或专家团队进行多学科诊断评估。</div>
+                <div class="step-line"><b class="n">4</b><b>获取早期干预：</b>在部分实施政策的地区，符合条件的 0–6 岁孤独症儿童，持证明申请"精准康复项目"，每年可获得 1.6 万至 2.2 万元不等的康复补贴。干预服务无需诊断证明即可开始。</div>
 
-                <!-- ═══ 新增：多维自闭症谱系图（色彩轮）═══ -->
+                <!-- ═══ 新增：多维自闭症谱系图（色彩轮） ═══ -->
                 <div class="wheel-block">
                     <svg viewBox="-22 0 244 206" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="100" cy="100" r="80" stroke="#9aa4c5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" />
@@ -533,13 +591,13 @@
                     </svg>
                     <div class="wheel-text">
                         <b>🧩 多维自闭症谱系图（色彩轮）</b><br>
-                        自闭症是宽谱系，各维度（感官、语言、社交、运动等）独立分布。每个孩子都有独特的“雷达”形态，打破“高/低功能”线性误区，尊重个体差异。
+                        自闭症是宽谱系，各维度（感官、语言、社交、运动等）独立分布。每个孩子都有独特的"雷达"形态，打破"高/低功能"线性误区，尊重个体差异。有的孩子可能在感官处理上极其敏感，但在语言表达方面发育很快；另一些孩子可能在特定专注领域展现出惊人天赋。
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ═══ Panel 3: white — 资源与倡导 / 误区与事实 / 联系我们 ═══ -->
+        <!-- ═══ Panel 3: white — 资源与倡导 / 误区与事实 / 项目资源 / 联系我们 ═══ -->
         <div class="panel p-white">
             <svg class="asterisk" style="top:0.3in; right:0.3in; width:0.4in;" viewBox="0 0 40 40">
                 <g stroke="#5b78b8" stroke-width="5" stroke-linecap="round">
@@ -570,32 +628,42 @@
                     <span class="mf-tag mf-myth">误区</span>
                     <div class="mf-q">"会说话的宝宝肯定不是自闭症。"</div>
                     <span class="mf-tag mf-fact">事实</span>
-                    <div class="mf-a">自闭症是宽谱系，许多患儿说话流利，但社交互动、理解非语言符号方面仍需支持。</div>
+                    <div class="mf-a">自闭症是宽谱系，许多患儿说话流利，但社交互动、理解非语言符号方面仍需支持。语言能力不代表社交能力。</div>
                 </div>
 
                 <div class="mf-card">
                     <span class="mf-tag mf-myth">误区</span>
                     <div class="mf-q">"孩子还小，等等看长大会不会好。"</div>
                     <span class="mf-tag mf-fact">事实</span>
-                    <div class="mf-a">18–36 个月是黄金干预期，盲目"等待"会延误关键康复时机。</div>
+                    <div class="mf-a">18–36 个月是黄金干预期，盲目"等待"会延误关键康复时机。早期干预能最大程度改善长期发育质量。</div>
                 </div>
 
                 <div class="mf-card">
                     <span class="mf-tag mf-myth">误区</span>
                     <div class="mf-q">"自闭症是家庭抚育冷漠导致的。"</div>
                     <span class="mf-tag mf-fact">事实</span>
-                    <div class="mf-a">自闭症是与生俱来的神经发育差异，与教养方式、疫苗完全无关。</div>
+                    <div class="mf-a">自闭症是与生俱来的神经发育差异，与教养方式、疫苗完全无关。科学研究已明确排除这些因素。</div>
                 </div>
+
+                <!-- ═══ 湖北省本地资源与支持 (Verified) ═══ -->
+                <div class="resources-heading">📚 湖北省本地资源与支持</div>
+                <div class="resource-item"><strong>湖北省妇幼保健院</strong> — 儿童保健科提供发育评估、M-CHAT-R/F筛查及诊断服务。</div>
+                <div class="resource-item"><strong>武汉市儿童医院</strong> — 神经内科与发育行为儿科，提供自闭症诊断与康复指导。</div>
+                <div class="resource-item"><strong>湖北省残疾人联合会 / 各地市残联</strong> — 负责"精准康复项目"补助审批。0–6岁患儿可依据当地政策申请康复补贴（具体金额请咨询当地残联）。</div>
+                <div class="resource-item"><strong>湖北省残疾人康复中心</strong> — 提供康复训练、家长培训及资源信息。</div>
+                <div class="resource-item"><strong>各地市妇幼保健院</strong> — 湖北省各县市妇幼保健院可提供初筛和转介服务，建议家长就近咨询。</div>
+                <div class="hotline-item"><strong>全国残联服务热线：12385</strong>（可转接至湖北省各地市残联，咨询康复补贴及本地资源）</div>
 
                 <div class="contact-pill">📬 联系我们</div>
                 <div class="contact-list">
                     <div>邮箱：ezhengva@gmail.com</div>
                     <div>网站：emmaz-sv.github.io/early-autism-awareness</div>
+                    <div>可提供双语宣讲服务，面向中文学校、社区中心等团体</div>
                 </div>
             </div>
             <div class="footer-mini">
                 © 2026 郑安欣 — 美洲女童军个人金奖项目 · 所有宣传资料均可免费分发与使用<br>
-                参考来源：NIH, CDC, ChildFind, Autism Speaks · 官方网址：emmaz-sv.github.io/early-autism-awareness
+                参考来源：NIH, CDC, 湖北省残联 · 官方网址：emmaz-sv.github.io/early-autism-awareness
             </div>
         </div>
 
