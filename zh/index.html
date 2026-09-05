@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>自闭症早期干预意识 - Autism Early Intervention Awareness</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN with typography plugin -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
@@ -33,16 +36,17 @@
       }
     }
   </script>
-  
+
   <link rel="stylesheet" href="/early-autism-awareness/styles.css">
   <meta name="description" content="提高华语家庭对自闭症早期征兆与早期干预认识的双语资源与项目记录。">
-  
+
   <style>
     .gold-brown-blur {
       background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
       position: relative;
       overflow: hidden;
     }
+
     .gold-brown-blur::before {
       content: '';
       position: absolute;
@@ -51,59 +55,80 @@
       width: 140%;
       height: 140%;
       background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
-                  radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+        radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
       filter: blur(80px);
       z-index: 0;
       pointer-events: none;
     }
+
     .font-cursive {
       font-family: Caveat, cursive;
     }
   </style>
 </head>
+
 <body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
   
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
-  
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip
+    to content</a>
+
   <!-- Fixed Navbar Container -->
-  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
+  <div id="navbar-container"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
     <!-- Top Alert Banner -->
-    <div id="alert-banner" class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+    <div id="alert-banner"
+      class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
       
-        <span>Girl Scout Gold Award 项目 - 推广早期自闭症诊断与干预意识</span>
-        <a href="/early-autism-awareness/zh/index.html#resources" class="underline hover:text-slate-900 transition ml-2">了解早期征兆 &rarr;</a>
+      <span>Girl Scout Gold Award 项目 - 推广自闭症早期诊断与干预意识</span>
+      <a href="/early-autism-awareness/zh/index.html#resources"
+        class="underline hover:text-slate-900 transition ml-2">了解早期征兆 &rarr;</a>
       
     </div>
-    
+
     <!-- Navigation Header -->
-    <header id="main-header" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+    <header id="main-header"
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
       <div class="flex items-center gap-3">
         <a href="/early-autism-awareness/" class="flex flex-col no-underline group">
-          <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
-          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl Scout Gold Award Project</span>
+          <span
+            class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
+          <span
+            class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl
+            Scout Gold Award Project</span>
         </a>
       </div>
-      
+
       <nav class="hidden lg:block">
         <ul class="flex items-center gap-6 text-sm font-semibold">
-        
-          <li><a href="/early-autism-awareness/zh/index.html#home" class="text-slate-200 hover:text-white transition-colors">首页</a></li>
-          <li><a href="/early-autism-awareness/zh/screening.html" class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#resources" class="text-slate-200 hover:text-white transition-colors">资源</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#journal" class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#contact" class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
-          <li><a href="/early-autism-awareness/index.html#home" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a></li>
-        
+          
+          <li><a href="/early-autism-awareness/zh/index.html#home"
+              class="text-slate-200 hover:text-white transition-colors">首页</a></li>
+          <li><a href="/early-autism-awareness/zh/screening.html"
+              class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#resources"
+              class="text-slate-200 hover:text-white transition-colors">资源</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#pamphlets"
+              class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#journal"
+              class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#contact"
+              class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
+          <li><a href="/early-autism-awareness/index.html#home"
+              class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a>
+          </li>
+          
         </ul>
       </nav>
 
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center gap-4">
         
-          <a href="/early-autism-awareness/index.html#home" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
+        <a href="/early-autism-awareness/index.html#home"
+          class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
         
-        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
+        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none"
+          aria-label="Toggle menu">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -112,14 +137,21 @@
     </header>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
+    <div id="mobile-menu"
+      class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
       
-        <a href="/early-autism-awareness/zh/index.html#home" class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
-        <a href="/early-autism-awareness/zh/screening.html" class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
-        <a href="/early-autism-awareness/zh/index.html#resources" class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
-        <a href="/early-autism-awareness/zh/index.html#pamphlets" class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
-        <a href="/early-autism-awareness/zh/index.html#journal" class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
-        <a href="/early-autism-awareness/zh/index.html#contact" class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
+      <a href="/early-autism-awareness/zh/index.html#home"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
+      <a href="/early-autism-awareness/zh/screening.html"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
+      <a href="/early-autism-awareness/zh/index.html#resources"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
+      <a href="/early-autism-awareness/zh/index.html#pamphlets"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
+      <a href="/early-autism-awareness/zh/index.html#journal"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
+      <a href="/early-autism-awareness/zh/index.html#contact"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
       
     </div>
   </div>
@@ -128,9 +160,9 @@
   
 
   
-    <!-- Homepage layout - full width with no extra container -->
-    <main id="main-content" class="flex-grow">
-      <!-- Hero Section -->
+  <!-- Homepage layout - full width with no extra container -->
+  <main id="main-content" class="flex-grow">
+    <!-- Hero Section -->
 <section id="home" class="relative min-h-[90vh] flex items-center justify-center bg-slate-900 overflow-hidden pt-28">
   <div class="absolute inset-0 z-0">
     <img src="/early-autism-awareness/assets/hero_bg.png" alt="Parent and toddler playing with blocks" class="w-full h-full object-cover object-center opacity-65" />
@@ -184,19 +216,25 @@
             <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-slate-700 text-sm"><strong>目标：</strong> 以双语信息覆盖本地移民家庭和湖北农村家庭。</span>
+            <span class="text-slate-700 text-sm"><strong>核心目标：</strong> 消除文化隔阂与语言障碍，为本地移民家长及湖北农村家庭普及早期筛查与早期干预科学知识。</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-slate-700 text-sm"><strong>目标群体：</strong> 面向本地 35 位家长、在中国举办 15 人以上的讲座、在诊所接触 15 个家庭。</span>
+            <span class="text-slate-700 text-sm"><strong>覆盖范围：</strong> 本地中文学校讲座及教会网络覆盖 35 位以上家长，在华举办 15 人以上专题讲座，基层诊所走访接触 15 个以上家庭。</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-slate-700 text-sm"><strong>产出：</strong> 可复用的宣传册模板、双语网站资源、外展活动记录。</span>
+            <span class="text-slate-700 text-sm"><strong>具体产出：</strong> 500 份实体印刷双语宣传手册（由女童军饼干义卖收入资助）、可反复复用的开源模板、在线交互式筛查工具及外展活动日志。</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-brand-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate-700 text-sm"><strong>长效持续性：</strong> 网站长期对公众开放；宣传册文件支持公开免费下载印刷；教会资料架与湖北基层诊所设立了持续补充与维护机制。</span>
           </li>
         </ul>
       </div>
@@ -342,38 +380,40 @@
           <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">官方健康资源</h4>
           <ul class="space-y-3 text-slate-600 text-sm">
             <li>&bull; <a href="https://www.cdc.gov/ncbddd/autism/screening.html" target="_blank" rel="noopener"
-                class="text-brand-blue hover:underline font-medium">CDC - 自闭症谱系障碍筛查</a> - 监测指南。</li>
+                class="text-brand-blue hover:underline font-medium">CDC: 自闭症谱系障碍筛查指南</a>: 早期筛查与监测指南。</li>
             <li>&bull; <a href="https://www.cdc.gov/ncbddd/autism/index.html" target="_blank" rel="noopener"
-                class="text-brand-blue hover:underline font-medium">CDC - 自闭症谱系障碍 (ASD)</a> - 资源与信息。</li>
+                class="text-brand-blue hover:underline font-medium">CDC: 自闭症谱系障碍 (ASD)</a>: 官方资源与科学信息。</li>
             <li>&bull; <a href="https://www.cdc.gov/actearly" target="_blank" rel="noopener"
-                class="text-brand-blue hover:underline font-medium">CDC "关注早期征兆，尽早行动"</a> - 发育跟踪工具。</li>
+                class="text-brand-blue hover:underline font-medium">CDC “关注早期征兆，尽早行动”</a>: 发育里程碑跟踪工具。</li>
             <li>&bull; <a href="https://www.nichd.nih.gov/health/topics/autism" target="_blank" rel="noopener"
-                class="text-brand-blue hover:underline font-medium">NIH / NICHD: 自闭症与早期干预</a> - 科研支持资源。</li>
+                class="text-brand-blue hover:underline font-medium">NIH / NICHD: 自闭症与早期干预</a>: 科研支持与干预证据。</li>
             <li>&bull; <a href="https://www.autismspeaks.org/" target="_blank" rel="noopener"
-                class="text-brand-blue hover:underline font-medium">Autism Speaks 自闭症之声官网</a> - 自闭症支持与倡导资源。</li>
+                class="text-brand-blue hover:underline font-medium">Autism Speaks 自闭症之声官网</a>: 自闭症支持与倡导资源。</li>
             <li>&bull; <a href="https://www.autismspeaks.org/tool-kit/100-day-kit-young-children" target="_blank"
-                rel="noopener" class="text-brand-blue hover:underline font-medium">自闭症之声“100天工具包”</a> -
-              针对初筛诊断家庭的康复指导工具包。</li>
+                rel="noopener" class="text-brand-blue hover:underline font-medium">自闭症之声“幼儿100天工具包”</a>:
+              面向家庭的实用指南：初诊或出现疑虑后前100天的具体行动步骤。</li>
           </ul>
         </div>
 
         <div>
           <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4">北维州（DMV）本地联系方式</h4>
           <ul class="space-y-3 text-slate-600 text-sm">
-            <li>&bull; <strong>费尔法克斯 CSB (703-324-4400)</strong> - <em>最重要的联系电话。</em> 居民申请各种社区服务的入口（包括婴幼儿早期干预、DD waivers
-              等）。无需社会安全号（SSN）即可申请。</li>
+            <li>&bull; <strong>费尔法克斯 CSB (703-324-4400)</strong>: <em>最重要的联系电话。</em> 居民申请各项社区服务的入口（包含婴幼儿早期干预、DD waivers 等）。无需社会安全号（SSN）即可申请。</li>
             <li>&bull; <a
                 href="https://www.fairfaxcounty.gov/neighborhood-community-services/infant-and-toddler-connection"
                 target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">婴幼儿早期干预联系中心 (The
-                Infant and Toddler Connection - Fairfax)</a> - 为 0 至 3 岁存在发育迟缓的婴幼儿提供评估与早期干预服务。</li>
+                Infant and Toddler Connection: Fairfax)</a>: 为 0 至 3 岁存在发育迟缓的婴幼儿提供评估与早期干预服务。</li>
             <li>&bull; <a
                 href="https://www.fcps.edu/academics/curriculum/early-childhood-education/early-childhood-child-find"
                 target="_blank" rel="noopener" class="text-brand-blue hover:underline font-medium">Child Find 筛查项目
-                (FCPS)</a> - 费尔法克斯郡公立学校（FCPS）为 20 个月至 5 岁儿童提供的免费发育筛查项目。</li>
-            <li>&bull; <strong>ASNV (571-328-5792)</strong> - 北维吉尼亚自闭症协会，提供教育课程和互助小组。</li>
+                (FCPS)</a>: 费尔法克斯郡公立学校（FCPS）为 20 个月至 5 岁儿童提供的免费发育筛查项目。</li>
+            <li>&bull; <strong>ASNV (571-328-5792)</strong>: 北维吉尼亚自闭症协会，提供教育课程和互助小组。</li>
           </ul>
         </div>
       </div>
+      <p class="mt-4 text-xs text-slate-400 italic">
+        以上家庭资源推荐（自闭症之声、100天工具包、Fairfax 婴幼儿早期干预联系中心、FCPS Child Find）由项目顾问、费尔法克斯郡公立学校（FCPS）早期儿童评估团队（ECAT，Pimmit Hills Center）学校心理学家 Sandi Horton-Lafferty 推荐。
+      </p>
 
       <!-- Understanding the Autism Spectrum (Color Wheel) -->
       <div class="mt-16 border-t border-slate-100 pt-16">
@@ -447,7 +487,7 @@
             <h4 class="font-serif text-brand-maroon text-2xl md:text-3xl font-extrabold tracking-tight">自闭症谱系图（自闭症色彩轮）
             </h4>
             <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-              目前，医学界与自闭症群体正在积极倡导改变以往对自闭症的线性分级观念。自闭症不再被看作是一个从“轻度/高功能”到“重度/低功能”的简单一维数轴，而是应当被看作是一个<strong>多维的色彩轮（自闭症轮）</strong>。
+              目前，自闭症群体正在改变对这一状况的理解方式。自闭症不再被看作是一个从“轻度/高功能”到“重度/低功能”的简单一维数轴，而是应当被看作是一个<strong>多维的色彩轮（自闭症轮）</strong>：它用直观的方式说明不同特征的差异，并强调每个人在各个特征上的支持需求程度可能各不相同。
             </p>
             <p class="text-slate-600 text-sm md:text-base leading-relaxed">
               色彩轮上的每一个“轴向”都代表了一组独立的神经发育维度（例如：感官知觉、语言交流、社交互惠、大运动协调以及执行功能）。每个孩子在不同维度上都有其独特的表现，他们会展现出不同程度的发育差异，也会在特定方向上拥有出色的优势。
@@ -456,6 +496,9 @@
               <strong>核心启示：</strong>
               有的孩子可能在感官处理上极其敏感（需要较高的支持），但在语言表达和字词认知方面发育很快。另一些孩子可能在特定专注领域展现出惊人天赋，但在非结构化社交场合需要一定的引导。自闭症轮模型能更清晰地发掘出每个宝宝独特的强项并给以尊重。
             </div>
+            <p class="text-xs text-slate-400 italic">
+              色彩轮家庭教育框架由项目顾问、FCPS 早期儿童评估团队（ECAT，Pimmit Hills Center）学校心理学家 Sandi Horton-Lafferty 推荐。
+            </p>
           </div>
         </div>
       </div>
@@ -465,13 +508,59 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600 text-sm">
           <p>
             &bull; <a href="https://www.autismspeaks.org/chinese-resources" target="_blank" rel="noopener"
-              class="text-brand-blue hover:underline font-semibold">Autism Speaks 中文资源工具包</a> -
+              class="text-brand-blue hover:underline font-semibold">Autism Speaks 中文资源工具包</a>:
             提供翻译为中文的指南（100天工具包、ABA指南、安全资源等）。
           </p>
           <p>
             &bull; <a href="https://www.caresseattle.org/" target="_blank" rel="noopener"
-              class="text-brand-blue hover:underline font-semibold">CARES (华语自闭症资源与服务)</a> - 针对华语家庭量身定制的同伴互助与讲座。
+              class="text-brand-blue hover:underline font-semibold">CARES (华语自闭症资源与服务)</a>: 针对华语家庭量身定制的同伴互助与讲座。
           </p>
+        </div>
+      </div>
+
+      <!-- China / Hubei Local Resources -->
+      <div class="mt-8 bg-amber-50/70 border border-amber-200/60 rounded-3xl p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+          <h4 class="font-bold text-brand-maroon text-sm uppercase tracking-wide">湖北省本地医疗与康复支持渠道（国内与基层外展）</h4>
+        </div>
+        <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+          作为本金奖项目在湖北省农村及基层社区外展的一部分，以下为已核实的本地诊断、评估与康复救助渠道：
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-700 text-sm">
+          <div class="space-y-3">
+            <div class="bg-white/80 rounded-2xl p-4 border border-amber-100">
+              <strong class="text-slate-900 block mb-1">湖北省妇幼保健院</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">儿童保健科提供儿童早期生长发育评估、M-CHAT-R/F 筛查、转介以及综合发育监测。</p>
+            </div>
+            <div class="bg-white/80 rounded-2xl p-4 border border-amber-100">
+              <strong class="text-slate-900 block mb-1">武汉市儿童医院</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">神经内科与发育行为儿科，提供自闭症谱系临床诊断、全面评估与早期干预指导方案。</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-white/80 rounded-2xl p-4 border border-amber-100">
+              <strong class="text-slate-900 block mb-1">湖北省残疾人联合会及各地市县残联（精准康复项目）</strong>
+              <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                负责本地 0–6 岁儿童早期康复救助项目审批、定点康复机构管理与“精准康复项目”资金审核。
+              </p>
+              <div class="pt-2 border-t border-amber-200/50 text-[11px] text-slate-600 space-y-1.5 leading-relaxed">
+                <p>
+                  <strong>补贴标准：</strong>在武汉等部分实施“精准康复项目”的地区，符合条件的 0–6 岁孤独症儿童，凭三甲医院出具的诊断证明申请该项目，每年最高可获得 1.6 万至 2.2 万元不等的康复补贴（具体金额因地区而异，全国基准线一般不低于 1.2 万元/年，个别城市如北京、上海最高可达 4.8 万至 6 万元）。
+                </p>
+                <p>
+                  <strong>申报材料：</strong>诊断证明是启动申请的必要材料，不可省略或后补；但残疾人证在部分试点地区可以后补（即家庭可凭诊断证明先申请康复救助，后续再补办残疾证）。
+                </p>
+                <p>
+                  <strong>结算方式：</strong>不少地区采用“先训后补”的费用结算模式，即家庭先自费缴纳训练费，凭发票再申请报销，而非直接抵扣。
+                </p>
+              </div>
+            </div>
+            <div class="bg-white/80 rounded-2xl p-4 border border-amber-100">
+              <strong class="text-slate-900 block mb-1">全国残联服务热线：12385</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">支持直连咨询湖北省各地市县残联政策，查询就近定点康复机构、救助申报流程及服务窗口。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -503,7 +592,7 @@
 
         <div class="space-y-4">
           <!-- English pamphlet -->
-          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow gap-4">
             <div class="flex items-center gap-4">
               <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -511,17 +600,22 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-800 text-sm">英文宣传册 (PDF)</h4>
-                <p class="text-xs text-slate-400">标准可打印版本</p>
+                <h4 class="font-bold text-slate-800 text-sm">英文宣传册</h4>
+                <p class="text-xs text-slate-400">标准双语可打印版本</p>
               </div>
             </div>
-            <a href="/early-autism-awareness/assets/pamphlet-en.pdf" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
-              下载
-            </a>
+            <div class="flex items-center gap-2">
+              <a href="/early-autism-awareness/assets/pamphlet-en.html" target="_blank" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 rounded-full transition hover:bg-slate-200">
+                在线浏览与打印
+              </a>
+              <a href="/early-autism-awareness/assets/pamphlet-en.pdf" target="_blank" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+                下载 PDF
+              </a>
+            </div>
           </div>
 
           <!-- Mandarin pamphlet -->
-          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow gap-4">
             <div class="flex items-center gap-4">
               <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -529,13 +623,18 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-800 text-sm">中文宣传册 (PDF)</h4>
-                <p class="text-xs text-slate-400">普通话双语排版</p>
+                <h4 class="font-bold text-slate-800 text-sm">中文宣传册</h4>
+                <p class="text-xs text-slate-400">针对华语家庭与国内本土化排版</p>
               </div>
             </div>
-            <a href="/early-autism-awareness/assets/pamphlet-zh.pdf" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
-              下载
-            </a>
+            <div class="flex items-center gap-2">
+              <a href="/early-autism-awareness/assets/pamphlet-zh.html" target="_blank" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 rounded-full transition hover:bg-slate-200">
+                在线浏览与打印
+              </a>
+              <a href="/early-autism-awareness/assets/pamphlet-zh.pdf" target="_blank" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+                下载 PDF
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -580,6 +679,21 @@
           </p>
           <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
             <span>活动地点：Vienna 及附近 DMV 地区</span>
+            <span>状态：进行中</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -left-12 top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-brand-orange"></div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+          <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">项目日志 #3</span>
+          <h4 class="text-xl font-bold text-white mt-1 mb-3">湖北乡村基层诊所外展与专题交流</h4>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            与武汉及湖北当地学生协作者（黄陂二中、华东理工大学伙伴）联动，在基层卫生院和社区诊所候诊区设立长期宣传角。面向家长发放针对国内医疗体系本土化的普通话筛查手册，并举办线下家长交流会，破除传统观念偏见，指导对接省市妇幼保健院及残联康复通道。
+          </p>
+          <div class="mt-4 flex gap-4 text-xs font-semibold text-brand-orange">
+            <span>活动地点：中国湖北省基层诊所及社区</span>
             <span>状态：进行中</span>
           </div>
         </div>
@@ -641,16 +755,16 @@
         <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Vienna, VA</span>
       </div>
 
-      <!-- Advisor -->
+      <!-- Advisor / Leadership -->
       <div class="bg-white rounded-3xl border border-slate-200/75 p-8 shadow-sm flex flex-col justify-between">
         <div>
-          <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">项目顾问与辅导</h4>
+          <h4 class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-2">团队志愿辅导</h4>
           <h3 class="text-lg font-bold text-slate-800 mb-3">Tonia Powell</h3>
           <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            金奖项目辅导志愿者，协助监督项目核心指标的实施、外展活动以及双语宣传材料的审查。
+            女童军 1769 团队辅导志愿者，协助监督金奖项目指标落实、活动安全规范以及双语材料审查。
           </p>
         </div>
-        <span class="text-xs text-slate-500 font-medium font-mono">tonia@bradandtonia.com</span>
+        <span class="text-xs text-slate-500 font-medium">Troop 1769, Nation's Capital Council</span>
       </div>
     </div>
 
@@ -676,31 +790,41 @@
     <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">携手合作</span>
     <h2 class="font-serif text-white text-2xl md:text-3xl font-extrabold mb-12">合作伙伴与协作者</h2>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
-        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">CCCVA</h4>
-        <p class="text-slate-400 text-xs mt-1 text-center">北维州华人福音教会及家长网络外展合作伙伴</p>
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">FCPS Child Find</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">为 20 个月至 5 岁儿童提供免费发育评估与早期筛查</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">ITC-VA</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">维州婴幼儿早期干预连接项目（针对 0 至 3 岁婴幼儿发育迟缓）</p>
       </div>
       
       <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
         <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">希望中文学校</h4>
-        <p class="text-slate-400 text-xs mt-1 text-center">为双语科普讲座与家长交流会提供支持</p>
+        <p class="text-slate-400 text-xs mt-1 text-center">双语科普讲座与家长交流会支持（联络协调：Xueqin Chen）</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">CCCVA 教会</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">宣传册长期摆放点与持续补充枢纽（联络协调：Carol Day）</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">湖北乡村诊所外展团队</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">基层诊所资料分发与日常补充监测（协作者：华东理工大学 Xinyan Luo、黄陂二中 邓伟鸥）</p>
       </div>
       
       <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
-        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">FCPS Child Find</h4>
-        <p class="text-slate-400 text-xs mt-1 text-center">为 2 至 5 岁儿童提供免费发育评估与筛查</p>
-      </div>
-      
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors flex flex-col justify-center items-center">
-        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">ITC-VA</h4>
-        <p class="text-slate-400 text-xs mt-1 text-center">维州婴幼儿连接项目（针对0至3岁婴幼儿早期干预）</p>
+        <h4 class="text-sm font-bold text-slate-200 tracking-wider uppercase mb-1">Sandi Horton-Lafferty</h4>
+        <p class="text-slate-400 text-xs mt-1 text-center">项目顾问；FCPS 早期儿童评估团队（ECAT，Pimmit Hills Center）学校心理学家</p>
       </div>
     </div>
   </div>
 </section>
 
-    </main>
+  </main>
   
 
   <!-- Global Redesigned Footer -->
@@ -712,7 +836,7 @@
             联系我们
           </h4>
           <p class="text-lg text-white font-medium mb-4">ezhengva@gmail.com</p>
-          
+
           <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4 mt-8">
             关注我们
           </h4>
@@ -722,7 +846,7 @@
             <span class="text-slate-400 hover:text-white transition-colors cursor-default">Facebook</span>
           </div>
         </div>
-        
+
         <div class="flex flex-col justify-between">
           <div>
             <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">
@@ -730,15 +854,15 @@
             </h4>
             <p class="text-slate-400 text-sm max-w-md leading-relaxed">
               
-                这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
+              这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
               
             </p>
           </div>
           <div class="mt-8 md:mt-0 text-slate-500 text-xs">
             <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
-            <p class="mb-1">来源：NIH, CDC, ChildFind - 详见资源页面。</p>
+            <p class="mb-1">来源：NIH, CDC, ChildFind；项目顾问：Sandi Horton-Lafferty（FCPS ECAT）- 详见资源页面。</p>
             <p class="mt-2 text-[10px] text-slate-600 font-mono">
-              最后更新：July 26, 2026 (460236d)
+              最后更新：September 04, 2026 (ef0338c)
             </p>
           </div>
         </div>
@@ -749,14 +873,14 @@
   <script>
     function checkIsHome() {
       const p = window.location.pathname.replace(/\/$/, '');
-      return p === '' || 
-             p === '/index.html' || 
-             p === '/zh' || 
-             p === '/zh/index.html' || 
-             p === '/early-autism-awareness' || 
-             p.endsWith('/early-autism-awareness/index.html') || 
-             p.endsWith('/early-autism-awareness/zh') || 
-             p.endsWith('/early-autism-awareness/zh/index.html');
+      return p === '' ||
+        p === '/index.html' ||
+        p === '/zh' ||
+        p === '/zh/index.html' ||
+        p === '/early-autism-awareness' ||
+        p.endsWith('/early-autism-awareness/index.html') ||
+        p.endsWith('/early-autism-awareness/zh') ||
+        p.endsWith('/early-autism-awareness/zh/index.html');
     }
 
     function isSamePagePath(url1, url2) {
@@ -779,7 +903,7 @@
         const headerOffset = 90;
         const elementPosition = targetEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -794,7 +918,7 @@
           const url = new URL(btn.href);
           url.hash = hash;
           btn.href = url.href;
-        } catch (e) {}
+        } catch (e) { }
       });
     }
 
@@ -813,7 +937,7 @@
               link.classList.remove('text-brand-orange');
               link.classList.add('text-slate-200');
             }
-          } catch (e) {}
+          } catch (e) { }
         });
         updateLanguageSwitches(forcedHash || '');
         return;
@@ -830,16 +954,16 @@
               link.classList.remove('text-brand-orange');
               link.classList.add('text-slate-200');
             }
-          } catch (e) {}
+          } catch (e) { }
         });
         updateLanguageSwitches(forcedHash);
         return;
       }
-      
+
       // Scroll spy to identify the current visible section
       const sections = ['home', 'overview', 'resources', 'pamphlets', 'journal', 'contact'];
       let activeSectionId = 'home';
-      
+
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -849,7 +973,7 @@
           }
         }
       }
-      
+
       navLinks.forEach(link => {
         try {
           const linkUrl = new URL(link.href);
@@ -861,13 +985,13 @@
             link.classList.remove('text-brand-orange');
             link.classList.add('text-slate-200');
           }
-        } catch (e) {}
+        } catch (e) { }
       });
 
       updateLanguageSwitches('#' + activeSectionId);
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const navbar = document.getElementById('navbar-container');
       const header = document.getElementById('main-header');
       const alertBanner = document.getElementById('alert-banner');
@@ -899,12 +1023,12 @@
           alertBanner.style.opacity = '1';
         }
       }
-      
+
       highlightActiveLink();
     });
 
     // Mobile Menu Toggle via Event Delegation
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
       if (mobileMenuBtn) {
         const mobileMenu = document.getElementById('mobile-menu');
@@ -915,35 +1039,35 @@
     });
 
     // SPA Router click listener
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const link = e.target.closest('a');
       if (!link) return;
-      
+
       const href = link.getAttribute('href');
       // Ignore external, anchors, mailto, target blank, and files like PDFs
       if (!href || href.startsWith('http') || href.startsWith('mailto:') || link.target === '_blank' || href.endsWith('.pdf')) {
         return;
       }
-      
+
       const targetUrl = new URL(link.href, window.location.origin);
       const currentUrl = new URL(window.location.href);
-      
+
       // If it's a hash link on the same page path
       if (targetUrl.hash && isSamePagePath(targetUrl.href, currentUrl.href)) {
         e.preventDefault();
-        
+
         // Hide mobile menu if open
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
           mobileMenu.classList.add('hidden');
         }
-        
+
         history.pushState(null, '', targetUrl.hash);
         smoothScrollToHash(targetUrl.hash);
         highlightActiveLink(targetUrl.hash);
         return;
       }
-      
+
       // If it's a non-hash link or a different page
       e.preventDefault();
       navigateTo(link.href);
@@ -964,7 +1088,7 @@
         main.style.opacity = '0.3';
         main.style.transition = 'opacity 150ms ease-out';
       }
-      
+
       fetch(url)
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
@@ -973,10 +1097,10 @@
         .then(htmlText => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(htmlText, 'text/html');
-          
+
           document.title = doc.title;
           document.documentElement.lang = doc.documentElement.lang || 'en';
-          
+
           // Swap header/footer layout elements for translation / active states
           const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
           elementIds.forEach(id => {
@@ -987,21 +1111,21 @@
               oldEl.className = newEl.className;
             }
           });
-          
+
           if (main) {
             main.style.opacity = '1';
           }
-          
+
           const oldFooter = document.querySelector('footer');
           const newFooter = doc.querySelector('footer');
           if (oldFooter && newFooter) {
             oldFooter.innerHTML = newFooter.innerHTML;
             oldFooter.className = newFooter.className;
           }
-          
+
           history.pushState(null, '', url);
           window.dispatchEvent(new Event('scroll'));
-          
+
           if (targetHash) {
             setTimeout(() => {
               smoothScrollToHash(targetHash);
@@ -1019,7 +1143,7 @@
     }
 
     // Handle back/forward history buttons
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
       fetch(window.location.href)
         .then(r => r.text())
         .then(htmlText => {
@@ -1027,7 +1151,7 @@
           const doc = parser.parseFromString(htmlText, 'text/html');
           document.title = doc.title;
           document.documentElement.lang = doc.documentElement.lang || 'en';
-          
+
           const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
           elementIds.forEach(id => {
             const oldEl = document.getElementById(id);
@@ -1037,17 +1161,17 @@
               oldEl.className = newEl.className;
             }
           });
-          
+
           const oldFooter = document.querySelector('footer');
           const newFooter = doc.querySelector('footer');
           if (oldFooter && newFooter) {
             oldFooter.innerHTML = newFooter.innerHTML;
             oldFooter.className = newFooter.className;
           }
-          
+
           window.dispatchEvent(new Event('scroll'));
           highlightActiveLink();
-          
+
           if (window.location.hash) {
             smoothScrollToHash(window.location.hash);
           }
@@ -1057,7 +1181,7 @@
     // Run once on load
     window.dispatchEvent(new Event('scroll'));
     highlightActiveLink();
-    
+
     // Initial scroll to hash if present in URL
     if (window.location.hash) {
       setTimeout(() => {
@@ -1066,4 +1190,5 @@
     }
   </script>
 </body>
+
 </html>

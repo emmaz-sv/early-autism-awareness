@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>M-CHAT-R 自闭症筛查工具 - Autism Early Intervention Awareness</title>
+  <meta name="description" content="一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with typography plugin -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f29900',
+              maroon: '#8a1515',
+              blue: '#1a73e8',
+              navy: '#0f172a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Lora', 'ui-serif', 'Georgia', 'serif'],
+            cursive: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6
+    }
+
+    a {
+      color: #1a73e8
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden
+    }
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0.5rem;
+      padding: .75rem;
+      background: white;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      z-index: 1000
+    }
+
+    .gold-brown-blur {
+      background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gold-brown-blur::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
+        radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .font-cursive {
+      font-family: Caveat, cursive;
+    }
+
+    @media print {
+
+      #alert-banner,
+      #main-header,
+      #mobile-menu,
+      footer,
+      .lang-switch-btn,
+      .no-print,
+      #btn-print,
+      #btn-restart {
+        display: none !important;
+      }
+
+      main {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        background: white !important;
+      }
+
+      .bg-white,
+      .bg-slate-50 {
+        box-shadow: none !important;
+        border: none !important;
+        background: white !important;
+      }
+
+      #screener-app {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      #results-table-body {
+        background: white !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip
+    to content</a>
+
+  <!-- Fixed Navbar Container -->
+  <div id="navbar-container"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
+    <!-- Top Alert Banner -->
+    <div id="alert-banner"
+      class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+      <span>Girl Scout Gold Award 项目 - 推广自闭症早期诊断与干预意识</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header"
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight text-white">Autism Early Intervention Awareness</span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium">Girl Scout Gold Award Project by Emma Zheng (郑安欣)</span>
+        </div>
+      </div>
+    </header>
+  </div>
+  </div>
+
+  <!-- Sub-page layout container -->
+  <main id="main-content" class="flex-grow bg-slate-50 pt-36 pb-20 min-h-screen">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 py-10 md:px-12 md:py-16">
+        <h1 class="text-3xl md:text-4xl font-extrabold font-serif text-brand-maroon tracking-tight mb-6">M-CHAT-R
+          自闭症筛查工具</h1>
+        <p class="text-slate-600 text-lg mb-10 border-b border-slate-100 pb-6 font-medium">一个免费的、交互式的筛查工具，适用于 16-30
+          个月的幼儿，以检查自闭症的早期迹象。</p>
+
+        <div class="not-prose">
+          <!-- Top Intro Section -->
+          <div class="mb-10 text-center space-y-3">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-brand-maroon uppercase bg-rose-50 border border-rose-200/50 rounded-full">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              经过临床验证的专业量表
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 font-serif leading-tight">婴幼儿发育状况筛查工具</h2>
+            <p class="text-slate-500 text-sm max-w-xl mx-auto leading-relaxed">
+              各位家长好！此工具旨在协助您观察和记录孩子在社交、沟通和运动方面的成长。
+              请记得：每个孩子的成长节奏都有所不同，本问卷是一份温馨的筛查指南，目的是帮您了解是否需要为孩子申请额外的早期成长支持。
+            </p>
+          </div>
+
+          <div id="screener-app" class="relative bg-white rounded-3xl border border-slate-200/70 shadow-sm p-6 md:p-10">
+
+            <!-- STEP 1: START SCREEN -->
+            <div id="start-view" class="space-y-6">
+              <div class="text-center space-y-2">
+                <h3 class="text-2xl font-bold text-slate-800 font-serif">筛查登记</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                  请提供以下基本信息以开始问卷。我们十分重视您的隐私，不会在服务器保存或传输您的任何个人数据。
+                </p>
+              </div>
+
+              <div class="max-w-md mx-auto space-y-5 pt-4">
+                <div>
+                  <label for="caregiver-name" class="block text-sm font-bold text-slate-700 mb-1.5">家长/照料者名字 <span
+                      class="text-brand-maroon">*</span></label>
+                  <input type="text" id="caregiver-name" placeholder="您的名字"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800"
+                    required>
+                </div>
+
+                <div>
+                  <label for="child-name" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝名字（选填）</label>
+                  <input type="text" id="child-name" placeholder="孩子的名字（帮助个性化问题）"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800">
+                </div>
+
+                <div>
+                  <label for="child-age" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝月龄 <span
+                      class="text-brand-maroon">*</span></label>
+                  <select id="child-age"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800 bg-white">
+                    <option value="" disabled selected>请选择宝宝的年龄段</option>
+                    <option value="16-18">16 - 18 个月</option>
+                    <option value="19-24">19 - 24 个月</option>
+                    <option value="25-30">25 - 30 个月</option>
+                    <option value="other">16个月以下或30个月以上</option>
+                  </select>
+                  <p id="age-warning"
+                    class="hidden text-brand-orange text-xs mt-1.5 leading-relaxed bg-orange-50/50 border border-orange-100 rounded-xl p-3">
+                    <strong>注意：</strong> M-CHAT-R 适用于 16 至 30 个月的婴幼儿。其他年龄段的筛查结果可能不够准确。
+                  </p>
+                </div>
+
+                <div class="pt-4">
+                  <button id="btn-start"
+                    class="w-full bg-brand-orange hover:bg-orange-600 text-slate-950 font-extrabold py-4 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center flex items-center justify-center gap-2">
+                    开始测评
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: QUIZ SCREEN -->
+            <div id="quiz-view" class="hidden space-y-6">
+              <!-- Progress Bar Area -->
+              <div class="space-y-2">
+                <div
+                  class="flex justify-between items-center text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <span id="quiz-progress-text">第 1 题，共 20 题</span>
+                  <span id="quiz-percent-text">已完成 5%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div id="quiz-progress-bar" class="bg-brand-orange h-2 rounded-full transition-all duration-300"
+                    style="width: 5%"></div>
+                </div>
+              </div>
+
+              <!-- Illustration Container -->
+              <div
+                class="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex justify-center items-center h-48 md:h-64 shadow-inner">
+                <div id="quiz-illustration" class="w-full h-full max-w-[200px] flex items-center justify-center">
+                  <!-- SVGs will be injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Question Text -->
+              <div class="space-y-3 text-center px-2">
+                <h3 id="quiz-question-text" class="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+                  题目载入中...
+                </h3>
+                <p id="quiz-question-example"
+                  class="text-slate-500 text-sm md:text-base italic max-w-2xl mx-auto leading-relaxed">
+                  例子载入中...
+                </p>
+              </div>
+
+              <!-- Answers Buttons -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto pt-2">
+                <button id="btn-yes"
+                  class="border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50/20 text-slate-800 hover:text-emerald-700 font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
+                  <span id="yes-sub"
+                    class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-emerald-600 transition-colors">通常表现为</span>
+                  是
+                </button>
+                <button id="btn-no"
+                  class="border-2 border-slate-200 bg-white hover:border-brand-maroon hover:bg-rose-50/20 text-slate-800 hover:text-brand-maroon font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
+                  <span id="no-sub"
+                    class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-rose-600 transition-colors">通常表现为</span>
+                  否
+                </button>
+              </div>
+
+              <!-- Back Navigation -->
+              <div class="flex justify-center pt-4">
+                <button id="btn-back"
+                  class="text-slate-400 hover:text-slate-700 text-sm font-medium transition flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  返回上一题
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: RESULTS SCREEN -->
+            <div id="results-view" class="hidden space-y-8">
+
+              <!-- Top Title and Score -->
+              <div class="text-center space-y-3">
+                <h2 class="text-3xl font-extrabold text-slate-900 font-serif">筛查结果评估</h2>
+                <p id="results-greeting" class="text-slate-600 text-base leading-relaxed">
+                  这里是您的个性化发育记录摘要。
+                </p>
+              </div>
+
+              <!-- Meter Gauge -->
+              <div
+                class="max-w-md mx-auto bg-slate-50 border border-slate-100 rounded-3xl p-8 shadow-inner text-center space-y-4">
+                <div class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">自闭症风险得分</div>
+
+                <div class="relative flex items-center justify-center">
+                  <div class="text-center">
+                    <span id="results-score-num" class="text-6xl md:text-7xl font-black text-slate-800">0</span>
+                    <span class="text-xl md:text-2xl font-bold text-slate-400">/20</span>
+                  </div>
+                </div>
+
+                <div id="results-badge"
+                  class="inline-block px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide uppercase transition-all shadow-sm">
+                  低风险
+                </div>
+              </div>
+
+              <!-- Explanation & Clinical Guidance -->
+              <div
+                class="max-w-2xl mx-auto bg-white border border-slate-150 rounded-3xl p-6 md:p-8 space-y-5 shadow-sm">
+                <h3
+                  class="text-xl font-bold text-slate-850 border-b border-slate-100 pb-3 flex items-center gap-2 font-serif">
+                  <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  分值解析与指导建议
+                </h3>
+
+                <!-- Risk Description Messages -->
+                <div id="risk-desc-low" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于低风险类别。</strong>
+                    这表明宝宝在社交、沟通及运动方面均处于健康的常规发育阶段。
+                  </p>
+                  <p>
+                    目前无需进行任何医疗干预。如果您的宝宝目前未满 24 个月，建议您收藏此页面，并在宝宝两岁生日之后再次进行测评以观察成长。
+                  </p>
+                </div>
+
+                <div id="risk-desc-medium" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于中风险类别。</strong>
+                    这表明宝宝在某些细分的发育领域展现了成长差异，通过针对性地观察和支持，能更好地辅助他们成长。
+                  </p>
+                  <p>
+                    临床推荐做法是与您孩子的儿科医生讨论此评估结果。他们可以配合进行更细致的后续访谈（M-CHAT-R/F），以确定是否需要进一步的全面专业成长支持。我们建议您打印此页面或保存为
+                    PDF，在下一次常规体检时带给儿科医生看。
+                  </p>
+                </div>
+
+                <div id="risk-desc-high" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于高风险类别。</strong>
+                    请务必记住：筛查出的分值绝非最终诊断，也不是给宝宝贴上“标签”，它是一把可以帮您在生命早期及时帮宝宝寻求临床支持的“钥匙”。
+                  </p>
+                  <p>
+                    我们强烈建议您尽快带宝宝咨询发育行为儿科专家，预约一次全面的临床发育评估。同时，您也可以联系社区的早期干预服务机构。科学证明，生命早期的针对性支持和训练能对宝宝的一生产生极其积极的深远影响。
+                  </p>
+                </div>
+
+                <div
+                  class="bg-amber-50 border border-amber-200/50 rounded-2xl p-4 text-xs md:text-sm text-amber-800 leading-relaxed no-print">
+                  <strong>重要提示：</strong> M-CHAT-R
+                  是一项初步发育筛查表，而不是诊断结论。做为父母，您的直觉非常关键。如果您直觉上感到宝宝的发育和别人有所不同，无论筛查得分如何，都可以主动向儿科医生咨询。
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto justify-center no-print">
+                <button id="btn-print"
+                  class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  打印/保存报告
+                </button>
+                <button id="btn-restart"
+                  class="flex-1 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2 bg-white">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+                  </svg>
+                  重新测评
+                </button>
+              </div>
+
+              <!-- Detailed Breakdown Table -->
+              <div class="max-w-3xl mx-auto space-y-4">
+                <h3 class="text-xl font-bold text-slate-900 font-serif border-b border-slate-100 pb-3">
+                  逐题回答及发育解析汇总
+                </h3>
+
+                <div class="border border-slate-150 rounded-2xl overflow-hidden shadow-sm">
+                  <div class="min-w-full divide-y divide-slate-150">
+                    <div
+                      class="bg-slate-50 p-4 font-bold text-xs uppercase tracking-wider text-slate-500 grid grid-cols-12 gap-4">
+                      <span class="col-span-1 text-center">序号</span>
+                      <span class="col-span-8">测评行为与发育里程碑问题</span>
+                      <span class="col-span-2 text-center">您的回答</span>
+                      <span class="col-span-1 text-center">状态</span>
+                    </div>
+                    <div id="results-table-body" class="bg-white divide-y divide-slate-100 text-sm">
+                      <!-- JS Injected rows -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scoring Reference Section -->
+              <div
+                class="max-w-3xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 md:p-8 mt-10 space-y-4 text-xs md:text-sm text-slate-600">
+                <h4 class="text-base font-bold text-slate-800 font-serif border-b border-slate-200 pb-2">
+                  临床评分算法与结果解读 (M-CHAT-R/F)
+                </h4>
+
+                <div class="space-y-3 leading-relaxed">
+                  <p>
+                    <strong>评分标准：</strong> 除第 2、5、12 题外，回答 <strong>“否”</strong> 表示存在自闭症（自闭症）发育风险；对于第 2、5、12 题，回答
+                    <strong>“是”</strong> 表示存在发育风险。每个代表发育风险的回答计 <strong>1 分</strong>。累加所有得分计算总分。
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">低风险 (0 - 2
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        如果孩子小于 24 个月，请在其两岁生日后再次进行筛查。除非后续日常监测中出现发育异常迹象，否则无需采取进一步干预行动。
+                      </p>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">中风险 (3 - 7
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        建议进行随访访谈（M-CHAT-R/F 第二阶段）以针对风险点获取更多信息。若随访后得分仍为 2分 或更高，则筛查结果呈阳性。需采取行动：转介进行临床诊断评估和早期干预资格评估。若随访得分为
+                        0-1分，则呈阴性，未来定期复查即可。
+                      </p>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">高风险 (8 - 20
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        临床上可直接跳过随访访谈阶段，立即转介进行专业发育诊断评估以及早期干预服务的资格评定。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="mt-8 border-t border-slate-200/80 pt-6 text-center text-xs text-slate-400 space-y-1.5 no-print">
+            <p class="font-medium text-slate-500">
+              幼儿自闭症筛查量表修订版及后续随访 (M-CHAT-R/F)™
+            </p>
+            <p class="text-slate-400">
+              Diana L. Robins, Ph.D. &bull; Deborah Fein, Ph.D. &bull; Marianne Barton, Ph.D.
+            </p>
+            <p>
+              官方来源：<a href="https://www.mchatscreen.com/wp-content/uploads/2025/03/M-CHAT-R_F_NoShade_March2025.v1.pdf"
+                target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">官方 M-CHAT-R/F 打印版
+                PDF</a>
+            </p>
+            <p class="italic text-slate-400">
+              致谢：感谢西班牙 M-CHAT 研究小组开发了本文件中使用的流程图格式。 (We thank the M-CHAT Study Group for developing the flow chart format
+              used in
+              this document.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Redesigned Footer -->
+  <footer class="gold-brown-blur text-slate-300 py-16 border-t border-amber-950/20 relative z-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800/80 pb-12 mb-8 gap-8">
+        <div>
+          <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">关于本项目</h4>
+          <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+            这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
+          </p>
+        </div>
+        <div class="text-slate-500 text-xs">
+          <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
+          <p class="mb-1">来源：NIH, CDC, ChildFind</p>
+          <p class="mt-2 text-[10px] text-slate-600 font-mono">
+            最后更新：Local Dev (local)
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header & Mobile menu scroll handling
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar-container');
+      const header = document.getElementById('main-header');
+      const alertBanner = document.getElementById('alert-banner');
+      if (window.scrollY > 30) {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        header.classList.remove('py-6');
+        header.classList.add('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '0px';
+          alertBanner.style.padding = '0px';
+          alertBanner.style.opacity = '0';
+          alertBanner.style.overflow = 'hidden';
+        }
+      } else {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        header.classList.add('py-6');
+        header.classList.remove('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '';
+          alertBanner.style.padding = '';
+          alertBanner.style.opacity = '1';
+        }
+      }
+    });
+
+    // Mobile Menu Toggle
+    document.addEventListener('click', function (e) {
+      const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
+      if (mobileMenuBtn) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.classList.toggle('hidden');
+        }
+      }
+    });
+  </script>
+
+  <script>
+    (function () {
+      // Rounded, child-friendly cartoonish SVGs using friendly theme color styling (stroke-linecap="round", stroke-linejoin="round")
+      const svgDatabase = {
+        q1: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="25" cy="50" r="10" class="stroke-brand-maroon fill-rose-50/50" />
+          <path d="M45,50 Q65,45 82,30" class="stroke-brand-orange" stroke-dasharray="3 3" />
+          <path d="M22,35 C25,25 32,25 35,35" class="stroke-brand-maroon" />
+          <circle cx="25" cy="48" r="3.5" class="fill-brand-maroon stroke-none" />
+          <!-- Pointing hand -->
+          <path d="M40,50 L52,50 C54,50 56,48 56,46 C56,44 54,42 52,42 M48,42 L58,42 M45,46 L40,46" />
+          <circle cx="85" cy="25" r="5" class="fill-brand-orange stroke-brand-orange" />
+         </svg>`,
+        q2: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <path d="M32,25 C25,20 15,20 15,40 C15,55 22,58 28,55" />
+          <path d="M28,55 C30,50 30,45 28,40 C26,35 22,35 22,42" />
+          <!-- Concentric soft sound waves -->
+          <path d="M42,25 C48,29 48,51 42,55" class="stroke-brand-orange" />
+          <path d="M50,18 C58,24 58,56 50,62" class="stroke-brand-orange opacity-70" />
+          <path d="M58,11 C70,18 70,62 58,69" class="stroke-brand-orange opacity-40" />
+         </svg>`,
+        q3: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Teapot -->
+          <path d="M15,52 L60,52 C65,52 65,30 60,30 L15,30 C10,30 10,52 15,52 Z" class="fill-rose-50/50" />
+          <path d="M60,35 C70,35 70,47 60,47" />
+          <path d="M10,35 L4,42 L8,42" />
+          <path d="M37,30 C37,20 43,20 43,30" class="stroke-brand-orange" />
+          <!-- Teddy cup -->
+          <rect x="72" y="42" width="16" height="10" rx="3" class="stroke-brand-maroon fill-amber-50/50" />
+          <path d="M72,45 C68,45 68,49 72,49" class="stroke-brand-maroon" />
+         </svg>`,
+        q4: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Colorful climbing blocks -->
+          <rect x="15" y="55" width="15" height="15" rx="3" class="fill-rose-50/50 stroke-brand-maroon" />
+          <rect x="35" y="40" width="15" height="30" rx="3" class="fill-blue-50/50 stroke-brand-blue" />
+          <rect x="55" y="25" width="15" height="45" rx="3" class="fill-amber-50/50 stroke-brand-orange" />
+          <!-- Star at top -->
+          <polygon points="80,10 83,16 90,16 85,21 87,27 80,23 73,27 75,21 70,16 77,16" class="fill-brand-orange stroke-brand-orange" />
+         </svg>`,
+        q5: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="32" cy="40" r="10" class="fill-rose-50/50" />
+          <circle cx="68" cy="40" r="10" class="fill-rose-50/50" />
+          <circle cx="32" cy="40" r="4.5" class="fill-slate-700 stroke-none" />
+          <circle cx="68" cy="40" r="4.5" class="fill-slate-700 stroke-none" />
+          <!-- Hand wiggles near eye -->
+          <path d="M12,48 C15,48 16,36 14,32 C12,28 8,34 8,38" class="stroke-brand-orange" />
+          <path d="M88,48 C85,48 84,36 86,32 C88,28 92,34 92,38" class="stroke-brand-orange" />
+          <path d="M14,32 C17,29 20,29 20,34 M86,32 C83,29 80,29 80,34" class="stroke-brand-orange" />
+         </svg>`,
+        q6: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <line x1="60" y1="30" x2="95" y2="30" stroke-width="2" class="stroke-slate-350" />
+          <!-- Toy jar -->
+          <rect x="70" y="12" width="16" height="18" rx="4" class="fill-rose-50/50 stroke-brand-maroon" />
+          <circle cx="78" cy="21" r="3" class="fill-brand-orange stroke-brand-orange" />
+          <!-- Request pointing -->
+          <path d="M10,65 Q25,60 48,45" class="stroke-brand-blue" />
+          <path d="M48,45 L54,42 M48,45 L45,49" />
+         </svg>`,
+        q7: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="78" cy="22" r="8" class="fill-brand-orange stroke-brand-orange" />
+          <path d="M78,8 L78,12 M78,32 L78,36 M66,22 L70,22 M86,22 L90,22" class="stroke-brand-orange" />
+          <!-- Child pointing at sun -->
+          <path d="M10,68 Q25,63 52,44" class="stroke-brand-maroon" />
+          <path d="M52,44 L58,41 M52,44 L49,49" class="stroke-brand-maroon" />
+         </svg>`,
+        q8: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="33" cy="45" r="15" class="fill-rose-50/50 stroke-brand-maroon" />
+          <circle cx="33" cy="38" r="2.5" class="fill-brand-maroon stroke-none" />
+          <path d="M28,48 Q33,52 38,48" class="stroke-brand-maroon" />
+          
+          <circle cx="67" cy="45" r="15" class="fill-amber-50/50 stroke-brand-orange" />
+          <circle cx="67" cy="38" r="2.5" class="fill-brand-orange stroke-none" />
+          <path d="M62,48 Q67,52 72,48" class="stroke-brand-orange" />
+         </svg>`,
+        q9: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Flower being held up -->
+          <circle cx="50" cy="32" r="6" class="fill-brand-orange stroke-brand-orange" />
+          <path d="M50,38 L50,55" class="stroke-brand-orange" />
+          <path d="M42,27 C42,27 48,22 50,26 C52,22 58,27 58,27 C58,27 63,33 59,35 C55,37 50,32 50,32 C50,32 45,37 41,35 C37,33 42,27 42,27 Z" class="fill-rose-50/50 stroke-brand-maroon" />
+          <path d="M28,68 C35,55 65,55 72,68" />
+         </svg>`,
+        q10: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Megaphone calling -->
+          <path d="M12,40 L28,28 L28,52 L12,40 Z" class="fill-rose-50/50" />
+          <path d="M34,32 C38,35 38,45 34,48 M39,26 C45,32 45,48 39,54" class="stroke-brand-orange" />
+          <!-- Toddler turns -->
+          <circle cx="75" cy="35" r="10" class="fill-amber-50/50 stroke-brand-orange" />
+          <path d="M75,45 L75,65" class="stroke-brand-orange" />
+          <circle cx="68" cy="35" r="2" class="fill-brand-orange stroke-none" />
+         </svg>`,
+        q11: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="28" cy="40" r="16" class="fill-rose-50/50 stroke-brand-maroon" />
+          <circle cx="22" cy="35" r="2.5" class="fill-brand-maroon stroke-none" />
+          <circle cx="34" cy="35" r="2.5" class="fill-brand-maroon stroke-none" />
+          <path d="M20,46 Q28,54 36,46" class="stroke-brand-maroon" />
+          
+          <circle cx="72" cy="40" r="16" class="fill-amber-50/50 stroke-brand-orange" />
+          <circle cx="66" cy="35" r="2.5" class="fill-brand-orange stroke-none" />
+          <circle cx="78" cy="35" r="2.5" class="fill-brand-orange stroke-none" />
+          <path d="M64,46 Q72,54 80,46" class="stroke-brand-orange" />
+         </svg>`,
+        q12: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <rect x="35" y="22" width="30" height="42" rx="6" class="fill-amber-50/50 stroke-brand-orange" />
+          <circle cx="50" cy="38" r="8" class="stroke-brand-orange" />
+          <path d="M50,12 L50,22" class="stroke-brand-orange" />
+          <!-- Loud waves -->
+          <path d="M12,18 L22,28 L15,38 L25,48 L15,58 M88,18 L78,28 L85,38 L75,48 L85,58" class="stroke-brand-maroon" stroke-width="4" />
+         </svg>`,
+        q13: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Footprints -->
+          <path d="M25,52 C25,46 33,42 38,45 C43,48 40,58 33,58 C26,58 25,56 25,52 Z" class="fill-rose-50/50 stroke-brand-maroon" />
+          <circle cx="43" cy="40" r="2" class="fill-brand-maroon stroke-none" />
+          <circle cx="48" cy="43" r="1.5" class="fill-brand-maroon stroke-none" />
+          <circle cx="52" cy="47" r="1" class="fill-brand-maroon stroke-none" />
+          
+          <path d="M52,28 C52,22 60,18 65,21 C70,24 67,34 60,34 C53,34 52,32 52,28 Z" class="fill-amber-50/50 stroke-brand-orange" />
+          <circle cx="70" cy="16" r="2" class="fill-brand-orange stroke-none" />
+          <circle cx="75" cy="19" r="1.5" class="fill-brand-orange stroke-none" />
+          <circle cx="79" cy="23" r="1" class="fill-brand-orange stroke-none" />
+         </svg>`,
+        q14: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <path d="M15,40 Q30,22 45,40 Q30,58 15,40 Z" class="fill-rose-50/50" />
+          <circle cx="30" cy="40" r="6.5" class="fill-brand-maroon" />
+          
+          <path d="M55,40 Q70,22 85,40 Q70,58 55,40 Z" class="fill-rose-50/50" />
+          <circle cx="70" cy="40" r="6.5" class="fill-brand-maroon" />
+          
+          <path d="M40,40 L60,40" class="stroke-brand-orange" stroke-dasharray="2 2" />
+         </svg>`,
+        q15: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <path d="M28,20 C33,20 36,28 33,38 L36,58 L24,58 L20,38 Z" class="fill-rose-50/50" />
+          <path d="M20,35 Q13,28 16,25 Q20,23 23,30" />
+          
+          <path d="M72,20 C67,20 64,28 67,38 L64,58 L76,58 L80,38 Z" class="fill-amber-50/50 stroke-brand-orange" />
+          <path d="M80,35 Q87,28 84,25 Q80,23 77,30" class="stroke-brand-orange" />
+         </svg>`,
+        q16: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <circle cx="22" cy="32" r="9" class="fill-amber-50/50" />
+          <circle cx="24" cy="32" r="3" class="fill-slate-700 stroke-none" />
+          <path d="M31,32 L60,32" class="stroke-brand-orange" stroke-dasharray="3 3" />
+          <circle cx="65" cy="32" r="5" class="fill-brand-orange stroke-brand-orange" />
+          
+          <circle cx="45" cy="55" r="9" class="fill-rose-50/50" />
+          <path d="M45,46 L60,36" class="stroke-brand-maroon" stroke-dasharray="3 3" />
+         </svg>`,
+        q17: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <polygon points="50,10 53,18 61,18 55,23 57,31 50,26 43,31 45,23 39,18 47,18" class="fill-brand-orange stroke-brand-orange" />
+          <circle cx="50" cy="55" r="9" class="fill-rose-50/50" />
+          <path d="M35,62 Q50,48 65,62" />
+          <path d="M50,46 L50,36" stroke-dasharray="2 2" />
+         </svg>`,
+        q18: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <path d="M55,62 L55,38 L75,38 M55,48 L75,48 M75,38 L75,62" stroke-width="3" />
+          <rect x="25" y="32" width="18" height="12" rx="3" class="fill-rose-50/50 stroke-brand-maroon" />
+          <line x1="34" y1="32" x2="34" y2="44" class="stroke-brand-maroon" />
+          <!-- Travel path -->
+          <path d="M43,38 Q58,35 64,40" class="stroke-brand-orange" stroke-dasharray="3 3" />
+          <polygon points="62,42 66,39 61,37" class="fill-brand-orange stroke-none" />
+         </svg>`,
+        q19: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <!-- Toy -->
+          <path d="M12,48 C18,36 30,36 36,48" class="stroke-brand-orange" />
+          <path d="M24,48 A6,6 0 1,1 18,48" stroke-dasharray="2 2" class="stroke-brand-orange" />
+          <!-- Parent smile -->
+          <circle cx="70" cy="40" r="14" class="fill-rose-50/50 stroke-brand-maroon" />
+          <circle cx="64" cy="35" r="2" class="fill-brand-maroon stroke-none" />
+          <circle cx="76" cy="35" r="2" class="fill-brand-maroon stroke-none" />
+          <path d="M63,44 Q70,51 77,44" class="stroke-brand-maroon" />
+          
+          <path d="M36,44 Q50,34 56,40" stroke-dasharray="3 3" />
+         </svg>`,
+        q20: `<svg class="w-24 h-24 stroke-brand-blue stroke-[3] fill-none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 100 80">
+          <line x1="20" y1="15" x2="80" y2="15" stroke-width="4" />
+          <line x1="25" y1="15" x2="15" y2="65" />
+          <line x1="75" y1="15" x2="85" y2="65" />
+          
+          <line x1="45" y1="15" x2="43" y2="48" class="stroke-brand-orange" />
+          <line x1="55" y1="15" x2="53" y2="48" class="stroke-brand-orange" />
+          <rect x="40" y="48" width="18" height="5" class="fill-brand-orange stroke-brand-orange" />
+          
+          <path d="M34,48 Q40,55 46,48" stroke-dasharray="2 2" />
+         </svg>`
+      };
+
+      const questions = [
+        {
+          text: "如果你指向房间内的某样物体，你的孩子会看它吗？",
+          example: "（例如，你指着一个玩具或动物，你的孩子会看这个玩具或动物吗？）",
+          reverse: false,
+          milestone: "共同关注（手势反应）",
+          desc: "关注他人指向的物体说明孩子能与他人共享注意力焦点，这对于早期的语言与社交发展极其关键。",
+          yesSub: "是的，会看",
+          noSub: "不，忽略指向"
+        },
+        {
+          text: "你有没有想过你的孩子可能是聋的？",
+          example: "（注意：如果您的孩子经常忽略说话，或者对日常声音表现得如同听不见一样。）",
+          reverse: true,
+          milestone: "听觉反应",
+          desc: "检查孩子是否忽略说话声音，但对视觉信号或震动有反应，这有助于区分听力障碍与社交沟通方面的差异。",
+          yesSub: "是的，曾怀疑过",
+          noSub: "不，听力很正常"
+        },
+        {
+          text: "你的孩子会玩假装游戏吗？",
+          example: "（例如，假装从空的杯子中喝水，假装打电话，假装喂娃娃或毛绒玩具？）",
+          reverse: false,
+          milestone: "功能性与想象力游戏",
+          desc: "假装游戏代表了认知抽象能力和模仿能力，说明孩子理解日常生活中的动作与角色。",
+          yesSub: "是的，会玩假装",
+          noSub: "不，不会玩假装"
+        },
+        {
+          text: "你的孩子喜欢爬东西吗？",
+          example: "（如家具、游乐场设施、或楼梯）",
+          reverse: false,
+          milestone: "大运动协调能力",
+          desc: "喜欢运动探索和攀爬，表现了健康的大运动好奇心、身体平衡与协调性。",
+          yesSub: "是的，很喜欢爬",
+          noSub: "不，很少或不爬"
+        },
+        {
+          text: "你的孩子会在离自己眼睛近的地方做出不正常的手指运动吗？",
+          example: "（例如，你的孩子会在眼睛前摆动手指吗？）",
+          reverse: true,
+          milestone: "刻板运动行为",
+          desc: "在眼睛附近进行重复的、带有感官刺激的摆动手指，可能表明孩子存在非典型的感官寻求行为。",
+          yesSub: "是的，有类似动作",
+          noSub: "不，没有这种动作"
+        },
+        {
+          text: "你的孩子会用一根手指指东西表示需要或寻求帮助吗？",
+          example: "（例如，指着他/她够不到的一块点心或玩具）",
+          reverse: false,
+          milestone: "要求性指向（表达需求）",
+          desc: "用手指指向所需的物品是一种早期非言语沟通方式，表明孩子有与看护者主动沟通的意识。",
+          yesSub: "是的，会指着要",
+          noSub: "不，抓拉或哭闹代替"
+        },
+        {
+          text: "你的孩子会用一根手指指东西，向你展示有趣的东西吗？",
+          example: "（例如，指向天空中的飞机或马路上的卡车）",
+          reverse: false,
+          milestone: "宣告性指向（分享兴趣）",
+          desc: "出于分享兴趣（而不仅仅是要求物品）而指向远方，是共同关注和人际联结的核心组成部分。",
+          yesSub: "是的，会指着给看",
+          noSub: "不，不会指着给看"
+        },
+        {
+          text: "你的孩子对其他孩子感兴趣吗？",
+          example: "（例如，你的孩子会看其他孩子，对他们笑，走向他们吗？）",
+          reverse: false,
+          milestone: "社交兴趣与同伴参与",
+          desc: "对同伴表现出好奇、微笑或走向他们，表明了孩子的基础社交兴趣和互动准备。",
+          yesSub: "是的，很感兴趣",
+          noSub: "不，不理会其他孩子"
+        },
+        {
+          text: "你的孩子会把东西拿给你或举着东西给你看吗——不是寻求帮助，而只是分享？",
+          example: "（例如，给你看花、毛绒玩具动物或玩具卡车）",
+          reverse: false,
+          milestone: "主动共同关注（展示分享）",
+          desc: "把东西带给看护者看，纯粹是为了分享兴趣和兴奋，这是社交分享能力发展的重要指标。",
+          yesSub: "是的，会拿来分享",
+          noSub: "不，不会拿来分享"
+        },
+        {
+          text: "你叫孩子名字的时候，他/她会有反应吗？",
+          example: "（例如，你叫他/她的名字，他/她会抬头、说话或咿呀说话，或者停下正在做的事？）",
+          reverse: false,
+          milestone: "名字定向反应",
+          desc: "在被呼唤名字时能够可靠地转头或做出反应，表明了孩子的听觉理解和社交定向能力。",
+          yesSub: "是的，会有反应",
+          noSub: "不，叫名字不理会"
+        },
+        {
+          text: "你对你的孩子笑的时候，他/她会回笑吗？",
+          example: "（这测量的是社交互惠，而不仅仅是孩子独自玩耍时发笑。）",
+          reverse: false,
+          milestone: "社交互惠（回笑）",
+          desc: "在看到父母微笑时也回笑，表明了健康的情感互惠与社会参照能力。",
+          yesSub: "是的，会回笑",
+          noSub: "不，不会回笑"
+        },
+        {
+          text: "你的孩子会因为日常噪音而感到不安吗？",
+          example: "（例如，你的孩子会因为吸尘器或大分贝音乐而尖叫或哭吗？）",
+          reverse: true,
+          milestone: "听觉感官敏感性",
+          desc: "对标准的、日常的家庭声音产生极度痛苦或惊恐的反应，表明可能存在感官超敏反应。",
+          yesSub: "是的，害怕噪音",
+          noSub: "不，对噪音反应正常"
+        },
+        {
+          text: "你的孩子会走路吗？",
+          example: "（独立行走，不需要搀扶家具或大人的手。）",
+          reverse: false,
+          milestone: "大运动发育里程碑（行走）",
+          desc: "独立行走是 16 至 30 个月婴幼儿的核心大运动身体发育指标。",
+          yesSub: "是的，会独立行走",
+          noSub: "不，还不会或需搀扶"
+        },
+        {
+          text: "当你对着他/她说话，和他/她玩耍，或者给他/她穿衣服时，他/她会与你对视吗？",
+          example: "（在日常自然互动中保持眼神接触。）",
+          reverse: false,
+          milestone: "眼神注视协调",
+          desc: "直接的眼神接触能调节社交互动，表达专注度，并建立人与人之间的基本联系。",
+          yesSub: "是的，会进行对视",
+          noSub: "不，会避开或少对视"
+        },
+        {
+          text: "你的孩子会模仿你做的事吗？",
+          example: "（例如，挥手再见、鼓掌或者发出有趣的声音）",
+          reverse: false,
+          milestone: "社交与行为模仿",
+          desc: "模仿声音和动作是学习社交规则、手势语言以及口头语言的基石。",
+          yesSub: "是的，会模仿",
+          noSub: "不，不会模仿"
+        },
+        {
+          text: "如果你转头看某样东西，你的孩子也会向四周看，看你在看什么吗？",
+          example: "（跟随父母的视线去看父母正在看的东西。）",
+          reverse: false,
+          milestone: "视线跟随",
+          desc: "转向去看父母所看的事物，展现了孩子对他人视角与共同注意焦点的追踪能力。",
+          yesSub: "是的，会顺着看",
+          noSub: "不，不会顺着看"
+        },
+        {
+          text: "你的孩子会试图让你去看他/她吗？",
+          example: "（例如，你的孩子会看着你等待夸奖，或者说“看”、“看我”吗？）",
+          reverse: false,
+          milestone: "社交关注寻求",
+          desc: "主动寻求父母的夸奖或关注，表现出了与看护者分享成就与连接的强烈愿望。",
+          yesSub: "是的，会寻求关注",
+          noSub: "不，不会寻求关注"
+        },
+        {
+          text: "当你告诉你的孩子去做某事时，他/她能理解吗？",
+          example: "（例如，如果你不用手指，你的孩子能理解“把书放在椅子上”或“给我拿毯子”吗？）",
+          reverse: false,
+          milestone: "接收性语言（指令理解）",
+          desc: "在没有手势线索的情况下理解口头指令，证明了接收性词汇量与语言理解能力的发展。",
+          yesSub: "是的，能够听懂",
+          noSub: "不，无法听懂指令"
+        },
+        {
+          text: "如果发生了新鲜事，你的孩子会看你的脸，来看你有什么感觉吗？",
+          example: "（例如，如果他/她听到了奇怪或有趣的声音，或者看到新玩具，他/她会看你的脸吗？）",
+          reverse: false,
+          milestone: "社会参照（寻求情绪反馈）",
+          desc: "看父母的表情来判断如何应对新刺激，表现出了积极的社会参照能力与情感学习。",
+          yesSub: "是的，会看大人脸",
+          noSub: "不，不理会大人表情"
+        },
+        {
+          text: "你的孩子喜欢运动吗？",
+          example: "（例如，在你的膝盖上摇晃或弹跳）",
+          reverse: false,
+          milestone: "前庭觉感官反应",
+          desc: "享受身体运动（摇晃、弹跳）表明了标准的前庭觉感官信息处理。",
+          yesSub: "是的，很喜欢",
+          noSub: "不，不喜欢这类运动"
+        }
+      ];
+
+      // State
+      let currentStep = 0;
+      const answers = Array(20).fill(null);
+      let caregiverName = '';
+      let childName = '';
+      let childAge = '';
+
+      // Elements
+      const startView = document.getElementById('start-view');
+      const quizView = document.getElementById('quiz-view');
+      const resultsView = document.getElementById('results-view');
+
+      const caregiverInput = document.getElementById('caregiver-name');
+      const childInput = document.getElementById('child-name');
+      const ageSelect = document.getElementById('child-age');
+      const ageWarning = document.getElementById('age-warning');
+
+      const btnStart = document.getElementById('btn-start');
+      const btnYes = document.getElementById('btn-yes');
+      const btnNo = document.getElementById('btn-no');
+      const btnBack = document.getElementById('btn-back');
+      const btnPrint = document.getElementById('btn-print');
+      const btnRestart = document.getElementById('btn-restart');
+
+      const progressText = document.getElementById('quiz-progress-text');
+      const percentText = document.getElementById('quiz-percent-text');
+      const progressBar = document.getElementById('quiz-progress-bar');
+      const illustrationContainer = document.getElementById('quiz-illustration');
+      const questionText = document.getElementById('quiz-question-text');
+      const questionExample = document.getElementById('quiz-question-example');
+
+      const yesSub = document.getElementById('yes-sub');
+      const noSub = document.getElementById('no-sub');
+
+      const resultsGreeting = document.getElementById('results-greeting');
+      const resultsScoreNum = document.getElementById('results-score-num');
+      const resultsBadge = document.getElementById('results-badge');
+      const tableBody = document.getElementById('results-table-body');
+
+      const riskLow = document.getElementById('risk-desc-low');
+      const riskMedium = document.getElementById('risk-desc-medium');
+      const riskHigh = document.getElementById('risk-desc-high');
+
+      // Age warning
+      ageSelect.addEventListener('change', function () {
+        if (ageSelect.value === 'other') {
+          ageWarning.classList.remove('hidden');
+        } else {
+          ageWarning.classList.add('hidden');
+        }
+      });
+
+      // Start Screener
+      btnStart.addEventListener('click', function () {
+        caregiverName = caregiverInput.value.trim();
+        childName = childInput.value.trim() || '宝宝';
+        childAge = ageSelect.value;
+
+        if (!caregiverName) {
+          alert("请输入您的名字。");
+          caregiverInput.focus();
+          return;
+        }
+        if (!childAge) {
+          alert("请选择宝宝的月龄范围。");
+          ageSelect.focus();
+          return;
+        }
+
+        startView.classList.add('hidden');
+        quizView.classList.remove('hidden');
+        currentStep = 0;
+        renderQuestion();
+      });
+
+      // Render question
+      function renderQuestion() {
+        const q = questions[currentStep];
+        const stepNum = currentStep + 1;
+
+        progressText.textContent = `第 ${stepNum} 题，共 20 题`;
+        const percent = Math.round((currentStep / 20) * 100);
+        percentText.textContent = `已完成 ${percent}%`;
+        progressBar.style.width = `${percent === 0 ? 5 : percent}%`;
+
+        const svgKey = `q${stepNum}`;
+        illustrationContainer.innerHTML = svgDatabase[svgKey] || '';
+
+        let text = q.text;
+        let example = q.example;
+        if (childName !== '宝宝') {
+          text = text.replace(/你的孩子/g, childName);
+          example = example.replace(/你的孩子/g, childName);
+        }
+
+        questionText.textContent = text;
+        questionExample.textContent = example;
+
+        // Dynamic descriptive subtitles for Yes/No buttons
+        yesSub.textContent = q.yesSub;
+        noSub.textContent = q.noSub;
+
+        if (currentStep === 0) {
+          btnBack.classList.add('invisible');
+        } else {
+          btnBack.classList.remove('invisible');
+        }
+      }
+
+      // Answer handle
+      function handleAnswer(ansVal) {
+        answers[currentStep] = ansVal;
+
+        if (currentStep < 19) {
+          currentStep++;
+          renderQuestion();
+        } else {
+          showResults();
+        }
+      }
+
+      btnYes.addEventListener('click', () => handleAnswer(true));
+      btnNo.addEventListener('click', () => handleAnswer(false));
+
+      btnBack.addEventListener('click', function () {
+        if (currentStep > 0) {
+          currentStep--;
+          renderQuestion();
+        }
+      });
+
+      // Calculate results
+      function showResults() {
+        quizView.classList.add('hidden');
+        resultsView.classList.remove('hidden');
+
+        let score = 0;
+        questions.forEach((q, index) => {
+          const caregiverAnswer = answers[index];
+          const isAtRisk = q.reverse ? (caregiverAnswer === true) : (caregiverAnswer === false);
+          if (isAtRisk) {
+            score++;
+          }
+        });
+
+        resultsGreeting.innerHTML = `尊敬的 <strong>${caregiverName}</strong> 父母，根据您的答题情况，以下是关于 <strong>${childName}</strong> 的发育评估报告：`;
+        resultsScoreNum.textContent = score;
+
+        resultsBadge.className = "inline-block px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide uppercase transition-all shadow-sm";
+        riskLow.classList.add('hidden');
+        riskMedium.classList.add('hidden');
+        riskHigh.classList.add('hidden');
+
+        if (score <= 2) {
+          resultsBadge.textContent = "低风险 (得分: " + score + ")";
+          resultsBadge.classList.add('bg-emerald-100', 'text-emerald-800', 'border', 'border-emerald-200');
+          riskLow.classList.remove('hidden');
+        } else if (score <= 7) {
+          resultsBadge.textContent = "中风险 (得分: " + score + ")";
+          resultsBadge.classList.add('bg-orange-100', 'text-orange-850', 'border', 'border-orange-200');
+          riskMedium.classList.remove('hidden');
+        } else {
+          resultsBadge.textContent = "高风险 (得分: " + score + ")";
+          resultsBadge.classList.add('bg-rose-100', 'text-rose-800', 'border', 'border-rose-200');
+          riskHigh.classList.remove('hidden');
+        }
+
+        tableBody.innerHTML = '';
+        questions.forEach((q, index) => {
+          const caregiverAnswer = answers[index];
+          const isAtRisk = q.reverse ? (caregiverAnswer === true) : (caregiverAnswer === false);
+
+          const row = document.createElement('div');
+          row.className = "p-4 grid grid-cols-12 gap-4 items-center align-middle hover:bg-slate-50 transition border-t border-slate-100";
+
+          const numCell = document.createElement('span');
+          numCell.className = "col-span-1 text-center font-bold text-slate-400";
+          numCell.textContent = index + 1;
+
+          const textCell = document.createElement('div');
+          textCell.className = "col-span-8 space-y-1";
+
+          let text = q.text;
+          if (childName !== '宝宝') {
+            text = text.replace(/你的孩子/g, childName);
+          }
+
+          textCell.innerHTML = `<p class="font-semibold text-slate-800 leading-tight">${text}</p>
+                            <p class="text-xs text-slate-400 font-mono">${q.milestone}: ${q.desc}</p>`;
+
+          const ansCell = document.createElement('span');
+          ansCell.className = `col-span-2 text-center font-bold px-2 py-1 rounded-full text-xs uppercase ${caregiverAnswer ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'}`;
+          ansCell.textContent = caregiverAnswer ? '是' : '否';
+
+          const statusCell = document.createElement('span');
+          statusCell.className = "col-span-1 text-center flex justify-center";
+
+          if (isAtRisk) {
+            statusCell.innerHTML = `<span class="h-6 w-6 rounded-full bg-rose-100 border border-rose-200 text-brand-maroon flex items-center justify-center font-bold text-xs" title="注意（存在发育风险）">!</span>`;
+          } else {
+            statusCell.innerHTML = `<span class="h-6 w-6 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 flex items-center justify-center font-bold text-xs" title="通过">✓</span>`;
+          }
+
+          row.appendChild(numCell);
+          row.appendChild(textCell);
+          row.appendChild(ansCell);
+          row.appendChild(statusCell);
+
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Print
+      btnPrint.addEventListener('click', function () {
+        window.print();
+      });
+
+      // Restart
+      btnRestart.addEventListener('click', function () {
+        resultsView.classList.add('hidden');
+        startView.classList.remove('hidden');
+
+        caregiverInput.value = '';
+        childInput.value = '';
+        ageSelect.value = '';
+        ageWarning.classList.add('hidden');
+        answers.fill(null);
+      });
+
+    })();
+  </script>
+</body>
+
+</html>

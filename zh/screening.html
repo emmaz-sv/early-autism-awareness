@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>M-CHAT-R 自闭症筛查工具 - Autism Early Intervention Awareness</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN with typography plugin -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
@@ -33,16 +36,17 @@
       }
     }
   </script>
-  
+
   <link rel="stylesheet" href="/early-autism-awareness/styles.css">
   <meta name="description" content="一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。">
-  
+
   <style>
     .gold-brown-blur {
       background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
       position: relative;
       overflow: hidden;
     }
+
     .gold-brown-blur::before {
       content: '';
       position: absolute;
@@ -51,59 +55,80 @@
       width: 140%;
       height: 140%;
       background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
-                  radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+        radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
       filter: blur(80px);
       z-index: 0;
       pointer-events: none;
     }
+
     .font-cursive {
       font-family: Caveat, cursive;
     }
   </style>
 </head>
+
 <body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
   
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip to content</a>
-  
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip
+    to content</a>
+
   <!-- Fixed Navbar Container -->
-  <div id="navbar-container" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
+  <div id="navbar-container"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
     <!-- Top Alert Banner -->
-    <div id="alert-banner" class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+    <div id="alert-banner"
+      class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
       
-        <span>Girl Scout Gold Award 项目 - 推广早期自闭症诊断与干预意识</span>
-        <a href="/early-autism-awareness/zh/index.html#resources" class="underline hover:text-slate-900 transition ml-2">了解早期征兆 &rarr;</a>
+      <span>Girl Scout Gold Award 项目 - 推广自闭症早期诊断与干预意识</span>
+      <a href="/early-autism-awareness/zh/index.html#resources"
+        class="underline hover:text-slate-900 transition ml-2">了解早期征兆 &rarr;</a>
       
     </div>
-    
+
     <!-- Navigation Header -->
-    <header id="main-header" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+    <header id="main-header"
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
       <div class="flex items-center gap-3">
         <a href="/early-autism-awareness/" class="flex flex-col no-underline group">
-          <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
-          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl Scout Gold Award Project</span>
+          <span
+            class="text-xl font-extrabold tracking-tight text-white group-hover:text-brand-orange transition-colors">Autism Early Intervention Awareness</span>
+          <span
+            class="text-[9px] uppercase tracking-widest text-slate-300 font-medium group-hover:text-white transition-colors">Girl
+            Scout Gold Award Project</span>
         </a>
       </div>
-      
+
       <nav class="hidden lg:block">
         <ul class="flex items-center gap-6 text-sm font-semibold">
-        
-          <li><a href="/early-autism-awareness/zh/index.html#home" class="text-slate-200 hover:text-white transition-colors">首页</a></li>
-          <li><a href="/early-autism-awareness/zh/screening.html" class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#resources" class="text-slate-200 hover:text-white transition-colors">资源</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#pamphlets" class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#journal" class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
-          <li><a href="/early-autism-awareness/zh/index.html#contact" class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
-          <li><a href="/early-autism-awareness/screening.html" class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a></li>
-        
+          
+          <li><a href="/early-autism-awareness/zh/index.html#home"
+              class="text-slate-200 hover:text-white transition-colors">首页</a></li>
+          <li><a href="/early-autism-awareness/zh/screening.html"
+              class="text-slate-200 hover:text-white transition-colors">自闭症筛查</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#resources"
+              class="text-slate-200 hover:text-white transition-colors">资源</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#pamphlets"
+              class="text-slate-200 hover:text-white transition-colors">宣传册</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#journal"
+              class="text-slate-200 hover:text-white transition-colors">项目日志</a></li>
+          <li><a href="/early-autism-awareness/zh/index.html#contact"
+              class="text-slate-200 hover:text-white transition-colors">联系与讲座</a></li>
+          <li><a href="/early-autism-awareness/screening.html"
+              class="lang-switch-btn ml-4 rounded-full border border-brand-orange bg-brand-orange/10 px-4 py-1.5 text-brand-orange font-medium tracking-wide transition hover:bg-brand-orange hover:text-slate-950">English</a>
+          </li>
+          
         </ul>
       </nav>
 
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center gap-4">
         
-          <a href="/early-autism-awareness/screening.html" class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
+        <a href="/early-autism-awareness/screening.html"
+          class="lang-switch-btn text-xs rounded-full border border-brand-orange bg-brand-orange/10 px-3 py-1 text-brand-orange font-medium transition hover:bg-brand-orange hover:text-slate-950">English</a>
         
-        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none" aria-label="Toggle menu">
+        <button id="mobile-menu-btn" class="text-slate-200 hover:text-white focus:outline-none"
+          aria-label="Toggle menu">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -112,14 +137,21 @@
     </header>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
+    <div id="mobile-menu"
+      class="hidden lg:hidden bg-slate-950/95 border-t border-slate-900 px-6 py-4 space-y-3 transition-all duration-300">
       
-        <a href="/early-autism-awareness/zh/index.html#home" class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
-        <a href="/early-autism-awareness/zh/screening.html" class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
-        <a href="/early-autism-awareness/zh/index.html#resources" class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
-        <a href="/early-autism-awareness/zh/index.html#pamphlets" class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
-        <a href="/early-autism-awareness/zh/index.html#journal" class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
-        <a href="/early-autism-awareness/zh/index.html#contact" class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
+      <a href="/early-autism-awareness/zh/index.html#home"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">首页</a>
+      <a href="/early-autism-awareness/zh/screening.html"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">自闭症筛查</a>
+      <a href="/early-autism-awareness/zh/index.html#resources"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">资源</a>
+      <a href="/early-autism-awareness/zh/index.html#pamphlets"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">宣传册</a>
+      <a href="/early-autism-awareness/zh/index.html#journal"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">项目日志</a>
+      <a href="/early-autism-awareness/zh/index.html#contact"
+        class="block text-slate-200 hover:text-white py-2 text-base font-medium">联系与讲座</a>
       
     </div>
   </div>
@@ -128,16 +160,17 @@
   
 
   
-    <!-- Sub-page layout - wrapped in a container with nice typography -->
-    <main id="main-content" class="flex-grow bg-slate-50 pt-36 pb-20 min-h-screen">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 py-10 md:px-12 md:py-16">
-          <h1 class="text-3xl md:text-4xl font-extrabold font-serif text-brand-maroon tracking-tight mb-6">M-CHAT-R 自闭症筛查工具</h1>
-          
-            <p class="text-slate-600 text-lg mb-10 border-b border-slate-100 pb-6 font-medium">一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。</p>
-          
-          <div class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-brand-maroon prose-a:text-brand-blue hover:prose-a:underline">
-            <div class="not-prose">
+  <!-- Sub-page layout - wrapped in a container with nice typography -->
+  <main id="main-content" class="flex-grow bg-slate-50 pt-36 pb-20 min-h-screen">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 py-10 md:px-12 md:py-16">
+        <h1 class="text-3xl md:text-4xl font-extrabold font-serif text-brand-maroon tracking-tight mb-6">M-CHAT-R 自闭症筛查工具</h1>
+        
+        <p class="text-slate-600 text-lg mb-10 border-b border-slate-100 pb-6 font-medium">一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。</p>
+        
+        <div
+          class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-brand-maroon prose-a:text-brand-blue hover:prose-a:underline">
+          <div class="not-prose">
   <!-- Top Intro Section -->
   <div class="mb-10 text-center space-y-3">
     <div
@@ -313,7 +346,7 @@
         <!-- Risk Description Messages -->
         <div id="risk-desc-low" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
           <p>
-            <strong>首先，请放轻松。您的宝宝处于低风险类别。</strong>
+            <strong>您的宝宝处于低风险类别。</strong>
             这表明宝宝在社交、沟通及运动方面均处于健康的常规发育阶段。
           </p>
           <p>
@@ -323,7 +356,7 @@
 
         <div id="risk-desc-medium" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
           <p>
-            <strong>首先，请放轻松。您的宝宝处于中风险类别。</strong>
+            <strong>您的宝宝处于中风险类别。</strong>
             这表明宝宝在某些细分的发育领域展现了成长差异，通过针对性地观察和支持，能更好地辅助他们成长。
           </p>
           <p>
@@ -334,7 +367,7 @@
 
         <div id="risk-desc-high" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
           <p>
-            <strong>首先，请放轻松。您的宝宝处于高风险类别。</strong>
+            <strong>您的宝宝处于高风险类别。</strong>
             请务必记住：筛查出的分值绝非最终诊断，也不是给宝宝贴上“标签”，它是一把可以帮您在生命早期及时帮宝宝寻求临床支持的“钥匙”。
           </p>
           <p>
@@ -1096,10 +1129,10 @@
 
     })();
   </script>
-          </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
   
 
   <!-- Global Redesigned Footer -->
@@ -1111,7 +1144,7 @@
             联系我们
           </h4>
           <p class="text-lg text-white font-medium mb-4">ezhengva@gmail.com</p>
-          
+
           <h4 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4 mt-8">
             关注我们
           </h4>
@@ -1121,7 +1154,7 @@
             <span class="text-slate-400 hover:text-white transition-colors cursor-default">Facebook</span>
           </div>
         </div>
-        
+
         <div class="flex flex-col justify-between">
           <div>
             <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">
@@ -1129,15 +1162,15 @@
             </h4>
             <p class="text-slate-400 text-sm max-w-md leading-relaxed">
               
-                这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
+              这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
               
             </p>
           </div>
           <div class="mt-8 md:mt-0 text-slate-500 text-xs">
             <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
-            <p class="mb-1">来源：NIH, CDC, ChildFind - 详见资源页面。</p>
+            <p class="mb-1">来源：NIH, CDC, ChildFind；项目顾问：Sandi Horton-Lafferty（FCPS ECAT）- 详见资源页面。</p>
             <p class="mt-2 text-[10px] text-slate-600 font-mono">
-              最后更新：July 26, 2026 (460236d)
+              最后更新：September 04, 2026 (ef0338c)
             </p>
           </div>
         </div>
@@ -1148,14 +1181,14 @@
   <script>
     function checkIsHome() {
       const p = window.location.pathname.replace(/\/$/, '');
-      return p === '' || 
-             p === '/index.html' || 
-             p === '/zh' || 
-             p === '/zh/index.html' || 
-             p === '/early-autism-awareness' || 
-             p.endsWith('/early-autism-awareness/index.html') || 
-             p.endsWith('/early-autism-awareness/zh') || 
-             p.endsWith('/early-autism-awareness/zh/index.html');
+      return p === '' ||
+        p === '/index.html' ||
+        p === '/zh' ||
+        p === '/zh/index.html' ||
+        p === '/early-autism-awareness' ||
+        p.endsWith('/early-autism-awareness/index.html') ||
+        p.endsWith('/early-autism-awareness/zh') ||
+        p.endsWith('/early-autism-awareness/zh/index.html');
     }
 
     function isSamePagePath(url1, url2) {
@@ -1178,7 +1211,7 @@
         const headerOffset = 90;
         const elementPosition = targetEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -1193,7 +1226,7 @@
           const url = new URL(btn.href);
           url.hash = hash;
           btn.href = url.href;
-        } catch (e) {}
+        } catch (e) { }
       });
     }
 
@@ -1212,7 +1245,7 @@
               link.classList.remove('text-brand-orange');
               link.classList.add('text-slate-200');
             }
-          } catch (e) {}
+          } catch (e) { }
         });
         updateLanguageSwitches(forcedHash || '');
         return;
@@ -1229,16 +1262,16 @@
               link.classList.remove('text-brand-orange');
               link.classList.add('text-slate-200');
             }
-          } catch (e) {}
+          } catch (e) { }
         });
         updateLanguageSwitches(forcedHash);
         return;
       }
-      
+
       // Scroll spy to identify the current visible section
       const sections = ['home', 'overview', 'resources', 'pamphlets', 'journal', 'contact'];
       let activeSectionId = 'home';
-      
+
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -1248,7 +1281,7 @@
           }
         }
       }
-      
+
       navLinks.forEach(link => {
         try {
           const linkUrl = new URL(link.href);
@@ -1260,13 +1293,13 @@
             link.classList.remove('text-brand-orange');
             link.classList.add('text-slate-200');
           }
-        } catch (e) {}
+        } catch (e) { }
       });
 
       updateLanguageSwitches('#' + activeSectionId);
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const navbar = document.getElementById('navbar-container');
       const header = document.getElementById('main-header');
       const alertBanner = document.getElementById('alert-banner');
@@ -1298,12 +1331,12 @@
           alertBanner.style.opacity = '1';
         }
       }
-      
+
       highlightActiveLink();
     });
 
     // Mobile Menu Toggle via Event Delegation
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
       if (mobileMenuBtn) {
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1314,35 +1347,35 @@
     });
 
     // SPA Router click listener
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const link = e.target.closest('a');
       if (!link) return;
-      
+
       const href = link.getAttribute('href');
       // Ignore external, anchors, mailto, target blank, and files like PDFs
       if (!href || href.startsWith('http') || href.startsWith('mailto:') || link.target === '_blank' || href.endsWith('.pdf')) {
         return;
       }
-      
+
       const targetUrl = new URL(link.href, window.location.origin);
       const currentUrl = new URL(window.location.href);
-      
+
       // If it's a hash link on the same page path
       if (targetUrl.hash && isSamePagePath(targetUrl.href, currentUrl.href)) {
         e.preventDefault();
-        
+
         // Hide mobile menu if open
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
           mobileMenu.classList.add('hidden');
         }
-        
+
         history.pushState(null, '', targetUrl.hash);
         smoothScrollToHash(targetUrl.hash);
         highlightActiveLink(targetUrl.hash);
         return;
       }
-      
+
       // If it's a non-hash link or a different page
       e.preventDefault();
       navigateTo(link.href);
@@ -1363,7 +1396,7 @@
         main.style.opacity = '0.3';
         main.style.transition = 'opacity 150ms ease-out';
       }
-      
+
       fetch(url)
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
@@ -1372,10 +1405,10 @@
         .then(htmlText => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(htmlText, 'text/html');
-          
+
           document.title = doc.title;
           document.documentElement.lang = doc.documentElement.lang || 'en';
-          
+
           // Swap header/footer layout elements for translation / active states
           const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
           elementIds.forEach(id => {
@@ -1386,21 +1419,21 @@
               oldEl.className = newEl.className;
             }
           });
-          
+
           if (main) {
             main.style.opacity = '1';
           }
-          
+
           const oldFooter = document.querySelector('footer');
           const newFooter = doc.querySelector('footer');
           if (oldFooter && newFooter) {
             oldFooter.innerHTML = newFooter.innerHTML;
             oldFooter.className = newFooter.className;
           }
-          
+
           history.pushState(null, '', url);
           window.dispatchEvent(new Event('scroll'));
-          
+
           if (targetHash) {
             setTimeout(() => {
               smoothScrollToHash(targetHash);
@@ -1418,7 +1451,7 @@
     }
 
     // Handle back/forward history buttons
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
       fetch(window.location.href)
         .then(r => r.text())
         .then(htmlText => {
@@ -1426,7 +1459,7 @@
           const doc = parser.parseFromString(htmlText, 'text/html');
           document.title = doc.title;
           document.documentElement.lang = doc.documentElement.lang || 'en';
-          
+
           const elementIds = ['alert-banner', 'main-header', 'mobile-menu', 'main-content'];
           elementIds.forEach(id => {
             const oldEl = document.getElementById(id);
@@ -1436,17 +1469,17 @@
               oldEl.className = newEl.className;
             }
           });
-          
+
           const oldFooter = document.querySelector('footer');
           const newFooter = doc.querySelector('footer');
           if (oldFooter && newFooter) {
             oldFooter.innerHTML = newFooter.innerHTML;
             oldFooter.className = newFooter.className;
           }
-          
+
           window.dispatchEvent(new Event('scroll'));
           highlightActiveLink();
-          
+
           if (window.location.hash) {
             smoothScrollToHash(window.location.hash);
           }
@@ -1456,7 +1489,7 @@
     // Run once on load
     window.dispatchEvent(new Event('scroll'));
     highlightActiveLink();
-    
+
     // Initial scroll to hash if present in URL
     if (window.location.hash) {
       setTimeout(() => {
@@ -1465,4 +1498,5 @@
     }
   </script>
 </body>
+
 </html>
