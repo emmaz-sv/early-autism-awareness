@@ -5,5 +5,5 @@ markdown: kramdown
 exclude:
   - README.md
 
-last_updated: "July 26, 2026"
-git_sha: "460236d"
+last_updated: "September 04, 2026"
+git_sha: "ef0338c"

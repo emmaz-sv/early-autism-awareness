@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "vitest run",
-    "update-meta": "node -e 'const {execSync}=require(\"child_process\"),fs=require(\"fs\");const d=execSync(\"git log -1 --format=%cd --date=format:\\\"%B %d, %Y\\\"\").toString().trim(),s=execSync(\"git rev-parse --short HEAD\").toString().trim(),p=\"docs/_config.yml\";let c=fs.readFileSync(p,\"utf8\").replace(/^last_updated:.*$/m,`last_updated: \"${d}\"`).replace(/^git_sha:.*$/m,`git_sha: \"${s}\"`);fs.writeFileSync(p,c);console.log(`Updated ${p}: ${d} (${s})`);'"
+    "update-meta": "node -e 'const {execSync}=require(\"child_process\"),fs=require(\"fs\");const d=execSync(\"git log -1 --format=%cd --date=format:\\\"%B %d, %Y\\\"\").toString().trim(),s=execSync(\"git rev-parse --short HEAD\").toString().trim(),p=\"docs/_config.yml\";let c=fs.readFileSync(p,\"utf8\").replace(/^last_updated:.*$/m,`last_updated: \"${d}\"`).replace(/^git_sha:.*$/m,`git_sha: \"${s}\"`);fs.writeFileSync(p,c);console.log(`Updated ${p}: ${d} (${s})`);'",
+    "build": "npm run update-meta && docker run --rm -v \"$PWD\":/srv/jekyll -w /srv/jekyll ruby:3.3 sh -c \"bundle config set path 'vendor/bundle' && bundle exec jekyll build --source docs --destination _site\"",
+    "build:local": "npm run update-meta && bundle exec jekyll build --source docs --destination _site"
   },
   "repository": {
     "type": "git",

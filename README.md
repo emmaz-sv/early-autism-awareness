@@ -37,15 +37,23 @@ If you want to produce the static output once and preview it:
 
 #### Step A: Build the static site
 
-**Using Docker (no local Ruby 3.3 setup needed):**
+**Quick build (updates git commit metadata + compiles `_site` via Docker):**
 ```bash
-docker run --rm -v "$PWD":/srv/jekyll -w /srv/jekyll ruby:3.3 sh -c "bundle config set path 'vendor/bundle' && bundle install && bundle exec jekyll build --source docs --destination _site"
+npm run build
 ```
 
 **Using Local Ruby 3.3 (if installed via `mise`, `rbenv`, or Homebrew):**
 ```bash
-bundle install
-bundle exec jekyll build --source docs --destination _site
+npm run build:local
+```
+
+**Direct Docker command without npm:**
+```bash
+# Optional: sync git metadata first
+npm run update-meta
+
+# Compile site
+docker run --rm -v "$PWD":/srv/jekyll -w /srv/jekyll ruby:3.3 sh -c "bundle config set path 'vendor/bundle' && bundle exec jekyll build --source docs --destination _site"
 ```
 
 #### Step B: Serve the generated `_site` directory
@@ -63,6 +71,19 @@ uv run python -m http.server 8080 -d _site
 Then visit:
 * English homepage: `http://localhost:8080/index.html`
 * Chinese homepage: `http://localhost:8080/zh/index.html`
+
+> **Note on Browser Refresh**: When previewing changes after a rebuild, perform a hard refresh in your browser (`Cmd + Shift + R` on macOS or `Ctrl + F5` on Windows/Linux) to clear cached HTML.
+
+---
+
+### How to Refresh the Footer Commit Metadata (`Last updated: ...`)
+
+The page footer displays the last git commit date and short SHA (e.g. `Last updated: September 04, 2026 (ef0338c)`), read from `docs/_config.yml`.
+
+Whenever you create a new commit or pull new changes:
+
+1. **One-step build**: Run `npm run build` (or `npm run build:local`). This automatically extracts the latest git timestamp and SHA, updates `docs/_config.yml`, and rebuilds `_site`.
+2. **Metadata sync only**: Run `npm run update-meta` to update `docs/_config.yml` without rebuilding the HTML.
 
 ---
 
