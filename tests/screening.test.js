@@ -237,3 +237,50 @@ describe('M-CHAT-R Screener - Chinese Page Integration Tests', () => {
     expect(document.getElementById('results-badge').textContent).toContain('中风险');
   });
 });
+
+describe('M-CHAT-R Screener - Standalone Chinese Page Integration Tests', () => {
+  const html = loadScreenerHTML('docs/zh/screening_standalone.html');
+
+  const setupDOM = () => {
+    const dom = new JSDOM(html, { runScripts: "dangerously", resources: "usable" });
+    const { window } = dom;
+    const { document } = window;
+    return { window, document };
+  };
+
+  it('should render full HTML document structure without front matter', () => {
+    const rawContent = fs.readFileSync(path.resolve(__dirname, '../docs/zh/screening_standalone.html'), 'utf8');
+    expect(rawContent.startsWith('---')).toBe(false);
+    expect(rawContent.includes('<!doctype html>')).toBe(true);
+    expect(rawContent.includes('<title>M-CHAT-R 自闭症筛查工具')).toBe(true);
+  });
+
+  it('should initialize standalone page with start view visible and quiz/results hidden', () => {
+    const { document } = setupDOM();
+    expect(document.getElementById('start-view').classList.contains('hidden')).toBe(false);
+    expect(document.getElementById('quiz-view').classList.contains('hidden')).toBe(true);
+    expect(document.getElementById('results-view').classList.contains('hidden')).toBe(true);
+  });
+
+  it('should complete quiz and score correctly on standalone page', () => {
+    const { document } = setupDOM();
+    
+    document.getElementById('caregiver-name').value = '王丽';
+    document.getElementById('child-age').value = '19-24';
+    document.getElementById('btn-start').click();
+
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+
+    // All normal answers -> 0 risk
+    const answers = [true, false, true, true, false, true, true, true, true, true, true, false, true, true, true, true, true, true, true, true];
+    answers.forEach(ans => {
+      if (ans) btnYes.click();
+      else btnNo.click();
+    });
+
+    expect(document.getElementById('results-score-num').textContent).toBe('0');
+    expect(document.getElementById('results-badge').textContent).toContain('低风险');
+  });
+});
+

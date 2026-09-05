@@ -24,7 +24,7 @@
 
         <div class="space-y-4">
           <!-- English pamphlet -->
-          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow gap-4">
             <div class="flex items-center gap-4">
               <div class="h-10 w-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-brand-orange shrink-0">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,17 +32,22 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-800 text-sm">英文宣传册 (PDF)</h4>
-                <p class="text-xs text-slate-400">标准可打印版本</p>
+                <h4 class="font-bold text-slate-800 text-sm">英文宣传册</h4>
+                <p class="text-xs text-slate-400">标准双语可打印版本</p>
               </div>
             </div>
-            <a href="{{ '/assets/pamphlet-en.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
-              下载
-            </a>
+            <div class="flex items-center gap-2">
+              <a href="{{ '/assets/pamphlet-en.html' | relative_url }}" target="_blank" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 rounded-full transition hover:bg-slate-200">
+                在线浏览与打印
+              </a>
+              <a href="{{ '/assets/pamphlet-en.pdf' | relative_url }}" target="_blank" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+                下载 PDF
+              </a>
+            </div>
           </div>
 
           <!-- Mandarin pamphlet -->
-          <div class="flex items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white rounded-2xl border border-slate-200/75 p-5 shadow-sm hover:shadow transition-shadow gap-4">
             <div class="flex items-center gap-4">
               <div class="h-10 w-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,13 +55,18 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-800 text-sm">中文宣传册 (PDF)</h4>
-                <p class="text-xs text-slate-400">普通话双语排版</p>
+                <h4 class="font-bold text-slate-800 text-sm">中文宣传册</h4>
+                <p class="text-xs text-slate-400">针对华语家庭与国内本土化排版</p>
               </div>
             </div>
-            <a href="{{ '/assets/pamphlet-zh.pdf' | relative_url }}" target="_blank" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
-              下载
-            </a>
+            <div class="flex items-center gap-2">
+              <a href="{{ '/assets/pamphlet-zh.html' | relative_url }}" target="_blank" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 rounded-full transition hover:bg-slate-200">
+                在线浏览与打印
+              </a>
+              <a href="{{ '/assets/pamphlet-zh.pdf' | relative_url }}" target="_blank" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-orange text-slate-950 rounded-full transition hover:bg-amber-600">
+                下载 PDF
+              </a>
+            </div>
           </div>
         </div>
       </div>

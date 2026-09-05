@@ -20,9 +20,8 @@ jobs:
           bundler-cache: true
       - name: Inject last updated time
         run: |
-          echo "" >> docs/_config.yml
-          echo "last_updated: \"$(git log -1 --format=%cd --date=format:'%B %d, %Y')\"" >> docs/_config.yml
-          echo "git_sha: \"$(git rev-parse --short HEAD)\"" >> docs/_config.yml
+          sed -i.bak -e "s/^last_updated:.*/last_updated: \"$(git log -1 --format=%cd --date=format:'%B %d, %Y')\"/" -e "s/^git_sha:.*/git_sha: \"$(git rev-parse --short HEAD)\"/" docs/_config.yml
+          rm -f docs/_config.yml.bak
       - name: Build site
         run: |
           bundle exec jekyll build --source docs --destination _site

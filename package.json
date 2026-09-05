@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "update-meta": "node -e 'const {execSync}=require(\"child_process\"),fs=require(\"fs\");const d=execSync(\"git log -1 --format=%cd --date=format:\\\"%B %d, %Y\\\"\").toString().trim(),s=execSync(\"git rev-parse --short HEAD\").toString().trim(),p=\"docs/_config.yml\";let c=fs.readFileSync(p,\"utf8\").replace(/^last_updated:.*$/m,`last_updated: \"${d}\"`).replace(/^git_sha:.*$/m,`git_sha: \"${s}\"`);fs.writeFileSync(p,c);console.log(`Updated ${p}: ${d} (${s})`);'"
   },
   "repository": {
     "type": "git",

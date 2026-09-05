@@ -1,333 +1,109 @@
----
-layout: default
-title: M-CHAT-R 自闭症筛查工具
-lang: zh
-description: "一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。"
----
+<!doctype html>
+<html lang="zh">
 
-<div class="not-prose">
-  <!-- Top Intro Section -->
-  <div class="mb-10 text-center space-y-3">
-    <div
-      class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-brand-maroon uppercase bg-rose-50 border border-rose-200/50 rounded-full">
-      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      经过临床验证的专业量表
-    </div>
-    <h2 class="text-3xl font-extrabold text-slate-900 font-serif leading-tight">婴幼儿发育状况筛查工具</h2>
-    <p class="text-slate-500 text-sm max-w-xl mx-auto leading-relaxed">
-      各位家长好！此工具旨在协助您观察和记录孩子在社交、沟通和运动方面的成长。
-      请记得：每个孩子的成长节奏都有所不同，本问卷是一份温馨的筛查指南，目的是帮您了解是否需要为孩子申请额外的早期成长支持。
-    </p>
-  </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>M-CHAT-R 自闭症筛查工具 - Autism Early Intervention Awareness</title>
+  <meta name="description" content="一个免费的、交互式的筛查工具，适用于 16-30 个月的幼儿，以检查自闭症的早期迹象。">
 
-  <div id="screener-app" class="relative bg-white rounded-3xl border border-slate-200/70 shadow-sm p-6 md:p-10">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-    <!-- STEP 1: START SCREEN -->
-    <div id="start-view" class="space-y-6">
-      <div class="text-center space-y-2">
-        <h3 class="text-2xl font-bold text-slate-800 font-serif">筛查登记</h3>
-        <p class="text-slate-500 text-sm max-w-md mx-auto">
-          请提供以下基本信息以开始问卷。我们十分重视您的隐私，不会在服务器保存或传输您的任何个人数据。
-        </p>
-      </div>
-
-      <div class="max-w-md mx-auto space-y-5 pt-4">
-        <div>
-          <label for="caregiver-name" class="block text-sm font-bold text-slate-700 mb-1.5">家长/照料者名字 <span
-              class="text-brand-maroon">*</span></label>
-          <input type="text" id="caregiver-name" placeholder="您的名字"
-            class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800"
-            required>
-        </div>
-
-        <div>
-          <label for="child-name" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝名字（选填）</label>
-          <input type="text" id="child-name" placeholder="孩子的名字（帮助个性化问题）"
-            class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800">
-        </div>
-
-        <div>
-          <label for="child-age" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝月龄 <span
-              class="text-brand-maroon">*</span></label>
-          <select id="child-age"
-            class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800 bg-white">
-            <option value="" disabled selected>请选择宝宝的年龄段</option>
-            <option value="16-18">16 - 18 个月</option>
-            <option value="19-24">19 - 24 个月</option>
-            <option value="25-30">25 - 30 个月</option>
-            <option value="other">16个月以下或30个月以上</option>
-          </select>
-          <p id="age-warning"
-            class="hidden text-brand-orange text-xs mt-1.5 leading-relaxed bg-orange-50/50 border border-orange-100 rounded-xl p-3">
-            <strong>注意：</strong> M-CHAT-R 适用于 16 至 30 个月的婴幼儿。其他年龄段的筛查结果可能不够准确。
-          </p>
-        </div>
-
-        <div class="pt-4">
-          <button id="btn-start"
-            class="w-full bg-brand-orange hover:bg-orange-600 text-slate-950 font-extrabold py-4 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center flex items-center justify-center gap-2">
-            开始测评
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 2: QUIZ SCREEN -->
-    <div id="quiz-view" class="hidden space-y-6">
-      <!-- Progress Bar Area -->
-      <div class="space-y-2">
-        <div class="flex justify-between items-center text-xs font-semibold text-slate-400 uppercase tracking-wider">
-          <span id="quiz-progress-text">第 1 题，共 20 题</span>
-          <span id="quiz-percent-text">已完成 5%</span>
-        </div>
-        <div class="w-full bg-slate-100 rounded-full h-2">
-          <div id="quiz-progress-bar" class="bg-brand-orange h-2 rounded-full transition-all duration-300"
-            style="width: 5%"></div>
-        </div>
-      </div>
-
-      <!-- Illustration Container -->
-      <div
-        class="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex justify-center items-center h-48 md:h-64 shadow-inner">
-        <div id="quiz-illustration" class="w-full h-full max-w-[200px] flex items-center justify-center">
-          <!-- SVGs will be injected dynamically -->
-        </div>
-      </div>
-
-      <!-- Question Text -->
-      <div class="space-y-3 text-center px-2">
-        <h3 id="quiz-question-text" class="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
-          题目载入中...
-        </h3>
-        <p id="quiz-question-example"
-          class="text-slate-500 text-sm md:text-base italic max-w-2xl mx-auto leading-relaxed">
-          例子载入中...
-        </p>
-      </div>
-
-      <!-- Answers Buttons -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto pt-2">
-        <button id="btn-yes"
-          class="border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50/20 text-slate-800 hover:text-emerald-700 font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
-          <span id="yes-sub"
-            class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-emerald-600 transition-colors">通常表现为</span>
-          是
-        </button>
-        <button id="btn-no"
-          class="border-2 border-slate-200 bg-white hover:border-brand-maroon hover:bg-rose-50/20 text-slate-800 hover:text-brand-maroon font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
-          <span id="no-sub"
-            class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-rose-600 transition-colors">通常表现为</span>
-          否
-        </button>
-      </div>
-
-      <!-- Back Navigation -->
-      <div class="flex justify-center pt-4">
-        <button id="btn-back"
-          class="text-slate-400 hover:text-slate-700 text-sm font-medium transition flex items-center gap-1.5">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          返回上一题
-        </button>
-      </div>
-    </div>
-
-    <!-- STEP 3: RESULTS SCREEN -->
-    <div id="results-view" class="hidden space-y-8">
-
-      <!-- Top Title and Score -->
-      <div class="text-center space-y-3">
-        <h2 class="text-3xl font-extrabold text-slate-900 font-serif">筛查结果评估</h2>
-        <p id="results-greeting" class="text-slate-600 text-base leading-relaxed">
-          这里是您的个性化发育记录摘要。
-        </p>
-      </div>
-
-      <!-- Meter Gauge -->
-      <div
-        class="max-w-md mx-auto bg-slate-50 border border-slate-100 rounded-3xl p-8 shadow-inner text-center space-y-4">
-        <div class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">自闭症风险得分</div>
-
-        <div class="relative flex items-center justify-center">
-          <div class="text-center">
-            <span id="results-score-num" class="text-6xl md:text-7xl font-black text-slate-800">0</span>
-            <span class="text-xl md:text-2xl font-bold text-slate-400">/20</span>
-          </div>
-        </div>
-
-        <div id="results-badge"
-          class="inline-block px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide uppercase transition-all shadow-sm">
-          低风险
-        </div>
-      </div>
-
-      <!-- Explanation & Clinical Guidance -->
-      <div class="max-w-2xl mx-auto bg-white border border-slate-150 rounded-3xl p-6 md:p-8 space-y-5 shadow-sm">
-        <h3 class="text-xl font-bold text-slate-850 border-b border-slate-100 pb-3 flex items-center gap-2 font-serif">
-          <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          分值解析与指导建议
-        </h3>
-
-        <!-- Risk Description Messages -->
-        <div id="risk-desc-low" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
-          <p>
-            <strong>您的宝宝处于低风险类别。</strong>
-            这表明宝宝在社交、沟通及运动方面均处于健康的常规发育阶段。
-          </p>
-          <p>
-            目前无需进行任何医疗干预。如果您的宝宝目前未满 24 个月，建议您收藏此页面，并在宝宝两岁生日之后再次进行测评以观察成长。
-          </p>
-        </div>
-
-        <div id="risk-desc-medium" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
-          <p>
-            <strong>您的宝宝处于中风险类别。</strong>
-            这表明宝宝在某些细分的发育领域展现了成长差异，通过针对性地观察和支持，能更好地辅助他们成长。
-          </p>
-          <p>
-            临床推荐做法是与您孩子的儿科医生讨论此评估结果。他们可以配合进行更细致的后续访谈（M-CHAT-R/F），以确定是否需要进一步的全面专业成长支持。我们建议您打印此页面或保存为
-            PDF，在下一次常规体检时带给儿科医生看。
-          </p>
-        </div>
-
-        <div id="risk-desc-high" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
-          <p>
-            <strong>您的宝宝处于高风险类别。</strong>
-            请务必记住：筛查出的分值绝非最终诊断，也不是给宝宝贴上“标签”，它是一把可以帮您在生命早期及时帮宝宝寻求临床支持的“钥匙”。
-          </p>
-          <p>
-            我们强烈建议您尽快带宝宝咨询发育行为儿科专家，预约一次全面的临床发育评估。同时，您也可以联系社区的早期干预服务机构。科学证明，生命早期的针对性支持和训练能对宝宝的一生产生极其积极的深远影响。
-          </p>
-        </div>
-
-        <div
-          class="bg-amber-50 border border-amber-200/50 rounded-2xl p-4 text-xs md:text-sm text-amber-800 leading-relaxed no-print">
-          <strong>重要提示：</strong> M-CHAT-R 是一项初步发育筛查表，而不是诊断结论。做为父母，您的直觉非常关键。如果您直觉上感到宝宝的发育和别人有所不同，无论筛查得分如何，都可以主动向儿科医生咨询。
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto justify-center no-print">
-        <button id="btn-print"
-          class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-          </svg>
-          打印/保存报告
-        </button>
-        <button id="btn-restart"
-          class="flex-1 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2 bg-white">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
-          </svg>
-          重新测评
-        </button>
-      </div>
-
-      <!-- Detailed Breakdown Table -->
-      <div class="max-w-3xl mx-auto space-y-4">
-        <h3 class="text-xl font-bold text-slate-900 font-serif border-b border-slate-100 pb-3">
-          逐题回答及发育解析汇总
-        </h3>
-
-        <div class="border border-slate-150 rounded-2xl overflow-hidden shadow-sm">
-          <div class="min-w-full divide-y divide-slate-150">
-            <div
-              class="bg-slate-50 p-4 font-bold text-xs uppercase tracking-wider text-slate-500 grid grid-cols-12 gap-4">
-              <span class="col-span-1 text-center">序号</span>
-              <span class="col-span-8">测评行为与发育里程碑问题</span>
-              <span class="col-span-2 text-center">您的回答</span>
-              <span class="col-span-1 text-center">状态</span>
-            </div>
-            <div id="results-table-body" class="bg-white divide-y divide-slate-100 text-sm">
-              <!-- JS Injected rows -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scoring Reference Section -->
-      <div
-        class="max-w-3xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 md:p-8 mt-10 space-y-4 text-xs md:text-sm text-slate-600">
-        <h4 class="text-base font-bold text-slate-800 font-serif border-b border-slate-200 pb-2">
-          临床评分算法与结果解读 (M-CHAT-R/F)
-        </h4>
-
-        <div class="space-y-3 leading-relaxed">
-          <p>
-            <strong>评分标准：</strong> 除第 2、5、12 题外，回答 <strong>“否”</strong> 表示存在自闭症（自闭症）发育风险；对于第 2、5、12 题，回答
-            <strong>“是”</strong> 表示存在发育风险。每个代表发育风险的回答计 <strong>1 分</strong>。累加所有得分计算总分。
-          </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
-                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">低风险 (0 - 2 分)</span>
-              </div>
-              <p class="text-[11px] text-slate-500 leading-normal">
-                如果孩子小于 24 个月，请在其两岁生日后再次进行筛查。除非后续日常监测中出现发育异常迹象，否则无需采取进一步干预行动。
-              </p>
-            </div>
-
-            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
-                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">中风险 (3 - 7 分)</span>
-              </div>
-              <p class="text-[11px] text-slate-500 leading-normal">
-                建议进行随访访谈（M-CHAT-R/F 第二阶段）以针对风险点获取更多信息。若随访后得分仍为 2分 或更高，则筛查结果呈阳性。需采取行动：转介进行临床诊断评估和早期干预资格评估。若随访得分为
-                0-1分，则呈阴性，未来定期复查即可。
-              </p>
-            </div>
-
-            <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
-                <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">高风险 (8 - 20 分)</span>
-              </div>
-              <p class="text-[11px] text-slate-500 leading-normal">
-                临床上可直接跳过随访访谈阶段，立即转介进行专业发育诊断评估以及早期干预服务的资格评定。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="mt-8 border-t border-slate-200/80 pt-6 text-center text-xs text-slate-400 space-y-1.5 no-print">
-    <p class="font-medium text-slate-500">
-      幼儿自闭症筛查量表修订版及后续随访 (M-CHAT-R/F)™
-    </p>
-    <p class="text-slate-400">
-      Diana L. Robins, Ph.D. &bull; Deborah Fein, Ph.D. &bull; Marianne Barton, Ph.D.
-    </p>
-    <p>
-      官方来源：<a href="https://www.mchatscreen.com/wp-content/uploads/2025/03/M-CHAT-R_F_NoShade_March2025.v1.pdf"
-        target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">官方 M-CHAT-R/F 打印版 PDF</a>
-    </p>
-    <p class="italic text-slate-400">
-      致谢：感谢西班牙 M-CHAT 研究小组开发了本文件中使用的流程图格式。 (We thank the M-CHAT Study Group for developing the flow chart format used in
-      this document.)
-    </p>
-  </div>
+  <!-- Tailwind CSS CDN with typography plugin -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f29900',
+              maroon: '#8a1515',
+              blue: '#1a73e8',
+              navy: '#0f172a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Lora', 'ui-serif', 'Georgia', 'serif'],
+            cursive: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6
+    }
+
+    a {
+      color: #1a73e8
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden
+    }
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0.5rem;
+      padding: .75rem;
+      background: white;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      z-index: 1000
+    }
+
+    .gold-brown-blur {
+      background: linear-gradient(135deg, #130f0d 0%, #20130d 50%, #0c0908 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gold-brown-blur::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(242, 153, 0, 0.08) 0%, rgba(242, 153, 0, 0) 55%),
+        radial-gradient(circle, rgba(138, 21, 21, 0.08) 0%, rgba(138, 21, 21, 0) 50%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .font-cursive {
+      font-family: Caveat, cursive;
+    }
+
     @media print {
 
       #alert-banner,
@@ -365,6 +141,442 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
       }
     }
   </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-md transition">Skip
+    to content</a>
+
+  <!-- Fixed Navbar Container -->
+  <div id="navbar-container"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/95 shadow-lg backdrop-blur-md">
+    <!-- Top Alert Banner -->
+    <div id="alert-banner"
+      class="bg-brand-orange text-slate-950 text-xs font-semibold py-2 px-4 text-center transition-all duration-300 flex items-center justify-center gap-2">
+      <span>Girl Scout Gold Award 项目 - 推广自闭症早期诊断与干预意识</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header"
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8 transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight text-white">Autism Early Intervention Awareness</span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-300 font-medium">Girl Scout Gold Award Project by Emma Zheng (郑安欣)</span>
+        </div>
+      </div>
+    </header>
+  </div>
+  </div>
+
+  <!-- Sub-page layout container -->
+  <main id="main-content" class="flex-grow bg-slate-50 pt-36 pb-20 min-h-screen">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 py-10 md:px-12 md:py-16">
+        <h1 class="text-3xl md:text-4xl font-extrabold font-serif text-brand-maroon tracking-tight mb-6">M-CHAT-R
+          自闭症筛查工具</h1>
+        <p class="text-slate-600 text-lg mb-10 border-b border-slate-100 pb-6 font-medium">一个免费的、交互式的筛查工具，适用于 16-30
+          个月的幼儿，以检查自闭症的早期迹象。</p>
+
+        <div class="not-prose">
+          <!-- Top Intro Section -->
+          <div class="mb-10 text-center space-y-3">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-brand-maroon uppercase bg-rose-50 border border-rose-200/50 rounded-full">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              经过临床验证的专业量表
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 font-serif leading-tight">婴幼儿发育状况筛查工具</h2>
+            <p class="text-slate-500 text-sm max-w-xl mx-auto leading-relaxed">
+              各位家长好！此工具旨在协助您观察和记录孩子在社交、沟通和运动方面的成长。
+              请记得：每个孩子的成长节奏都有所不同，本问卷是一份温馨的筛查指南，目的是帮您了解是否需要为孩子申请额外的早期成长支持。
+            </p>
+          </div>
+
+          <div id="screener-app" class="relative bg-white rounded-3xl border border-slate-200/70 shadow-sm p-6 md:p-10">
+
+            <!-- STEP 1: START SCREEN -->
+            <div id="start-view" class="space-y-6">
+              <div class="text-center space-y-2">
+                <h3 class="text-2xl font-bold text-slate-800 font-serif">筛查登记</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                  请提供以下基本信息以开始问卷。我们十分重视您的隐私，不会在服务器保存或传输您的任何个人数据。
+                </p>
+              </div>
+
+              <div class="max-w-md mx-auto space-y-5 pt-4">
+                <div>
+                  <label for="caregiver-name" class="block text-sm font-bold text-slate-700 mb-1.5">家长/照料者名字 <span
+                      class="text-brand-maroon">*</span></label>
+                  <input type="text" id="caregiver-name" placeholder="您的名字"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800"
+                    required>
+                </div>
+
+                <div>
+                  <label for="child-name" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝名字（选填）</label>
+                  <input type="text" id="child-name" placeholder="孩子的名字（帮助个性化问题）"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800">
+                </div>
+
+                <div>
+                  <label for="child-age" class="block text-sm font-bold text-slate-700 mb-1.5">宝宝月龄 <span
+                      class="text-brand-maroon">*</span></label>
+                  <select id="child-age"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition text-slate-800 bg-white">
+                    <option value="" disabled selected>请选择宝宝的年龄段</option>
+                    <option value="16-18">16 - 18 个月</option>
+                    <option value="19-24">19 - 24 个月</option>
+                    <option value="25-30">25 - 30 个月</option>
+                    <option value="other">16个月以下或30个月以上</option>
+                  </select>
+                  <p id="age-warning"
+                    class="hidden text-brand-orange text-xs mt-1.5 leading-relaxed bg-orange-50/50 border border-orange-100 rounded-xl p-3">
+                    <strong>注意：</strong> M-CHAT-R 适用于 16 至 30 个月的婴幼儿。其他年龄段的筛查结果可能不够准确。
+                  </p>
+                </div>
+
+                <div class="pt-4">
+                  <button id="btn-start"
+                    class="w-full bg-brand-orange hover:bg-orange-600 text-slate-950 font-extrabold py-4 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center flex items-center justify-center gap-2">
+                    开始测评
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: QUIZ SCREEN -->
+            <div id="quiz-view" class="hidden space-y-6">
+              <!-- Progress Bar Area -->
+              <div class="space-y-2">
+                <div
+                  class="flex justify-between items-center text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <span id="quiz-progress-text">第 1 题，共 20 题</span>
+                  <span id="quiz-percent-text">已完成 5%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div id="quiz-progress-bar" class="bg-brand-orange h-2 rounded-full transition-all duration-300"
+                    style="width: 5%"></div>
+                </div>
+              </div>
+
+              <!-- Illustration Container -->
+              <div
+                class="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex justify-center items-center h-48 md:h-64 shadow-inner">
+                <div id="quiz-illustration" class="w-full h-full max-w-[200px] flex items-center justify-center">
+                  <!-- SVGs will be injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Question Text -->
+              <div class="space-y-3 text-center px-2">
+                <h3 id="quiz-question-text" class="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+                  题目载入中...
+                </h3>
+                <p id="quiz-question-example"
+                  class="text-slate-500 text-sm md:text-base italic max-w-2xl mx-auto leading-relaxed">
+                  例子载入中...
+                </p>
+              </div>
+
+              <!-- Answers Buttons -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto pt-2">
+                <button id="btn-yes"
+                  class="border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50/20 text-slate-800 hover:text-emerald-700 font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
+                  <span id="yes-sub"
+                    class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-emerald-600 transition-colors">通常表现为</span>
+                  是
+                </button>
+                <button id="btn-no"
+                  class="border-2 border-slate-200 bg-white hover:border-brand-maroon hover:bg-rose-50/20 text-slate-800 hover:text-brand-maroon font-extrabold py-4 px-6 rounded-2xl shadow-sm text-lg transition-all duration-200 flex flex-col items-center justify-center gap-1 group">
+                  <span id="no-sub"
+                    class="text-xs uppercase tracking-wider text-slate-400 font-medium group-hover:text-rose-600 transition-colors">通常表现为</span>
+                  否
+                </button>
+              </div>
+
+              <!-- Back Navigation -->
+              <div class="flex justify-center pt-4">
+                <button id="btn-back"
+                  class="text-slate-400 hover:text-slate-700 text-sm font-medium transition flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  返回上一题
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: RESULTS SCREEN -->
+            <div id="results-view" class="hidden space-y-8">
+
+              <!-- Top Title and Score -->
+              <div class="text-center space-y-3">
+                <h2 class="text-3xl font-extrabold text-slate-900 font-serif">筛查结果评估</h2>
+                <p id="results-greeting" class="text-slate-600 text-base leading-relaxed">
+                  这里是您的个性化发育记录摘要。
+                </p>
+              </div>
+
+              <!-- Meter Gauge -->
+              <div
+                class="max-w-md mx-auto bg-slate-50 border border-slate-100 rounded-3xl p-8 shadow-inner text-center space-y-4">
+                <div class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">自闭症风险得分</div>
+
+                <div class="relative flex items-center justify-center">
+                  <div class="text-center">
+                    <span id="results-score-num" class="text-6xl md:text-7xl font-black text-slate-800">0</span>
+                    <span class="text-xl md:text-2xl font-bold text-slate-400">/20</span>
+                  </div>
+                </div>
+
+                <div id="results-badge"
+                  class="inline-block px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide uppercase transition-all shadow-sm">
+                  低风险
+                </div>
+              </div>
+
+              <!-- Explanation & Clinical Guidance -->
+              <div
+                class="max-w-2xl mx-auto bg-white border border-slate-150 rounded-3xl p-6 md:p-8 space-y-5 shadow-sm">
+                <h3
+                  class="text-xl font-bold text-slate-850 border-b border-slate-100 pb-3 flex items-center gap-2 font-serif">
+                  <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  分值解析与指导建议
+                </h3>
+
+                <!-- Risk Description Messages -->
+                <div id="risk-desc-low" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于低风险类别。</strong>
+                    这表明宝宝在社交、沟通及运动方面均处于健康的常规发育阶段。
+                  </p>
+                  <p>
+                    目前无需进行任何医疗干预。如果您的宝宝目前未满 24 个月，建议您收藏此页面，并在宝宝两岁生日之后再次进行测评以观察成长。
+                  </p>
+                </div>
+
+                <div id="risk-desc-medium" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于中风险类别。</strong>
+                    这表明宝宝在某些细分的发育领域展现了成长差异，通过针对性地观察和支持，能更好地辅助他们成长。
+                  </p>
+                  <p>
+                    临床推荐做法是与您孩子的儿科医生讨论此评估结果。他们可以配合进行更细致的后续访谈（M-CHAT-R/F），以确定是否需要进一步的全面专业成长支持。我们建议您打印此页面或保存为
+                    PDF，在下一次常规体检时带给儿科医生看。
+                  </p>
+                </div>
+
+                <div id="risk-desc-high" class="hidden space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p>
+                    <strong>您的宝宝处于高风险类别。</strong>
+                    请务必记住：筛查出的分值绝非最终诊断，也不是给宝宝贴上“标签”，它是一把可以帮您在生命早期及时帮宝宝寻求临床支持的“钥匙”。
+                  </p>
+                  <p>
+                    我们强烈建议您尽快带宝宝咨询发育行为儿科专家，预约一次全面的临床发育评估。同时，您也可以联系社区的早期干预服务机构。科学证明，生命早期的针对性支持和训练能对宝宝的一生产生极其积极的深远影响。
+                  </p>
+                </div>
+
+                <div
+                  class="bg-amber-50 border border-amber-200/50 rounded-2xl p-4 text-xs md:text-sm text-amber-800 leading-relaxed no-print">
+                  <strong>重要提示：</strong> M-CHAT-R
+                  是一项初步发育筛查表，而不是诊断结论。做为父母，您的直觉非常关键。如果您直觉上感到宝宝的发育和别人有所不同，无论筛查得分如何，都可以主动向儿科医生咨询。
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto justify-center no-print">
+                <button id="btn-print"
+                  class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  打印/保存报告
+                </button>
+                <button id="btn-restart"
+                  class="flex-1 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-3.5 px-6 rounded-full transition shadow-sm text-center flex items-center justify-center gap-2 bg-white">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+                  </svg>
+                  重新测评
+                </button>
+              </div>
+
+              <!-- Detailed Breakdown Table -->
+              <div class="max-w-3xl mx-auto space-y-4">
+                <h3 class="text-xl font-bold text-slate-900 font-serif border-b border-slate-100 pb-3">
+                  逐题回答及发育解析汇总
+                </h3>
+
+                <div class="border border-slate-150 rounded-2xl overflow-hidden shadow-sm">
+                  <div class="min-w-full divide-y divide-slate-150">
+                    <div
+                      class="bg-slate-50 p-4 font-bold text-xs uppercase tracking-wider text-slate-500 grid grid-cols-12 gap-4">
+                      <span class="col-span-1 text-center">序号</span>
+                      <span class="col-span-8">测评行为与发育里程碑问题</span>
+                      <span class="col-span-2 text-center">您的回答</span>
+                      <span class="col-span-1 text-center">状态</span>
+                    </div>
+                    <div id="results-table-body" class="bg-white divide-y divide-slate-100 text-sm">
+                      <!-- JS Injected rows -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scoring Reference Section -->
+              <div
+                class="max-w-3xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 md:p-8 mt-10 space-y-4 text-xs md:text-sm text-slate-600">
+                <h4 class="text-base font-bold text-slate-800 font-serif border-b border-slate-200 pb-2">
+                  临床评分算法与结果解读 (M-CHAT-R/F)
+                </h4>
+
+                <div class="space-y-3 leading-relaxed">
+                  <p>
+                    <strong>评分标准：</strong> 除第 2、5、12 题外，回答 <strong>“否”</strong> 表示存在自闭症（自闭症）发育风险；对于第 2、5、12 题，回答
+                    <strong>“是”</strong> 表示存在发育风险。每个代表发育风险的回答计 <strong>1 分</strong>。累加所有得分计算总分。
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">低风险 (0 - 2
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        如果孩子小于 24 个月，请在其两岁生日后再次进行筛查。除非后续日常监测中出现发育异常迹象，否则无需采取进一步干预行动。
+                      </p>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">中风险 (3 - 7
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        建议进行随访访谈（M-CHAT-R/F 第二阶段）以针对风险点获取更多信息。若随访后得分仍为 2分 或更高，则筛查结果呈阳性。需采取行动：转介进行临床诊断评估和早期干预资格评估。若随访得分为
+                        0-1分，则呈阴性，未来定期复查即可。
+                      </p>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+                        <span class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">高风险 (8 - 20
+                          分)</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 leading-normal">
+                        临床上可直接跳过随访访谈阶段，立即转介进行专业发育诊断评估以及早期干预服务的资格评定。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="mt-8 border-t border-slate-200/80 pt-6 text-center text-xs text-slate-400 space-y-1.5 no-print">
+            <p class="font-medium text-slate-500">
+              幼儿自闭症筛查量表修订版及后续随访 (M-CHAT-R/F)™
+            </p>
+            <p class="text-slate-400">
+              Diana L. Robins, Ph.D. &bull; Deborah Fein, Ph.D. &bull; Marianne Barton, Ph.D.
+            </p>
+            <p>
+              官方来源：<a href="https://www.mchatscreen.com/wp-content/uploads/2025/03/M-CHAT-R_F_NoShade_March2025.v1.pdf"
+                target="_blank" rel="noopener" class="text-brand-blue hover:underline font-semibold">官方 M-CHAT-R/F 打印版
+                PDF</a>
+            </p>
+            <p class="italic text-slate-400">
+              致谢：感谢西班牙 M-CHAT 研究小组开发了本文件中使用的流程图格式。 (We thank the M-CHAT Study Group for developing the flow chart format
+              used in
+              this document.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Redesigned Footer -->
+  <footer class="gold-brown-blur text-slate-300 py-16 border-t border-amber-950/20 relative z-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800/80 pb-12 mb-8 gap-8">
+        <div>
+          <h4 class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-4">关于本项目</h4>
+          <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+            这是一个 Girl Scout Gold Award 个人金奖项目，致力于提升华语家庭对自闭症的认识。所有发布的数字与印刷资料均可免费下载和分发。
+          </p>
+        </div>
+        <div class="text-slate-500 text-xs">
+          <p class="mb-1">&copy; 2026 Autism Early Intervention Awareness. All rights reserved.</p>
+          <p class="mb-1">来源：NIH, CDC, ChildFind</p>
+          <p class="mt-2 text-[10px] text-slate-600 font-mono">
+            最后更新：Local Dev (local)
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header & Mobile menu scroll handling
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar-container');
+      const header = document.getElementById('main-header');
+      const alertBanner = document.getElementById('alert-banner');
+      if (window.scrollY > 30) {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        header.classList.remove('py-6');
+        header.classList.add('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '0px';
+          alertBanner.style.padding = '0px';
+          alertBanner.style.opacity = '0';
+          alertBanner.style.overflow = 'hidden';
+        }
+      } else {
+        navbar.classList.add('bg-slate-950/95', 'backdrop-blur-md', 'shadow-lg');
+        header.classList.add('py-6');
+        header.classList.remove('py-4');
+        if (alertBanner) {
+          alertBanner.style.height = '';
+          alertBanner.style.padding = '';
+          alertBanner.style.opacity = '1';
+        }
+      }
+    });
+
+    // Mobile Menu Toggle
+    document.addEventListener('click', function (e) {
+      const mobileMenuBtn = e.target.closest('#mobile-menu-btn');
+      if (mobileMenuBtn) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.classList.toggle('hidden');
+        }
+      }
+    });
+  </script>
 
   <script>
     (function () {
@@ -964,3 +1176,6 @@ description: "一个免费的、交互式的筛查工具，适用于 16-30 个�
 
     })();
   </script>
+</body>
+
+</html>
