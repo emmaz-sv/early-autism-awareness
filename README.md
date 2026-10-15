@@ -1,6 +1,6 @@
 # Early Autism Awareness
 
-Girl Scout Gold Award Project: Bilingual resources for families on early autism awareness, screening, and intervention support in Northern Virginia / DMV area and global outreach.
+Bilingual resources for families on early autism awareness, screening, and intervention support in Northern Virginia / DMV area and global outreach.
 
 ---
 
