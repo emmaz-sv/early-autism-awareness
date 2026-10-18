@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早期自闭症干预 · 湖北研讨会 | Emma Zheng</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9ecf5 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* ----- slide card ----- */
+        .slide {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25),
+                        0 4px 18px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem 2.8rem;
+            transition: transform 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #4a7cf7, #6c5ce7);
+            border-radius: 40px 0 0 40px;
+        }
+
+        /* slide header with icons */
+        .slide-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .slide-header i {
+            font-size: 2.4rem;
+            color: #3b5cbf;
+            background: rgba(59, 92, 191, 0.10);
+            padding: 0.6rem;
+            border-radius: 18px;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #0b1e3a;
+        }
+
+        .slide-sub {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #3d5775;
+            margin-left: 0.5rem;
+        }
+
+        /* 中英双语 - 中文为主，略大 */
+        .zh {
+            font-weight: 600;
+            color: #0b1e3a;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .en {
+            font-weight: 400;
+            color: #3d5775;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            background: rgba(200, 215, 245, 0.15);
+            padding: 0.05rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* 标题中双语 */
+        .slide-title .zh {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .slide-title .en {
+            font-size: 1.6rem;
+            font-weight: 500;
+            background: transparent;
+            padding: 0;
+        }
+
+        .bilingual-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.8rem;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-box {
+            background: #f0f4fe;
+            border-radius: 28px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            border: 1px solid rgba(59, 92, 191, 0.12);
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1f3b7a;
+        }
+
+        .stat-label {
+            font-size: 1.05rem;
+            color: #2a4068;
+            margin-top: 0.25rem;
+        }
+        .stat-label.zh {
+            font-size: 1.15rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+            color: #0b1e3a;
+        }
+        .stat-label.en {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #3d5775;
+            background: transparent;
+            padding: 0;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 2rem;
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.05);
+        }
+
+        .check-item i {
+            color: #3b5cbf;
+            width: 1.8rem;
+            font-size: 1.2rem;
+        }
+        .check-item .zh {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .check-item .en {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .table-mini {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .table-mini th {
+            background: #e0e8fc;
+            color: #142b50;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-radius: 16px 16px 0 0;
+        }
+        .table-mini th .zh {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .table-mini th .en {
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: transparent;
+            padding: 0;
+        }
+
+        .table-mini td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .table-mini td .zh {
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        .table-mini td .en {
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .table-mini tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chip {
+            background: #eef3ff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #1f3b7a;
+            display: inline-block;
+            margin: 0.2rem 0;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .action-item {
+            background: #f5f9ff;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 5px solid #4a7cf7;
+        }
+
+        .action-item i {
+            font-size: 2rem;
+            color: #2a4d9e;
+            width: 2.8rem;
+        }
+        .action-item .zh {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .action-item .en {
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .qr-placeholder {
+            background: #dce5f5;
+            border-radius: 20px;
+            padding: 1.2rem;
+            text-align: center;
+            border: 2px dashed #6c7fb0;
+            margin: 1rem 0;
+        }
+        .qr-placeholder .zh {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        .qr-placeholder .en {
+            font-size: 1rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3d5775;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1.5rem;
+        }
+
+        /* 列表样式 */
+        ul.list-style-none {
+            list-style: none;
+        }
+        ul.list-style-none li {
+            margin-bottom: 0.5rem;
+        }
+        ul.list-style-none .zh {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        ul.list-style-none .en {
+            font-size: 0.95rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .intro-text .zh {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .intro-text .en {
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .mission-p .zh {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .mission-p .en {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .key-takeaway .zh {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .key-takeaway .en {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 780px) {
+            .slide { padding: 1.8rem; }
+            .grid-2col, .grid-3col, .action-cards, .checklist-grid { grid-template-columns: 1fr; }
+            .slide-title { font-size: 1.6rem; }
+            .slide-title .zh { font-size: 1.8rem; }
+            .slide-title .en { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="presentation-container">
+
+    <!-- SLIDE 1 TITLE -->
+    <div class="slide">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            <div>
+                <span class="chip"><i class="fas fa-girl-scout" style="margin-right: 6px;"></i> Girl Scout Gold Award</span>
+                <h1 style="font-size: 2.6rem; font-weight: 700; color: #0b1e3a; margin-top: 0.2rem;">早期自闭症干预意识</h1>
+                <h2 style="font-size: 1.8rem; font-weight: 400; color: #3d5775;">EARLY AUTISM INTERVENTION AWARENESS</h2>
+                <div style="margin-top: 0.8rem; font-size: 1.2rem;"><i class="fas fa-map-pin" style="color: #3b5cbf;"></i> 中国武汉 · Wuhan, Hubei</div>
+                <div style="font-size: 1.1rem; margin-top: 0.3rem;"><strong>Emma Zheng</strong> | Troop 1769, USA</div>
+            </div>
+            <div style="display: flex; gap: 1rem; font-size: 4rem; opacity: 0.2; color: #1f3b7a;">
+                <i class="fas fa-brain"></i>
+                <i class="fas fa-connectdevelop"></i>
+            </div>
+        </div>
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="chip"><i class="fas fa-calendar-alt"></i> 研讨会 · 湖北</span>
+            <span class="chip"><i class="fas fa-globe-asia"></i> 双语资源</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 INTRO -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-hand-peace"></i>
+            <span class="slide-title"><span class="zh">介绍</span> <span class="en">INTRODUCTION</span></span>
+        </div>
+        <div class="intro-text" style="font-size: 1.1rem; line-height: 1.8; max-width: 800px;">
+            <p><span class="zh"><strong>大家好！感谢大家今天来到这里。</strong></span> <span class="en">Hello everyone! Thank you for being here today.</span></p>
+            <p style="margin-top: 1rem;"><span class="zh">我叫Emma Zheng，是一名来自美国的女童子军成员，正在努力完成我的金奖——女童子军最高荣誉。我的项目旨在提高全球华语家庭对自闭症早期干预的意识。</span></p>
+            <p class="en" style="background: #eef3ff; padding: 0.8rem 1.2rem; border-radius: 20px; margin-top: 0.8rem;">My name is Emma Zheng, and I am a Girl Scout from the United States working toward my Gold Award — the highest achievement in Girl Scouting. My project focuses on raising awareness about early autism intervention for Chinese-speaking families globally.</p>
+        </div>
+        <div style="margin-top: 0.8rem; display: flex; gap: 1.5rem; font-size: 2.8rem; color: #4a6edb; opacity: 0.3;">
+            <i class="fas fa-brain"></i> <i class="fas fa-people-arrows"></i> <i class="fas fa-child"></i>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 MISSION -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-bullseye"></i>
+            <span class="slide-title"><span class="zh">我的使命</span> <span class="en">MY MISSION</span></span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+            <div style="flex:1; min-width: 200px;">
+                <p class="mission-p"><span class="zh"><strong>由Emma Zheng发起 (Troop 1769, USA)</strong></span> <span class="en">Initiated by Emma Zheng</span></p>
+                <p style="font-size: 1.4rem; font-weight: 700; color: #0b1e3a; margin: 0.5rem 0;">🌏 弥合全球华语家庭的信息缺口。</p>
+                <p class="en" style="font-size: 1.15rem; background: #edf2fd; padding: 0.3rem 1rem; border-radius: 40px; display: inline-block;">To bridge the information gap for Chinese-speaking families globally.</p>
+                <ul class="list-style-none" style="margin-top: 1.2rem; font-size: 1.05rem;">
+                    <li><i class="fas fa-globe" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">永久性数字资源</span> <span class="en">Permanent digital resources</span></li>
+                    <li><i class="fas fa-check-double" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">自闭症早期迹象双语对照表</span> <span class="en">Bilingual checklists</span></li>
+                    <li><i class="fas fa-clinic-medical" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">湖北省各地诊所教育展台</span> <span class="en">Educational booths in clinics across Hubei</span></li>
+                </ul>
+            </div>
+            <div style="font-size: 4rem; color: #4a6edb; opacity: 0.15;"><i class="fas fa-brain"></i> <i class="fas fa-flag"></i></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 WHY MATTERS -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-heartbeat"></i>
+            <span class="slide-title"><span class="zh">为什么这很重要</span> <span class="en">WHY THIS MATTERS</span></span>
+        </div>
+        <div class="grid-2col">
+            <div class="stat-box">
+                <div class="stat-number">80-90%</div>
+                <div class="stat-label zh">大脑发育发生在5岁之前</div>
+                <div class="stat-label en">Brain development before age 5</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">18-24 月</div>
+                <div class="stat-label zh">社交和沟通技能的关键窗口期</div>
+                <div class="stat-label en">Critical window for social & communication skills</div>
+            </div>
+        </div>
+        <div style="display: flex; gap: 2rem; justify-content: center; font-size: 3.5rem; opacity: 0.1; margin-top: 0.5rem;">
+            <i class="fas fa-brain"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-child"></i>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 EARLY INTERVENTION WORKS -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-sync-alt"></i>
+            <span class="slide-title"><span class="zh">为什么早期干预有效</span> <span class="en">EARLY INTERVENTION WORKS</span></span>
+        </div>
+        <div><span class="zh" style="font-weight: 700; font-size: 1.3rem;">神经可塑性：大脑改变的能力</span> <span class="en">Neuroplasticity: The Brain's Ability to Change</span></div>
+        <ul class="list-style-none" style="margin-top: 0.8rem; font-size: 1.05rem;">
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">早期干预可以重塑大脑连接</span> <span class="en">Early intervention can rewire brain connections</span></li>
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">3岁以下儿童对干预的反应最好</span> <span class="en">Children under 3 show the greatest response</span></li>
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">在沟通、学习和社交技能方面取得更好的效果</span> <span class="en">Better outcomes in communication, learning, and social skills</span></li>
+        </ul>
+        <div style="text-align: center; font-size: 3rem; opacity: 0.15;"><i class="fas fa-brain"></i> <i class="fas fa-bolt"></i></div>
+    </div>
+
+    <!-- SLIDE 6 SITUATION IN CHINA -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-chart-bar"></i>
+            <span class="slide-title"><span class="zh">中国的情况</span> <span class="en">THE SITUATION IN CHINA</span></span>
+        </div>
+        <table class="table-mini">
+            <tr><th><span class="zh">年龄</span> <span class="en">Age</span></th><th><span class="zh">情况</span> <span class="en">What Happens</span></th></tr>
+            <tr><td><span class="zh"><strong>约24个月</strong></span> <span class="en">~24 Months</span></td><td><span class="zh">家长最初发现迹象 (56%+)</span> <span class="en">Parents notice first signs</span></td></tr>
+            <tr><td><span class="zh"><strong>2.8–3.5岁</strong></span> <span class="en">2.8–3.5 Years</span></td><td><span class="zh">平均诊断年龄</span> <span class="en">Average diagnosis age</span></td></tr>
+            <tr><td><span class="zh"><strong>延迟5–9个月</strong></span> <span class="en">5–9 Month Delay</span></td><td><span class="zh">从发现到诊断</span> <span class="en">Between noticing and diagnosis</span></td></tr>
+            <tr><td><span class="zh"><strong>错过18–24个月窗口期 (80-90%)</strong></span> <span class="en">80–90% Miss 18–24 Month Window</span></td><td><span class="zh">错过关键早期干预期</span> <span class="en">Critical early intervention period missed</span></td></tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 7 HUBEI RESEARCH -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-flask"></i>
+            <span class="slide-title"><span class="zh">湖北研究</span> <span class="en">HUBEI RESEARCH</span></span>
+        </div>
+        <div><span class="zh"><strong>湖北省妇幼保健院在武汉开展研究</strong></span> <span class="en">Study at Maternal and Child Health Hospital of Hubei Province, Wuhan</span></div>
+        <ul class="list-style-none" style="margin-top: 0.8rem; font-size: 1rem;">
+            <li><i class="fas fa-microscope" style="color:#3b5cbf;"></i> <span class="zh">发现在1–6个月时听觉脑干反应异常的婴儿后来被诊断为自闭症</span> <span class="en">Abnormal brainstem auditory responses (BAEP) in infants 1–6 months later diagnosed with autism</span></li>
+            <li><i class="fas fa-chart-line" style="color:#3b5cbf;"></i> <span class="zh">自闭症患儿12–24个月智力发育指数急剧下降</span> <span class="en">Mental Development Index (MDI) scores declined sharply from 12–24 months in autism cases</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 8 EARLY SIGNS (SOCIAL) -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-eye"></i>
+            <span class="slide-title"><span class="zh">识别早期迹象 · 2岁以下</span> <span class="en">RECOGNIZING EARLY SIGNS</span></span>
+        </div>
+        <div><span class="zh"><strong>社交和视觉线索</strong></span> <span class="en">Social & Visual Cues</span></div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-user-circle" style="color:#3b5cbf;"></i> <span class="zh">喂食或玩耍时眼神交流有限或短暂</span> <span class="en">Limited or fleeting eye contact during feeding or play</span></li>
+            <li><i class="fas fa-volume-up" style="color:#3b5cbf;"></i> <span class="zh">叫名字时没有反应（12个月前）</span> <span class="en">Not responding to name when called (by 12 months)</span></li>
+            <li><i class="fas fa-hand-point-right" style="color:#3b5cbf;"></i> <span class="zh">家长指向物体时不跟着看</span> <span class="en">Not following when a parent points to an object</span></li>
+        </ul>
+        <div style="margin-top: 0.8rem;"><i class="fas fa-brain" style="opacity: 0.15; font-size: 3rem;"></i></div>
+    </div>
+
+    <!-- SLIDE 9 EARLY SIGNS (COMMUNICATION) -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-comments"></i>
+            <span class="slide-title"><span class="zh">识别早期迹象（续）</span> <span class="en">RECOGNIZING EARLY SIGNS (CONTINUED)</span></span>
+        </div>
+        <div><span class="zh"><strong>沟通和行为</strong></span> <span class="en">Communication & Behavior</span></div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-baby" style="color:#3b5cbf;"></i> <span class="zh">12个月时不会咿呀学语，或16–18个月时不会说单个词</span> <span class="en">Lack of babbling by 12 months, or no single words by 16–18 months</span></li>
+            <li><i class="fas fa-hand-peace" style="color:#3b5cbf;"></i> <span class="zh">12–14个月时不会挥手再见、用手指表达需求或拍手</span> <span class="en">Not waving goodbye, pointing, or clapping by 12–14 months</span></li>
+            <li><i class="fas fa-sync" style="color:#3b5cbf;"></i> <span class="zh">重复动作：拍手、摇晃、旋转物体</span> <span class="en">Repetitive motions: hand-flapping, rocking, spinning objects</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 10 SIMPLE SCREENING (4 questions) -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-clipboard-list"></i>
+            <span class="slide-title"><span class="zh">居家简单筛查</span> <span class="en">SIMPLE HOME SCREENING</span></span>
+        </div>
+        <div style="font-weight: 500; margin-bottom: 0.5rem;"><span class="zh">问自己4个简单问题</span> <span class="en">Ask Yourself These 4 Simple Questions</span></div>
+        <div class="checklist-grid">
+            <div class="check-item"><i class="fas fa-child"></i> <span class="zh">当你和孩子说话/玩耍时，他会看你吗？</span> <span class="en">Looks at you when you speak/play?</span></div>
+            <div class="check-item"><i class="fas fa-arrow-pointer"></i> <span class="zh">如果你指向玩具，孩子会看向玩具吗？</span> <span class="en">Looks at toy when you point?</span></div>
+            <div class="check-item"><i class="fas fa-star"></i> <span class="zh">孩子会指给你看有趣的东西吗？</span> <span class="en">Points to show you something interesting?</span></div>
+            <div class="check-item"><i class="fas fa-smile"></i> <span class="zh">当你对孩子微笑时，他会回以微笑吗？</span> <span class="en">Smiles back when you smile?</span></div>
+        </div>
+        <div style="background: #eef3ff; border-radius: 20px; padding: 0.8rem 1.2rem; margin-top: 0.8rem;">
+            <i class="fas fa-exclamation-triangle" style="color:#b8860b;"></i> <span class="zh"><strong>如果2个或更多问题回答"否"，请咨询医生。</strong></span> <span class="en">If you answered "NO" to 2 or more questions, talk to your doctor.</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 11 HUBEI RESOURCES SCREENING -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-hospital"></i>
+            <span class="slide-title"><span class="zh">湖北资源 · 筛查</span> <span class="en">HUBEI RESOURCES</span></span>
+        </div>
+        <ul class="list-style-none" style="font-size: 1.05rem;">
+            <li><i class="fas fa-clinic-medical" style="color:#3b5cbf;"></i> <span class="zh"><strong>社区卫生服务中心</strong></span> <span class="en">Local Community Health Centers</span> — <span class="zh">下陆区5家中心按照国家标准开展筛查</span> <span class="en">5 centers in Xialu District conduct screenings using national standards</span></li>
+            <li><i class="fas fa-baby" style="color:#3b5cbf;"></i> <span class="zh"><strong>湖北省妇幼保健院</strong></span> <span class="en">Maternal and Child Health Hospital of Hubei Province</span> — <span class="zh">提供筛查和转介服务</span> <span class="en">screening & referral</span></li>
+            <li><i class="fas fa-notes-medical" style="color:#3b5cbf;"></i> <span class="zh"><strong>黄石妇幼保健院</strong></span> <span class="en">Huangshi Maternal and Child Health Hospital</span> — <span class="zh">为社区卫生中心标记的儿童提供复筛</span> <span class="en">re-screening for children flagged at community centers</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 12 PROVINCIAL SUPPORT -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-landmark"></i>
+            <span class="slide-title"><span class="zh">省级支持</span> <span class="en">PROVINCIAL SUPPORT</span></span>
+        </div>
+        <div><span class="zh"><strong>湖北省政府举措</strong></span> <span class="en">Hubei Government Initiatives</span></div>
+        <ul class="list-style-none" style="margin-top: 0.8rem;">
+            <li><i class="fas fa-file-alt" style="color:#3b5cbf;"></i> <span class="zh">0–6岁儿童孤独症筛查干预服务方案：6岁前进行11次发育筛查</span> <span class="en">0–6岁儿童孤独症筛查干预服务方案 — 11 developmental screenings by age 6</span></li>
+            <li><i class="fas fa-microchip" style="color:#3b5cbf;"></i> <span class="zh">湖北省残联康复医院（武汉）：无创脑机接口筛查（2–14岁），符合条件者免费</span> <span class="en">湖北省残联康复医院 (Wuhan) — non-invasive brain-computer interface screening (ages 2–14), free for qualifying families</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 13 YICHANG MODEL -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-city"></i>
+            <span class="slide-title"><span class="zh">宜昌模式</span> <span class="en">YICHANG MODEL</span></span>
+        </div>
+        <div><span class="zh"><strong>湖北省领先城市</strong></span> <span class="en">Hubei City Leading the Way</span></div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">6个方面18项举措</span> <span class="en">18 measures across 6 areas</span></li>
+            <li><i class="fas fa-yen-sign" style="color:#3b5cbf;"></i> <span class="zh">市级医保覆盖29项康复项目，年度上限15万元</span> <span class="en">Municipal health insurance covers 29 rehabilitation items — annual cap 150,000 RMB</span></li>
+            <li><i class="fas fa-calendar-check" style="color:#3b5cbf;"></i> <span class="zh">乡镇卫生院开展筛查（2025年规定）</span> <span class="en">Screenings at township health centers (2025 mandate)</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 14 ACTION PLAN -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-list-check"></i>
+            <span class="slide-title"><span class="zh">家长今日行动清单</span> <span class="en">ACTION PLAN</span></span>
+        </div>
+        <div class="action-cards">
+            <div class="action-item"><i class="fas fa-file-pdf"></i> <div><span class="zh"><strong>带回一份手册</strong></span> <span class="en">Take Home a Pamphlet</span><br><span class="zh">将早期预警检查表贴在冰箱上。</span> <span class="en">Keep checklist on your refrigerator.</span></div></div>
+            <div class="action-item"><i class="fas fa-calendar-day"></i> <div><span class="zh"><strong>追踪发育里程碑</strong></span> <span class="en">Track Milestones</span><br><span class="zh">观察孩子未来两周的沟通情况。</span> <span class="en">Observe communication over next 2 weeks.</span></div></div>
+            <div class="action-item"><i class="fas fa-stethoscope"></i> <div><span class="zh"><strong>前往当地诊所</strong></span> <span class="en">Visit Your Local Clinic</span><br><span class="zh">预约18或24个月的免费基础体检。</span> <span class="en">Schedule free 18- or 24-month health checkup.</span></div></div>
+            <div class="action-item"><i class="fas fa-qrcode"></i> <div><span class="zh"><strong>扫码获取在线资源</strong></span> <span class="en">Scan to Access Online Resources</span><br><span class="zh">访问永久网站获取免费检查表和指南。</span> <span class="en">Permanent website with free checklists & guides.</span></div></div>
+        </div>
+        <div class="qr-placeholder">
+            <i class="fas fa-qrcode" style="font-size: 2.5rem;"></i> <span class="zh">扫码访问在线资源</span> <span class="en">Scan for website</span> (永久资源)
+        </div>
+    </div>
+
+    <!-- SLIDE 15 KEY TAKEAWAY -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-lightbulb"></i>
+            <span class="slide-title"><span class="zh">核心要点</span> <span class="en">KEY TAKEAWAY</span></span>
+        </div>
+        <div class="key-takeaway"><span class="zh">早期检测挽救大脑发育</span> <span class="en">EARLY DETECTION SAVES BRAIN DEVELOPMENT</span></div>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 1.1rem; margin-top: 0.5rem;">
+            <span class="chip" style="background:#ffe8d9;">❌ <span class="zh">不要等待</span> <span class="en">DON'T WAIT</span></span>
+            <span class="chip" style="background:#ffd9d9;">❌ <span class="zh">不要观望</span> <span class="en">DON'T WATCH</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 1.2rem; font-size: 1.05rem;">
+            <li><i class="fas fa-bell" style="color:#b8860b;"></i> <span class="zh">如果发现迹象，立即寻求帮助。</span> <span class="en">If you notice signs, seek help immediately.</span></li>
+            <li><i class="fas fa-clock" style="color:#3b5cbf;"></i> <span class="zh">早期干预在3岁前效果最好。</span> <span class="en">Early intervention works best before age 3.</span></li>
+            <li><i class="fas fa-heart" style="color:#c44545;"></i> <span class="zh">你是孩子最好的倡导者。</span> <span class="en">You are your child's best advocate.</span></li>
+        </ul>
+        <div style="text-align: right; font-size: 3rem; opacity: 0.08; margin-top: -0.5rem;"><i class="fas fa-brain"></i></div>
+    </div>
+
+    <!-- SLIDE 16 Q&A -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-question-circle"></i>
+            <span class="slide-title"><span class="zh">谢谢</span> <span class="en">THANK YOU</span></span>
+        </div>
+        <div style="font-size: 1.8rem; font-weight: 300;"><span class="zh">问答环节</span> <span class="en" style="font-size: 1.4rem;">Questions & Answers</span></div>
+        <div style="margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div><i class="fas fa-envelope" style="color:#3b5cbf;"></i> Emma Zheng · ezhengva@gmail.com</div>
+            <div><i class="fas fa-globe"></i> <span class="zh">网站</span> <span class="en">Website</span> [URL]</div>
+            <div><i class="fab fa-weixin"></i> <span class="zh">微信公众号</span> <span class="en">WeChat</span> [ID]</div>
+        </div>
+        <div class="qr-placeholder" style="background: #dce5f5; border: 2px solid #4a6edb;">
+            <i class="fas fa-qrcode" style="font-size: 2.5rem;"></i> <span class="zh">扫码获取在线资源</span> <span class="en">Scan for online resources</span>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.95rem; color: #3d5775; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; text-align: center;">
+            <i class="fas fa-brain" style="opacity: 0.2;"></i> <span class="zh">早期干预 · 点亮未来</span> <span class="en">Early Intervention · Light up the future</span> <i class="fas fa-brain" style="opacity: 0.2;"></i>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Girl Scout Gold Award · Emma Zheng · Troop 1769 · 早期自闭症干预意识 · 湖北研讨会
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早期自闭症干预 · 希望中文学校泰森校区 | Emma Zheng</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9ecf5 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* ----- full-screen slide ----- */
+        .slide {
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9ecf5 100%);
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            padding: 2.5rem 3.5rem 5.5rem;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            overflow-x: hidden;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: none;
+            transition: opacity 0.28s ease, visibility 0.28s;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .slide::before {
+            display: none;
+        }
+
+        /* slide header with icons */
+        .slide-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .slide-header i {
+            font-size: 2.4rem;
+            color: #3b5cbf;
+            background: rgba(59, 92, 191, 0.10);
+            padding: 0.6rem;
+            border-radius: 18px;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #0b1e3a;
+        }
+
+        .slide-sub {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #3d5775;
+            margin-left: 0.5rem;
+        }
+
+        /* 中英双语: 中文为主，略大 */
+        .zh {
+            font-weight: 600;
+            color: #0b1e3a;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .en {
+            font-weight: 400;
+            color: #3d5775;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            background: rgba(200, 215, 245, 0.15);
+            padding: 0.05rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* 标题中双语 */
+        .slide-title .zh {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .slide-title .en {
+            font-size: 1.6rem;
+            font-weight: 500;
+            background: transparent;
+            padding: 0;
+        }
+
+        .bilingual-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.8rem;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-box {
+            background: #f0f4fe;
+            border-radius: 28px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            border: 1px solid rgba(59, 92, 191, 0.12);
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1f3b7a;
+        }
+
+        .stat-label {
+            font-size: 1.05rem;
+            color: #2a4068;
+            margin-top: 0.25rem;
+        }
+        .stat-label.zh {
+            font-size: 1.15rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+            color: #0b1e3a;
+        }
+        .stat-label.en {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #3d5775;
+            background: transparent;
+            padding: 0;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 2rem;
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.05);
+        }
+
+        .check-item i {
+            color: #3b5cbf;
+            width: 1.8rem;
+            font-size: 1.2rem;
+        }
+        .check-item .zh {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .check-item .en {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .table-mini {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .table-mini th {
+            background: #e0e8fc;
+            color: #142b50;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-radius: 16px 16px 0 0;
+        }
+        .table-mini th .zh {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .table-mini th .en {
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: transparent;
+            padding: 0;
+        }
+
+        .table-mini td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .table-mini td .zh {
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        .table-mini td .en {
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .table-mini tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chip {
+            background: #eef3ff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #1f3b7a;
+            display: inline-block;
+            margin: 0.2rem 0;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .action-item {
+            background: #f5f9ff;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 5px solid #4a7cf7;
+        }
+
+        .action-item i {
+            font-size: 2rem;
+            color: #2a4d9e;
+            width: 2.8rem;
+        }
+        .action-item .zh {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: transparent;
+            padding: 0;
+        }
+        .action-item .en {
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .qr-placeholder {
+            background: #dce5f5;
+            border-radius: 20px;
+            padding: 1.2rem;
+            text-align: center;
+            border: 2px dashed #6c7fb0;
+            margin: 1rem 0;
+        }
+        .qr-placeholder .zh {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        .qr-placeholder .en {
+            font-size: 1rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3d5775;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1.5rem;
+        }
+
+        /* 列表样式 */
+        ul.list-style-none {
+            list-style: none;
+        }
+        ul.list-style-none li {
+            margin-bottom: 0.5rem;
+        }
+        ul.list-style-none .zh {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: transparent;
+            padding: 0;
+        }
+        ul.list-style-none .en {
+            font-size: 0.95rem;
+            font-weight: 400;
+            background: transparent;
+            padding: 0;
+        }
+
+        .intro-text .zh {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .intro-text .en {
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .mission-p .zh {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .mission-p .en {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .key-takeaway .zh {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .key-takeaway .en {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .qr-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            background: #f0f4fe;
+            border: 1px solid rgba(59, 92, 191, 0.2);
+            border-radius: 20px;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+        }
+        .qr-card img {
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+        .qr-card .label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0b1e3a;
+            text-align: center;
+            line-height: 1.35;
+        }
+        .qr-card .url {
+            font-size: 0.9rem;
+            color: #3d5775;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        .deck-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(11, 30, 58, 0.88);
+            color: #eef3ff;
+            backdrop-filter: blur(8px);
+        }
+
+        .deck-nav button {
+            appearance: none;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.15s ease;
+        }
+
+        .deck-nav button:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .deck-nav button:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .deck-progress {
+            min-width: 5.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .deck-hint {
+            position: absolute;
+            right: 1rem;
+            bottom: 0.85rem;
+            font-size: 0.8rem;
+            color: rgba(238, 243, 255, 0.65);
+            pointer-events: none;
+        }
+
+        .footer-note {
+            display: none;
+        }
+
+        @media (max-width: 780px) {
+            .slide { padding: 1.4rem 1.4rem 5rem; }
+            .grid-2col, .grid-3col, .action-cards, .checklist-grid { grid-template-columns: 1fr; }
+            .slide-title { font-size: 1.6rem; }
+            .slide-title .zh { font-size: 1.8rem; }
+            .slide-title .en { font-size: 1.3rem; }
+            .deck-hint { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .slide { transition: none; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="presentation-container">
+
+    <!-- SLIDE 1 TITLE -->
+    <div class="slide active">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            <div>
+                <span class="chip"><i class="fas fa-school" style="margin-right: 6px;"></i> Hope Chinese School · HCSTC</span>
+                <h1 style="font-size: 2.6rem; font-weight: 700; color: #0b1e3a; margin-top: 0.2rem;">自闭症早期征兆与及时干预</h1>
+                <h2 style="font-size: 1.8rem; font-weight: 400; color: #3d5775;">Early Autism Signs &amp; Timely Intervention</h2>
+                <div style="margin-top: 0.8rem; font-size: 1.2rem;"><i class="fas fa-map-pin" style="color: #3b5cbf;"></i> 希望中文学校 · 泰森角校区 · Marshall High School 食堂</div>
+                <div style="font-size: 1.1rem; margin-top: 0.3rem;"><i class="fas fa-calendar-alt" style="color: #3b5cbf;"></i> 周日 · 2026年10月25日 · 下午 3:00–4:00</div>
+                <div style="font-size: 1.05rem; margin-top: 0.35rem; color: #3d5775;">Sunday, Oct 25, 2026 · 3:00–4:00 p.m. · Cafeteria</div>
+                <div style="font-size: 1.1rem; margin-top: 0.5rem;"><strong>Emma Zheng</strong> · Early Autism Awareness Project</div>
+                <div style="font-size: 1rem; margin-top: 0.2rem; color: #3d5775;">Guest: Sandi Horton-Lafferty · FCPS Early Childhood Assessment Team (ECAT)</div>
+            </div>
+            <div style="display: flex; gap: 1rem; font-size: 4rem; opacity: 0.2; color: #1f3b7a;">
+                <i class="fas fa-brain"></i>
+                <i class="fas fa-hands-helping"></i>
+            </div>
+        </div>
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="chip"><i class="fas fa-language"></i> 中英双语 · Bilingual</span>
+            <span class="chip"><i class="fas fa-map-marked-alt"></i> 北维州 / DMV 资源</span>
+            <span class="chip"><i class="fas fa-users"></i> 面向 18 个月–5 岁幼儿家长</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 INTRO -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-hand-peace"></i>
+            <span class="slide-title"><span class="zh">介绍</span> <span class="en">INTRODUCTION</span></span>
+        </div>
+        <div class="intro-text" style="font-size: 1.1rem; line-height: 1.8; max-width: 900px;">
+            <p><span class="zh"><strong>大家好！感谢希望中文学校泰森校区的家长们今天来到这里。</strong></span> <span class="en">Hello everyone! Thank you for joining us at Hope Chinese School (Tysons).</span></p>
+            <p style="margin-top: 1rem;"><span class="zh">我叫郑安欣（Emma Zheng）。我的项目致力于帮助华语家庭认识自闭症早期征兆，并顺利对接美国本地免费或低门槛的筛查与早期干预服务。</span></p>
+            <p class="en" style="background: #eef3ff; padding: 0.8rem 1.2rem; border-radius: 20px; margin-top: 0.8rem;">My name is Emma Zheng. My project helps Chinese-speaking families recognize early autism signs and connect with accessible U.S. screening and early intervention services.</p>
+            <p style="margin-top: 1rem;"><span class="zh">今天也邀请了 Fairfax County Public Schools 幼儿评估团队（ECAT）心理专家 Sandi Horton-Lafferty 与大家交流。</span> <span class="en">We are also joined by Sandi Horton-Lafferty, psychologist with the FCPS Early Childhood Assessment Team.</span></p>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 MISSION -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-bullseye"></i>
+            <span class="slide-title"><span class="zh">我的使命</span> <span class="en">MY MISSION</span></span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+            <div style="flex:1; min-width: 220px;">
+                <p class="mission-p"><span class="zh"><strong>Early Autism Awareness Project · 由 Emma Zheng 发起</strong></span> <span class="en">Initiated by Emma Zheng</span></p>
+                <p style="font-size: 1.35rem; font-weight: 700; color: #0b1e3a; margin: 0.5rem 0;">为华府地区华语家庭弥合信息缺口。</p>
+                <p class="en" style="font-size: 1.1rem; background: #edf2fd; padding: 0.3rem 1rem; border-radius: 40px; display: inline-block;">Bridge the information gap for Chinese-speaking families in the DMV.</p>
+                <ul class="list-style-none" style="margin-top: 1.2rem; font-size: 1.05rem;">
+                    <li><i class="fas fa-globe" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">双语网站与在线筛查工具</span> <span class="en">Bilingual website &amp; screening tool</span></li>
+                    <li><i class="fas fa-check-double" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">可免费分发的宣传手册</span> <span class="en">Free pamphlets</span></li>
+                    <li><i class="fas fa-school" style="color:#3b5cbf; width:2rem;"></i> <span class="zh">中文学校与社区双语讲座</span> <span class="en">Bilingual workshops at Chinese schools &amp; community sites</span></li>
+                </ul>
+            </div>
+            <div style="font-size: 4rem; color: #4a6edb; opacity: 0.15;"><i class="fas fa-brain"></i> <i class="fas fa-flag-usa"></i></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 WHY MATTERS -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-heartbeat"></i>
+            <span class="slide-title"><span class="zh">为什么这很重要</span> <span class="en">WHY THIS MATTERS</span></span>
+        </div>
+        <div class="grid-2col">
+            <div class="stat-box">
+                <div class="stat-number">80–90%</div>
+                <div class="stat-label zh">大脑发育发生在5岁之前</div>
+                <div class="stat-label en">Brain development before age 5</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">18–36 月</div>
+                <div class="stat-label zh">关键干预黄金窗口</div>
+                <div class="stat-label en">Critical window for early intervention</div>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem;"><span class="zh">越早识别、越早支持，越有利于沟通、社交与日常适应能力的长期发展。</span> <span class="en">Earlier identification and support improve long-term communication, social, and adaptive outcomes.</span></p>
+    </div>
+
+    <!-- SLIDE 5 EARLY INTERVENTION WORKS -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-sync-alt"></i>
+            <span class="slide-title"><span class="zh">为什么早期干预有效</span> <span class="en">EARLY INTERVENTION WORKS</span></span>
+        </div>
+        <div><span class="zh" style="font-weight: 700; font-size: 1.3rem;">神经可塑性：大脑改变的能力</span> <span class="en">Neuroplasticity: the brain's ability to change</span></div>
+        <ul class="list-style-none" style="margin-top: 0.8rem; font-size: 1.05rem;">
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">早期干预可以重塑大脑连接</span> <span class="en">Early intervention can strengthen brain connections</span></li>
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">3岁以下儿童对干预的反应最好</span> <span class="en">Children under 3 often show the greatest response</span></li>
+            <li><i class="fas fa-check-circle" style="color:#3b5cbf;"></i> <span class="zh">在沟通、学习和社交技能方面取得更好效果</span> <span class="en">Better outcomes in communication, learning, and social skills</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 6 US / IMMIGRANT FAMILY CONTEXT -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-chart-bar"></i>
+            <span class="slide-title"><span class="zh">华语移民家庭常见挑战</span> <span class="en">COMMON CHALLENGES</span></span>
+        </div>
+        <table class="table-mini">
+            <tr><th><span class="zh">挑战</span> <span class="en">Challenge</span></th><th><span class="zh">说明</span> <span class="en">What it means</span></th></tr>
+            <tr><td><span class="zh"><strong>语言与文化隔阂</strong></span> <span class="en">Language &amp; culture</span></td><td><span class="zh">不清楚如何用英语向医生描述担忧</span> <span class="en">Hard to describe concerns to pediatricians in English</span></td></tr>
+            <tr><td><span class="zh"><strong>等待观望</strong></span> <span class="en">"Wait and see"</span></td><td><span class="zh">错过 18–36 个月关键窗口</span> <span class="en">Misses the critical 18–36 month window</span></td></tr>
+            <tr><td><span class="zh"><strong>不知从何开始</strong></span> <span class="en">Where to start</span></td><td><span class="zh">不知道县政府、学校筛查免费且可及</span> <span class="en">Unaware that county/school screenings are free and accessible</span></td></tr>
+            <tr><td><span class="zh"><strong>身份顾虑</strong></span> <span class="en">Documentation worries</span></td><td><span class="zh">Fairfax 早期干预<strong>不要求</strong> SSN 即可开始评估</span> <span class="en">Fairfax early intervention does <strong>not</strong> require an SSN to begin</span></td></tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 7 US SCREENING TIMELINE -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-calendar-check"></i>
+            <span class="slide-title"><span class="zh">美国推荐筛查时间</span> <span class="en">U.S. SCREENING TIMELINE</span></span>
+        </div>
+        <div><span class="zh"><strong>美国儿科学会 (AAP) / CDC 建议</strong></span> <span class="en">American Academy of Pediatrics (AAP) / CDC guidance</span></div>
+        <ul class="list-style-none" style="margin-top: 0.8rem; font-size: 1rem;">
+            <li><i class="fas fa-stethoscope" style="color:#3b5cbf;"></i> <span class="zh"><strong>每次体检：</strong>发育监测（developmental monitoring）</span> <span class="en">Developmental monitoring at every well-child visit</span></li>
+            <li><i class="fas fa-clipboard-check" style="color:#3b5cbf;"></i> <span class="zh"><strong>9、18、30 个月：</strong>标准化发育筛查</span> <span class="en">Standardized developmental screening at 9, 18, and 30 months</span></li>
+            <li><i class="fas fa-brain" style="color:#3b5cbf;"></i> <span class="zh"><strong>18 与 24 个月：</strong>专门的自闭症筛查（如 M-CHAT-R/F）</span> <span class="en">Autism-specific screening at 18 and 24 months (e.g., M-CHAT-R/F)</span></li>
+            <li><i class="fas fa-exclamation-triangle" style="color:#b8860b;"></i> <span class="zh"><strong>任何年龄：</strong>出现技能倒退立即就医</span> <span class="en">Any age: seek care immediately if skills regress</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 8 EARLY SIGNS SOCIAL -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-eye"></i>
+            <span class="slide-title"><span class="zh">识别早期迹象 · 社交</span> <span class="en">EARLY SIGNS · SOCIAL</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-user-circle" style="color:#3b5cbf;"></i> <span class="zh">喂食或玩耍时眼神交流有限或短暂</span> <span class="en">Limited or fleeting eye contact during feeding or play</span></li>
+            <li><i class="fas fa-volume-up" style="color:#3b5cbf;"></i> <span class="zh">叫名字时没有反应（约 12 个月）</span> <span class="en">Not responding to name by about 12 months</span></li>
+            <li><i class="fas fa-hand-point-right" style="color:#3b5cbf;"></i> <span class="zh">家长指向物体时不跟着看</span> <span class="en">Not following when a parent points to an object</span></li>
+            <li><i class="fas fa-puzzle-piece" style="color:#3b5cbf;"></i> <span class="zh">缺乏假想游戏（约 18–24 个月）</span> <span class="en">Little or no pretend play by about 18–24 months</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 9 EARLY SIGNS COMMUNICATION -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-comments"></i>
+            <span class="slide-title"><span class="zh">识别早期迹象 · 沟通与行为</span> <span class="en">EARLY SIGNS · COMMUNICATION &amp; BEHAVIOR</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-baby" style="color:#3b5cbf;"></i> <span class="zh">12 个月不会咿呀学语，或 16–18 个月不会说单个词</span> <span class="en">No babbling by 12 months, or no single words by 16–18 months</span></li>
+            <li><i class="fas fa-hand-peace" style="color:#3b5cbf;"></i> <span class="zh">12–14 个月不会挥手再见、用手指物或拍手</span> <span class="en">Not waving, pointing to show, or clapping by 12–14 months</span></li>
+            <li><i class="fas fa-sync" style="color:#3b5cbf;"></i> <span class="zh">重复动作：拍手、摇晃、旋转物体</span> <span class="en">Repetitive motions: hand-flapping, rocking, spinning objects</span></li>
+            <li><i class="fas fa-bullhorn" style="color:#3b5cbf;"></i> <span class="zh">对日常声音或光线极度敏感</span> <span class="en">Extreme distress with everyday sounds or lights</span></li>
+        </ul>
+        <div style="background: #16204a; color: #ffe8b0; border-radius: 16px; padding: 0.9rem 1.2rem; margin-top: 1rem;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="zh" style="color:#fff; font-weight:700;">黄金法则（任何年龄）：</span>
+            <span class="en" style="background:transparent;color:#ffe8b0;">Golden rule (any age):</span>
+            <span style="color:#fff;"> 任何言语、眼神、手势或社交能力的倒退，请立即咨询儿科医生。</span>
+            <span class="en" style="background:transparent;color:#d4dcf5; display:block; margin-top:0.3rem;">Any regression in speech, eye contact, gestures, or social skills needs prompt evaluation.</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 10 HOME SCREENING -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-clipboard-list"></i>
+            <span class="slide-title"><span class="zh">居家简单筛查</span> <span class="en">SIMPLE HOME SCREENING</span></span>
+        </div>
+        <div style="font-weight: 500; margin-bottom: 0.5rem;"><span class="zh">问自己 4 个简单问题</span> <span class="en">Ask yourself these 4 simple questions</span></div>
+        <div class="checklist-grid">
+            <div class="check-item"><i class="fas fa-child"></i> <span class="zh">当你和孩子说话/玩耍时，他会看你吗？</span> <span class="en">Looks at you when you speak/play?</span></div>
+            <div class="check-item"><i class="fas fa-arrow-pointer"></i> <span class="zh">如果你指向玩具，孩子会看向玩具吗？</span> <span class="en">Looks at a toy when you point?</span></div>
+            <div class="check-item"><i class="fas fa-star"></i> <span class="zh">孩子会指给你看有趣的东西吗？</span> <span class="en">Points to show you something interesting?</span></div>
+            <div class="check-item"><i class="fas fa-smile"></i> <span class="zh">当你对孩子微笑时，他会回以微笑吗？</span> <span class="en">Smiles back when you smile?</span></div>
+        </div>
+        <div style="background: #eef3ff; border-radius: 20px; padding: 0.8rem 1.2rem; margin-top: 0.8rem;">
+            <i class="fas fa-exclamation-triangle" style="color:#b8860b;"></i>
+            <span class="zh"><strong>如果 2 个或更多问题回答"否"，请咨询儿科医生，并要求做 M-CHAT-R/F 筛查。</strong></span>
+            <span class="en">If you answered "NO" to 2 or more, talk to your pediatrician and ask for an M-CHAT-R/F screen.</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 11 DMV LOCAL RESOURCES -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-hospital"></i>
+            <span class="slide-title"><span class="zh">北维州本地资源</span> <span class="en">NORTHERN VIRGINIA (DMV) RESOURCES</span></span>
+        </div>
+        <ul class="list-style-none" style="font-size: 1.05rem;">
+            <li><i class="fas fa-phone" style="color:#3b5cbf;"></i> <span class="zh"><strong>Fairfax CSB 接入热线 (703) 324-4400</strong>：最重要的一通电话。申请早期干预与支持服务的入口。<strong>无需 SSN。</strong></span> <span class="en">Fairfax CSB Entry Point (703) 324-4400: the single most important number. No SSN required.</span></li>
+            <li><i class="fas fa-baby" style="color:#3b5cbf;"></i> <span class="zh"><strong>Infant &amp; Toddler Connection (Fairfax ITC)</strong>：0–3 岁发育迟缓早期干预；筛查免费。</span> <span class="en">Early intervention for ages 0–3; screenings are free.</span></li>
+            <li><i class="fas fa-school" style="color:#3b5cbf;"></i> <span class="zh"><strong>Child Find (FCPS)</strong>：20 个月–5 岁免费发育筛查与学前评估。</span> <span class="en">Free developmental screenings for ages 20 months–5 years.</span></li>
+            <li><i class="fas fa-users" style="color:#3b5cbf;"></i> <span class="zh"><strong>Autism Society of Northern Virginia (ASNV) (571) 328-5792</strong>：讲座、家庭支持与社区资源。</span> <span class="en">Education programs, support groups, and community resources.</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 12 NATIONAL RESOURCES -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-landmark"></i>
+            <span class="slide-title"><span class="zh">美国全国资源</span> <span class="en">U.S. NATIONAL RESOURCES</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><i class="fas fa-notes-medical" style="color:#3b5cbf;"></i> <span class="zh"><strong>CDC "Learn the Signs. Act Early"</strong>：免费里程碑清单与家庭追踪工具（含中文资料）。</span> <span class="en">Free milestone checklists and family trackers (materials available in Chinese).</span></li>
+            <li><i class="fas fa-book-medical" style="color:#3b5cbf;"></i> <span class="zh"><strong>Autism Speaks 100-Day Kit</strong>：初诊或初现担忧后的实用 100 天行动指南（有中文版）。</span> <span class="en">Practical first-100-days toolkit for families (Chinese available).</span></li>
+            <li><i class="fas fa-flask" style="color:#3b5cbf;"></i> <span class="zh"><strong>NIH / NICHD</strong>：自闭症与早期干预循证信息。</span> <span class="en">Evidence-based autism and early intervention information.</span></li>
+            <li><i class="fas fa-laptop-medical" style="color:#3b5cbf;"></i> <span class="zh"><strong>本项目网站</strong>：双语宣传册、互动筛查工具与资源列表。</span> <span class="en">Our site: bilingual pamphlets, interactive screener, and resource list.</span></li>
+        </ul>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #3d5775;">emmaz-sv.github.io/early-autism-awareness</p>
+    </div>
+
+    <!-- SLIDE 13 4 STEPS -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-route"></i>
+            <span class="slide-title"><span class="zh">寻求支持 4 步骤</span> <span class="en">4 STEPS TO SEEK SUPPORT</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 0.5rem;">
+            <li><span class="chip" style="min-width:2rem; text-align:center; margin-right:0.4rem;">1</span> <span class="zh"><strong>观察与记录：</strong>记下具体担忧，对照里程碑清单。</span> <span class="en">Observe &amp; track concerns with milestone checklists.</span></li>
+            <li><span class="chip" style="min-width:2rem; text-align:center; margin-right:0.4rem;">2</span> <span class="zh"><strong>咨询儿科医生：</strong>在体检时主动要求 M-CHAT-R/F 筛查。</span> <span class="en">Ask your pediatrician for an M-CHAT-R/F screen.</span></li>
+            <li><span class="chip" style="min-width:2rem; text-align:center; margin-right:0.4rem;">3</span> <span class="zh"><strong>综合评估：</strong>中高风险时转介发育儿科或早期干预团队。</span> <span class="en">Moderate/high risk prompts referral for full evaluation.</span></li>
+            <li><span class="chip" style="min-width:2rem; text-align:center; margin-right:0.4rem;">4</span> <span class="zh"><strong>启动早期干预：</strong>联系 Fairfax ITC（0–3 岁）或 FCPS Child Find（20 个月–5 岁）。疑似迟缓即可开始，无需正式诊断或 SSN。</span> <span class="en">Contact Fairfax ITC (0–3) or FCPS Child Find (20 mo–5 yr). Suspected delay is enough; no formal diagnosis or SSN required to start.</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 14 ACTION PLAN -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-list-check"></i>
+            <span class="slide-title"><span class="zh">家长今日行动清单</span> <span class="en">ACTION PLAN FOR TODAY</span></span>
+        </div>
+        <div class="action-cards">
+            <div class="action-item"><i class="fas fa-file-pdf"></i> <div><span class="zh"><strong>带回一份手册</strong></span> <span class="en">Take a pamphlet home</span><br><span class="zh">把早期预警检查表贴在冰箱上。</span> <span class="en">Keep the checklist on your refrigerator.</span></div></div>
+            <div class="action-item"><i class="fas fa-calendar-day"></i> <div><span class="zh"><strong>追踪发育里程碑</strong></span> <span class="en">Track milestones</span><br><span class="zh">观察孩子未来两周的沟通与互动。</span> <span class="en">Watch communication and interaction over the next 2 weeks.</span></div></div>
+            <div class="action-item"><i class="fas fa-stethoscope"></i> <div><span class="zh"><strong>约儿科 / 拨打 CSB</strong></span> <span class="en">Call pediatrician or CSB</span><br><span class="zh">保存 (703) 324-4400；要求筛查。</span> <span class="en">Save (703) 324-4400; request screening.</span></div></div>
+            <div class="action-item"><i class="fas fa-qrcode"></i> <div><span class="zh"><strong>扫码访问网站</strong></span> <span class="en">Scan the website</span><br><span class="zh">免费双语资料与互动筛查工具。</span> <span class="en">Free bilingual materials and interactive screener.</span></div></div>
+        </div>
+        <div class="qr-card">
+            <img src="qr-early-autism.png" alt="QR code to bilingual autism awareness website" width="160" height="160" />
+            <p class="label">扫码访问双语网站<br>Scan for bilingual resources</p>
+            <p class="url">emmaz-sv.github.io/early-autism-awareness</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 15 KEY TAKEAWAY -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-lightbulb"></i>
+            <span class="slide-title"><span class="zh">核心要点</span> <span class="en">KEY TAKEAWAY</span></span>
+        </div>
+        <div class="key-takeaway"><span class="zh">早期发现，及时帮助</span> <span class="en">EARLY DETECTION · TIMELY SUPPORT</span></div>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 1.1rem; margin-top: 0.5rem;">
+            <span class="chip" style="background:#ffe8d9;">❌ <span class="zh">不要等待</span> <span class="en">DON'T WAIT</span></span>
+            <span class="chip" style="background:#ffd9d9;">❌ <span class="zh">不要观望</span> <span class="en">DON'T "WAIT AND SEE"</span></span>
+        </div>
+        <ul class="list-style-none" style="margin-top: 1.2rem; font-size: 1.05rem;">
+            <li><i class="fas fa-bell" style="color:#b8860b;"></i> <span class="zh">如果发现迹象，立即寻求帮助。</span> <span class="en">If you notice signs, seek help promptly.</span></li>
+            <li><i class="fas fa-clock" style="color:#3b5cbf;"></i> <span class="zh">早期干预在 3 岁前效果最好。</span> <span class="en">Early intervention works best before age 3.</span></li>
+            <li><i class="fas fa-heart" style="color:#c44545;"></i> <span class="zh">你是孩子最好的倡导者；本地服务可以起步，无需 SSN。</span> <span class="en">You are your child's best advocate; local services can start without an SSN.</span></li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 16 THANK YOU -->
+    <div class="slide">
+        <div class="slide-header">
+            <i class="fas fa-question-circle"></i>
+            <span class="slide-title"><span class="zh">谢谢</span> <span class="en">THANK YOU</span></span>
+        </div>
+        <div style="font-size: 1.8rem; font-weight: 300;"><span class="zh">问答环节</span> <span class="en" style="font-size: 1.4rem;">Questions &amp; Answers</span></div>
+        <div style="margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div><i class="fas fa-envelope" style="color:#3b5cbf;"></i> Emma Zheng · ezhengva@gmail.com</div>
+            <div><i class="fas fa-globe"></i> emmaz-sv.github.io/early-autism-awareness</div>
+            <div><i class="fas fa-phone" style="color:#3b5cbf;"></i> Fairfax CSB · (703) 324-4400</div>
+        </div>
+        <div class="qr-card" style="border: 2px solid #4a6edb;">
+            <img src="qr-early-autism.png" alt="QR code to bilingual autism awareness website" width="160" height="160" />
+            <p class="label">扫码获取在线资源<br>Scan for online resources</p>
+            <p class="url">emmaz-sv.github.io/early-autism-awareness</p>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.95rem; color: #3d5775; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; text-align: center;">
+            <span class="zh">早期发现 · 及时帮助 · 点亮未来</span>
+            <span class="en">Early detection · Timely support · Brighter futures</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Early Autism Awareness Project · Emma Zheng · Hope Chinese School (HCSTC) · Oct 25, 2026 · Northern Virginia / DMV
+    </div>
+</div>
+
+<nav class="deck-nav" aria-label="Slide navigation">
+    <button type="button" id="prevBtn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+    <div class="deck-progress" id="progress" aria-live="polite">1 / 16</div>
+    <button type="button" id="nextBtn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+    <span class="deck-hint">← → · Space · F fullscreen</span>
+</nav>
+
+<script>
+(function () {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+    let index = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('active'); }));
+    if (index < 0) index = 0;
+
+    function show(i) {
+        index = Math.max(0, Math.min(slides.length - 1, i));
+        slides.forEach(function (slide, n) {
+            slide.classList.toggle('active', n === index);
+        });
+        progress.textContent = (index + 1) + ' / ' + slides.length;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+        history.replaceState(null, '', '#' + (index + 1));
+    }
+
+    function next() { show(index + 1); }
+    function prev() { show(index - 1); }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    document.addEventListener('keydown', function (e) {
+        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault();
+            next();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault();
+            prev();
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            show(0);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            show(slides.length - 1);
+        } else if (e.key === 'f' || e.key === 'F') {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(function () {});
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    });
+
+    var hash = parseInt((location.hash || '').replace('#', ''), 10);
+    if (hash >= 1 && hash <= slides.length) index = hash - 1;
+    show(index);
+})();
+</script>
+</body>
+</html>
